@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="가계부 입력">
+<meta name="theme-color" content="#0c1210">
+<title>가계부 입력</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  :root{
+    --bg:#0c1210;--bg2:#111a13;--bg3:#162318;
+    --border:#1e3028;--green:#10b981;--green2:#059669;
+    --red:#f87171;--text:#e4e4f0;--muted:#888;--chip:#1a2e22;
+  }
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    background:var(--bg);color:var(--text);
+    min-height:100vh;max-width:480px;margin:0 auto;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+
+  /* ── HEADER ── */
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 20px;padding-top:calc(14px + env(safe-area-inset-top));
+    background:var(--bg2);border-bottom:1px solid var(--border);
+  }
+  .logo{font-size:15px;font-weight:700;color:var(--green)}
+  .type-toggle{display:flex;background:#0f1a13;border-radius:10px;padding:3px;border:1px solid var(--border)}
+  .type-btn{
+    padding:6px 16px;border-radius:8px;font-size:13px;font-weight:600;
+    border:none;cursor:pointer;background:transparent;color:var(--muted);
+    transition:all .2s;
+  }
+  .type-btn.active{background:var(--green);color:#fff}
+
+  /* ── AMOUNT ── */
+  .amount-row{
+    display:flex;align-items:center;justify-content:center;
+    padding:20px 24px 12px;gap:12px;
+    background:var(--bg2);
+  }
+  .amount-prefix{font-size:36px;font-weight:800;color:var(--green);line-height:1}
+  .amount-input{
+    font-size:40px;font-weight:800;color:#fff;
+    background:transparent;border:none;outline:none;
+    width:0;flex:1;text-align:left;
+    caret-color:var(--green);
+  }
+  .amount-input::placeholder{color:#333}
+  .camera-btn{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--chip);border:1px solid var(--border);
+    font-size:20px;display:flex;align-items:center;justify-content:center;
+    cursor:pointer;flex-shrink:0;
+  }
+  #photoPreview{
+    display:none;width:100%;max-height:120px;object-fit:cover;
+    border-radius:8px;margin:0 24px;width:calc(100% - 48px);
+  }
+
+  /* ── SECTION LABELS ── */
+  .section-label{
+    font-size:11px;font-weight:600;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.6px;
+    padding:10px 20px 6px;
+  }
+
+  /* ── CHIPS ── */
+  .chip-scroll{
+    display:flex;flex-wrap:wrap;gap:8px;
+    padding:0 20px 4px;
+  }
+  .chip{
+    padding:8px 14px;border-radius:10px;font-size:13px;font-weight:500;
+    background:var(--chip);border:1px solid var(--border);
+    cursor:pointer;transition:all .15s;color:var(--text);
+    white-space:nowrap;user-select:none;
+  }
+  .chip:active{transform:scale(.95)}
+  .chip.selected{background:var(--green);border-color:var(--green);color:#fff}
+  .chip.sub{font-size:12px;padding:6px 12px;border-radius:8px}
+
+  /* ── ACCOUNT ── */
+  .acct-scroll{
+    display:flex;gap:8px;overflow-x:auto;
+    padding:0 20px 4px;scrollbar-width:none;
+  }
+  .acct-scroll::-webkit-scrollbar{display:none}
+  .acct-chip{
+    flex-shrink:0;padding:7px 14px;border-radius:10px;
+    font-size:13px;font-weight:500;
+    background:var(--chip);border:1px solid var(--border);
+    cursor:pointer;transition:all .15s;color:var(--text);
+  }
+  .acct-chip.selected{background:#1e3a5f;border-color:#3b82f6;color:#93c5fd}
+
+  /* ── INPUTS ── */
+  .input-row{
+    display:flex;flex-direction:column;gap:6px;
+    padding:0 20px;
+  }
+  .text-input{
+    background:var(--chip);border:1px solid var(--border);border-radius:10px;
+    padding:12px 14px;font-size:15px;color:var(--text);
+    outline:none;width:100%;
+    transition:border .15s;
+  }
+  .text-input:focus{border-color:var(--green)}
+  .text-input::placeholder{color:#555}
+
+  /* ── DATE ── */
+  .date-input{
+    background:var(--chip);border:1px solid var(--border);border-radius:10px;
+    padding:12px 14px;font-size:14px;color:var(--text);
+    outline:none;width:100%;
+    color-scheme:dark;
+  }
+  .date-input:focus{border-color:var(--green)}
+
+  /* ── SAVE BUTTON ── */
+  .save-wrap{padding:16px 20px;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+  .save-btn{
+    width:100%;padding:16px;border-radius:14px;
+    background:linear-gradient(135deg,var(--green),var(--green2));
+    border:none;color:#fff;font-size:17px;font-weight:700;
+    cursor:pointer;transition:opacity .15s;letter-spacing:-.3px;
+  }
+  .save-btn:active{opacity:.8}
+  .save-btn:disabled{opacity:.5;cursor:not-allowed}
+
+  /* ── TOAST ── */
+  .toast{
+    position:fixed;bottom:100px;left:50%;transform:translateX(-50%);
+    background:#1a2e22;border:1px solid var(--green);
+    color:var(--green);padding:10px 20px;border-radius:12px;
+    font-size:14px;font-weight:600;opacity:0;pointer-events:none;
+    transition:opacity .3s;z-index:999;white-space:nowrap;
+  }
+  .toast.show{opacity:1}
+
+  /* ── OFFLINE BADGE ── */
+  .offline-badge{
+    display:none;background:#7c2d12;color:#fca5a5;
+    font-size:12px;font-weight:600;text-align:center;padding:6px;
+  }
+
+  /* ── RECEIPT PREVIEW ── */
+  #receiptWrap{display:none;padding:0 20px 4px}
+  #receiptImg{width:100%;border-radius:10px;max-height:140px;object-fit:cover}
+  .receipt-clear{font-size:12px;color:var(--muted);text-align:right;margin-top:4px;cursor:pointer}
+
+  /* ── PENDING INDICATOR ── */
+  .pending-wrap{display:none;background:#1c1a0a;border-top:1px solid #3d3210;padding:8px 20px;font-size:12px;color:#ca8a04;gap:6px;align-items:center}
+  .pending-dot{width:6px;height:6px;border-radius:50%;background:#ca8a04;animation:pulse 1.5s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  .divider{height:1px;background:var(--border);margin:8px 0}
+</style>
+</head>
+<body>
+
+<!-- 오프라인 배지 -->
+<div class="offline-badge" id="offlineBadge">⚠ 오프라인 — 저장된 후 자동 전송됩니다</div>
+
+<!-- 미전송 건 표시 -->
+<div class="pending-wrap" id="pendingWrap">
+  <div class="pending-dot"></div>
+  <span id="pendingText"></span>
+</div>
+
+<!-- 헤더 -->
+<header>
+  <div class="logo">💰 Gwon's Budget</div>
+  <div class="type-toggle">
+    <button class="type-btn active" id="btnVar" onclick="setType('variable')">Variable</button>
+    <button class="type-btn" id="btnFix" onclick="setType('fixed')">Fixed</button>
+  </div>
+</header>
+
+<!-- 금액 입력 -->
+<div class="amount-row">
+  <div class="amount-prefix">$</div>
+  <input class="amount-input" id="amountInput" type="number"
+    inputmode="decimal" placeholder="0.00" step="0.01" min="0"
+    autocomplete="off">
+  <div class="camera-btn" onclick="openCamera()" title="영수증 촬영">📷</div>
+</div>
+
+<!-- 영수증 미리보기 -->
+<div id="receiptWrap">
+  <img id="receiptImg" alt="Receipt">
+  <div class="receipt-clear" onclick="clearReceipt()">✕ 삭제</div>
+</div>
+
+<!-- 카메라 입력 (숨김) -->
+<input type="file" id="cameraInput" accept="image/*" capture="environment"
+  style="display:none" onchange="handlePhoto(event)">
+
+<div class="divider"></div>
+
+<!-- 대분류 -->
+<div class="section-label" id="catLabel">대분류</div>
+<div class="chip-scroll" id="mainCatChips"></div>
+
+<!-- 소분류 -->
+<div class="section-label" id="subCatLabel" style="display:none">소분류</div>
+<div class="chip-scroll" id="subCatChips"></div>
+
+<div class="divider"></div>
+
+<!-- 계좌 -->
+<div class="section-label">계좌</div>
+<div class="acct-scroll" id="acctChips"></div>
+
+<div class="divider"></div>
+
+<!-- 내용 + 날짜 -->
+<div class="section-label">내용 / 날짜</div>
+<div class="input-row">
+  <input class="text-input" id="descInput" type="text"
+    placeholder="내용 (선택)" autocomplete="off">
+  <input class="date-input" id="dateInput" type="date">
+</div>
+
+<!-- 저장 버튼 -->
+<div class="save-wrap">
+  <button class="save-btn" id="saveBtn" onclick="save()">Save</button>
+</div>
+
+<!-- 토스트 -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// ⚙️  설정 — Google Apps Script 배포 URL을 입력하세요
+// ═══════════════════════════════════════════════════
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAm7nb_YR1LKVOGvHl48HYlfFCwpZEjgiw6oCHXGtENK17BkvjVO7JZEhnsQrUy7-a/exec';
+// 예: 'https://script.google.com/macros/s/AKfy.../exec'
+// ═══════════════════════════════════════════════════
+
+// 카테고리 데이터
+const VARIABLE_CATS = {
+  '식비':       ['식재료','외식','패스트푸드','간식/카페','음료','배달음식','술/유흥'],
+  '생활용품':   ['가구/가전','전자제품','소모품','주방/욕실','인테리어/청소'],
+  '의복/미용':  ['의류/신발','헤어/뷰티','악세서리'],
+  '건강/의료':  ['병원/의약','운동/스포츠'],
+  '문화/여가':  ['문화생활','취미','게임','도박/경기'],
+  '여행':       ['항공권','숙박','렌터카','여행경비'],
+  '차량유지비': ['주유','차량수리/부품','세자','주차비','대중교통','차량등록'],
+  '경조사/회비':['선물','모임/회비','데이트'],
+  '기타':       ['출장비','세금/수수료','기타']
+};
+
+const FIXED_CATS = {
+  '주거비':   ['렌트비','유틸리티'],
+  '통신비':   ['인터넷','핸드폰'],
+  '보험':     ['자동차보험','렌터보험','생명/의료보험'],
+  '대출':     ['자동차대출','한자금','모기지'],
+  '구독':     ['헬스장','OTT','AI 구독','음악/앱 구독','세차 구독','연회비','클라우드'],
+  '저축/투자':['저축','주식투자','온퇴연금'],
+  '가족지원': ['부모님 지원','기부'],
+  '기타':     ['기타']
+};
+
+const ACCOUNTS = [
+  'Chase','Chase Sphire','Chase Marriott','Discover',
+  'Venmo','Robinhood','Webull','401K','Roth IRA',
+  'Zelle','Robinhood Bank','Mortgage'
+];
+
+// 소분류 → 대분류 매핑 (Apps Script와 동일하게 유지)
+const SUB_TO_MAIN = {};
+Object.entries(VARIABLE_CATS).forEach(([main, subs]) =>
+  subs.forEach(s => SUB_TO_MAIN[s] = main));
+
+// ── 상태 ──
+let currentType = 'variable';
+let selectedMain = '';
+let selectedSub  = '';
+let selectedAcct = localStorage.getItem('lastAccount') || 'Chase Sphire';
+let receiptFile  = null;
+
+// ── 초기화 ──
+window.addEventListener('DOMContentLoaded', () => {
+  // 오늘 날짜 설정
+  const today = new Date();
+  const y = today.getFullYear();
+  const m = String(today.getMonth()+1).padStart(2,'0');
+  const d = String(today.getDate()).padStart(2,'0');
+  document.getElementById('dateInput').value = `${y}-${m}-${d}`;
+
+  renderMainCats();
+  renderAccounts();
+  document.getElementById('amountInput').focus();
+  checkOnline();
+  showPending();
+});
+
+window.addEventListener('online',  () => { checkOnline(); retryPending(); });
+window.addEventListener('offline', () => checkOnline());
+
+// ── 타입 전환 ──
+function setType(t) {
+  currentType = t;
+  selectedMain = '';
+  selectedSub  = '';
+  document.getElementById('btnVar').classList.toggle('active', t === 'variable');
+  document.getElementById('btnFix').classList.toggle('active', t === 'fixed');
+  renderMainCats();
+  document.getElementById('subCatLabel').style.display = 'none';
+  document.getElementById('subCatChips').innerHTML = '';
+}
+
+// ── 대분류 렌더링 ──
+function renderMainCats() {
+  const cats = currentType === 'variable' ? VARIABLE_CATS : FIXED_CATS;
+  const wrap = document.getElementById('mainCatChips');
+  wrap.innerHTML = Object.keys(cats).map(cat =>
+    `<div class="chip ${selectedMain === cat ? 'selected' : ''}"
+      onclick="selectMain('${cat}')">${cat}</div>`
+  ).join('');
+}
+
+// ── 대분류 선택 ──
+function selectMain(cat) {
+  selectedMain = cat;
+  selectedSub  = '';
+  renderMainCats();
+
+  const cats = currentType === 'variable' ? VARIABLE_CATS : FIXED_CATS;
+  const subs = cats[cat] || [];
+
+  document.getElementById('subCatLabel').style.display = 'block';
+  document.getElementById('subCatChips').innerHTML = subs.map(s =>
+    `<div class="chip sub" onclick="selectSub('${s}')">${s}</div>`
+  ).join('');
+
+  // 소분류가 1개면 자동 선택
+  if (subs.length === 1) selectSub(subs[0]);
+}
+
+// ── 소분류 선택 ──
+function selectSub(sub) {
+  selectedSub = sub;
+  document.querySelectorAll('#subCatChips .chip').forEach(c => {
+    c.classList.toggle('selected', c.textContent === sub);
+  });
+}
+
+// ── 계좌 렌더링 ──
+function renderAccounts() {
+  const wrap = document.getElementById('acctChips');
+  wrap.innerHTML = ACCOUNTS.map(a =>
+    `<div class="acct-chip ${selectedAcct === a ? 'selected' : ''}"
+      onclick="selectAcct('${a}')">${a}</div>`
+  ).join('');
+}
+
+function selectAcct(acct) {
+  selectedAcct = acct;
+  localStorage.setItem('lastAccount', acct);
+  renderAccounts();
+}
+
+// ── 카메라 ──
+function openCamera() {
+  document.getElementById('cameraInput').click();
+}
+
+function handlePhoto(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  receiptFile = file;
+  const url = URL.createObjectURL(file);
+  document.getElementById('receiptImg').src = url;
+  document.getElementById('receiptWrap').style.display = 'block';
+}
+
+function clearReceipt() {
+  receiptFile = null;
+  document.getElementById('receiptWrap').style.display = 'none';
+  document.getElementById('receiptImg').src = '';
+  document.getElementById('cameraInput').value = '';
+}
+
+// ── 월 문자열 생성 ──
+function getMonthStr(dateVal) {
+  const d = new Date(dateVal + 'T00:00:00');
+  return `${d.getMonth()+1}월`;
+}
+
+// ── MM/DD 형식 날짜 ──
+function getMMDD(dateVal) {
+  const [, m, d] = dateVal.split('-');
+  return `${m}/${d}`;
+}
+
+// ── 저장 ──
+async function save() {
+  const amount = parseFloat(document.getElementById('amountInput').value);
+  if (!amount || amount <= 0) { showToast('❌ 금액을 입력하세요'); return; }
+  if (!selectedSub && currentType === 'variable') { showToast('❌ 소분류를 선택하세요'); return; }
+  if (!selectedMain) { showToast('❌ 대분류를 선택하세요'); return; }
+
+  const dateVal = document.getElementById('dateInput').value;
+  const desc    = document.getElementById('descInput').value.trim();
+
+  const payload = {
+    type:        currentType,
+    month:       getMonthStr(dateVal),
+    date:        getMMDD(dateVal),
+    category:    currentType === 'variable' ? selectedSub : selectedMain,
+    subcategory: currentType === 'fixed'    ? selectedSub : undefined,
+    mainCategory:selectedMain,
+    desc:        desc,
+    account:     selectedAcct,
+    amount:      amount,
+    timestamp:   new Date().toISOString()
+  };
+
+  const btn = document.getElementById('saveBtn');
+  btn.disabled = true;
+  btn.textContent = '저장 중…';
+
+  if (navigator.onLine && APPS_SCRIPT_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        showToast('✅ 저장 완료!');
+        resetForm();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch(e) {
+      savePending(payload);
+      showToast('📦 오프라인 저장 — 나중에 자동 전송');
+    }
+  } else {
+    savePending(payload);
+    if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') {
+      showToast('⚙️ Apps Script URL을 설정하세요');
+    } else {
+      showToast('📦 오프라인 저장됨');
+    }
+  }
+
+  btn.disabled = false;
+  btn.textContent = 'Save';
+}
+
+// ── 폼 초기화 ──
+function resetForm() {
+  document.getElementById('amountInput').value = '';
+  document.getElementById('descInput').value = '';
+  selectedMain = '';
+  selectedSub  = '';
+  clearReceipt();
+  renderMainCats();
+  document.getElementById('subCatLabel').style.display = 'none';
+  document.getElementById('subCatChips').innerHTML = '';
+  document.getElementById('amountInput').focus();
+}
+
+// ── 오프라인 큐 ──
+function savePending(payload) {
+  const q = JSON.parse(localStorage.getItem('pendingTx') || '[]');
+  q.push(payload);
+  localStorage.setItem('pendingTx', JSON.stringify(q));
+  showPending();
+}
+
+function showPending() {
+  const q = JSON.parse(localStorage.getItem('pendingTx') || '[]');
+  const wrap = document.getElementById('pendingWrap');
+  if (q.length > 0) {
+    wrap.style.display = 'flex';
+    document.getElementById('pendingText').textContent =
+      `미전송 ${q.length}건 — 온라인 연결 시 자동 전송`;
+  } else {
+    wrap.style.display = 'none';
+  }
+}
+
+async function retryPending() {
+  if (APPS_SCRIPT_URL === 'YOUR_APPS_SCRIPT_URL_HERE') return;
+  const q = JSON.parse(localStorage.getItem('pendingTx') || '[]');
+  if (q.length === 0) return;
+
+  const succeeded = [];
+  for (const payload of q) {
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST', body: JSON.stringify(payload)
+      });
+      if (res.ok) succeeded.push(payload);
+    } catch(e) { break; }
+  }
+
+  if (succeeded.length > 0) {
+    const remaining = q.filter(p => !succeeded.includes(p));
+    localStorage.setItem('pendingTx', JSON.stringify(remaining));
+    showPending();
+    if (succeeded.length > 0) showToast(`✅ ${succeeded.length}건 전송 완료`);
+  }
+}
+
+// ── 토스트 ──
+function showToast(msg, ms=2200) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), ms);
+}
+
+// ── 온라인 체크 ──
+function checkOnline() {
+  document.getElementById('offlineBadge').style.display =
+    navigator.onLine ? 'none' : 'block';
+}
+
+// ── Enter 키 저장 ──
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && document.activeElement.id === 'descInput') save();
+});
+</script>
+</body>
+</html>
