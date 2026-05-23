@@ -531,13 +531,175 @@
     /* 터치 환경에서는 cursor crosshair 제거 */
     canvas { cursor: default !important; }
   }
+
+  /* ═══════════════════════════════════════════════════
+     플로팅 + 버튼 (FAB) + 거래 입력 모달
+     ═══════════════════════════════════════════════════ */
+  .fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff; border: none;
+    font-size: 32px; font-weight: 300; line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(16,185,129,0.4), 0 2px 6px rgba(0,0,0,0.3);
+    z-index: 998;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    -webkit-tap-highlight-color: transparent; user-select: none;
+  }
+  .fab:hover { transform: scale(1.05); box-shadow: 0 8px 26px rgba(16,185,129,0.55), 0 2px 8px rgba(0,0,0,0.35); }
+  .fab:active { transform: scale(0.95); }
+  .inp-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    z-index: 1000; display: none;
+    align-items: flex-end; justify-content: center;
+    opacity: 0; transition: opacity 0.22s ease;
+  }
+  .inp-backdrop.show { opacity: 1; }
+  .inp-backdrop.open { display: flex; }
+  .inp-sheet {
+    width: 100%; max-width: 480px;
+    max-height: 92vh; max-height: 92dvh;
+    background: #0c1210;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transform: translateY(20px);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 -8px 40px rgba(0,0,0,0.5);
+  }
+  .inp-backdrop.show .inp-sheet { transform: translateY(0); }
+  @media (min-width: 769px) {
+    .inp-backdrop { align-items: center; }
+    .inp-sheet { border-radius: 20px; max-height: 90vh; }
+  }
+  .inp-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; gap: 10px;
+    background: #111a13; border-bottom: 1px solid #1e3028;
+    flex-shrink: 0;
+  }
+  .inp-logo { font-size: 15px; font-weight: 700; color: #10b981; }
+  .inp-type-toggle { display: flex; background: #0f1a13; border-radius: 10px; padding: 3px; border: 1px solid #1e3028; }
+  .inp-type-btn {
+    padding: 6px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    border: none; cursor: pointer; background: transparent; color: #888;
+    transition: all 0.2s; font-family: inherit;
+  }
+  .inp-type-btn.active { background: #10b981; color: #fff; }
+  .inp-close-x {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: #1a2e22; border: 1px solid #1e3028;
+    color: #e4e4f0; font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent; font-family: inherit;
+  }
+  .inp-body { overflow-y: auto; -webkit-overflow-scrolling: touch; flex: 1; }
+  .inp-amount-row {
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px 24px 12px; gap: 12px; background: #111a13;
+  }
+  .inp-amount-prefix { font-size: 36px; font-weight: 800; color: #10b981; line-height: 1; }
+  .inp-amount-input {
+    font-size: 40px; font-weight: 800; color: #fff;
+    background: transparent; border: none; outline: none;
+    width: 0; flex: 1; text-align: left;
+    caret-color: #10b981; font-family: inherit;
+  }
+  .inp-amount-input::placeholder { color: #333; }
+  .inp-camera-btn {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: #1a2e22; border: 1px solid #1e3028;
+    font-size: 20px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .inp-section-label {
+    font-size: 11px; font-weight: 600; color: #888;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    padding: 10px 20px 6px;
+  }
+  .inp-chip-scroll { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 20px 4px; }
+  .inp-chip {
+    padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 500;
+    background: #1a2e22; border: 1px solid #1e3028;
+    cursor: pointer; transition: all 0.15s; color: #e4e4f0;
+    white-space: nowrap; user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .inp-chip:active { transform: scale(0.95); }
+  .inp-chip.selected { background: #10b981; border-color: #10b981; color: #fff; }
+  .inp-chip.sub { font-size: 12px; padding: 6px 12px; border-radius: 8px; }
+  .inp-acct-scroll { display: flex; gap: 8px; overflow-x: auto; padding: 0 20px 4px; scrollbar-width: none; }
+  .inp-acct-scroll::-webkit-scrollbar { display: none; }
+  .inp-acct-chip {
+    flex-shrink: 0; padding: 7px 14px; border-radius: 10px;
+    font-size: 13px; font-weight: 500;
+    background: #1a2e22; border: 1px solid #1e3028;
+    cursor: pointer; transition: all 0.15s; color: #e4e4f0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .inp-acct-chip.selected { background: #1e3a5f; border-color: #3b82f6; color: #93c5fd; }
+  .inp-input-row { display: flex; flex-direction: column; gap: 6px; padding: 0 20px; }
+  .inp-text-input, .inp-date-input {
+    background: #1a2e22; border: 1px solid #1e3028; border-radius: 10px;
+    padding: 12px 14px; font-size: 15px; color: #e4e4f0;
+    outline: none; width: 100%;
+    transition: border 0.15s; font-family: inherit;
+  }
+  .inp-date-input { color-scheme: dark; font-size: 14px; }
+  .inp-text-input:focus, .inp-date-input:focus { border-color: #10b981; }
+  .inp-text-input::placeholder { color: #555; }
+  .inp-divider { height: 1px; background: #1e3028; margin: 8px 0; }
+  .inp-save-wrap { padding: 16px 20px; padding-bottom: calc(16px + env(safe-area-inset-bottom)); }
+  .inp-save-btn {
+    width: 100%; padding: 16px; border-radius: 14px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none; color: #fff; font-size: 17px; font-weight: 700;
+    cursor: pointer; transition: opacity 0.15s; letter-spacing: -0.3px;
+    font-family: inherit;
+  }
+  .inp-save-btn:active { opacity: 0.8; }
+  .inp-save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .inp-toast {
+    position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
+    background: #1a2e22; border: 1px solid #10b981;
+    color: #10b981; padding: 10px 20px; border-radius: 12px;
+    font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none;
+    transition: opacity 0.3s; z-index: 1100; white-space: nowrap;
+  }
+  .inp-toast.show { opacity: 1; }
+  .inp-offline-badge {
+    display: none; background: #7c2d12; color: #fca5a5;
+    font-size: 12px; font-weight: 600; text-align: center; padding: 6px;
+  }
+  .inp-pending-wrap {
+    display: none; background: #1c1a0a; border-top: 1px solid #3d3210;
+    padding: 8px 20px; font-size: 12px; color: #ca8a04;
+    gap: 6px; align-items: center;
+  }
+  .inp-pending-dot { width: 6px; height: 6px; border-radius: 50%; background: #ca8a04; animation: inpPulse 1.5s infinite; }
+  @keyframes inpPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  #inpReceiptWrap { display: none; padding: 0 20px 4px; }
+  #inpReceiptImg { width: 100%; border-radius: 10px; max-height: 140px; object-fit: cover; }
+  .inp-receipt-clear { font-size: 12px; color: #888; text-align: right; margin-top: 4px; cursor: pointer; }
+  @media (max-width: 420px) {
+    .fab { width: 56px; height: 56px; font-size: 28px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); }
+  }
 </style>
 </head>
 <body>
 
 <header>
   <h1>💰 2026 <span>가계부</span> 대시보드</h1>
-  <div class="header-right">마지막 업데이트: 2026년 5월 22일</div>
+  <div class="header-right">마지막 업데이트: 2026년 5월 23일</div>
 </header>
 
 <div class="tabs" id="tabs">
@@ -672,6 +834,59 @@
 
 <div id="chartTooltip" class="chart-tooltip"></div>
 
+<!-- 플로팅 + 버튼 (FAB) -->
+<button class="fab" id="fabAdd" aria-label="거래 입력" title="거래 입력">+</button>
+
+<!-- 거래 입력 모달 -->
+<div class="inp-backdrop" id="inpModal" role="dialog" aria-modal="true" aria-label="거래 입력">
+  <div class="inp-sheet">
+    <div class="inp-header">
+      <div class="inp-logo">💰 거래 입력</div>
+      <div class="inp-type-toggle">
+        <button class="inp-type-btn active" id="inpBtnVar">Variable</button>
+        <button class="inp-type-btn" id="inpBtnFix">Fixed</button>
+      </div>
+      <button class="inp-close-x" id="inpCloseBtn" aria-label="닫기">✕</button>
+    </div>
+    <div class="inp-offline-badge" id="inpOfflineBadge">⚠ 오프라인 — 저장된 후 자동 전송됩니다</div>
+    <div class="inp-pending-wrap" id="inpPendingWrap">
+      <div class="inp-pending-dot"></div>
+      <span id="inpPendingText"></span>
+    </div>
+    <div class="inp-body">
+      <div class="inp-amount-row">
+        <div class="inp-amount-prefix">$</div>
+        <input class="inp-amount-input" id="inpAmountInput" type="number"
+          inputmode="decimal" placeholder="0.00" step="0.01" min="0" autocomplete="off">
+        <div class="inp-camera-btn" id="inpCameraBtn" title="영수증 촬영">📷</div>
+      </div>
+      <div id="inpReceiptWrap">
+        <img id="inpReceiptImg" alt="Receipt">
+        <div class="inp-receipt-clear" id="inpReceiptClear">✕ 삭제</div>
+      </div>
+      <input type="file" id="inpCameraInput" accept="image/*" capture="environment" style="display:none">
+      <div class="inp-divider"></div>
+      <div class="inp-section-label" id="inpCatLabel">대분류</div>
+      <div class="inp-chip-scroll" id="inpMainCatChips"></div>
+      <div class="inp-section-label" id="inpSubCatLabel" style="display:none">소분류</div>
+      <div class="inp-chip-scroll" id="inpSubCatChips"></div>
+      <div class="inp-divider"></div>
+      <div class="inp-section-label">계좌</div>
+      <div class="inp-acct-scroll" id="inpAcctChips"></div>
+      <div class="inp-divider"></div>
+      <div class="inp-section-label">내용 / 날짜</div>
+      <div class="inp-input-row">
+        <input class="inp-text-input" id="inpDescInput" type="text" placeholder="내용 (선택)" autocomplete="off">
+        <input class="inp-date-input" id="inpDateInput" type="date">
+      </div>
+      <div class="inp-save-wrap">
+        <button class="inp-save-btn" id="inpSaveBtn">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="inp-toast" id="inpToast"></div>
+
 <script>
 // ── Google Sheets 실시간 연동 설정 ─────────────────────────
 // sync_to_gsheets.py 실행 후 자동으로 채워집니다.
@@ -789,7 +1004,7 @@ async function loadFromGoogleSheets() {
 }
 // ──────────────────────────────────────────────────────────
 
-const DATA = [{"month":"1월","total_wealth":65289.44,"bank_balance":1728.72,"savings":33093.15,"stocks":33093.15,"income":5929.89,"total_expense":7055.87,"categories":{"주거비":1513.8,"통신비":80.19,"보험":1179.47,"대출":475.34,"구독":62.83,"저축/투자":2000.0,"가족지원":680.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":1728.72,"income":5929.89,"expense":6179.64},{"name":"Chase Sphire","balance":-1443.12,"income":696.09,"expense":1433.98},{"name":"Chase Marriott","balance":-1179.47,"income":184.97,"expense":1283.5},{"name":"Discover","balance":-2.99,"income":180.69,"expense":14.94},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":18593.15,"income":2000.0,"expense":0.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":14500.0,"income":0.0,"expense":0.0}],"fixed_tx":[{"date":"01/01","category":"주거비","sub":"렌트비","desc":"1월 렌트비","account":"Chase","amount":1369.07},{"date":"01/04","category":"주거비","sub":"유틸리티","desc":"DTE","account":"Chase Marriott","amount":75.03},{"date":"01/05","category":"주거비","sub":"유틸리티","desc":"Consumer Energy","account":"Chase","amount":69.7},{"date":"01/05","category":"통신비","sub":"인터넷","desc":"Xfinity","account":"Chase","amount":30.34},{"date":"01/09","category":"구독","sub":"헬스장","desc":"powerhouse","account":"Chase Marriott","amount":29.0},{"date":"01/15","category":"가족지원","sub":"부모님 지원","desc":"1월 부모님용돈","account":"Chase","amount":680.0},{"date":"01/15","category":"대출","sub":"자동차대출","desc":"Mazda","account":"Chase","amount":475.34},{"date":"01/22","category":"통신비","sub":"핸드폰","desc":"Verizon","account":"Chase","amount":49.85},{"date":"01/26","category":"구독","sub":"OTT","desc":"netflix","account":"Chase Sphire","amount":7.99},{"date":"01/26","category":"구독","sub":"OTT","desc":"Youtube","account":"Chase Sphire","amount":22.85},{"date":"01/28","category":"보험","sub":"자동차보험","desc":"Progressive","account":"Chase Marriott","amount":1153.5},{"date":"01/28","category":"구독","sub":"클라우드","desc":"apple","account":"Discover","amount":2.99},{"date":"01/30","category":"보험","sub":"렌터보험","desc":"Homeowners","account":"Chase Marriott","amount":25.97}]},{"month":"2월","total_wealth":69848.09,"bank_balance":1997.33,"savings":35093.15,"stocks":35093.15,"income":6648.07,"total_expense":7756.6,"categories":{"주거비":1537.3,"통신비":40.0,"보험":25.97,"대출":475.34,"구독":2113.75,"저축/투자":2000.0,"가족지원":500.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":1997.33,"income":6648.07,"expense":6379.46},{"name":"Chase Sphire","balance":-841.95,"income":1501.89,"expense":900.72},{"name":"Chase Marriott","balance":-1442.82,"income":0.0,"expense":263.35},{"name":"Discover","balance":-50.77,"income":71.73,"expense":119.51},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":20593.15,"income":2000.0,"expense":0.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":14500.0,"income":0.0,"expense":0.0}],"fixed_tx":[{"date":"02/01","category":"주거비","sub":"렌트비","desc":"2월 렌트비","account":"Chase","amount":1370.29},{"date":"02/01","category":"구독","sub":"세차 구독","desc":"Jax","account":"Discover","amount":25.99},{"date":"02/02","category":"통신비","sub":"인터넷","desc":"Xfinity","account":"Chase","amount":40.0},{"date":"02/05","category":"주거비","sub":"유틸리티","desc":"Consumer Energy","account":"Chase","amount":89.14},{"date":"02/05","category":"주거비","sub":"유틸리티","desc":"DTE","account":"Chase","amount":77.87},{"date":"02/09","category":"구독","sub":"헬스장","desc":"powerhouse","account":"Chase Marriott","amount":29.0},{"date":"02/15","category":"가족지원","sub":"부모님 지원","desc":"2월 부모님용돈","account":"Chase","amount":500.0},{"date":"02/18","category":"대출","sub":"자동차대출","desc":"mazda","account":"Chase","amount":475.34},{"date":"02/18","category":"구독","sub":"클라우드","desc":"Google","account":"Discover","amount":21.79},{"date":"02/26","category":"구독","sub":"OTT","desc":"netflix","account":"Chase Sphire","amount":7.99},{"date":"02/27","category":"구독","sub":"클라우드","desc":"Apple","account":"Discover","amount":2.99},{"date":"02/28","category":"보험","sub":"렌터보험","desc":"Homeowners","account":"Chase Marriott","amount":25.97},{"date":"02/28","category":"구독","sub":"세차 구독","desc":"Jax","account":"Discover","amount":25.99}]},{"month":"3월","total_wealth":84592.9,"bank_balance":11923.82,"savings":37093.15,"stocks":37093.15,"income":17571.03,"total_expense":7728.81,"categories":{"주거비":1507.44,"통신비":89.85,"보험":25.97,"대출":475.34,"구독":2065.97,"저축/투자":2000.0,"가족지원":500.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":11923.82,"income":17571.03,"expense":7644.54},{"name":"Chase Sphire","balance":-1411.8,"income":963.55,"expense":1533.4},{"name":"Chase Marriott","balance":-76.44,"income":1913.54,"expense":547.16},{"name":"Discover","balance":-28.98,"income":50.77,"expense":28.98},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":22593.15,"income":2000.0,"expense":0.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":14500.0,"income":0.0,"expense":0.0}],"fixed_tx":[{"date":"03/01","category":"주거비","sub":"렌트비","desc":"3월 렌트비","account":"Chase","amount":1374.98},{"date":"03/02","category":"통신비","sub":"인터넷","desc":"Xfinity","account":"Chase","amount":40.0},{"date":"03/05","category":"통신비","sub":"핸드폰","desc":"Verizon","account":"Chase","amount":49.85},{"date":"03/09","category":"주거비","sub":"유틸리티","desc":"Consumer Energy","account":"Chase","amount":96.26},{"date":"03/09","category":"주거비","sub":"유틸리티","desc":"DTE","account":"Chase","amount":36.2},{"date":"03/09","category":"구독","sub":"헬스장","desc":"powerhouse","account":"Chase Marriott","amount":29.0},{"date":"03/13","category":"가족지원","sub":"부모님 지원","desc":"3월 부모님용돈","account":"Chase","amount":500.0},{"date":"03/17","category":"대출","sub":"자동차대출","desc":"Mazda","account":"Chase","amount":475.34},{"date":"03/26","category":"구독","sub":"OTT","desc":"netflix","account":"Chase Sphire","amount":7.99},{"date":"03/28","category":"구독","sub":"클라우드","desc":"Apple","account":"Discover","amount":2.99},{"date":"03/30","category":"보험","sub":"렌터보험","desc":"Homeowners","account":"Chase Marriott","amount":25.97},{"date":"03/30","category":"구독","sub":"세차 구독","desc":"Jax","account":"Discover","amount":25.99}]},{"month":"4월","total_wealth":72119.19,"bank_balance":15352.34,"savings":29093.15,"stocks":29093.15,"income":6429.31,"total_expense":11285.58,"categories":{"주거비":1514.41,"통신비":139.65,"보험":25.97,"대출":475.34,"구독":65.97,"저축/투자":8000.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":15352.34,"income":14429.31,"expense":11000.79},{"name":"Chase Sphire","balance":-745.17,"income":1590.77,"expense":924.14},{"name":"Chase Marriott","balance":-250.87,"income":0.0,"expense":174.43},{"name":"Discover","balance":-423.41,"income":0.0,"expense":394.43},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":14593.15,"income":8000.0,"expense":16000.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":14500.0,"income":0.0,"expense":0.0},{"name":"Mortgage","balance":8000.0,"income":8000.0,"expense":0.0}],"fixed_tx":[]},{"month":"5월","total_wealth":56414.33,"bank_balance":29369.42,"savings":14593.15,"stocks":14593.15,"income":3448.7,"total_expense":4124.55,"categories":{"주거비":1497.08,"통신비":40.0,"보험":498.89,"대출":475.34,"구독":49.0,"가족지원":500.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":29369.42,"income":17947.7,"expense":3930.62},{"name":"Chase Sphire","balance":-1234.26,"income":883.61,"expense":1372.7},{"name":"Chase Marriott","balance":-939.11,"income":279.87,"expense":968.11},{"name":"Discover","balance":31.98,"income":485.06,"expense":29.67},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":14593.15,"income":0.0,"expense":0.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":0.0,"income":0.0,"expense":14500.0}],"fixed_tx":[{"date":"05/01","category":"주거비","sub":"렌트비","desc":"5월 렌트비","account":"Chase","amount":1369.74},{"date":"05/03","category":"가족지원","sub":"부모님 지원","desc":"5월 부모님용돈","account":"Chase","amount":500.0},{"date":"05/04","category":"보험","sub":"자동차보험","desc":"Progressive","account":"Chase Sphire","amount":734.5},{"date":"05/04","category":"통신비","sub":"인터넷","desc":"xfinity","account":"Chase","amount":40.0},{"date":"05/05","category":"보험","sub":"자동차보험","desc":"Progressive","account":"Chase Marriott","amount":272.0},{"date":"05/06","category":"보험","sub":"자동차보험","desc":"Progressive","account":"Chase Sphire","amount":54.0},{"date":"05/08","category":"구독","sub":"AI 구독","desc":"Claude","account":"Chase Sphire","amount":20.0},{"date":"05/09","category":"구독","sub":"헬스장","desc":"Powerhouse","account":"Chase Marriott","amount":29.0},{"date":"05/10","category":"보험","sub":"자동차보험","desc":"Progressive (Deduction)","account":"Chase Sphire","amount":-561.61},{"date":"05/10","category":"주거비","sub":"유틸리티","desc":"DTE","account":"Chase","amount":76.83},{"date":"05/10","category":"주거비","sub":"유틸리티","desc":"Consumer Energy","account":"Chase","amount":50.51},{"date":"05/15","category":"대출","sub":"자동차대출","desc":"Mazda","account":"Chase","amount":475.34}]}];
+const DATA = [{"month":"1월","total_wealth":32196.29,"bank_balance":1728.72,"savings":33093.15,"stocks":33093.15,"income":5929.89,"total_expense":7055.87,"categories":{"주거비":1513.8,"통신비":80.19,"보험":1179.47,"대출":475.34,"구독":62.83,"저축/투자":2000.0,"가족지원":680.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":1728.72,"income":5929.89,"expense":6179.64},{"name":"Chase Sphire","balance":-1443.12,"income":696.09,"expense":1433.98},{"name":"Chase Marriott","balance":-1179.47,"income":184.97,"expense":1283.5},{"name":"Discover","balance":-2.99,"income":180.69,"expense":14.94},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":18593.15,"income":2000.0,"expense":0.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":14500.0,"income":0.0,"expense":0.0}],"fixed_tx":[{"date":"01/01","category":"주거비","sub":"렌트비","desc":"1월 렌트비","account":"Chase","amount":1369.07},{"date":"01/04","category":"주거비","sub":"유틸리티","desc":"DTE","account":"Chase Marriott","amount":75.03},{"date":"01/05","category":"주거비","sub":"유틸리티","desc":"Consumer Energy","account":"Chase","amount":69.7},{"date":"01/05","category":"통신비","sub":"인터넷","desc":"Xfinity","account":"Chase","amount":30.34},{"date":"01/09","category":"구독","sub":"헬스장","desc":"powerhouse","account":"Chase Marriott","amount":29.0},{"date":"01/15","category":"가족지원","sub":"부모님 지원","desc":"1월 부모님용돈","account":"Chase","amount":680.0},{"date":"01/15","category":"대출","sub":"자동차대출","desc":"Mazda","account":"Chase","amount":475.34},{"date":"01/22","category":"통신비","sub":"핸드폰","desc":"Verizon","account":"Chase","amount":49.85},{"date":"01/26","category":"구독","sub":"OTT","desc":"netflix","account":"Chase Sphire","amount":7.99},{"date":"01/26","category":"구독","sub":"OTT","desc":"Youtube","account":"Chase Sphire","amount":22.85},{"date":"01/28","category":"보험","sub":"자동차보험","desc":"Progressive","account":"Chase Marriott","amount":1153.5},{"date":"01/28","category":"구독","sub":"클라우드","desc":"apple","account":"Discover","amount":2.99},{"date":"01/30","category":"보험","sub":"렌터보험","desc":"Homeowners","account":"Chase Marriott","amount":25.97}]},{"month":"2월","total_wealth":34754.94,"bank_balance":1997.33,"savings":35093.15,"stocks":35093.15,"income":6648.07,"total_expense":7756.6,"categories":{"주거비":1537.3,"통신비":40.0,"보험":25.97,"대출":475.34,"구독":2113.75,"저축/투자":2000.0,"가족지원":500.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":1997.33,"income":6648.07,"expense":6379.46},{"name":"Chase Sphire","balance":-841.95,"income":1501.89,"expense":900.72},{"name":"Chase Marriott","balance":-1442.82,"income":0.0,"expense":263.35},{"name":"Discover","balance":-50.77,"income":71.73,"expense":119.51},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":20593.15,"income":2000.0,"expense":0.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":14500.0,"income":0.0,"expense":0.0}],"fixed_tx":[{"date":"02/01","category":"주거비","sub":"렌트비","desc":"2월 렌트비","account":"Chase","amount":1370.29},{"date":"02/01","category":"구독","sub":"세차 구독","desc":"Jax","account":"Discover","amount":25.99},{"date":"02/02","category":"통신비","sub":"인터넷","desc":"Xfinity","account":"Chase","amount":40.0},{"date":"02/05","category":"주거비","sub":"유틸리티","desc":"Consumer Energy","account":"Chase","amount":89.14},{"date":"02/05","category":"주거비","sub":"유틸리티","desc":"DTE","account":"Chase","amount":77.87},{"date":"02/09","category":"구독","sub":"헬스장","desc":"powerhouse","account":"Chase Marriott","amount":29.0},{"date":"02/15","category":"가족지원","sub":"부모님 지원","desc":"2월 부모님용돈","account":"Chase","amount":500.0},{"date":"02/18","category":"대출","sub":"자동차대출","desc":"mazda","account":"Chase","amount":475.34},{"date":"02/18","category":"구독","sub":"클라우드","desc":"Google","account":"Discover","amount":21.79},{"date":"02/26","category":"구독","sub":"OTT","desc":"netflix","account":"Chase Sphire","amount":7.99},{"date":"02/27","category":"구독","sub":"클라우드","desc":"Apple","account":"Discover","amount":2.99},{"date":"02/28","category":"보험","sub":"렌터보험","desc":"Homeowners","account":"Chase Marriott","amount":25.97},{"date":"02/28","category":"구독","sub":"세차 구독","desc":"Jax","account":"Discover","amount":25.99}]},{"month":"3월","total_wealth":47499.75,"bank_balance":11923.82,"savings":37093.15,"stocks":37093.15,"income":17571.03,"total_expense":7728.81,"categories":{"주거비":1507.44,"통신비":89.85,"보험":25.97,"대출":475.34,"구독":2065.97,"저축/투자":2000.0,"가족지원":500.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":11923.82,"income":17571.03,"expense":7644.54},{"name":"Chase Sphire","balance":-1411.8,"income":963.55,"expense":1533.4},{"name":"Chase Marriott","balance":-76.44,"income":1913.54,"expense":547.16},{"name":"Discover","balance":-28.98,"income":50.77,"expense":28.98},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":22593.15,"income":2000.0,"expense":0.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":14500.0,"income":0.0,"expense":0.0}],"fixed_tx":[{"date":"03/01","category":"주거비","sub":"렌트비","desc":"3월 렌트비","account":"Chase","amount":1374.98},{"date":"03/02","category":"통신비","sub":"인터넷","desc":"Xfinity","account":"Chase","amount":40.0},{"date":"03/05","category":"통신비","sub":"핸드폰","desc":"Verizon","account":"Chase","amount":49.85},{"date":"03/09","category":"주거비","sub":"유틸리티","desc":"Consumer Energy","account":"Chase","amount":96.26},{"date":"03/09","category":"주거비","sub":"유틸리티","desc":"DTE","account":"Chase","amount":36.2},{"date":"03/09","category":"구독","sub":"헬스장","desc":"powerhouse","account":"Chase Marriott","amount":29.0},{"date":"03/13","category":"가족지원","sub":"부모님 지원","desc":"3월 부모님용돈","account":"Chase","amount":500.0},{"date":"03/17","category":"대출","sub":"자동차대출","desc":"Mazda","account":"Chase","amount":475.34},{"date":"03/26","category":"구독","sub":"OTT","desc":"netflix","account":"Chase Sphire","amount":7.99},{"date":"03/28","category":"구독","sub":"클라우드","desc":"Apple","account":"Discover","amount":2.99},{"date":"03/30","category":"보험","sub":"렌터보험","desc":"Homeowners","account":"Chase Marriott","amount":25.97},{"date":"03/30","category":"구독","sub":"세차 구독","desc":"Jax","account":"Discover","amount":25.99}]},{"month":"4월","total_wealth":43026.04,"bank_balance":15352.34,"savings":29093.15,"stocks":29093.15,"income":6429.31,"total_expense":11285.58,"categories":{"주거비":1514.41,"통신비":139.65,"보험":25.97,"대출":475.34,"구독":65.97,"저축/투자":8000.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":15352.34,"income":14429.31,"expense":11000.79},{"name":"Chase Sphire","balance":-745.17,"income":1590.77,"expense":924.14},{"name":"Chase Marriott","balance":-250.87,"income":0.0,"expense":174.43},{"name":"Discover","balance":-423.41,"income":0.0,"expense":394.43},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":14593.15,"income":8000.0,"expense":16000.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":14500.0,"income":0.0,"expense":0.0},{"name":"Mortgage","balance":8000.0,"income":8000.0,"expense":0.0}],"fixed_tx":[]},{"month":"5월","total_wealth":42074.71,"bank_balance":29622.95,"savings":14593.15,"stocks":14593.15,"income":3702.23,"total_expense":4124.55,"categories":{"주거비":1497.08,"통신비":40.0,"보험":498.89,"대출":475.34,"구독":49.0,"가족지원":500.0,"식비":921.7,"생활용품":105.22,"문화/여가":33.62,"차량유지비":3.7},"accounts":[{"name":"Chase","balance":29622.95,"income":18201.23,"expense":3930.62},{"name":"Chase Sphire","balance":-1234.26,"income":883.61,"expense":1372.7},{"name":"Chase Marriott","balance":-939.11,"income":279.87,"expense":968.11},{"name":"Discover","balance":31.98,"income":485.06,"expense":29.67},{"name":"Venmo","balance":0.0,"income":0.0,"expense":0.0},{"name":"Robinhood","balance":14593.15,"income":0.0,"expense":0.0},{"name":"Webull","balance":0.0,"income":0.0,"expense":0.0},{"name":"401K","balance":0.0,"income":0.0,"expense":0.0},{"name":"Roth IRA","balance":0.0,"income":0.0,"expense":14500.0}],"fixed_tx":[{"date":"05/01","category":"주거비","sub":"렌트비","desc":"5월 렌트비","account":"Chase","amount":1369.74},{"date":"05/03","category":"가족지원","sub":"부모님 지원","desc":"5월 부모님용돈","account":"Chase","amount":500.0},{"date":"05/04","category":"보험","sub":"자동차보험","desc":"Progressive","account":"Chase Sphire","amount":734.5},{"date":"05/04","category":"통신비","sub":"인터넷","desc":"xfinity","account":"Chase","amount":40.0},{"date":"05/05","category":"보험","sub":"자동차보험","desc":"Progressive","account":"Chase Marriott","amount":272.0},{"date":"05/06","category":"보험","sub":"자동차보험","desc":"Progressive","account":"Chase Sphire","amount":54.0},{"date":"05/08","category":"구독","sub":"AI 구독","desc":"Claude","account":"Chase Sphire","amount":20.0},{"date":"05/09","category":"구독","sub":"헬스장","desc":"Powerhouse","account":"Chase Marriott","amount":29.0},{"date":"05/10","category":"보험","sub":"자동차보험","desc":"Progressive (Deduction)","account":"Chase Sphire","amount":-561.61},{"date":"05/10","category":"주거비","sub":"유틸리티","desc":"DTE","account":"Chase","amount":76.83},{"date":"05/10","category":"주거비","sub":"유틸리티","desc":"Consumer Energy","account":"Chase","amount":50.51},{"date":"05/15","category":"대출","sub":"자동차대출","desc":"Mazda","account":"Chase","amount":475.34}]}];
 
 // 비고정지출 데이터
 const VTX = {"1월":[{"date":"01/01","category":"외식","desc":"저녁 - 서울면","account":"Chase Sphire","amount":25.71},{"date":"01/02","category":"간식/카페","desc":"아이스크림","account":"Chase Sphire","amount":9.21},{"date":"01/03","category":"술/유흥","desc":"맥주","account":"Chase Sphire","amount":15.77},{"date":"01/03","category":"간식/카페","desc":"커피","account":"Chase Sphire","amount":26.43},{"date":"01/03","category":"도박/경기","desc":"gamble","account":"Chase","amount":20.0},{"date":"01/03","category":"도박/경기","desc":"gamble","account":"Chase","amount":2.0},{"date":"01/04","category":"음료","desc":"음료","account":"Chase Sphire","amount":2.64},{"date":"01/04","category":"음료","desc":"음료","account":"Chase Sphire","amount":6.88},{"date":"01/04","category":"식재료","desc":"costco","account":"Chase Sphire","amount":69.18},{"date":"01/04","category":"주유","desc":"주유","account":"Chase Sphire","amount":31.58},{"date":"01/04","category":"주유","desc":"주유","account":"Chase","amount":25.0},{"date":"01/05","category":"여행경비","desc":"Chicago 여행","account":"Chase","amount":112.17},{"date":"01/06","category":"외식","desc":"점심 - 프로틴","account":"Chase Sphire","amount":4.98},{"date":"01/07","category":"소모품","desc":"amazon - icecream scoop","account":"Chase Sphire","amount":6.35},{"date":"01/07","category":"소모품","desc":"amazon - Scale","account":"Chase Sphire","amount":10.59},{"date":"01/08","category":"헤어/뷰티","desc":"머리","account":"Chase","amount":135.0},{"date":"01/08","category":"외식","desc":"점심 - chick fil a","account":"Chase Sphire","amount":12.6},{"date":"01/08","category":"소모품","desc":"amazon - kataifi","account":"Discover","amount":11.95},{"date":"01/09","category":"도박/경기","desc":"gamble","account":"Chase","amount":2.0},{"date":"01/10","category":"운동/스포츠","desc":"climbing","account":"Chase Sphire","amount":23.0},{"date":"01/11","category":"외식","desc":"점심 - 서울면","account":"Chase Sphire","amount":22.38},{"date":"01/11","category":"외식","desc":"점심 - 서울면 (Deduction)","account":"Chase Sphire","amount":-11.14},{"date":"01/11","category":"문화생활","desc":"볼링","account":"Chase Sphire","amount":96.0},{"date":"01/11","category":"문화생활","desc":"볼링","account":"Chase Sphire","amount":36.0},{"date":"01/11","category":"문화생활","desc":"볼링 (Deduction)","account":"Chase Sphire","amount":-80.0},{"date":"01/11","category":"술/유흥","desc":"맥주","account":"Chase Sphire","amount":6.0},{"date":"01/11","category":"주차비","desc":"parking","account":"Chase Sphire","amount":4.0},{"date":"01/11","category":"외식","desc":"점심 - Mcdonalrd","account":"Chase Sphire","amount":8.71},{"date":"01/12","category":"주유","desc":"주유","account":"Chase Sphire","amount":24.0},{"date":"01/12","category":"외식","desc":"저녁 - Fogo de Chao","account":"Chase","amount":48.0},{"date":"01/12","category":"외식","desc":"저녁 - Fogo de Chao","account":"Chase","amount":37.34},{"date":"01/13","category":"외식","desc":"점심 - Ford","account":"Chase Sphire","amount":10.6},{"date":"01/14","category":"술/유흥","desc":"수환 - 술","account":"Chase","amount":14.21},{"date":"01/14","category":"소모품","desc":"amazon - 보호필름","account":"Chase Sphire","amount":8.47},{"date":"01/15","category":"외식","desc":"저녁 - 누리포차","account":"Chase Sphire","amount":109.96},{"date":"01/15","category":"외식","desc":"저녁 - 누리포차 (Deduction)","account":"Chase Sphire","amount":-73.3},{"date":"01/17","category":"식재료","desc":"costco","account":"Chase Sphire","amount":58.67},{"date":"01/17","category":"주유","desc":"주유","account":"Chase Sphire","amount":25.53},{"date":"01/17","category":"식재료","desc":"baking - 두쫀쿠","account":"Chase Sphire","amount":24.46},{"date":"01/17","category":"식재료","desc":"hmart","account":"Chase Sphire","amount":26.97},{"date":"01/17","category":"외식","desc":"저녁 - Kbunsik","account":"Chase Sphire","amount":32.12},{"date":"01/18","category":"간식/카페","desc":"커피","account":"Chase Sphire","amount":5.57},{"date":"01/19","category":"식재료","desc":"hmart - 컵라면","account":"Chase Sphire","amount":20.98},{"date":"01/19","category":"외식","desc":"저녁 - Noblefish","account":"Chase","amount":20.0},{"date":"01/20","category":"외식","desc":"점심 - ford","account":"Chase Sphire","amount":7.79},{"date":"01/21","category":"외식","desc":"저녁 - 스시하나","account":"Chase Sphire","amount":65.12},{"date":"01/21","category":"음료","desc":"음료","account":"Chase Sphire","amount":4.44},{"date":"01/21","category":"주유","desc":"주유","account":"Chase Sphire","amount":33.0},{"date":"01/21","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":11.66},{"date":"01/23","category":"외식","desc":"저녁 - 은서집","account":"Chase","amount":10.07},{"date":"01/23","category":"차량수리/부품","desc":"brake 교체","account":"Chase Sphire","amount":411.68},{"date":"01/23","category":"주차비","desc":"parking","account":"Chase Sphire","amount":2.1},{"date":"01/23","category":"간식/카페","desc":"커피","account":"Chase Sphire","amount":16.36},{"date":"01/24","category":"외식","desc":"저녁 - Soora","account":"Chase","amount":25.0},{"date":"01/24","category":"간식/카페","desc":"아이스크림","account":"Chase Sphire","amount":10.59},{"date":"01/24","category":"음료","desc":"음료","account":"Chase Sphire","amount":3.0},{"date":"01/24","category":"운동/스포츠","desc":"Pickleball","account":"Chase Sphire","amount":15.0},{"date":"01/25","category":"식재료","desc":"costco","account":"Chase Sphire","amount":38.57},{"date":"01/25","category":"주유","desc":"주유","account":"Chase Sphire","amount":26.26},{"date":"01/25","category":"주유","desc":"주유","account":"Chase Sphire","amount":9.76},{"date":"01/26","category":"외식","desc":"점심 - chick fil a","account":"Chase Sphire","amount":10.32},{"date":"01/27","category":"식재료","desc":"Tiger market","account":"Chase Sphire","amount":38.06},{"date":"01/28","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":11.66},{"date":"01/28","category":"음료","desc":"음료","account":"Chase Sphire","amount":4.09},{"date":"01/29","category":"외식","desc":"점심 - ford","account":"Chase Sphire","amount":12.51},{"date":"01/30","category":"술/유흥","desc":"맥주","account":"Chase","amount":13.0},{"date":"01/30","category":"외식","desc":"저녁 - texas roadhouse","account":"Chase Sphire","amount":45.1},{"date":"01/31","category":"식재료","desc":"Meijer","account":"Chase Sphire","amount":25.17}],"2월":[{"date":"02/01","category":"소모품","desc":"Amazon - Nespresso","account":"Discover","amount":42.75},{"date":"02/02","category":"외식","desc":"점심 - Ford","account":"Chase Sphire","amount":7.79},{"date":"02/02","category":"음료","desc":"Amazon - Pocari","account":"Chase Marriott","amount":35.9},{"date":"02/03","category":"주유","desc":"주유","account":"Chase Sphire","amount":32.97},{"date":"02/03","category":"음료","desc":"음료","account":"Chase Sphire","amount":7.0},{"date":"02/03","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":11.66},{"date":"02/03","category":"외식","desc":"저녁 - 출장","account":"Chase Sphire","amount":71.05},{"date":"02/03","category":"외식","desc":"저녁 - 출장","account":"Chase Sphire","amount":-20.0},{"date":"02/04","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":12.72},{"date":"02/04","category":"음료","desc":"음료","account":"Chase Sphire","amount":2.6},{"date":"02/05","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":12.6},{"date":"02/05","category":"소모품","desc":"amazon - Cataifi","account":"Chase Sphire","amount":4.95},{"date":"02/05","category":"주유","desc":"주유","account":"Chase Sphire","amount":21.37},{"date":"02/06","category":"외식","desc":"저녁 - Asian Express","account":"Chase","amount":22.0},{"date":"02/06","category":"소모품","desc":"Target","account":"Chase Sphire","amount":41.72},{"date":"02/06","category":"식재료","desc":"Meijer - 상혁이","account":"Chase Sphire","amount":36.33},{"date":"02/06","category":"식재료","desc":"Meijer - 상혁이","account":"Chase Sphire","amount":-27.0},{"date":"02/07","category":"식재료","desc":"One world market","account":"Chase Sphire","amount":36.01},{"date":"02/07","category":"간식/카페","desc":"간식","account":"Chase Sphire","amount":2.9},{"date":"02/07","category":"외식","desc":"저녁","account":"Chase Sphire","amount":22.68},{"date":"02/08","category":"식재료","desc":"hmart","account":"Chase Sphire","amount":30.85},{"date":"02/08","category":"식재료","desc":"hmart - pistachio spread","account":"Chase Sphire","amount":10.98},{"date":"02/09","category":"도박/경기","desc":"Gamble","account":"Chase","amount":9.86},{"date":"02/09","category":"외식","desc":"저녁","account":"Chase","amount":16.0},{"date":"02/09","category":"간식/카페","desc":"starbucks","account":"Chase Sphire","amount":20.0},{"date":"02/09","category":"주유","desc":"주유","account":"Chase Marriott","amount":16.63},{"date":"02/10","category":"외식","desc":"점심 - ford","account":"Chase Sphire","amount":12.88},{"date":"02/11","category":"외식","desc":"점심 - ford","account":"Chase Sphire","amount":13.25},{"date":"02/12","category":"문화생활","desc":"bowling","account":"Chase","amount":5.0},{"date":"02/13","category":"운동/스포츠","desc":"climbing","account":"Chase Sphire","amount":23.0},{"date":"02/13","category":"주유","desc":"주유","account":"Chase Marriott","amount":10.33},{"date":"02/13","category":"외식","desc":"저녁 - 청기와","account":"Chase","amount":62.34},{"date":"02/14","category":"음료","desc":"음료","account":"Chase Sphire","amount":20.01},{"date":"02/14","category":"주차비","desc":"parking","account":"Chase Sphire","amount":2.6},{"date":"02/14","category":"주차비","desc":"parking","account":"Chase Sphire","amount":1.1},{"date":"02/14","category":"간식/카페","desc":"커피","account":"Chase Sphire","amount":20.64},{"date":"02/14","category":"외식","desc":"저녁 - bigalora","account":"Chase Sphire","amount":86.31},{"date":"02/14","category":"주유","desc":"주유","account":"Chase Marriott","amount":11.83},{"date":"02/15","category":"식재료","desc":"Costco","account":"Chase Sphire","amount":21.36},{"date":"02/15","category":"식재료","desc":"Costco","account":"Chase Sphire","amount":3.18},{"date":"02/15","category":"주유","desc":"주유","account":"Chase Marriott","amount":28.63},{"date":"02/16","category":"외식","desc":"저녁 - bb.q","account":"Chase Sphire","amount":46.06},{"date":"02/19","category":"헤어/뷰티","desc":"머리","account":"Chase","amount":63.0},{"date":"02/19","category":"간식/카페","desc":"Tous Les Jours","account":"Chase Sphire","amount":18.88},{"date":"02/19","category":"외식","desc":"저녁 - 서울면","account":"Chase Sphire","amount":40.93},{"date":"02/19","category":"식재료","desc":"hmart","account":"Chase Sphire","amount":74.81},{"date":"02/19","category":"외식","desc":"점심 - 포드","account":"Chase Sphire","amount":7.79},{"date":"02/20","category":"외식","desc":"저녁 - 은서네","account":"Chase","amount":25.0},{"date":"02/21","category":"운동/스포츠","desc":"climbing","account":"Chase","amount":20.0},{"date":"02/21","category":"외식","desc":"저녁 - 샤브샤브","account":"Chase","amount":30.0},{"date":"02/22","category":"식재료","desc":"kroger","account":"Chase Sphire","amount":36.76},{"date":"02/23","category":"주유","desc":"주유","account":"Chase Marriott","amount":10.0},{"date":"02/23","category":"소모품","desc":"Amazon - battery","account":"Chase Sphire","amount":3.49},{"date":"02/24","category":"주유","desc":"주유","account":"Chase Marriott","amount":26.38},{"date":"02/24","category":"주유","desc":"주유","account":"Chase Marriott","amount":30.96},{"date":"02/24","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":11.66},{"date":"02/24","category":"음료","desc":"음료","account":"Chase Sphire","amount":2.6},{"date":"02/24","category":"음료","desc":"음료","account":"Chase Sphire","amount":4.4},{"date":"02/24","category":"소모품","desc":"Amazon - key cover","account":"Chase Sphire","amount":12.31},{"date":"02/25","category":"외식","desc":"점심 - Mcdonald","account":"Chase Sphire","amount":9.74},{"date":"02/27","category":"문화생활","desc":"영화","account":"Chase Sphire","amount":18.76},{"date":"02/28","category":"주유","desc":"주유","account":"Chase Marriott","amount":37.72},{"date":"02/28","category":"외식","desc":"점심 - Mcdonald","account":"Chase Sphire","amount":8.05},{"date":"02/28","category":"외식","desc":"저녁 - Asian Express","account":"Chase Sphire","amount":52.98}],"3월":[{"date":"03/01","category":"술/유흥","desc":"술","account":"Chase","amount":15.0},{"date":"03/01","category":"외식","desc":"저녁 - Chilis","account":"Chase Sphire","amount":42.79},{"date":"03/01","category":"간식/카페","desc":"커피","account":"Chase Marriott","amount":5.57},{"date":"03/04","category":"주유","desc":"주유","account":"Chase Marriott","amount":39.37},{"date":"03/04","category":"외식","desc":"점심 - Mcdonald","account":"Chase Sphire","amount":7.61},{"date":"03/04","category":"식재료","desc":"tiger market","account":"Chase Sphire","amount":31.98},{"date":"03/05","category":"외식","desc":"점심 - Mcdonald","account":"Chase Sphire","amount":9.23},{"date":"03/06","category":"외식","desc":"저녁 - Hanzo","account":"Chase Sphire","amount":86.08},{"date":"03/07","category":"외식","desc":"점심 - 서울면","account":"Chase","amount":22.0},{"date":"03/07","category":"간식/카페","desc":"tous les jours","account":"Chase Sphire","amount":23.64},{"date":"03/07","category":"간식/카페","desc":"아이스크림","account":"Chase Sphire","amount":3.45},{"date":"03/08","category":"주유","desc":"주유","account":"Chase Marriott","amount":11.42},{"date":"03/09","category":"주유","desc":"주유","account":"Chase Marriott","amount":42.41},{"date":"03/09","category":"외식","desc":"점심 - Panda Express","account":"Chase Sphire","amount":9.33},{"date":"03/10","category":"소모품","desc":"Amazon - 버터떡","account":"Chase Sphire","amount":8.62},{"date":"03/10","category":"음료","desc":"음료","account":"Chase Sphire","amount":2.65},{"date":"03/11","category":"외식","desc":"점심 - Ford","account":"Chase Sphire","amount":20.14},{"date":"03/11","category":"식재료","desc":"Costco","account":"Chase Sphire","amount":99.18},{"date":"03/11","category":"외식","desc":"저녁 - 타코","account":"Chase","amount":17.5},{"date":"03/12","category":"소모품","desc":"Amazon - feet scrup","account":"Chase Sphire","amount":7.41},{"date":"03/12","category":"소모품","desc":"Amazon - 제산제","account":"Chase Sphire","amount":9.53},{"date":"03/12","category":"소모품","desc":"Amazon - creatine","account":"Chase Sphire","amount":27.99},{"date":"03/13","category":"항공권","desc":"Spirit - 전우삼부장님","account":"Chase Sphire","amount":148.48},{"date":"03/13","category":"운동/스포츠","desc":"climbing","account":"Chase Sphire","amount":23.0},{"date":"03/13","category":"식재료","desc":"kroger","account":"Chase Sphire","amount":40.49},{"date":"03/14","category":"식재료","desc":"meijer","account":"Chase Sphire","amount":28.62},{"date":"03/15","category":"소모품","desc":"Amazon - 바트간식","account":"Chase Sphire","amount":19.48},{"date":"03/15","category":"소모품","desc":"Amazon - 리스테린","account":"Chase Sphire","amount":8.47},{"date":"03/15","category":"외식","desc":"저녁 - 누리","account":"Chase Sphire","amount":71.17},{"date":"03/15","category":"소모품","desc":"Amazon - 바트간식 (Deduction)","account":"Chase Sphire","amount":-20.0},{"date":"03/16","category":"주유","desc":"주유","account":"Chase Marriott","amount":40.56},{"date":"03/16","category":"주유","desc":"주유","account":"Chase Marriott","amount":27.66},{"date":"03/16","category":"간식/카페","desc":"커피","account":"Chase Sphire","amount":4.52},{"date":"03/16","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":11.66},{"date":"03/16","category":"음료","desc":"음료","account":"Chase Sphire","amount":2.6},{"date":"03/16","category":"외식","desc":"점심 -  Mcdonald","account":"Chase Sphire","amount":9.23},{"date":"03/17","category":"외식","desc":"점심 - Ford","account":"Chase Sphire","amount":7.1},{"date":"03/18","category":"외식","desc":"저녁 - bb.q","account":"Chase Sphire","amount":44.83},{"date":"03/18","category":"소모품","desc":"Amazon - plant","account":"Chase Sphire","amount":28.6},{"date":"03/19","category":"주유","desc":"주유","account":"Chase Marriott","amount":12.0},{"date":"03/19","category":"소모품","desc":"Amazon - Downy Spray","account":"Chase Sphire","amount":12.04},{"date":"03/19","category":"여행","desc":"여행 - Hmart","account":"Chase Sphire","amount":100.44},{"date":"03/19","category":"여행","desc":"여행 - Hmart","account":"Chase Sphire","amount":5.29},{"date":"03/19","category":"여행","desc":"여행 - Kroger","account":"Chase Sphire","amount":18.62},{"date":"03/19","category":"외식","desc":"저녁 - 삼봉","account":"Chase Sphire","amount":42.0},{"date":"03/20","category":"여행경비","desc":"여행 - Postcard cabin","account":"Chase Marriott","amount":192.92},{"date":"03/20","category":"주유","desc":"주유","account":"Chase Marriott","amount":46.7},{"date":"03/20","category":"여행","desc":"여행 - 술/음료","account":"Chase Sphire","amount":34.07},{"date":"03/20","category":"여행경비","desc":"여행 - Postcard cabin (Deduction)","account":"Chase Sphire","amount":-155.99},{"date":"03/21","category":"소모품","desc":"diptyque","account":"Chase Sphire","amount":86.92},{"date":"03/22","category":"식재료","desc":"hmart","account":"Chase Sphire","amount":13.66},{"date":"03/23","category":"식재료","desc":"tiger market","account":"Chase Sphire","amount":14.23},{"date":"03/24","category":"외식","desc":"점심 - chick fil a","account":"Chase Sphire","amount":12.6},{"date":"03/25","category":"외식","desc":"점심 - Panda Express","account":"Chase Sphire","amount":9.33},{"date":"03/25","category":"소모품","desc":"Amazon - bulb","account":"Chase Sphire","amount":36.02},{"date":"03/25","category":"음료","desc":"pocari","account":"Chase Sphire","amount":17.65},{"date":"03/25","category":"기타","desc":"회사명함","account":"Chase Sphire","amount":29.06},{"date":"03/25","category":"음료","desc":"음료","account":"Chase Sphire","amount":2.28},{"date":"03/26","category":"소모품","desc":"Amazon - power strip","account":"Chase Sphire","amount":22.05},{"date":"03/27","category":"헤어/뷰티","desc":"머리","account":"Chase","amount":63.0},{"date":"03/27","category":"주유","desc":"주유","account":"Chase Marriott","amount":24.33},{"date":"03/27","category":"식재료","desc":"Trader Joes","account":"Chase Sphire","amount":25.33},{"date":"03/27","category":"외식","desc":"저녁 - Kaishin Izakaya","account":"Chase Sphire","amount":282.68},{"date":"03/27","category":"주차비","desc":"Parking","account":"Chase Sphire","amount":2.0},{"date":"03/27","category":"외식","desc":"저녁 - Kaishin Izakaya (Deduction)","account":"Chase Sphire","amount":-74.34},{"date":"03/28","category":"식재료","desc":"Hmart","account":"Chase Sphire","amount":59.98},{"date":"03/28","category":"식재료","desc":"Aldi","account":"Chase Sphire","amount":1.09},{"date":"03/29","category":"외식","desc":"저녁 - Yardhouse","account":"Chase","amount":26.55},{"date":"03/30","category":"소모품","desc":"Diptyque","account":"Chase Sphire","amount":82.0},{"date":"03/31","category":"외식","desc":"저녁 - light cantine","account":"Chase Sphire","amount":28.52},{"date":"03/31","category":"주유","desc":"주유","account":"Chase Marriott","amount":12.36},{"date":"03/31","category":"주유","desc":"주유","account":"Chase Marriott","amount":38.11},{"date":"03/31","category":"주유","desc":"주유 (Deduction)","account":"Chase Marriott","amount":-1.22}],"4월":[{"date":"04/01","category":"세금/수수료","desc":"TurboTax","account":"Chase Sphire","amount":87.97},{"date":"04/01","category":"세금/수수료","desc":"TurboTax - Fedral","account":"Chase","amount":570.0},{"date":"04/01","category":"세금/수수료","desc":"TurboTax - State","account":"Chase","amount":-136.0},{"date":"04/01","category":"외식","desc":"점심 - Ford","account":"Chase Sphire","amount":12.19},{"date":"04/02","category":"차량등록","desc":"SOS - Title renew","account":"Chase","amount":190.0},{"date":"04/03","category":"외식","desc":"저녁 - 치맥","account":"Chase Sphire","amount":136.34},{"date":"04/03","category":"차량등록","desc":"SOS - License renew","account":"Chase","amount":25.0},{"date":"04/04","category":"렌터카","desc":"hertz","account":"Chase Sphire","amount":120.68},{"date":"04/04","category":"주차비","desc":"Parking","account":"Chase Sphire","amount":26.0},{"date":"04/04","category":"음료","desc":"음료","account":"Chase Sphire","amount":4.0},{"date":"04/04","category":"주유","desc":"주유","account":"Chase Sphire","amount":35.2},{"date":"04/04","category":"주유","desc":"주유 (Deduction)","account":"Chase Sphire","amount":-1.06},{"date":"04/05","category":"외식","desc":"점심 - Mcdonarld","account":"Chase Sphire","amount":11.12},{"date":"04/07","category":"식재료","desc":"Tiger Market","account":"Chase Sphire","amount":22.74},{"date":"04/08","category":"음료","desc":"음료","account":"Chase Sphire","amount":2.32},{"date":"04/08","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":12.72},{"date":"04/08","category":"주유","desc":"주유","account":"Chase Marriott","amount":36.61},{"date":"04/09","category":"주유","desc":"주유","account":"Chase Marriott","amount":38.81},{"date":"04/10","category":"운동/스포츠","desc":"Rockclimbing","account":"Chase Sphire","amount":23.0},{"date":"04/11","category":"간식/카페","desc":"간식","account":"Chase Sphire","amount":12.8},{"date":"04/11","category":"외식","desc":"저녁 - 마라랜드","account":"Chase Sphire","amount":47.69},{"date":"04/11","category":"외식","desc":"저녁 - 마라랜드","account":"Chase Sphire","amount":6.35},{"date":"04/11","category":"외식","desc":"저녁 - yardhouse","account":"Discover","amount":52.86},{"date":"04/11","category":"외식","desc":"저녁 - yardhouse","account":"Discover","amount":16.87},{"date":"04/12","category":"식재료","desc":"Hmart","account":"Chase Sphire","amount":59.7},{"date":"04/12","category":"간식/카페","desc":"간식","account":"Chase Sphire","amount":19.07},{"date":"04/15","category":"운동/스포츠","desc":"Pickleball","account":"Chase Sphire","amount":165.0},{"date":"04/15","category":"운동/스포츠","desc":"Pickleball (Deduction)","account":"Chase Sphire","amount":-165.0},{"date":"04/16","category":"외식","desc":"점심 - Ford","account":"Chase Sphire","amount":8.48},{"date":"04/16","category":"외식","desc":"점심 - Ford","account":"Chase Sphire","amount":1.59},{"date":"04/16","category":"식재료","desc":"meijer","account":"Chase Sphire","amount":31.84},{"date":"04/17","category":"외식","desc":"저녁 - Kpot","account":"Discover","amount":288.97},{"date":"04/17","category":"외식","desc":"저녁 - Kpot (Deduction)","account":"Discover","amount":-111.66},{"date":"04/17","category":"운동/스포츠","desc":"Pickleball","account":"Chase Sphire","amount":7.0},{"date":"04/17","category":"외식","desc":"저녁 - Kpot (Deduction)","account":"Discover","amount":-60.0},{"date":"04/18","category":"외식","desc":"저녁 - Cibo","account":"Discover","amount":176.4},{"date":"04/18","category":"취미","desc":"Popmart","account":"Chase Sphire","amount":48.22},{"date":"04/18","category":"식재료","desc":"costco","account":"Chase Sphire","amount":15.59},{"date":"04/18","category":"식재료","desc":"costco","account":"Chase Sphire","amount":6.36},{"date":"04/18","category":"주차비","desc":"Parking","account":"Chase Sphire","amount":1.65},{"date":"04/18","category":"주유","desc":"주유","account":"Chase Marriott","amount":46.08},{"date":"04/20","category":"간식/카페","desc":"Paris Baguette","account":"Chase Sphire","amount":25.19},{"date":"04/20","category":"외식","desc":"점심 - Chick fil a","account":"Chase Sphire","amount":12.18},{"date":"04/22","category":"외식","desc":"점심 - Ford","account":"Chase Sphire","amount":12.19},{"date":"04/22","category":"외식","desc":"저녁","account":"Chase Sphire","amount":13.77},{"date":"04/23","category":"외식","desc":"저녁 - 누리포차","account":"Discover","amount":88.99},{"date":"04/23","category":"외식","desc":"저녁 - 누리포차 (Deduction)","account":"Discover","amount":-58.0},{"date":"04/25","category":"술/유흥","desc":"술","account":"Chase Sphire","amount":79.89},{"date":"04/25","category":"패스트푸드","desc":"Mcdonald","account":"Chase Sphire","amount":8.88},{"date":"04/27","category":"주유","desc":"주유","account":"Chase Marriott","amount":52.93},{"date":"04/28","category":"세금/수수료","desc":"House Inspection","account":"Chase","amount":800.0},{"date":"04/30","category":"여행경비","desc":"시카고 여행","account":"Chase","amount":176.02},{"date":"04/30","category":"패스트푸드","desc":"Mcdonald","account":"Chase Sphire","amount":8.36},{"date":"04/30","category":"패스트푸드","desc":"Mcdonald","account":"Chase Sphire","amount":4.12}],"5월":[{"date":"05/01","category":"외식","desc":"저녁","account":"Chase","amount":50.0},{"date":"05/02","category":"가구/가전","desc":"의자 (동현씨)","account":"Chase","amount":60.0},{"date":"05/02","category":"운동/스포츠","desc":"climbing","account":"Chase Sphire","amount":23.0},{"date":"05/02","category":"간식/카페","desc":"tous les jours","account":"Chase Sphire","amount":29.64},{"date":"05/03","category":"식재료","desc":"hmart","account":"Chase Sphire","amount":89.06},{"date":"05/05","category":"세금/수수료","desc":"appraisal","account":"Chase Marriott","amount":530.0},{"date":"05/05","category":"주유","desc":"주유","account":"Chase Marriott","amount":48.6},{"date":"05/05","category":"게임","desc":"Riot Games","account":"Discover","amount":11.65},{"date":"05/06","category":"외식","desc":"점심 - chick fil a","account":"Chase Sphire","amount":12.18},{"date":"05/06","category":"간식/카페","desc":"간식","account":"Chase Sphire","amount":3.0},{"date":"05/07","category":"차량수리/부품","desc":"자동차 부품","account":"Chase Sphire","amount":126.56},{"date":"05/07","category":"차량수리/부품","desc":"자동차 부품","account":"Chase Sphire","amount":148.32},{"date":"05/07","category":"차량수리/부품","desc":"자동차 부품","account":"Chase Sphire","amount":561.98},{"date":"05/07","category":"주유","desc":"주유","account":"Chase Marriott","amount":31.52},{"date":"05/07","category":"패스트푸드","desc":"Mcdonald","account":"Chase Sphire","amount":3.91},{"date":"05/08","category":"외식","desc":"점심 - 출장","account":"Chase Sphire","amount":11.66},{"date":"05/08","category":"주차비","desc":"parking","account":"Chase Sphire","amount":2.6},{"date":"05/08","category":"주차비","desc":"parking","account":"Chase Sphire","amount":1.1},{"date":"05/08","category":"외식","desc":"저녁","account":"Discover","amount":18.02},{"date":"05/09","category":"간식/카페","desc":"커피","account":"Chase Sphire","amount":24.85},{"date":"05/10","category":"간식/카페","desc":"아이스크림","account":"Chase Sphire","amount":5.82},{"date":"05/10","category":"헤어/뷰티","desc":"머리","account":"Chase","amount":135.0},{"date":"05/12","category":"주유","desc":"주유","account":"Chase Marriott","amount":56.99},{"date":"05/13","category":"소모품","desc":"Amazon - 차수리","account":"Chase Sphire","amount":16.73},{"date":"05/13","category":"소모품","desc":"Amazon - 차수리","account":"Chase Sphire","amount":7.41},{"date":"05/15","category":"전자제품","desc":"Stacksocial","account":"Chase Sphire","amount":11.96},{"date":"05/15","category":"전자제품","desc":"Stacksocial","account":"Chase Sphire","amount":105.97},{"date":"05/15","category":"운동/스포츠","desc":"climbing","account":"Chase Sphire","amount":23.0},{"date":"05/15","category":"간식/카페","desc":"tous les jours","account":"Chase Sphire","amount":25.08},{"date":"05/16","category":"외식","desc":"저녁 - Hanzo","account":"Chase Marriott","amount":91.91},{"date":"05/16","category":"소모품","desc":"Amazon - 차수리","account":"Chase Sphire","amount":19.03},{"date":"05/17","category":"식재료","desc":"hmart","account":"Chase Sphire","amount":58.35},{"date":"05/17","category":"간식/카페","desc":"아이스크림","account":"Chase Sphire","amount":6.89},{"date":"05/18","category":"주유","desc":"주유","account":"Chase Marriott","amount":62.75},{"date":"05/18","category":"패스트푸드","desc":"Mcdonald","account":"Chase Sphire","amount":7.6},{"date":"05/18","category":"패스트푸드","desc":"Mcdonald","account":"Chase Sphire","amount":3.91},{"date":"05/19","category":"주유","desc":"주유","account":"Chase Marriott","amount":56.53},{"date":"05/19","category":"주차비","desc":"parking","account":"Chase Sphire","amount":2.6},{"date":"05/19","category":"소모품","desc":"Amazon - 바트간식","account":"Chase Sphire","amount":19.48},{"date":"05/20","category":"외식","desc":"점심","account":"Chase Sphire","amount":6.89},{"date":"05/22","category":"술/유흥","desc":"콘서트 맥주","account":"Chase Sphire","amount":39.19},{"date":"05/22","category":"술/유흥","desc":"콘서트 맥주","account":"Chase Sphire","amount":18.8}]};
@@ -1085,37 +1300,981 @@ function _drawBarHighlight(cvs, id, idx) {
   const cssH = cvs._cssH || cvs.height;
   ctx2.fillStyle = 'rgba(255,255,255,0.055)';
   ctx2.fillRect(z.x, 0, z.w, cssH);
-  ctx2.fillStyle = 'rgba(255,2
 }
 
-// ── 탭 전환 메인 컨트롤러 ─────────────────────────────────
-function gotoMonth(idx) {
-  const isAll = idx === -1;
-  document.querySelectorAll('#tabs .tab').forEach(t => {
-    t.classList.toggle('active', parseInt(t.dataset.month) === idx);
-  });
-  document.getElementById('wealthTrendWrap').style.display  = isAll ? 'none' : '';
-  document.getElementById('allMonthBarWrap').style.display  = isAll ? ''     : 'none';
-  document.getElementById('txPanel').style.display          = isAll ? 'none' : '';
-  document.getElementById('allSummaryPanel').style.display  = isAll ? ''     : 'none';
-  if (isAll) {
-    renderAllKPI(); renderAllMonthBar(); renderAllIncomeExpense();
-    renderPie(-1); renderCategoryBars(-1); renderAccountTable(-1); renderAllSummaryTable();
-    document.getElementById('accountPanel').style.display = 'none';
-  } else {
-    currentMonth = idx;
-    renderKPI(idx); renderWealthTrend(); renderIncomeExpense();
-    renderPie(idx); renderCategoryBars(idx); renderAccountTable(idx);
-    renderTxTable(idx); renderVarTxTable(idx);
-    document.getElementById('accountPanel').style.display = '';
+// ── 캔버스 이벤트 등록 (hover/touch) ─────────────────────────────
+function _regCanvasEvents(id) {
+  const cvs = document.getElementById(id);
+  if (!cvs || cvs._evRegistered) return;
+  cvs._evRegistered = true;
+  let lastIdx = -1;
+
+  function handle(e) {
+    const rect = cvs.getBoundingClientRect();
+    let cx, cy;
+    if (e.touches && e.touches.length) {
+      cx = e.touches[0].clientX - rect.left;
+      cy = e.touches[0].clientY - rect.top;
+    } else {
+      cx = e.clientX - rect.left;
+      cy = e.clientY - rect.top;
+    }
+    const hit = _hitTest(cvs, id, cx, cy);
+    if (hit) {
+      if (hit.idx !== lastIdx) {
+        lastIdx = hit.idx;
+        if (hit.kind === 'pie') _drawPieHighlight(cvs, id, hit.idx);
+        else _drawBarHighlight(cvs, id, hit.idx);
+      }
+      _tt.innerHTML = hit.html;
+      _tt.classList.add('vis');
+      const ttW = 220;
+      let tx = e.clientX + 14, ty = e.clientY - 40;
+      if (tx + ttW > window.innerWidth) tx = e.clientX - ttW - 14;
+      if (ty < 0) ty = 10;
+      _tt.style.left = tx + 'px';
+      _tt.style.top  = ty + 'px';
+    } else {
+      if (lastIdx !== -1) {
+        lastIdx = -1;
+        if (_snap[id]) cvs.getContext('2d').putImageData(_snap[id], 0, 0);
+      }
+      _tt.classList.remove('vis');
+    }
   }
+
+  cvs.addEventListener('mousemove', handle);
+  cvs.addEventListener('mouseleave', () => {
+    lastIdx = -1;
+    if (_snap[id]) cvs.getContext('2d').putImageData(_snap[id], 0, 0);
+    _tt.classList.remove('vis');
+  });
+  cvs.addEventListener('touchstart', e => { e.preventDefault(); handle(e); }, {passive:false});
+  cvs.addEventListener('touchmove',  e => { e.preventDefault(); handle(e); }, {passive:false});
+  cvs.addEventListener('touchend',   () => setTimeout(() => _tt.classList.remove('vis'), 1400));
 }
+
+// ── 범용 막대 차트 ────────────────────────────────────────────────
+function drawBarChart(id, labels, datasets, opts = {}) {
+  const ctx = setupCanvas(id);
+  const cvs = document.getElementById(id);
+  const W = cvs._cssW, H = cvs._cssH;
+  const pad = {top:28, right:16, bottom:36, left:54};
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+  const n = labels.length;
+  const dsLen = datasets.length;
+  if (n === 0) return;
+
+  let maxV = 0, minV = 0;
+  datasets.forEach(ds => ds.data.forEach(v => { if (v > maxV) maxV = v; if (v < minV) minV = v; }));
+  if (maxV === 0 && minV === 0) maxV = 1;
+  const span = maxV - minV || 1;
+  const yBase = pad.top + chartH - (-minV / span) * chartH;
+
+  // Grid
+  const gridN = 4;
+  for (let g = 0; g <= gridN; g++) {
+    const v = minV + span * g / gridN;
+    const y = pad.top + (1 - (v - minV) / span) * chartH;
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + chartW, y); ctx.stroke();
+    ctx.fillStyle = '#666'; ctx.font = '10px -apple-system,sans-serif'; ctx.textAlign = 'right';
+    const lbl = Math.abs(v) >= 1000 ? '$' + (v/1000).toFixed(1)+'k' : '$' + Math.round(v);
+    ctx.fillText(lbl, pad.left - 4, y + 4);
+  }
+
+  const groupW = chartW / n;
+  const barGap = 3;
+  const barW = Math.max(5, (groupW - barGap * 2) / dsLen - barGap);
+  const zones = [];
+
+  datasets.forEach((ds, di) => {
+    ds.data.forEach((v, i) => {
+      if (v === null || v === undefined) return;
+      const color = Array.isArray(ds.color) ? ds.color[i] : (ds.color || '#10b981');
+      const rgb = hexToRgb(color);
+      const barH = Math.abs(v) / span * chartH;
+      const x = pad.left + i * groupW + barGap + di * (barW + barGap);
+      const y = v >= 0 ? yBase - barH : yBase;
+      const grad = ctx.createLinearGradient(x, y, x, y + barH);
+      grad.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},0.92)`);
+      grad.addColorStop(1, `rgba(${rgb.r},${rgb.g},${rgb.b},0.5)`);
+      ctx.beginPath(); ctx.roundRect(x, y, barW, Math.max(2, barH), 3);
+      ctx.fillStyle = grad; ctx.fill();
+
+      const zoneX = pad.left + i * groupW;
+      zones.push({
+        x: zoneX, y: pad.top, w: groupW, h: chartH,
+        html: _ttHtml(labels[i], datasets.map(d2 => ({
+          color: Array.isArray(d2.color) ? d2.color[i] : d2.color,
+          label: d2.label,
+          val: d2.data[i] !== undefined ? fmt(d2.data[i]) : '-'
+        })))
+      });
+    });
+  });
+
+  // Deduplicate zones by x
+  const seen = new Set();
+  const uniqueZones = zones.filter(z => { const k = z.x; if (seen.has(k)) return false; seen.add(k); return true; });
+
+  // Zero line
+  if (minV < 0 && maxV > 0) {
+    ctx.strokeStyle = 'rgba(255,255,255,0.15)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.left, yBase); ctx.lineTo(pad.left + chartW, yBase); ctx.stroke();
+  }
+
+  // X labels
+  ctx.fillStyle = '#888'; ctx.font = '11px -apple-system,sans-serif'; ctx.textAlign = 'center';
+  labels.forEach((lbl, i) => { ctx.fillText(lbl, pad.left + i * groupW + groupW / 2, H - 8); });
+
+  _setHz(id, uniqueZones);
+  _saveSnap(id);
+  _regCanvasEvents(id);
+}
+
+// ── 범용 라인 차트 ────────────────────────────────────────────────
+function drawLineChart(id, labels, datasets, opts = {}) {
+  const ctx = setupCanvas(id);
+  const cvs = document.getElementById(id);
+  const W = cvs._cssW, H = cvs._cssH;
+  const pad = {top:28, right:24, bottom:36, left:60};
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+  const n = labels.length;
+  if (n === 0) return;
+
+  let maxV = -Infinity, minV = Infinity;
+  datasets.forEach(ds => ds.data.forEach(v => { if (v !== null && v !== undefined) { maxV = Math.max(maxV, v); minV = Math.min(minV, v); } }));
+  if (!isFinite(maxV)) { maxV = 1; minV = 0; }
+  if (maxV === minV) { maxV += 1; minV -= 1; }
+  const padA = (maxV - minV) * 0.1;
+  const realMax = maxV + padA, realMin = minV - padA;
+  const realSpan = realMax - realMin;
+
+  const xP = i => pad.left + (i / Math.max(n - 1, 1)) * chartW;
+  const yP = v => pad.top + (1 - (v - realMin) / realSpan) * chartH;
+
+  // Grid
+  const gridN = 4;
+  for (let g = 0; g <= gridN; g++) {
+    const v = realMin + realSpan * g / gridN;
+    const y = yP(v);
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + chartW, y); ctx.stroke();
+    ctx.fillStyle = '#666'; ctx.font = '10px -apple-system,sans-serif'; ctx.textAlign = 'right';
+    const lbl = Math.abs(v) >= 1000 ? '$' + (v/1000).toFixed(0)+'k' : '$'+Math.round(v);
+    ctx.fillText(lbl, pad.left - 5, y + 4);
+  }
+
+  datasets.forEach(ds => {
+    const color = ds.color || '#10b981';
+    const rgb = hexToRgb(color);
+    const pts = ds.data.map((v, i) => v !== null && v !== undefined ? {x: xP(i), y: yP(v)} : null);
+
+    // Area
+    if (opts.fill !== false && pts.some(p => p)) {
+      const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + chartH);
+      grad.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},0.2)`);
+      grad.addColorStop(1, `rgba(${rgb.r},${rgb.g},${rgb.b},0.0)`);
+      ctx.beginPath();
+      let first = true;
+      pts.forEach((p, i) => {
+        if (!p) return;
+        if (first) { ctx.moveTo(p.x, pad.top + chartH); ctx.lineTo(p.x, p.y); first = false; }
+        else ctx.lineTo(p.x, p.y);
+      });
+      const lastP = pts.filter(p => p).pop();
+      if (lastP) { ctx.lineTo(lastP.x, pad.top + chartH); }
+      ctx.closePath(); ctx.fillStyle = grad; ctx.fill();
+    }
+
+    // Line
+    ctx.beginPath(); ctx.strokeStyle = color; ctx.lineWidth = 2.5;
+    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    let fl = true;
+    pts.forEach(p => { if (!p) return; if (fl) { ctx.moveTo(p.x, p.y); fl = false; } else ctx.lineTo(p.x, p.y); });
+    ctx.stroke();
+
+    // Dots
+    pts.forEach(p => {
+      if (!p) return;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 3.5, 0, Math.PI*2);
+      ctx.fillStyle = color; ctx.fill();
+      ctx.strokeStyle = '#0c1210'; ctx.lineWidth = 1.5; ctx.stroke();
+    });
+  });
+
+  // X labels
+  ctx.fillStyle = '#888'; ctx.font = '11px -apple-system,sans-serif'; ctx.textAlign = 'center';
+  labels.forEach((lbl, i) => ctx.fillText(lbl, xP(i), H - 8));
+
+  // Hover zones
+  const zones = labels.map((lbl, i) => {
+    const halfW = n > 1 ? chartW / (n - 1) / 2 : chartW / 2;
+    return {
+      x: xP(i) - halfW, y: pad.top, w: halfW * 2, h: chartH,
+      html: _ttHtml(lbl, datasets.map(ds => ({
+        color: ds.color,
+        label: ds.label,
+        val: ds.data[i] !== null && ds.data[i] !== undefined ? fmt(ds.data[i]) : '-'
+      })))
+    };
+  });
+  _setHz(id, zones);
+  _saveSnap(id);
+  _regCanvasEvents(id);
+}
+
+// ── 도넛 차트 ────────────────────────────────────────────────────
+function drawPieChart(id, slices, opts = {}) {
+  const ctx = setupCanvas(id);
+  const cvs = document.getElementById(id);
+  const W = cvs._cssW, H = cvs._cssH;
+  const cx = W / 2, cy = H / 2;
+  const outerR = Math.min(W, H) * 0.37;
+  const innerR = outerR * 0.56;
+  const total = slices.reduce((s, sl) => s + (sl.value || 0), 0);
+  if (total === 0) {
+    ctx.fillStyle = '#555'; ctx.font = '13px -apple-system,sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText('데이터 없음', cx, cy); return;
+  }
+
+  let angle = -Math.PI / 2;
+  const pSlices = [], pAngles = [];
+
+  slices.forEach(sl => {
+    const sweep = (sl.value / total) * Math.PI * 2;
+    const s = angle, e = angle + sweep;
+    const color = sl.color || '#9ca3af';
+    const rgb = hexToRgb(color);
+    ctx.beginPath(); ctx.moveTo(cx, cy);
+    ctx.arc(cx, cy, outerR, s, e); ctx.closePath();
+    const grad = ctx.createRadialGradient(cx, cy, innerR*0.5, cx, cy, outerR);
+    grad.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},0.65)`);
+    grad.addColorStop(1, `rgba(${rgb.r},${rgb.g},${rgb.b},0.95)`);
+    ctx.fillStyle = grad; ctx.fill();
+    ctx.strokeStyle = '#0c1210'; ctx.lineWidth = 2; ctx.stroke();
+
+    pSlices.push({
+      s: _normAngle(s + Math.PI/2 + 0.02),
+      e: _normAngle(e + Math.PI/2 - 0.02),
+      html: _ttHtml(sl.label, [{color, label: sl.label, val: `${fmt(sl.value)} (${((sl.value/total)*100).toFixed(1)}%)`}])
+    });
+    pAngles.push({rawStart: s, sweep, color});
+    angle += sweep;
+  });
+
+  // Hole
+  ctx.beginPath(); ctx.arc(cx, cy, innerR, 0, Math.PI*2);
+  ctx.fillStyle = '#0c1210'; ctx.fill();
+
+  // Center text
+  ctx.fillStyle = '#999'; ctx.font = '11px -apple-system,sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('생활지출', cx, cy - 7);
+  ctx.fillStyle = '#fff'; ctx.font = 'bold 13px -apple-system,sans-serif';
+  ctx.fillText(fmt(total), cx, cy + 11);
+
+  // Right legend if space, else bottom
+  const legX = cx + outerR + 12;
+  if (legX + 75 < W) {
+    let ly = cy - slices.length * 9;
+    slices.forEach(sl => {
+      ctx.fillStyle = sl.color; ctx.fillRect(legX, ly - 5, 7, 7);
+      ctx.fillStyle = '#aaa'; ctx.font = '10px -apple-system,sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText(`${sl.label} ${((sl.value/total)*100).toFixed(0)}%`, legX + 10, ly + 2);
+      ly += 18;
+    });
+  } else {
+    const colN = 3, colW = Math.floor(W / colN);
+    slices.forEach((sl, si) => {
+      const lx = (si % colN) * colW + 6;
+      const ly = cy + outerR + 12 + Math.floor(si / colN) * 15;
+      if (ly + 10 > H) return;
+      ctx.fillStyle = sl.color; ctx.fillRect(lx, ly - 6, 6, 6);
+      ctx.fillStyle = '#999'; ctx.font = '9px -apple-system,sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText(sl.label, lx + 9, ly);
+    });
+  }
+
+  _setPz(id, {cx, cy, outerR, innerR, slices: pSlices});
+  _pieAngles[id] = pAngles;
+  _saveSnap(id);
+  _regCanvasEvents(id);
+}
+
+// ── 카테고리 바 ───────────────────────────────────────────────────
+const EXCL_CATS = new Set(['저축/투자']);
+function renderCategoryBars(d) {
+  const el = document.getElementById('categoryBars');
+  if (!el) return;
+  const cats = Object.entries(d.categories)
+    .filter(([k, v]) => !EXCL_CATS.has(k) && v > 0)
+    .sort((a, b) => b[1] - a[1]);
+  const maxA = cats[0]?.[1] || 1;
+  el.innerHTML = cats.map(([name, amt]) => {
+    const pct = Math.max(4, (amt / maxA) * 100);
+    const color = CAT_COLORS[name] || '#9ca3af';
+    return `<div class="cat-row">
+      <div class="cat-name">${name}</div>
+      <div class="cat-bar-wrap"><div class="cat-bar" style="width:${pct.toFixed(1)}%;background:${color}"></div></div>
+      <div class="cat-amount">${fmt(amt)}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── 계좌 테이블 ───────────────────────────────────────────────────
+function renderAccountTable(d) {
+  const tbody = document.getElementById('accountTable');
+  if (!tbody) return;
+  const accts = d.accounts.filter(a => Math.abs(a.balance)+a.income+a.expense > 0);
+  tbody.innerHTML = accts.map(a => {
+    const balColor = a.balance >= 0 ? '#10b981' : '#f87171';
+    const typeClass = SAVE_ACCTS.includes(a.name) ? 'badge-green' : 'badge-blue';
+    return `<tr>
+      <td><span class="badge ${typeClass}">${a.name}</span></td>
+      <td style="color:${balColor};font-variant-numeric:tabular-nums">${fmt(a.balance)}</td>
+      <td style="color:#10b981;font-variant-numeric:tabular-nums">${a.income > 0 ? '+'+fmt(a.income) : '-'}</td>
+      <td style="color:#f87171;font-variant-numeric:tabular-nums">${a.expense > 0 ? fmt(a.expense) : '-'}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── 고정지출 테이블 ───────────────────────────────────────────────
+function renderFixedTxTable(d) {
+  const tbody = document.getElementById('txTable');
+  if (!tbody) return;
+  const rows = d.fixed_tx || [];
+  if (rows.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" style="color:#555;text-align:center;padding:18px">고정지출 없음</td></tr>'; return;
+  }
+  tbody.innerHTML = rows.map(tx => {
+    const color = CAT_COLORS[tx.category] || '#9ca3af';
+    return `<tr>
+      <td style="color:#777;font-variant-numeric:tabular-nums">${tx.date}</td>
+      <td><span class="badge" style="background:rgba(128,128,128,0.1);color:${color}">${tx.sub || tx.category}</span></td>
+      <td style="color:#ccc">${tx.desc}</td>
+      <td style="color:${tx.amount<0?'#10b981':'#f87171'};text-align:right;font-variant-numeric:tabular-nums">${fmt(tx.amount)}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── 비고정지출 테이블 ─────────────────────────────────────────────
+function renderVarTxTable(d) {
+  const tbody = document.getElementById('varTxTable');
+  if (!tbody) return;
+  const rows = [...(d.var_tx || [])].sort((a,b) => a.date.localeCompare(b.date));
+  if (rows.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="4" style="color:#555;text-align:center;padding:18px">비고정지출 없음</td></tr>'; return;
+  }
+  tbody.innerHTML = rows.map(tx => {
+    const color = CAT_COLORS[tx.category] || '#9ca3af';
+    return `<tr>
+      <td style="color:#777;font-variant-numeric:tabular-nums">${tx.date}</td>
+      <td><span class="badge" style="background:rgba(128,128,128,0.1);color:${color}">${tx.category}</span></td>
+      <td style="color:#ccc">${tx.desc}</td>
+      <td style="color:${tx.amount<0?'#10b981':'#f87171'};text-align:right;font-variant-numeric:tabular-nums">${fmt(tx.amount)}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── 전체 요약 테이블 ──────────────────────────────────────────────
+function renderAllSummaryTable() {
+  const tbody = document.getElementById('allSummaryTable');
+  if (!tbody) return;
+  const sorted = sortByMonth(DATA);
+  const last = sorted.length - 1;
+  tbody.innerHTML = sorted.map((d, i) => {
+    const isCur = i === last;
+    const net = d.income - d.living_expense;
+    const netCls = net >= 0 ? 'savings-positive' : 'savings-negative';
+    const svCls  = d.savings_net >= 0 ? 'savings-positive' : 'savings-negative';
+    return `<tr class="${isCur ? 'month-highlight' : ''}">
+      <td style="font-weight:${isCur?700:400};color:${isCur?'#10b981':'#ccc'}">${d.month}${isCur?' ●':''}</td>
+      <td style="color:#10b981;font-variant-numeric:tabular-nums">${fmt(d.income)}</td>
+      <td style="color:#f87171;font-variant-numeric:tabular-nums">${fmt(d.living_expense)}</td>
+      <td class="${netCls}" style="font-variant-numeric:tabular-nums">${net>=0?'+':''}${fmt(net)}</td>
+      <td class="${svCls}"  style="font-variant-numeric:tabular-nums">${d.savings_net>=0?'+':''}${fmt(d.savings_net)}</td>
+      <td style="color:#6ee7b7;font-variant-numeric:tabular-nums">${fmt(d.total_wealth)}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── 전체 KPI ─────────────────────────────────────────────────────
+function renderAllKPI() {
+  const sorted = sortByMonth(DATA);
+  const totIncome  = sorted.reduce((s,d) => s + d.income, 0);
+  const totExpense = sorted.reduce((s,d) => s + d.living_expense, 0);
+  const latestW    = sorted[sorted.length-1]?.total_wealth || 0;
+  const firstW     = sorted[0]?.total_wealth || 0;
+  const wGain      = latestW - firstW;
+  const totSv      = sorted.reduce((s,d) => s + d.savings_net, 0);
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi-card purple">
+      ${_kpiEye('wealth')}
+      <div class="kpi-label">현재 총재산</div>
+      ${_kpiVal('wealth', fmt(latestW))}
+      ${_kpiRevealed.wealth ? `<div class="kpi-badge ${wGain>=0?'up':'down'}">${wGain>=0?'▲':'▼'} ${fmt(Math.abs(wGain))} YTD</div>` : ''}
+    </div>
+    <div class="kpi-card green">
+      ${_kpiEye('income')}
+      <div class="kpi-label">연간 총수입</div>
+      ${_kpiVal('income', fmt(totIncome), 'green-text')}
+      <div class="kpi-sub">${sorted.length}개월 합계</div>
+    </div>
+    <div class="kpi-card red">
+      ${_kpiEye('expense')}
+      <div class="kpi-label">연간 생활지출</div>
+      ${_kpiVal('expense', fmt(totExpense), 'red-text')}
+      <div class="kpi-sub">저축/투자 제외</div>
+    </div>
+    <div class="kpi-card blue">
+      ${_kpiEye('savings')}
+      <div class="kpi-label">저축 순유입 합계</div>
+      ${_kpiVal('savings', fmt(totSv), totSv>=0?'green-text':'red-text')}
+      <div class="kpi-sub">투자·저축 계좌 순변동</div>
+    </div>`;
+}
+
+// ── 재산 추이 라인 차트 ───────────────────────────────────────────
+function renderWealthTrend() {
+  const sorted = sortByMonth(DATA);
+  drawLineChart('wealthTrendChart', sorted.map(d => d.month), [
+    {label:'총재산',   data: sorted.map(d => d.total_wealth), color: WEALTH_COL},
+    {label:'저축/투자', data: sorted.map(d => d.savings),     color: SAVINGS_COL},
+  ], {fill: true});
+}
+
+// ── 전체 월별 막대 차트 ───────────────────────────────────────────
+function renderAllMonthBar() {
+  const sorted = sortByMonth(DATA);
+  drawBarChart('allMonthBarChart', sorted.map(d => d.month), [
+    {label:'수입',     data: sorted.map(d => d.income),        color: INCOME_COL},
+    {label:'생활지출', data: sorted.map(d => d.living_expense), color: EXPENSE_COL},
+    {label:'순저축',   data: sorted.map(d => d.savings_net),    color: SAVINGS_COL},
+  ]);
+}
+
+// ── 이번 달 수입/지출 바 (누적) ──────────────────────────────────
+function renderIncomeExpenseBar(idx) {
+  const sorted = sortByMonth(DATA);
+  const curMonth = DATA[idx].month;
+  const upto = sorted.filter(d => parseMonth(d.month) <= parseMonth(curMonth));
+  drawBarChart('incomeExpenseChart', upto.map(d => d.month), [
+    {label:'수입',     data: upto.map(d => d.income),        color: INCOME_COL},
+    {label:'생활지출', data: upto.map(d => d.living_expense), color: EXPENSE_COL},
+  ]);
+  document.getElementById('incomeChartTitle').textContent = '월별 수입 vs 지출';
+}
+
+// ── 카테고리 파이 차트 ────────────────────────────────────────────
+function renderCategoryPie(idx) {
+  const d = DATA[idx];
+  const slices = Object.entries(d.categories)
+    .filter(([k, v]) => !EXCL_CATS.has(k) && v > 0)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name, value]) => ({label: name, value, color: CAT_COLORS[name] || '#9ca3af'}));
+  drawPieChart('categoryPieChart', slices);
+  document.getElementById('pieChartTitle').textContent = `${d.month} 생활지출 구성`;
+}
+
+// ── 모바일 스와이프 닷 ────────────────────────────────────────────
+function buildSwipeDots() {
+  const deck = document.getElementById('cardsDeck');
+  const dotsEl = document.getElementById('swipeDots');
+  if (!deck || !dotsEl) return;
+  const cards = Array.from(deck.querySelectorAll('.chart-card, .table-card'));
+  if (!cards.length) { dotsEl.innerHTML = ''; return; }
+  dotsEl.innerHTML = cards.map((_, i) => `<div class="swipe-dot${i===0?' active':''}" data-i="${i}"></div>`).join('');
+
+  function updateDots() {
+    const cW = (cards[0]?.offsetWidth || 200) + 12;
+    const active = Math.round(deck.scrollLeft / cW);
+    dotsEl.querySelectorAll('.swipe-dot').forEach((d, i) => d.classList.toggle('active', i === active));
+    const lbl = document.getElementById('swipePageLabel');
+    if (lbl && cards[active]) lbl.textContent = cards[active].dataset.pageLabel || '';
+  }
+  deck.removeEventListener('scroll', deck._dotHandler);
+  deck._dotHandler = updateDots;
+  deck.addEventListener('scroll', updateDots, {passive: true});
+  dotsEl.querySelectorAll('.swipe-dot').forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const cW = (cards[0]?.offsetWidth || 200) + 12;
+      deck.scrollTo({left: i * cW, behavior: 'smooth'});
+    });
+  });
+}
+
+// ── 월별 뷰 렌더 ──────────────────────────────────────────────────
+function renderMonthView(idx) {
+  currentMonth = idx;
+  renderKPI(idx);
+  renderWealthTrend();
+  renderIncomeExpenseBar(idx);
+  renderCategoryPie(idx);
+  renderCategoryBars(DATA[idx]);
+  renderAccountTable(DATA[idx]);
+  renderFixedTxTable(DATA[idx]);
+  renderVarTxTable(DATA[idx]);
+
+  document.getElementById('wealthTrendWrap').style.display  = '';
+  document.getElementById('allMonthBarWrap').style.display  = 'none';
+  document.getElementById('txPanel').style.display          = '';
+  document.getElementById('allSummaryPanel').style.display  = 'none';
+  document.getElementById('accountPanel').style.display     = '';
+
+  // Tx 서브탭 초기화 (고정지출)
+  document.getElementById('fixedTxWrap').style.display = '';
+  document.getElementById('varTxWrap').style.display   = 'none';
+  document.getElementById('tabFixed').classList.add('active');
+  document.getElementById('tabVar').classList.remove('active');
+
+  buildSwipeDots();
+}
+
+// ── 전체 뷰 렌더 ─────────────────────────────────────────────────
+function renderAllView() {
+  renderAllKPI();
+  renderWealthTrend();
+  renderAllMonthBar();
+  renderAllSummaryTable();
+
+  document.getElementById('wealthTrendWrap').style.display  = '';
+  document.getElementById('allMonthBarWrap').style.display  = '';
+  document.getElementById('txPanel').style.display          = 'none';
+  document.getElementById('allSummaryPanel').style.display  = '';
+  document.getElementById('accountPanel').style.display     = 'none';
+  document.getElementById('categoryBars').innerHTML         = '';
+
+  buildSwipeDots();
+}
+
+// ── 탭 전환 ──────────────────────────────────────────────────────
 document.getElementById('tabs').addEventListener('click', e => {
   const tab = e.target.closest('[data-month]');
-  if (tab) gotoMonth(parseInt(tab.dataset.month));
+  if (!tab) return;
+  document.querySelectorAll('#tabs .tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  const m = parseInt(tab.dataset.month, 10);
+  if (m === -1) renderAllView();
+  else renderMonthView(m);
 });
-document.getElementById('tabFixed').addEventListener('click', () => switchTxTab('fixed'));
-document.getElementById('tabVar').addEventListener('click',   () => switchTxTab('var'));
-document.addEventListener('DOMContentLoaded', () => { gotoMonth(currentMonth); });
+
+// ── 지출 서브탭 ───────────────────────────────────────────────────
+document.getElementById('tabFixed').addEventListener('click', () => {
+  document.getElementById('tabFixed').classList.add('active');
+  document.getElementById('tabVar').classList.remove('active');
+  document.getElementById('fixedTxWrap').style.display = '';
+  document.getElementById('varTxWrap').style.display   = 'none';
+});
+document.getElementById('tabVar').addEventListener('click', () => {
+  document.getElementById('tabVar').classList.add('active');
+  document.getElementById('tabFixed').classList.remove('active');
+  document.getElementById('varTxWrap').style.display   = '';
+  document.getElementById('fixedTxWrap').style.display = 'none';
+});
+
+// ── FAB + 입력 모달 ───────────────────────────────────────────────
+const _inpModal = document.getElementById('inpModal');
+document.getElementById('fabAdd').addEventListener('click', () => {
+  _inpModal.style.display = 'flex';
+  setTimeout(() => document.getElementById('inpAmountInput').focus(), 100);
+});
+document.getElementById('inpCloseBtn').addEventListener('click', () => { _inpModal.style.display = 'none'; });
+_inpModal.addEventListener('click', e => { if (e.target === _inpModal) _inpModal.style.display = 'none'; });
+
+// ── 입력 모달: Apps Script URL (가계부_입력.html과 동일) ──────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAm7nb_YR1LKVOGvHl48HYlfFCwpZEjgiw6oCHXGtENK17BkvjVO7JZEhnsQrUy7-a/exec';
+
+// 카테고리 정의 (가계부_입력.html과 동일하게 유지)
+const VAR_CATS = {
+  '식비':       ['식재료','외식','패스트푸드','간식/카페','음료','배달음식','술/유흥'],
+  '생활용품':   ['가구/가전','전자제품','소모품','주방/욕실','인테리어/청소'],
+  '의복/미용':  ['의류/신발','헤어/뷰티','악세서리'],
+  '건강/의료':  ['병원/의약','운동/스포츠'],
+  '문화/여가':  ['문화생활','취미','게임','도박/경기'],
+  '여행':       ['항공권','숙박','렌터카','여행경비'],
+  '차량유지비': ['주유','차량수리/부품','세차','주차비','대중교통','차량등록'],
+  '경조사/회비':['선물','모임/회비','데이트'],
+  '기타':       ['출장비','세금/수수료','기타'],
+};
+const FIX_CATS = {
+  '주거비':    ['렌트비','유틸리티'],
+  '통신비':    ['인터넷','핸드폰'],
+  '보험':      ['자동차보험','렌터보험','생명/의료보험'],
+  '대출':      ['자동차대출','학자금','모기지'],
+  '구독':      ['헬스장','OTT','AI 구독','음악/앱 구독','세차 구독','연회비','클라우드'],
+  '저축/투자': ['저축','주식투자','은퇴연금'],
+  '가족지원':  ['부모님 지원','기부'],
+  '기타':      ['기타'],
+};
+const INP_ACCTS = [
+  'Chase','Chase Sphire','Chase Marriott','Discover',
+  'Venmo','Robinhood','Webull','401K','Roth IRA','Mortgage',
+];
+
+// 상태
+let _inpMode = 'var', _inpMainCat = null;
+let _inpSelectedAcct = localStorage.getItem('lastAccount') || 'Chase Sphire';
+
+// 날짜 헬퍼
+function _getMonthStr(dateVal) {
+  const d = new Date(dateVal + 'T00:00:00');
+  return `${d.getMonth()+1}월`;
+}
+function _getMMDD(dateVal) {
+  const [, m, dd] = dateVal.split('-');
+  return `${m}/${dd}`;
+}
+
+// 토스트
+function _inpToast(msg, ms = 2400) {
+  const el = document.getElementById('inpToast');
+  el.textContent = msg;
+  el.style.opacity = '1';
+  setTimeout(() => el.style.opacity = '0', ms);
+}
+
+// 오프라인 큐
+function _savePending(payload) {
+  const q = JSON.parse(localStorage.getItem('pendingTx') || '[]');
+  q.push(payload);
+  localStorage.setItem('pendingTx', JSON.stringify(q));
+  _showPending();
+}
+function _showPending() {
+  const q = JSON.parse(localStorage.getItem('pendingTx') || '[]');
+  const wrap = document.getElementById('inpPendingWrap');
+  const txt  = document.getElementById('inpPendingText');
+  if (q.length > 0) {
+    wrap.style.display = 'flex';
+    txt.textContent = `미전송 ${q.length}건 — 온라인 연결 시 자동 전송`;
+  } else {
+    wrap.style.display = 'none';
+  }
+}
+async function _retryPending() {
+  const q = JSON.parse(localStorage.getItem('pendingTx') || '[]');
+  if (!q.length || !navigator.onLine) return;
+  const ok = [];
+  for (const p of q) {
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, {method:'POST', body: JSON.stringify(p)});
+      if (res.ok) ok.push(p);
+    } catch(e) { break; }
+  }
+  if (ok.length) {
+    localStorage.setItem('pendingTx', JSON.stringify(q.filter(p => !ok.includes(p))));
+    _showPending();
+    _inpToast(`✅ ${ok.length}건 전송 완료`);
+  }
+}
+
+function _buildChips() {
+  const cats = _inpMode === 'var' ? VAR_CATS : FIX_CATS;
+  const mainEl = document.getElementById('inpMainCatChips');
+  const subEl  = document.getElementById('inpSubCatChips');
+  const subLbl = document.getElementById('inpSubCatLabel');
+
+  mainEl.innerHTML = Object.keys(cats).map(c =>
+    `<div class="inp-chip${_inpMainCat===c?' active':''}" data-cat="${c}">${c}</div>`
+  ).join('');
+
+  if (_inpMainCat && cats[_inpMainCat]) {
+    subEl.innerHTML = cats[_inpMainCat].map(s =>
+      `<div class="inp-chip" data-sub="${s}">${s}</div>`
+    ).join('');
+    subLbl.style.display = '';
+  } else { subEl.innerHTML = ''; subLbl.style.display = 'none'; }
+
+  mainEl.querySelectorAll('.inp-chip').forEach(chip => {
+    chip.addEventListener('click', () => { _inpMainCat = chip.dataset.cat; _buildChips(); });
+  });
+  subEl.querySelectorAll('.inp-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      subEl.querySelectorAll('.inp-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+  });
+}
+
+function _buildAcctChips() {
+  const el = document.getElementById('inpAcctChips');
+  el.innerHTML = INP_ACCTS.map(a =>
+    `<div class="inp-chip${a===_inpSelectedAcct?' active':''}" data-acct="${a}">${a}</div>`
+  ).join('');
+  el.querySelectorAll('.inp-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      el.querySelectorAll('.inp-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      _inpSelectedAcct = chip.dataset.acct;
+      localStorage.setItem('lastAccount', _inpSelectedAcct);
+    });
+  });
+}
+
+document.getElementById('inpBtnVar').addEventListener('click', () => {
+  _inpMode = 'var'; _inpMainCat = null;
+  document.getElementById('inpBtnVar').classList.add('active');
+  document.getElementById('inpBtnFix').classList.remove('active');
+  _buildChips();
+});
+document.getElementById('inpBtnFix').addEventListener('click', () => {
+  _inpMode = 'fix'; _inpMainCat = null;
+  document.getElementById('inpBtnVar').classList.remove('active');
+  document.getElementById('inpBtnFix').classList.add('active');
+  _buildChips();
+});
+
+// 오프라인 배지
+window.addEventListener('online',  () => { document.getElementById('inpOfflineBadge').style.display='none'; _retryPending(); });
+window.addEventListener('offline', () => { document.getElementById('inpOfflineBadge').style.display=''; });
+
+// 영수증 사진
+document.getElementById('inpCameraBtn').addEventListener('click', () => {
+  document.getElementById('inpCameraInput').click();
+});
+document.getElementById('inpCameraInput').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f) return;
+  document.getElementById('inpReceiptImg').src = URL.createObjectURL(f);
+  document.getElementById('inpReceiptWrap').style.display = '';
+});
+document.getElementById('inpReceiptClear').addEventListener('click', () => {
+  document.getElementById('inpReceiptWrap').style.display = 'none';
+  document.getElementById('inpCameraInput').value = '';
+});
+
+// ── 저장 (Google Sheets 실제 전송) ────────────────────────────────
+document.getElementById('inpSaveBtn').addEventListener('click', async () => {
+  const amtEl  = document.getElementById('inpAmountInput');
+  const amount = parseFloat(amtEl.value);
+  if (!amount || isNaN(amount)) {
+    amtEl.style.outline = '2px solid #f87171'; amtEl.focus(); return;
+  }
+  amtEl.style.outline = '';
+
+  const mainCatEl = document.getElementById('inpMainCatChips').querySelector('.inp-chip.active');
+  const subCatEl  = document.getElementById('inpSubCatChips').querySelector('.inp-chip.active');
+  const acctEl    = document.getElementById('inpAcctChips').querySelector('.inp-chip.active');
+
+  if (!mainCatEl) { _inpToast('❌ 대분류를 선택하세요'); return; }
+  if (_inpMode === 'var' && !subCatEl) { _inpToast('❌ 소분류를 선택하세요'); return; }
+
+  const dateVal  = document.getElementById('inpDateInput').value || new Date().toISOString().split('T')[0];
+  const desc     = document.getElementById('inpDescInput').value.trim() || (subCatEl?.dataset.sub || mainCatEl.dataset.cat);
+  const mainCat  = mainCatEl.dataset.cat;
+  const subCat   = subCatEl?.dataset.sub || '';
+  const acct     = acctEl?.dataset.acct || _inpSelectedAcct;
+
+  const payload = {
+    type:         _inpMode === 'var' ? 'variable' : 'fixed',
+    month:        _getMonthStr(dateVal),
+    date:         _getMMDD(dateVal),
+    category:     _inpMode === 'var' ? subCat : mainCat,
+    subcategory:  _inpMode === 'fix' ? subCat : undefined,
+    mainCategory: mainCat,
+    desc,
+    account:      acct,
+    amount,
+    timestamp:    new Date().toISOString(),
+  };
+
+  const btn = document.getElementById('inpSaveBtn');
+  btn.disabled = true; btn.textContent = '저장 중…';
+
+  if (navigator.onLine) {
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, {method: 'POST', body: JSON.stringify(payload)});
+      if (res.ok) {
+        _inpToast(`✅ ${mainCat} · ${desc}  $${amount.toFixed(2)} 저장 완료!`);
+        _resetInpForm();
+        _inpModal.style.display = 'none';
+      } else throw new Error('server');
+    } catch(e) {
+      _savePending(payload);
+      _inpToast('📦 오프라인 저장 — 나중에 자동 전송됩니다');
+      _inpModal.style.display = 'none';
+    }
+  } else {
+    _savePending(payload);
+    _inpToast('📦 오프라인 저장됨');
+    _inpModal.style.display = 'none';
+  }
+
+  btn.disabled = false; btn.textContent = 'Save';
+});
+
+function _resetInpForm() {
+  document.getElementById('inpAmountInput').value = '';
+  document.getElementById('inpDescInput').value   = '';
+  document.getElementById('inpReceiptWrap').style.display = 'none';
+  document.getElementById('inpCameraInput').value = '';
+  _inpMainCat = null;
+  _buildChips();
+}
+
+// ── 리사이즈 시 차트 재렌더 ──────────────────────────────────────
+let _rzTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(_rzTimer);
+  _rzTimer = setTimeout(() => {
+    const isAll = document.getElementById('allMonthBarWrap')?.style.display !== 'none';
+    if (isAll) renderAllView(); else renderMonthView(currentMonth);
+  }, 200);
+});
+
+// ── 초기화 ───────────────────────────────────────────────────────
+async function init() {
+  // 날짜 기본값 설정
+  document.getElementById('inpDateInput').value = new Date().toISOString().split('T')[0];
+
+  // Google Sheets 로드 시도
+  try { await loadFromGoogleSheets(); } catch(e) {}
+
+  // 현재 달 탭 활성화
+  document.querySelectorAll('#tabs .tab').forEach(t => {
+    const m = parseInt(t.dataset.month, 10);
+    t.classList.toggle('active', m === currentMonth);
+  });
+
+  // 입력 모달 칩 빌드
+  _buildChips();
+  _buildAcctChips();
+
+  // 렌더
+  renderMonthView(currentMonth);
+}
+
+document.addEventListener('DOMContentLoaded', init);
 </script>
+</body>
+</html>
+adge').style.display='none'; _retryPending(); });
+window.addEventListener('offline', () => { document.getElementById('inpOfflineBadge').style.display=''; });
+
+// 영수증 사진
+document.getElementById('inpCameraBtn').addEventListener('click', () => {
+  document.getElementById('inpCameraInput').click();
+});
+document.getElementById('inpCameraInput').addEventListener('change', e => {
+  const f = e.target.files[0]; if (!f) return;
+  document.getElementById('inpReceiptImg').src = URL.createObjectURL(f);
+  document.getElementById('inpReceiptWrap').style.display = '';
+});
+document.getElementById('inpReceiptClear').addEventListener('click', () => {
+  document.getElementById('inpReceiptWrap').style.display = 'none';
+  document.getElementById('inpCameraInput').value = '';
+});
+
+// ── 저장 (Google Sheets 실제 전송) ────────────────────────────────────────────
+document.getElementById('inpSaveBtn').addEventListener('click', async () => {
+  const amtEl  = document.getElementById('inpAmountInput');
+  const amount = parseFloat(amtEl.value);
+  if (!amount || isNaN(amount)) {
+    amtEl.style.outline = '2px solid #f87171'; amtEl.focus(); return;
+  }
+  amtEl.style.outline = '';
+
+  const mainCatEl = document.getElementById('inpMainCatChips').querySelector('.inp-chip.active');
+  const subCatEl  = document.getElementById('inpSubCatChips').querySelector('.inp-chip.active');
+  const acctEl    = document.getElementById('inpAcctChips').querySelector('.inp-chip.active');
+
+  if (!mainCatEl) { _inpToast('\u274c 대분류를 선택하세요'); return; }
+  if (_inpMode === 'var' && !subCatEl) { _inpToast('\u274c 소분류를 선택하세요'); return; }
+
+  const dateVal  = document.getElementById('inpDateInput').value || new Date().toISOString().split('T')[0];
+  const desc     = document.getElementById('inpDescInput').value.trim() || (subCatEl?.dataset.sub || mainCatEl.dataset.cat);
+  const mainCat  = mainCatEl.dataset.cat;
+  const subCat   = subCatEl?.dataset.sub || '';
+  const acct     = acctEl?.dataset.acct || _inpSelectedAcct;
+
+  const payload = {
+    type:         _inpMode === 'var' ? 'variable' : 'fixed',
+    month:        _getMonthStr(dateVal),
+    date:         _getMMDD(dateVal),
+    category:     _inpMode === 'var' ? subCat : mainCat,
+    subcategory:  _inpMode === 'fix' ? subCat : undefined,
+    mainCategory: mainCat,
+    desc,
+    account:      acct,
+    amount,
+    timestamp:    new Date().toISOString(),
+  };
+
+  const btn = document.getElementById('inpSaveBtn');
+  btn.disabled = true; btn.textContent = '저장 중…';
+
+  if (navigator.onLine) {
+    try {
+      const res = await fetch(APPS_SCRIPT_URL, {method: 'POST', body: JSON.stringify(payload)});
+      if (res.ok) {
+        _inpToast(`\u2705 ${mainCat} · ${desc}  $${amount.toFixed(2)} 저장 완료!`);
+        _resetInpForm();
+        _inpModal.style.display = 'none';
+      } else throw new Error('server');
+    } catch(e) {
+      _savePending(payload);
+      _inpToast('📦 오프라인 저장 — 나중에 자동 전송됩니다');
+      _inpModal.style.display = 'none';
+    }
+  } else {
+    _savePending(payload);
+    _inpToast('📦 오프라인 저장됨');
+    _inpModal.style.display = 'none';
+  }
+
+  btn.disabled = false; btn.textContent = 'Save';
+});
+
+function _resetInpForm() {
+  document.getElementById('inpAmountInput').value = '';
+  document.getElementById('inpDescInput').value   = '';
+  document.getElementById('inpReceiptWrap').style.display = 'none';
+  document.getElementById('inpCameraInput').value = '';
+  _inpMainCat = null;
+  _buildChips();
+}
+
+// ── 리사이즈 시 차트 재렌더 ──────────────────────────────────────────────
+let _rzTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(_rzTimer);
+  _rzTimer = setTimeout(() => {
+    const isAll = document.getElementById('allMonthBarWrap')?.style.display !== 'none';
+    if (isAll) renderAllView(); else renderMonthView(currentMonth);
+  }, 200);
+});
+
+// ── 초기화 ───────────────────────────────────────────────────────────────────────────────────
+async function init() {
+  // 날짜 기본값 설정
+  document.getElementById('inpDateInput').value = new Date().toISOString().split('T')[0];
+
+  // 오프라인 배지 초기 상태
+  if (!navigator.onLine) document.getElementById('inpOfflineBadge').style.display = '';
+
+  // 미전송 큐 표시
+  _showPending();
+
+  // Google Sheets 로드 시도
+  try { await loadFromGoogleSheets(); } catch(e) {}
+
+  // 현재 달 탭 활성화
+  document.querySelectorAll('#tabs .tab').forEach(t => {
+    const m = parseInt(t.dataset.month, 10);
+    t.classList.toggle('active', m === currentMonth);
+  });
+
+  // 입력 모달 칩 빌드
+  _buildChips();
+  _buildAcctChips();
+
+  // 렌더
+  renderMonthView(currentMonth);
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
 </html>
