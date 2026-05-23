@@ -1876,12 +1876,25 @@ document.getElementById('tabVar').addEventListener('click', () => {
 
 // ── FAB + 입력 모달 ───────────────────────────────────────────────
 const _inpModal = document.getElementById('inpModal');
-document.getElementById('fabAdd').addEventListener('click', () => {
-  _inpModal.style.display = 'flex';
-  setTimeout(() => document.getElementById('inpAmountInput').focus(), 100);
-});
-document.getElementById('inpCloseBtn').addEventListener('click', () => { _inpModal.style.display = 'none'; });
-_inpModal.addEventListener('click', e => { if (e.target === _inpModal) _inpModal.style.display = 'none'; });
+
+function _openModal() {
+  _inpModal.classList.add('open');
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      _inpModal.classList.add('show');
+    });
+  });
+  setTimeout(() => document.getElementById('inpAmountInput').focus(), 150);
+}
+
+function _closeModal() {
+  _inpModal.classList.remove('show');
+  setTimeout(() => _inpModal.classList.remove('open'), 230);
+}
+
+document.getElementById('fabAdd').addEventListener('click', _openModal);
+document.getElementById('inpCloseBtn').addEventListener('click', _closeModal);
+_inpModal.addEventListener('click', e => { if (e.target === _inpModal) _closeModal(); });
 
 // ── 입력 모달: Apps Script URL (가계부_입력.html과 동일) ──────────
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAm7nb_YR1LKVOGvHl48HYlfFCwpZEjgiw6oCHXGtENK17BkvjVO7JZEhnsQrUy7-a/exec';
@@ -2088,17 +2101,17 @@ document.getElementById('inpSaveBtn').addEventListener('click', async () => {
       if (res.ok) {
         _inpToast(`✅ ${mainCat} · ${desc}  $${amount.toFixed(2)} 저장 완료!`);
         _resetInpForm();
-        _inpModal.style.display = 'none';
+        _closeModal();
       } else throw new Error('server');
     } catch(e) {
       _savePending(payload);
       _inpToast('📦 오프라인 저장 — 나중에 자동 전송됩니다');
-      _inpModal.style.display = 'none';
+      _closeModal();
     }
   } else {
     _savePending(payload);
     _inpToast('📦 오프라인 저장됨');
-    _inpModal.style.display = 'none';
+    _closeModal();
   }
 
   btn.disabled = false; btn.textContent = 'Save';
