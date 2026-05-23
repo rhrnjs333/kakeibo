@@ -1741,8 +1741,7 @@ function renderAllKPI() {
 function renderWealthTrend() {
   const sorted = sortByMonth(DATA);
   drawLineChart('wealthTrendChart', sorted.map(d => d.month), [
-    {label:'총재산',   data: sorted.map(d => d.total_wealth), color: WEALTH_COL},
-    {label:'저축/투자', data: sorted.map(d => d.savings),     color: SAVINGS_COL},
+    {label:'총재산', data: sorted.map(d => d.total_wealth), color: WEALTH_COL},
   ], {fill: true});
 }
 
@@ -2125,128 +2124,6 @@ window.addEventListener('resize', () => {
 });
 
 // ── 초기화 ───────────────────────────────────────────────────────
-async function init() {
-  // 날짜 기본값 설정
-  document.getElementById('inpDateInput').value = new Date().toISOString().split('T')[0];
-
-  // Google Sheets 로드 시도
-  try { await loadFromGoogleSheets(); } catch(e) {}
-
-  // 현재 달 탭 활성화
-  document.querySelectorAll('#tabs .tab').forEach(t => {
-    const m = parseInt(t.dataset.month, 10);
-    t.classList.toggle('active', m === currentMonth);
-  });
-
-  // 입력 모달 칩 빌드
-  _buildChips();
-  _buildAcctChips();
-
-  // 렌더
-  renderMonthView(currentMonth);
-}
-
-document.addEventListener('DOMContentLoaded', init);
-</script>
-</body>
-</html>
-adge').style.display='none'; _retryPending(); });
-window.addEventListener('offline', () => { document.getElementById('inpOfflineBadge').style.display=''; });
-
-// 영수증 사진
-document.getElementById('inpCameraBtn').addEventListener('click', () => {
-  document.getElementById('inpCameraInput').click();
-});
-document.getElementById('inpCameraInput').addEventListener('change', e => {
-  const f = e.target.files[0]; if (!f) return;
-  document.getElementById('inpReceiptImg').src = URL.createObjectURL(f);
-  document.getElementById('inpReceiptWrap').style.display = '';
-});
-document.getElementById('inpReceiptClear').addEventListener('click', () => {
-  document.getElementById('inpReceiptWrap').style.display = 'none';
-  document.getElementById('inpCameraInput').value = '';
-});
-
-// ── 저장 (Google Sheets 실제 전송) ────────────────────────────────────────────
-document.getElementById('inpSaveBtn').addEventListener('click', async () => {
-  const amtEl  = document.getElementById('inpAmountInput');
-  const amount = parseFloat(amtEl.value);
-  if (!amount || isNaN(amount)) {
-    amtEl.style.outline = '2px solid #f87171'; amtEl.focus(); return;
-  }
-  amtEl.style.outline = '';
-
-  const mainCatEl = document.getElementById('inpMainCatChips').querySelector('.inp-chip.active');
-  const subCatEl  = document.getElementById('inpSubCatChips').querySelector('.inp-chip.active');
-  const acctEl    = document.getElementById('inpAcctChips').querySelector('.inp-chip.active');
-
-  if (!mainCatEl) { _inpToast('\u274c 대분류를 선택하세요'); return; }
-  if (_inpMode === 'var' && !subCatEl) { _inpToast('\u274c 소분류를 선택하세요'); return; }
-
-  const dateVal  = document.getElementById('inpDateInput').value || new Date().toISOString().split('T')[0];
-  const desc     = document.getElementById('inpDescInput').value.trim() || (subCatEl?.dataset.sub || mainCatEl.dataset.cat);
-  const mainCat  = mainCatEl.dataset.cat;
-  const subCat   = subCatEl?.dataset.sub || '';
-  const acct     = acctEl?.dataset.acct || _inpSelectedAcct;
-
-  const payload = {
-    type:         _inpMode === 'var' ? 'variable' : 'fixed',
-    month:        _getMonthStr(dateVal),
-    date:         _getMMDD(dateVal),
-    category:     _inpMode === 'var' ? subCat : mainCat,
-    subcategory:  _inpMode === 'fix' ? subCat : undefined,
-    mainCategory: mainCat,
-    desc,
-    account:      acct,
-    amount,
-    timestamp:    new Date().toISOString(),
-  };
-
-  const btn = document.getElementById('inpSaveBtn');
-  btn.disabled = true; btn.textContent = '저장 중…';
-
-  if (navigator.onLine) {
-    try {
-      const res = await fetch(APPS_SCRIPT_URL, {method: 'POST', body: JSON.stringify(payload)});
-      if (res.ok) {
-        _inpToast(`\u2705 ${mainCat} · ${desc}  $${amount.toFixed(2)} 저장 완료!`);
-        _resetInpForm();
-        _inpModal.style.display = 'none';
-      } else throw new Error('server');
-    } catch(e) {
-      _savePending(payload);
-      _inpToast('📦 오프라인 저장 — 나중에 자동 전송됩니다');
-      _inpModal.style.display = 'none';
-    }
-  } else {
-    _savePending(payload);
-    _inpToast('📦 오프라인 저장됨');
-    _inpModal.style.display = 'none';
-  }
-
-  btn.disabled = false; btn.textContent = 'Save';
-});
-
-function _resetInpForm() {
-  document.getElementById('inpAmountInput').value = '';
-  document.getElementById('inpDescInput').value   = '';
-  document.getElementById('inpReceiptWrap').style.display = 'none';
-  document.getElementById('inpCameraInput').value = '';
-  _inpMainCat = null;
-  _buildChips();
-}
-
-// ── 리사이즈 시 차트 재렌더 ──────────────────────────────────────────────
-let _rzTimer;
-window.addEventListener('resize', () => {
-  clearTimeout(_rzTimer);
-  _rzTimer = setTimeout(() => {
-    const isAll = document.getElementById('allMonthBarWrap')?.style.display !== 'none';
-    if (isAll) renderAllView(); else renderMonthView(currentMonth);
-  }, 200);
-});
-
-// ── 초기화 ───────────────────────────────────────────────────────────────────────────────────
 async function init() {
   // 날짜 기본값 설정
   document.getElementById('inpDateInput').value = new Date().toISOString().split('T')[0];
