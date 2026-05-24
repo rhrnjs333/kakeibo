@@ -635,7 +635,7 @@
     -webkit-tap-highlight-color: transparent;
   }
   .inp-chip:active { transform: scale(0.95); }
-  .inp-chip.selected { background: #10b981; border-color: #10b981; color: #fff; }
+  .inp-chip.active { background: #10b981; border-color: #10b981; color: #fff; }
   .inp-chip.sub { font-size: 12px; padding: 6px 12px; border-radius: 8px; }
   .inp-acct-scroll { display: flex; gap: 8px; overflow-x: auto; padding: 0 20px 4px; scrollbar-width: none; }
   .inp-acct-scroll::-webkit-scrollbar { display: none; }
@@ -1879,12 +1879,9 @@ const _inpModal = document.getElementById('inpModal');
 
 function _openModal() {
   _inpModal.classList.add('open');
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      _inpModal.classList.add('show');
-    });
-  });
-  setTimeout(() => document.getElementById('inpAmountInput').focus(), 150);
+  _inpModal.getBoundingClientRect(); // force reflow so CSS transition triggers
+  _inpModal.classList.add('show');
+  // focus는 직접 탭으로 — 자동 focus 시 키보드가 모달 전체를 덮음
 }
 
 function _closeModal() {
