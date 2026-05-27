@@ -222,7 +222,19 @@
   .badge-blue   { background: rgba(96,165,250,0.15); color: #93c5fd; }
   .badge-orange { background: rgba(251,146,60,0.15); color: #fba040; }
   .badge-red    { background: rgba(248,113,113,0.15); color: #f87171; }
-  .badge-acct   { background: rgba(255,255,255,0.04); color: #9aa4b6; border: 1px solid rgba(255,255,255,0.08); font-weight: 400; }
+  .badge-acct   { background: rgba(255,255,255,0.04); color: #9aa4b6; border: 1px solid rgba(255,255,255,0.08); font-weight: 400; white-space: nowrap; }
+
+  /* Tx 테이블 가로 스크롤 wrapper (모바일 안전망) */
+  .tx-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tx-scroll::-webkit-scrollbar { height: 6px; }
+  .tx-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+  .tx-table { min-width: 100%; }
+  .tx-table th, .tx-table td { white-space: nowrap; }
+  @media (max-width: 480px) {
+    .tx-table th, .tx-table td { padding: 8px 6px; font-size: 12px; }
+    .tx-table .badge { font-size: 10px; padding: 2px 6px; }
+    .tx-table td[title] { max-width: 140px !important; }
+  }
 
   /* Stacked + line chart legend */
   .stack-legend { display:flex; gap:14px; font-size:11px; color:#9aa4b6; font-weight:500; }
@@ -828,16 +840,16 @@
           <button class="tx-tab" id="tabVar">비고정지출</button>
         </div>
       </div>
-      <div id="fixedTxWrap">
-        <table>
+      <div id="fixedTxWrap" class="tx-scroll">
+        <table class="tx-table">
           <thead>
-            <tr><th>날짜</th><th>대분류</th><th>소분류</th><th>내용</th><th>계좌</th><th style="text-align:right">금액</th></tr>
+            <tr><th>날짜</th><th>대분류</th><th>내용</th><th>계좌</th><th style="text-align:right">금액</th></tr>
           </thead>
           <tbody id="txTable"></tbody>
         </table>
       </div>
-      <div id="varTxWrap" style="display:none">
-        <table>
+      <div id="varTxWrap" class="tx-scroll" style="display:none">
+        <table class="tx-table">
           <thead>
             <tr><th>날짜</th><th>대분류</th><th>내용</th><th>계좌</th><th style="text-align:right">금액</th></tr>
           </thead>
@@ -1885,7 +1897,7 @@ function renderFixedTxTable(d) {
   if (!tbody) return;
   const rows = d.fixed_tx || [];
   if (rows.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="6" style="color:#555;text-align:center;padding:18px">고정지출 없음</td></tr>'; return;
+    tbody.innerHTML = '<tr><td colspan="5" style="color:#555;text-align:center;padding:18px">고정지출 없음</td></tr>'; return;
   }
   tbody.innerHTML = rows.map(tx => {
     const color = CAT_COLORS[tx.category] || '#9ca3af';
@@ -1896,7 +1908,6 @@ function renderFixedTxTable(d) {
     return `<tr>
       <td style="color:#777;font-variant-numeric:tabular-nums;white-space:nowrap">${tx.date}</td>
       <td><span class="badge" style="background:${chipBg};color:${color}">${tx.category}</span></td>
-      <td style="color:#aaa;font-size:12px;white-space:nowrap">${tx.sub || '-'}</td>
       <td style="color:#ccc;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${tx.desc}">${tx.desc}</td>
       <td><span class="badge badge-acct">${acct}</span></td>
       <td style="color:${amtCls};text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap">${fmt(tx.amount)}</td>
