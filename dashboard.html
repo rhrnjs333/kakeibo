@@ -222,6 +222,27 @@
   .badge-blue   { background: rgba(96,165,250,0.15); color: #93c5fd; }
   .badge-orange { background: rgba(251,146,60,0.15); color: #fba040; }
   .badge-red    { background: rgba(248,113,113,0.15); color: #f87171; }
+  .badge-acct   { background: rgba(255,255,255,0.04); color: #9aa4b6; border: 1px solid rgba(255,255,255,0.08); font-weight: 400; }
+
+  /* Stacked + line chart legend */
+  .stack-legend { display:flex; gap:14px; font-size:11px; color:#9aa4b6; font-weight:500; }
+  .stack-leg-item { display:inline-flex; align-items:center; gap:6px; }
+  .stack-leg-sw { width:10px; height:10px; border-radius:2px; display:inline-block; }
+  .stack-leg-line {
+    width:16px; height:2px; background:#10b981; position:relative; display:inline-block;
+  }
+  .stack-leg-line::before {
+    content:''; position:absolute; left:50%; top:50%;
+    width:6px; height:6px; background:#10b981;
+    border-radius:50%; transform:translate(-50%,-50%);
+  }
+
+  /* Savings rate progress bar inside summary table */
+  .pct-bar { display:inline-flex; align-items:center; gap:8px; justify-content:flex-end; }
+  .pct-bar-track { width:64px; height:4px; background:rgba(255,255,255,0.06); border-radius:2px; overflow:hidden; }
+  .pct-bar-fill  { height:100%; background:#34d399; border-radius:2px; }
+  .pct-bar-fill.neg { background:#f87171; }
+  .pct-bar-value { min-width:46px; text-align:right; font-variant-numeric:tabular-nums; font-size:12px; }
 
   /* Category bars */
   .cat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
@@ -744,9 +765,16 @@
   </div>
 
   <!-- 전체 뷰 전용: 월별 수입/지출 바 (full width) -->
-  <div class="full-chart chart-card" id="allMonthBarWrap" data-page-label="월별 수입 · 지출" style="display:none">
-    <div class="chart-title"><span class="dot"></span>월별 수입 · 지출 · 순저축 (전체)</div>
-    <div class="chart-container" style="height:240px">
+  <div class="full-chart chart-card" id="allMonthBarWrap" data-page-label="월별 지출 구조" style="display:none">
+    <div class="chart-title" style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+      <div style="display:flex;align-items:center;gap:8px"><span class="dot"></span>월별 고정 vs 변동지출 + 수입</div>
+      <div class="stack-legend">
+        <span class="stack-leg-item"><span class="stack-leg-sw" style="background:#4f8cff"></span>고정</span>
+        <span class="stack-leg-item"><span class="stack-leg-sw" style="background:#8b95a8"></span>변동</span>
+        <span class="stack-leg-item"><span class="stack-leg-line"></span>수입</span>
+      </div>
+    </div>
+    <div class="chart-container" style="height:260px">
       <canvas id="allMonthBarChart"></canvas>
     </div>
   </div>
@@ -811,7 +839,7 @@
       <div id="varTxWrap" style="display:none">
         <table>
           <thead>
-            <tr><th>날짜</th><th>카테고리</th><th>내용</th><th>계좌</th><th style="text-align:right">금액</th></tr>
+            <tr><th>날짜</th><th>대분류</th><th>내용</th><th>계좌</th><th style="text-align:right">금액</th></tr>
           </thead>
           <tbody id="varTxTable"></tbody>
         </table>
@@ -823,12 +851,12 @@
       <table>
         <thead>
           <tr>
-            <th>월</th>
-            <th style="text-align:right">총 재산</th>
+            <th style="text-align:left">월</th>
             <th style="text-align:right">수입</th>
             <th style="text-align:right">지출</th>
             <th style="text-align:right">순저축</th>
             <th style="text-align:right">저축률</th>
+            <th style="text-align:right">누적 저축</th>
           </tr>
         </thead>
         <tbody id="allSummaryTable"></tbody>
@@ -1046,6 +1074,9 @@ DATA.forEach(d => {
   d.savings_net = sv.reduce((s, a) => s + (a.income - a.expense), 0);
   // living_expense: '저축/투자' 제외한 실생활 지출
   d.living_expense = d.total_expense - (d.categories['저축/투자'] || 0);
+  // 고정/변동 합계 — Monthly Expense Structure 차트용
+  d.fixed_expense    = (d.fixed_tx || []).reduce((s, t) => s + (t.amount || 0), 0);
+  d.variable_expense = (d.var_tx   || []).reduce((s, t) => s + (t.amount || 0), 0);
 });
 
 let currentMonth = 4;
@@ -1522,6 +1553,125 @@ function drawBarChart(id, labels, datasets, opts = {}) {
   _regCanvasEvents(id);
 }
 
+// ── Stacked Bar + Line 차트 (Monthly Expense Structure 전용) ─────
+// stackDatasets: [{label, data:[], color:'#hex'}, ...]  → 위쪽으로 쌓임
+// lineDataset:   {label, data:[], color:'#hex'}         → 오버레이 라인
+function drawStackedBarLineChart(id, labels, stackDatasets, lineDataset, opts = {}) {
+  const ctx = setupCanvas(id);
+  const cvs = document.getElementById(id);
+  const W = cvs._cssW, H = cvs._cssH;
+  const pad = {top: 32, right: 18, bottom: 36, left: 54};
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+  const n = labels.length;
+  if (n === 0) return;
+
+  // y-axis: 0 부터 max(stack-sum, line) 까지
+  let maxV = 0;
+  for (let i = 0; i < n; i++) {
+    const stackSum = stackDatasets.reduce((s, ds) => s + (ds.data[i] || 0), 0);
+    const lineV    = lineDataset.data[i] || 0;
+    if (stackSum > maxV) maxV = stackSum;
+    if (lineV    > maxV) maxV = lineV;
+  }
+  if (maxV === 0) maxV = 1;
+  // headroom 10%
+  maxV = maxV * 1.1;
+
+  // Gridlines
+  const gridN = 4;
+  ctx.font = '10px -apple-system,sans-serif';
+  ctx.textAlign = 'right';
+  for (let g = 0; g <= gridN; g++) {
+    const v = maxV * g / gridN;
+    const y = pad.top + (1 - v / maxV) * chartH;
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + chartW, y); ctx.stroke();
+    ctx.fillStyle = '#666';
+    const lbl = v >= 1000 ? '$' + (v/1000).toFixed(0)+'k' : '$' + Math.round(v);
+    ctx.fillText(lbl, pad.left - 6, y + 4);
+  }
+
+  const groupW = chartW / n;
+  const barW = Math.min(48, groupW * 0.55);
+  const zones = [];
+
+  // Bars (stacked, 아래에서 위로)
+  for (let i = 0; i < n; i++) {
+    const xCenter = pad.left + i * groupW + groupW / 2;
+    const xLeft   = xCenter - barW / 2;
+    let yTop = pad.top + chartH;
+    const segCount = stackDatasets.length;
+    stackDatasets.forEach((ds, di) => {
+      const v = ds.data[i] || 0;
+      if (v <= 0) return;
+      const h = (v / maxV) * chartH;
+      const yNew = yTop - h;
+      const rgb = hexToRgb(ds.color);
+      const grad = ctx.createLinearGradient(xLeft, yNew, xLeft, yNew + h);
+      grad.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},0.95)`);
+      grad.addColorStop(1, `rgba(${rgb.r},${rgb.g},${rgb.b},0.65)`);
+      const isTop    = di === segCount - 1;
+      const isBottom = di === 0;
+      const rTop = isTop ? 5 : 0;
+      const rBot = isBottom ? 5 : 0;
+      ctx.beginPath();
+      ctx.roundRect(xLeft, yNew, barW, Math.max(2, h), [rTop, rTop, rBot, rBot]);
+      ctx.fillStyle = grad; ctx.fill();
+      yTop = yNew;
+    });
+
+    // Tooltip zone
+    const stackSum = stackDatasets.reduce((s, ds) => s + (ds.data[i] || 0), 0);
+    const inc      = lineDataset.data[i] || 0;
+    const net      = inc - stackSum;
+    const cov      = stackSum > 0 ? (inc / stackSum * 100) : 0;
+    const ttRows = [
+      ...stackDatasets.map(ds => ({color: ds.color, label: ds.label, val: fmt(ds.data[i] || 0)})),
+      {color: lineDataset.color, label: lineDataset.label, val: fmt(inc)},
+      {color: '#6ee7b7', label: '순저축',  val: (net >= 0 ? '+' : '') + fmt(net)},
+      {color: '#fbbf24', label: 'Coverage', val: cov.toFixed(0) + '%'}
+    ];
+    zones.push({
+      x: pad.left + i * groupW, y: pad.top,
+      w: groupW, h: chartH,
+      html: _ttHtml(labels[i], ttRows)
+    });
+  }
+
+  // Line overlay (수입)
+  const linePts = [];
+  for (let i = 0; i < n; i++) {
+    const v = lineDataset.data[i] || 0;
+    const x = pad.left + i * groupW + groupW / 2;
+    const y = pad.top + (1 - v / maxV) * chartH;
+    linePts.push({x, y, v});
+  }
+  // 라인
+  ctx.strokeStyle = lineDataset.color;
+  ctx.lineWidth = 2.5;
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  ctx.beginPath();
+  linePts.forEach((p, i) => {
+    if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+  });
+  ctx.stroke();
+  // 포인트
+  linePts.forEach(p => {
+    ctx.beginPath(); ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#0d1117'; ctx.fill();
+    ctx.lineWidth = 2; ctx.strokeStyle = lineDataset.color; ctx.stroke();
+  });
+
+  // X labels
+  ctx.fillStyle = '#888'; ctx.font = '11px -apple-system,sans-serif'; ctx.textAlign = 'center';
+  labels.forEach((lbl, i) => { ctx.fillText(lbl, pad.left + i * groupW + groupW / 2, H - 8); });
+
+  _setHz(id, zones);
+  _saveSnap(id);
+  _regCanvasEvents(id);
+}
+
 // ── 범용 라인 차트 ────────────────────────────────────────────────
 function drawLineChart(id, labels, datasets, opts = {}) {
   const ctx = setupCanvas(id);
@@ -1735,15 +1885,21 @@ function renderFixedTxTable(d) {
   if (!tbody) return;
   const rows = d.fixed_tx || [];
   if (rows.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" style="color:#555;text-align:center;padding:18px">고정지출 없음</td></tr>'; return;
+    tbody.innerHTML = '<tr><td colspan="6" style="color:#555;text-align:center;padding:18px">고정지출 없음</td></tr>'; return;
   }
   tbody.innerHTML = rows.map(tx => {
     const color = CAT_COLORS[tx.category] || '#9ca3af';
+    const rgb = hexToRgb(color);
+    const chipBg = `rgba(${rgb.r},${rgb.g},${rgb.b},0.13)`;
+    const amtCls = tx.amount < 0 ? '#10b981' : '#f87171';
+    const acct   = tx.account || '-';
     return `<tr>
-      <td style="color:#777;font-variant-numeric:tabular-nums">${tx.date}</td>
-      <td><span class="badge" style="background:rgba(128,128,128,0.1);color:${color}">${tx.sub || tx.category}</span></td>
-      <td style="color:#ccc">${tx.desc}</td>
-      <td style="color:${tx.amount<0?'#10b981':'#f87171'};text-align:right;font-variant-numeric:tabular-nums">${fmt(tx.amount)}</td>
+      <td style="color:#777;font-variant-numeric:tabular-nums;white-space:nowrap">${tx.date}</td>
+      <td><span class="badge" style="background:${chipBg};color:${color}">${tx.category}</span></td>
+      <td style="color:#aaa;font-size:12px;white-space:nowrap">${tx.sub || '-'}</td>
+      <td style="color:#ccc;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${tx.desc}">${tx.desc}</td>
+      <td><span class="badge badge-acct">${acct}</span></td>
+      <td style="color:${amtCls};text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap">${fmt(tx.amount)}</td>
     </tr>`;
   }).join('');
 }
@@ -1754,15 +1910,20 @@ function renderVarTxTable(d) {
   if (!tbody) return;
   const rows = [...(d.var_tx || [])].sort((a,b) => a.date.localeCompare(b.date));
   if (rows.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" style="color:#555;text-align:center;padding:18px">비고정지출 없음</td></tr>'; return;
+    tbody.innerHTML = '<tr><td colspan="5" style="color:#555;text-align:center;padding:18px">비고정지출 없음</td></tr>'; return;
   }
   tbody.innerHTML = rows.map(tx => {
     const color = CAT_COLORS[tx.category] || '#9ca3af';
+    const rgb = hexToRgb(color);
+    const chipBg = `rgba(${rgb.r},${rgb.g},${rgb.b},0.13)`;
+    const amtCls = tx.amount < 0 ? '#10b981' : '#f87171';
+    const acct   = tx.account || '-';
     return `<tr>
-      <td style="color:#777;font-variant-numeric:tabular-nums">${tx.date}</td>
-      <td><span class="badge" style="background:rgba(128,128,128,0.1);color:${color}">${tx.category}</span></td>
-      <td style="color:#ccc">${tx.desc}</td>
-      <td style="color:${tx.amount<0?'#10b981':'#f87171'};text-align:right;font-variant-numeric:tabular-nums">${fmt(tx.amount)}</td>
+      <td style="color:#777;font-variant-numeric:tabular-nums;white-space:nowrap">${tx.date}</td>
+      <td><span class="badge" style="background:${chipBg};color:${color}">${tx.category}</span></td>
+      <td style="color:#ccc;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${tx.desc}">${tx.desc}</td>
+      <td><span class="badge badge-acct">${acct}</span></td>
+      <td style="color:${amtCls};text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap">${fmt(tx.amount)}</td>
     </tr>`;
   }).join('');
 }
@@ -1775,16 +1936,26 @@ function renderAllSummaryTable() {
   const last = sorted.length - 1;
   tbody.innerHTML = sorted.map((d, i) => {
     const isCur = i === last;
-    const net = d.income - d.living_expense;
-    const netCls = net >= 0 ? 'savings-positive' : 'savings-negative';
-    const svCls  = d.savings_net >= 0 ? 'savings-positive' : 'savings-negative';
+    const net   = d.income - d.living_expense;       // 월 순저축
+    const rate  = d.income > 0 ? (net / d.income * 100) : 0;
+    const isDef = net < 0;
+    const netColor  = isDef ? '#f87171' : '#34d399';
+    const rateColor = isDef ? '#f87171' : '#34d399';
+    const barW = Math.min(Math.abs(rate), 100);
+    const wealth    = d.total_wealth;                // 누적 저축(=총재산)
+    const sign = v => v >= 0 ? '+' : '';
     return `<tr class="${isCur ? 'month-highlight' : ''}">
-      <td style="font-weight:${isCur?700:400};color:${isCur?'#10b981':'#ccc'}">${d.month}${isCur?' ●':''}</td>
-      <td style="color:#10b981;font-variant-numeric:tabular-nums">${fmt(d.income)}</td>
-      <td style="color:#f87171;font-variant-numeric:tabular-nums">${fmt(d.living_expense)}</td>
-      <td class="${netCls}" style="font-variant-numeric:tabular-nums">${net>=0?'+':''}${fmt(net)}</td>
-      <td class="${svCls}"  style="font-variant-numeric:tabular-nums">${d.savings_net>=0?'+':''}${fmt(d.savings_net)}</td>
-      <td style="color:#6ee7b7;font-variant-numeric:tabular-nums">${fmt(d.total_wealth)}</td>
+      <td style="text-align:left;font-weight:${isCur?700:500};color:${isCur?'#10b981':'#ccc'}">${d.month}${isCur?' <span style="color:#fbbf24;font-size:10px">●</span>':''}</td>
+      <td style="text-align:right;color:#10b981;font-variant-numeric:tabular-nums">${fmt(d.income)}</td>
+      <td style="text-align:right;color:#f87171;font-variant-numeric:tabular-nums">${fmt(d.living_expense)}</td>
+      <td style="text-align:right;color:${netColor};font-variant-numeric:tabular-nums;font-weight:500">${sign(net)}${fmt(net)}</td>
+      <td style="text-align:right">
+        <div class="pct-bar">
+          <div class="pct-bar-track"><div class="pct-bar-fill ${isDef?'neg':''}" style="width:${barW}%"></div></div>
+          <div class="pct-bar-value" style="color:${rateColor}">${rate.toFixed(1)}%</div>
+        </div>
+      </td>
+      <td style="text-align:right;color:#6ee7b7;font-variant-numeric:tabular-nums">${fmt(wealth)}</td>
     </tr>`;
   }).join('');
 }
@@ -1833,14 +2004,19 @@ function renderWealthTrend() {
   ], {fill: true});
 }
 
-// ── 전체 월별 막대 차트 ───────────────────────────────────────────
+// ── 전체 월별 차트 (Stacked Bar + Income Line) ────────────────────
+// 고정비 / 변동비 stacked + 수입 라인 오버레이
 function renderAllMonthBar() {
   const sorted = sortByMonth(DATA);
-  drawBarChart('allMonthBarChart', sorted.map(d => d.month), [
-    {label:'수입',     data: sorted.map(d => d.income),        color: INCOME_COL},
-    {label:'생활지출', data: sorted.map(d => d.living_expense), color: EXPENSE_COL},
-    {label:'순저축',   data: sorted.map(d => d.savings_net),    color: SAVINGS_COL},
-  ]);
+  drawStackedBarLineChart(
+    'allMonthBarChart',
+    sorted.map(d => d.month),
+    [
+      {label: '고정지출', data: sorted.map(d => d.fixed_expense    || 0), color: '#4f8cff'},
+      {label: '변동지출', data: sorted.map(d => d.variable_expense || 0), color: '#8b95a8'},
+    ],
+    {label: '수입', data: sorted.map(d => d.income || 0), color: INCOME_COL}
+  );
 }
 
 // ── 이번 달 수입/지출 바 (누적) ──────────────────────────────────
