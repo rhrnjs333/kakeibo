@@ -24,6 +24,9 @@
   header {
     background: linear-gradient(135deg, #0d1f17 0%, #111c18 100%);
     padding: 24px 32px;
+    padding-top: calc(24px + env(safe-area-inset-top));
+    padding-left: max(32px, env(safe-area-inset-left));
+    padding-right: max(32px, env(safe-area-inset-right));
     border-bottom: 1px solid #1a3326;
     display: flex;
     align-items: center;
@@ -334,6 +337,9 @@
   @media (max-width: 768px) {
     header {
       padding: 16px 18px;
+      padding-top: calc(16px + env(safe-area-inset-top));
+      padding-left: max(18px, env(safe-area-inset-left));
+      padding-right: max(18px, env(safe-area-inset-right));
       flex-direction: column;
       align-items: flex-start;
       gap: 4px;
@@ -743,7 +749,7 @@
     </svg>
     Expanse <span>Tracker</span>
   </h1>
-  <div class="header-right">마지막 업데이트: 2026년 5월 26일</div>
+  <div class="header-right">마지막 업데이트: 2026년 5월 27일</div>
 </header>
 
 <div class="tabs" id="tabs">
