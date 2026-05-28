@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-05-28T13:58:33",
+    "generated_at": "2026-05-28T14:04:47",
     "source_file": "2026 가계부.xlsx",
     "current_month": "5월"
   },
   "summary": {
-    "total_wealth": 38432.71,
+    "total_wealth": 38412.6,
     "cash_total": 26703.38,
     "saving": 14593.15,
     "prev_balance": 11496.55,
-    "card_balance": -2863.82,
-    "net": 23839.56,
+    "card_balance": -2883.93,
+    "net": 23819.45,
     "total_positive": 41296.53,
-    "total_negative": -2863.82,
-    "net_worth": 38432.71
+    "total_negative": -2883.93,
+    "net_worth": 38412.6
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -1580.1,
+      "balance": -1600.21,
       "prev_balance": -753.16,
       "income": 883.61,
-      "expense": 1710.55
+      "expense": 1730.66
     },
     {
       "key": "Chase Marriott",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 26703.38,
-    "신용카드 (부채)": -2863.82,
+    "신용카드 (부채)": -2883.93,
     "투자 자산": 14593.15
   },
   "categories": {
@@ -122,7 +122,7 @@ window.APP_DATA = {
       },
       {
         "name": "구독",
-        "amount": 51.99
+        "amount": 60.98
       },
       {
         "name": "가족지원",
@@ -148,8 +148,26 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 4177.36,
+  "category_total": 4186.35,
   "transactions": [
+    {
+      "date": "2026-05-28",
+      "category": "구독",
+      "subcategory": "OTT",
+      "memo": "Netflix",
+      "account": "Chase Sphire",
+      "amount": 8.99,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-05-28",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "McDonald",
+      "account": "Chase Sphire",
+      "amount": 11.12,
+      "type": "variable"
+    },
     {
       "date": "2026-05-27",
       "category": "구독",
