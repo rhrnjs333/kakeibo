@@ -55,10 +55,10 @@
   /* 안전영역 변수 (노치 + 홈 인디케이터) */
   :root {
     --safe-top:    env(safe-area-inset-top, 0px);
-    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-bottom: min(env(safe-area-inset-bottom, 0px), 34px);
     --safe-left:   env(safe-area-inset-left, 0px);
     --safe-right:  env(safe-area-inset-right, 0px);
-    --tabbar-h:    48px;
+    --tabbar-h:    44px;
   }
 
   /* 모바일: 전체 화면을 가득 채우는 진짜 앱 */
@@ -102,7 +102,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: calc(var(--tabbar-h) + var(--safe-bottom) + 8px);
+    padding-bottom: calc(var(--tabbar-h) + var(--safe-bottom) + 4px);
     scrollbar-width: none;
   }
   .content::-webkit-scrollbar { display: none; }
