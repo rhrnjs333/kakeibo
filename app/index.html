@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>가계부 앱 - 브로콜리 스타일 목업 v1</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --bg:        #0F1419;
+    --surface:   #1A1F26;
+    --surface-2: #242A33;
+    --surface-3: #2D343F;
+    --border:    rgba(255,255,255,0.06);
+    --border-2:  rgba(255,255,255,0.10);
+    --text:      #E8EAED;
+    --text-dim:  #8B95A1;
+    --text-mute: #5A6470;
+    --accent:    #00C896;
+    --accent-soft: rgba(0,200,150,0.12);
+    --danger:    #FF5C5C;
+    --warn:      #FFB547;
+    --positive:  #00C896;
+    --negative:  #FF7878;
+    --radius:    16px;
+    --radius-sm: 12px;
+    --radius-lg: 24px;
+    --font:      'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --num:       'SF Pro Display', 'Pretendard Variable', system-ui;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    height: 100%;
+    font-family: var(--font);
+    color: var(--text);
+    background: #0a0d11;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: radial-gradient(circle at 30% 20%, #1a2230 0%, #0a0d11 60%);
+    min-height: 100vh;
+  }
+  .label {
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    letter-spacing: 0.02em;
+  }
+
+  /* iPhone frame */
+  .iphone {
+    width: 390px;
+    height: 844px;
+    background: #000;
+    border-radius: 54px;
+    padding: 12px;
+    box-shadow:
+      0 0 0 2px #1a1f26,
+      0 30px 80px rgba(0,0,0,0.6),
+      0 10px 30px rgba(0,200,150,0.05);
+    position: relative;
+  }
+  .screen {
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    border-radius: 42px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Dynamic island */
+  .island {
+    position: absolute;
+    top: 11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 36px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 10;
+  }
+  /* Status bar */
+  .status-bar {
+    padding: 16px 32px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    height: 48px;
+    color: var(--text);
+    z-index: 5;
+  }
+  .status-icons { display: flex; gap: 5px; align-items: center; }
+  .status-icons svg { fill: var(--text); }
+
+  /* Content scroll area */
+  .content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 100px;
+    scrollbar-width: none;
+  }
+  .content::-webkit-scrollbar { display: none; }
+
+  /* Bottom tab bar */
+  .tabbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 84px;
+    background: rgba(15, 20, 25, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+    display: flex;
+    padding: 8px 4px 24px;
+    z-index: 6;
+  }
+  .tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--text-mute);
+    cursor: pointer;
+    transition: color 0.15s;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    padding: 6px 0;
+  }
+  .tab svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .tab span { font-size: 10px; font-weight: 600; letter-spacing: 0.02em; }
+  .tab.active { color: var(--accent); }
+  .tab.fab-slot { color: transparent; pointer-events: none; }
+
+  /* FAB */
+  .fab {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    color: #0a1410;
+    font-size: 28px;
+    font-weight: 300;
+    box-shadow: 0 8px 24px rgba(0,200,150,0.45), 0 0 0 4px var(--bg);
+    z-index: 8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s;
+  }
+  .fab:active { transform: translateX(-50%) scale(0.92); }
+  .fab svg { width: 24px; height: 24px; stroke: #0a1410; stroke-width: 2.5; fill: none; }
+
+  /* Pages */
+  .page { display: none; padding: 0 20px; animation: fadeIn 0.25s ease; }
+  .page.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Page header */
+  .page-header {
+    padding: 8px 0 24px;
+  }
+  .page-title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+  .page-subtitle {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* Hero card (Home) */
+  .hero {
+    background: linear-gradient(135deg, #1A2329 0%, #1A1F26 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(0,200,150,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .hero-amount {
+    font-family: var(--num);
+    font-size: 38px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  .hero-amount .currency {
+    font-size: 24px;
+    color: var(--text-dim);
+    margin-right: 4px;
+    font-weight: 600;
+  }
+  .hero-change {
+    margin-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Asset allocation bar */
+  .alloc-section { margin-top: 22px; position: relative; z-index: 1; }
+  .alloc-title { font-size: 12px; color: var(--text-dim); margin-bottom: 10px; font-weight: 500; }
+  .alloc-bar {
+    display: flex;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    background: var(--surface-2);
+  }
+  .alloc-seg { height: 100%; }
+  .alloc-seg.invest { background: var(--accent); }
+  .alloc-seg.cash { background: #4DA8DA; }
+  .alloc-seg.card { background: var(--warn); }
+  .alloc-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 11px; color: var(--text-dim); }
+  .alloc-legend .dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; margin-right: 5px; vertical-align: middle; }
+
+  /* Section heading */
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 22px 4px 12px;
+  }
+  .section-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+  .section-action { font-size: 12px; color: var(--text-dim); font-weight: 500; }
+
+  /* Budget card */
+  .budget-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  .budget-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+  .budget-label { font-size: 13px; color: var(--text-dim); }
+  .budget-amounts { font-family: var(--num); font-variant-numeric: tabular-nums; font-size: 14px; font-weight: 600; }
+  .budget-amounts .spent { color: var(--text); }
+  .budget-amounts .total { color: var(--text-dim); }
+  .progress {
+    height: 6px;
+    background: var(--surface-2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent) 0%, #00E5A8 100%);
+    border-radius: 3px;
+  }
+  .budget-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-mute);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Insight card */
+  .insight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .insight-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .insight-icon svg { width: 18px; height: 18px; stroke: var(--accent); stroke-width: 2; fill: none; }
+  .insight-text { flex: 1; }
+  .insight-text .title { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .insight-text .desc { font-size: 12px; color: var(--text-dim); line-height: 1.4; }
+
+  /* Top categories */
+  .cat-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .cat-row {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cat-row:last-child { border-bottom: none; }
+  .cat-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .cat-info { flex: 1; min-width: 0; }
+  .cat-name { font-size: 14px; font-weight: 600; }
+  .cat-bar {
+    height: 4px;
+    background: var(--surface-2);
+    border-radius: 2px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+  .cat-bar-fill { height: 100%; background: var(--text-dim); border-radius: 2px; }
+  .cat-amount {
+    font-family: var(--num);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .cat-trend {
+    font-size: 11px;
+    color: var(--text-mute);
+    text-align: right;
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .cat-trend.up { color: var(--negative); }
+  .cat-trend.down { color: var(--positive); }
+
+  /* Assets page */
+  .asset-group { margin-bottom: 22px; }
+  .asset-group-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 4px 10px;
+  }
+  .asset-group-name { font-size: 13px; color: var(--text-dim); font-weight: 500; }
+  .asset-group-total {
+    font-family: var(--num);
+    font-size: 16px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .asset-group-total.negative { color: var(--negative); }
+  .asset-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .asset-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .asset-item:last-child { border-bottom: none; }
+  .asset-item.asset-tap { cursor: pointer; transition: background 0.15s; }
+  .asset-item.asset-tap:active { background: var(--surface-2); }
+  .asset-item.asset-tap::after {
+    content: '›';
+    color: var(--text-mute);
+    margin-left: 4px;
+    font-size: 18px;
+    line-height: 1;
+  }
+  .asset-logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+  }
+  .asset-info { flex: 1; min-width: 0; }
+  .asset-name { font-size: 14px; font-weight: 600; }
+  .asset-meta { font-size: 11px; color: var(--text-mute); margin-top: 2px; }
+  .asset-bal {
+    font-family: var(--num);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .asset-bal.neg { color: var(--negative); }
+  .asset-bal.pos { color: var(--text); }
+  .asset-bal-change {
+    font-size: 11px;
+    color: var(--text-mute);
+    text-align: right;
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .asset-bal-change.up { color: var(--positive); }
+  .asset-bal-change.down { color: var(--negative); }
+
+  .networth-card {
+    background: linear-gradient(135deg, #1F2A2E 0%, #1A1F26 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .networth-card .label-row { display: flex; justify-content: space-between; align-items: baseline; }
+  .networth-card .label-text { font-size: 12px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+  .networth-card .period-chip {
+    font-size: 11px;
+    background: var(--surface-2);
+    color: var(--text-dim);
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .networth-amount {
+    font-family: var(--num);
+    font-size: 34px;
+    font-weight: 700;
+    margin-top: 6px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em;
+  }
+  .networth-amount .currency { font-size: 22px; color: var(--text-dim); margin-right: 4px; }
+
+  /* Transactions page */
+  .tx-day-group { margin-bottom: 18px; }
+  .tx-day-head {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 4px 10px;
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+  .tx-day-total { font-family: var(--num); font-variant-numeric: tabular-nums; }
+  .tx-list { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .tx-row {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tx-row:last-child { border-bottom: none; }
+  .tx-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--surface-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .tx-info { flex: 1; min-width: 0; }
+  .tx-name { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tx-sub { font-size: 11px; color: var(--text-mute); margin-top: 2px; }
+  .tx-amt {
+    font-family: var(--num);
+    font-size: 14px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    color: var(--text);
+  }
+  .tx-amt.income { color: var(--positive); }
+
+  /* Input Modal */
+  .modal-bg {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+    z-index: 20;
+  }
+  .modal-bg.show { opacity: 1; pointer-events: auto; }
+  .modal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-radius: 28px 28px 0 0;
+    padding: 12px 20px 24px;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.2,0.8,0.2,1);
+    z-index: 21;
+    max-height: 92%;
+    overflow-y: auto;
+  }
+  .modal-bg.show .modal { transform: translateY(0); }
+  .modal-handle {
+    width: 40px;
+    height: 4px;
+    background: var(--surface-3);
+    border-radius: 2px;
+    margin: 0 auto 12px;
+  }
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .modal-cancel, .modal-save {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--text-dim);
+    cursor: pointer;
+    padding: 4px 4px;
+  }
+  .modal-save { color: var(--accent); font-weight: 600; }
+  .modal-title { font-size: 15px; font-weight: 600; }
+
+  /* Segmented control */
+  .segmented {
+    display: flex;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 24px;
+  }
+  .seg-btn {
+    flex: 1;
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .seg-btn.active { background: var(--surface-3); color: var(--text); }
+
+  .amount-input-wrap {
+    text-align: center;
+    padding: 18px 0 24px;
+  }
+  .amount-currency { font-size: 22px; color: var(--text-dim); font-weight: 600; vertical-align: top; }
+  .amount-input {
+    font-family: var(--num);
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--text);
+    background: none;
+    border: none;
+    text-align: center;
+    width: 220px;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+  }
+  .amount-input:focus { outline: none; }
+
+  .field-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin: 16px 4px 8px; }
+
+  .chip-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 9px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .chip.active {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .row-select {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .row-select .lbl { font-size: 12px; color: var(--text-dim); }
+  .row-select .val { font-size: 14px; color: var(--text); font-weight: 500; }
+
+  .receipt-btn {
+    margin-top: 16px;
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px dashed var(--border-2);
+    border-radius: 12px;
+    color: var(--text-dim);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .receipt-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* Helper */
+  .pos { color: var(--positive); }
+  .neg { color: var(--negative); }
+
+  /* ── 입력 모달 동적 컴포넌트 ── */
+  .sub-chip-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    min-height: 32px;
+  }
+  .sub-chip-row::-webkit-scrollbar { display: none; }
+  .sub-chip-row .chip {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+  .modal-empty-hint {
+    color: var(--text-mute);
+    font-size: 12px;
+    padding: 8px 4px;
+  }
+  .native-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+    width: 100%;
+    padding-right: 16px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238B95A1' stroke-width='2.5' stroke-linecap='round'><polyline points='9,18 15,12 9,6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right center;
+  }
+  .native-select option { background: var(--surface-2); color: var(--text); }
+  .native-date {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+    color-scheme: dark;
+  }
+  .native-date::-webkit-calendar-picker-indicator { filter: invert(0.7); cursor: pointer; }
+  .text-input {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+    width: 60%;
+    outline: none;
+  }
+  .text-input::placeholder { color: var(--text-mute); font-weight: 400; }
+
+  /* ── 토스트 ── */
+  .toast {
+    position: absolute;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(20, 28, 36, 0.95);
+    color: var(--text);
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--border-2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 30;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    max-width: 90%;
+    text-align: center;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .toast.success { border-color: var(--accent); }
+  .toast.error { border-color: var(--negative); }
+  .toast.warn { border-color: var(--warn); }
+
+  /* 미동기화 배지 (FAB 옆) */
+  .pending-badge {
+    position: absolute;
+    bottom: 100px;
+    right: 18px;
+    background: var(--warn);
+    color: #1a1410;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    z-index: 7;
+    display: none;
+    box-shadow: 0 4px 12px rgba(255,181,71,0.4);
+  }
+  .pending-badge.show { display: block; }
+
+  /* 저장 중 버튼 상태 */
+  .modal-save:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Phone caption */
+  .caption {
+    margin-top: 20px;
+    color: var(--text-mute);
+    font-size: 12px;
+    text-align: center;
+  }
+  .caption strong { color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="label">브로콜리 스타일 모바일 가계부 — <span id="dataLabel">목업 v1</span></div>
+
+<div class="iphone">
+  <div class="screen">
+    <div class="island"></div>
+
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="status-icons">
+        <svg width="14" height="10" viewBox="0 0 14 10"><path d="M1 7.5l1.5-1.5 1.5 1.5L5.5 6 7 7.5 8.5 6 10 7.5 11.5 6 13 7.5V9H1V7.5z"/></svg>
+        <svg width="15" height="11" viewBox="0 0 15 11"><rect x="1" y="3.5" width="10" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="1"/><rect x="2" y="4.5" width="7" height="3" rx="0.5"/><rect x="12" y="5" width="1.5" height="2" rx="0.3"/></svg>
+      </div>
+    </div>
+
+    <div class="content" id="content">
+
+      <!-- HOME PAGE -->
+      <div class="page active" id="page-home">
+        <div class="page-header">
+          <div class="page-title">안녕하세요 👋</div>
+          <div class="page-subtitle">2026년 5월 27일 수요일</div>
+        </div>
+
+        <!-- Net Worth Hero -->
+        <div class="hero">
+          <div class="hero-label">총 자산</div>
+          <div class="hero-amount"><span class="currency">$</span>49,280</div>
+          <div class="hero-change">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M3 7l3-3 3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            +$890 (+1.8%) 이번달
+          </div>
+
+          <div class="alloc-section">
+            <div class="alloc-title">자산 분배</div>
+            <div class="alloc-bar">
+              <div class="alloc-seg invest" style="width:63%"></div>
+              <div class="alloc-seg cash" style="width:37%"></div>
+            </div>
+            <div class="alloc-legend">
+              <span><span class="dot" style="background:var(--accent)"></span>투자 63% · $31,200</span>
+              <span><span class="dot" style="background:#4DA8DA"></span>현금 37% · $18,080</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Budget Card -->
+        <div class="budget-card">
+          <div class="budget-row">
+            <div class="budget-label">이번달 지출</div>
+            <div class="budget-amounts">
+              <span class="spent">$2,340</span>
+              <span class="total"> / $3,000</span>
+            </div>
+          </div>
+          <div class="progress"><div class="progress-fill" style="width:78%"></div></div>
+          <div class="budget-meta">
+            <span>78% 사용 · 4일 남음</span>
+            <span>$660 남음</span>
+          </div>
+        </div>
+
+        <!-- Insights -->
+        <div class="section-head">
+          <div class="section-title">이번주 인사이트</div>
+        </div>
+
+        <div class="insight-card">
+          <div class="insight-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="insight-text">
+            <div class="title">카페 지출이 늘어났어요</div>
+            <div class="desc">이번주 카페 8회 ($45) — 평소의 2배예요. 이 속도면 월 $180.</div>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="insight-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="insight-text">
+            <div class="title">월말까지 +$660 여유 있어요</div>
+            <div class="desc">현재 속도면 $2,920로 마감 예상. 예산 안에 들어와요.</div>
+          </div>
+        </div>
+
+        <!-- Top Categories -->
+        <div class="section-head">
+          <div class="section-title">카테고리 TOP 3</div>
+          <div class="section-action">전체 보기 →</div>
+        </div>
+
+        <div class="cat-list">
+          <div class="cat-row">
+            <div class="cat-icon">🍱</div>
+            <div class="cat-info">
+              <div class="cat-name">식비</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:100%;background:var(--accent)"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">$920</div>
+              <div class="cat-trend up">↑ 12%</div>
+            </div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-icon">🛍️</div>
+            <div class="cat-info">
+              <div class="cat-name">생활용품</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:57%;background:var(--text-dim)"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">$520</div>
+              <div class="cat-trend down">↓ 3%</div>
+            </div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-icon">🚗</div>
+            <div class="cat-info">
+              <div class="cat-name">차량유지비</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:39%;background:var(--text-dim)"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">$360</div>
+              <div class="cat-trend down">↓ 18%</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ASSETS PAGE -->
+      <div class="page" id="page-assets">
+        <div class="page-header">
+          <div class="page-title">자산</div>
+          <div class="page-subtitle">8개 계좌 · 5월 27일 업데이트 · 탭하면 상세</div>
+        </div>
+
+        <div class="networth-card">
+          <div class="label-row">
+            <span class="label-text">순자산</span>
+            <span class="period-chip">전월 대비</span>
+          </div>
+          <div class="networth-amount"><span class="currency">$</span>-133,560</div>
+          <div style="margin-top:8px; font-size:12px; color:var(--text-dim);">
+            모기지 제외 시 <span class="pos" style="font-weight:600;">+$46,440</span>
+          </div>
+        </div>
+
+        <!-- 현금성 -->
+        <div class="asset-group">
+          <div class="asset-group-head">
+            <div class="asset-group-name">현금성 자산</div>
+            <div class="asset-group-total pos">$18,080</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-item asset-tap" data-account="Chase Checking">
+              <div class="asset-logo" style="background:#1d4f8b; color:#fff;">CH</div>
+              <div class="asset-info">
+                <div class="asset-name">Chase Checking</div>
+                <div class="asset-meta">체킹 · 주거래</div>
+              </div>
+              <div>
+                <div class="asset-bal pos">$12,400</div>
+                <div class="asset-bal-change up">+$340</div>
+              </div>
+            </div>
+            <div class="asset-item asset-tap" data-account="Robinhood Bank">
+              <div class="asset-logo" style="background:#0a572b; color:var(--accent);">RB</div>
+              <div class="asset-info">
+                <div class="asset-name">Robinhood Bank</div>
+                <div class="asset-meta">뱅킹</div>
+              </div>
+              <div>
+                <div class="asset-bal pos">$5,680</div>
+                <div class="asset-bal-change up">+$120</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 투자 -->
+        <div class="asset-group">
+          <div class="asset-group-head">
+            <div class="asset-group-name">투자 자산</div>
+            <div class="asset-group-total pos">$31,200</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-item asset-tap" data-account="Roth IRA">
+              <div class="asset-logo" style="background:#3a1e3a; color:#e879f9;">IRA</div>
+              <div class="asset-info">
+                <div class="asset-name">Roth IRA</div>
+                <div class="asset-meta">은퇴 연금</div>
+              </div>
+              <div>
+                <div class="asset-bal pos">$18,400</div>
+                <div class="asset-bal-change up">+$240</div>
+              </div>
+            </div>
+            <div class="asset-item asset-tap" data-account="Robinhood">
+              <div class="asset-logo" style="background:#0a572b; color:var(--accent);">RH</div>
+              <div class="asset-info">
+                <div class="asset-name">Robinhood</div>
+                <div class="asset-meta">주식 투자</div>
+              </div>
+              <div>
+                <div class="asset-bal pos">$12,800</div>
+                <div class="asset-bal-change up">+$580</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 -->
+        <div class="asset-group">
+          <div class="asset-group-head">
+            <div class="asset-group-name">신용카드 (부채)</div>
+            <div class="asset-group-total negative">-$2,840</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-item asset-tap" data-account="Chase Sapphire">
+              <div class="asset-logo" style="background:#1d4f8b; color:#fff;">CS</div>
+              <div class="asset-info">
+                <div class="asset-name">Chase Sapphire</div>
+                <div class="asset-meta">신용카드 · 메인</div>
+              </div>
+              <div>
+                <div class="asset-bal neg">-$1,240</div>
+                <div class="asset-bal-change down">+$320 사용</div>
+              </div>
+            </div>
+            <div class="asset-item asset-tap" data-account="Chase Marriott">
+              <div class="asset-logo" style="background:#7c2d12; color:#fdba74;">CM</div>
+              <div class="asset-info">
+                <div class="asset-name">Chase Marriott</div>
+                <div class="asset-meta">신용카드 · 여행</div>
+              </div>
+              <div>
+                <div class="asset-bal neg">-$600</div>
+                <div class="asset-bal-change down">+$140 사용</div>
+              </div>
+            </div>
+            <div class="asset-item asset-tap" data-account="Discover">
+              <div class="asset-logo" style="background:#7c1d1d; color:#fca5a5;">D</div>
+              <div class="asset-info">
+                <div class="asset-name">Discover</div>
+                <div class="asset-meta">신용카드 · 캐시백</div>
+              </div>
+              <div>
+                <div class="asset-bal neg">-$1,000</div>
+                <div class="asset-bal-change up">-$80 결제</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 대출 -->
+        <div class="asset-group">
+          <div class="asset-group-head">
+            <div class="asset-group-name">대출</div>
+            <div class="asset-group-total negative">-$180,000</div>
+          </div>
+          <div class="asset-card">
+            <div class="asset-item asset-tap" data-account="Mortgage">
+              <div class="asset-logo" style="background:#3a2e1c; color:#fcd34d;">MG</div>
+              <div class="asset-info">
+                <div class="asset-name">Mortgage</div>
+                <div class="asset-meta">주택 담보 대출 · 28년 남음</div>
+              </div>
+              <div>
+                <div class="asset-bal neg">-$180,000</div>
+                <div class="asset-bal-change up">-$420 상환</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TRANSACTIONS PAGE -->
+      <div class="page" id="page-tx">
+        <div class="page-header">
+          <div class="page-title">가계부</div>
+          <div class="page-subtitle" id="txSubtitle">5월 1일 - 27일 · 전체 계좌 · 24건</div>
+        </div>
+
+        <!-- 기간 필터 -->
+        <div class="segmented" style="margin-bottom:12px;">
+          <button class="seg-btn period-btn" data-period="week">이번주</button>
+          <button class="seg-btn period-btn active" data-period="month">이번달</button>
+          <button class="seg-btn period-btn" data-period="3month">3개월</button>
+          <button class="seg-btn period-btn" data-period="all">전체</button>
+        </div>
+
+        <!-- 계좌 필터 -->
+        <div class="chip-row" style="margin-bottom:18px;">
+          <button class="chip account-chip active" data-account="all">전체 계좌</button>
+          <button class="chip account-chip" data-account="Chase Checking">Chase</button>
+          <button class="chip account-chip" data-account="Chase Sapphire">Sapphire</button>
+          <button class="chip account-chip" data-account="Chase Marriott">Marriott</button>
+          <button class="chip account-chip" data-account="Discover">Discover</button>
+          <button class="chip account-chip" data-account="Robinhood">Robinhood</button>
+          <button class="chip account-chip" data-account="Roth IRA">IRA</button>
+          <button class="chip account-chip" data-account="Robinhood Bank">RH Bank</button>
+        </div>
+
+        <div id="txGroups">
+        <!-- May 27 -->
+        <div class="tx-day-group">
+          <div class="tx-day-head">
+            <span>오늘, 5월 27일 (수)</span>
+            <span class="tx-day-total">-$23.50</span>
+          </div>
+          <div class="tx-list">
+            <div class="tx-row" data-account="Chase Sapphire">
+              <div class="tx-icon">☕</div>
+              <div class="tx-info">
+                <div class="tx-name">Starbucks</div>
+                <div class="tx-sub">식비 · 간식/카페 · Chase Sapphire</div>
+              </div>
+              <div class="tx-amt">-$5.50</div>
+            </div>
+            <div class="tx-row" data-account="Chase Checking">
+              <div class="tx-icon">🚇</div>
+              <div class="tx-info">
+                <div class="tx-name">MTA Subway</div>
+                <div class="tx-sub">차량유지비 · 대중교통 · Chase Checking</div>
+              </div>
+              <div class="tx-amt">-$3.00</div>
+            </div>
+            <div class="tx-row" data-account="Discover">
+              <div class="tx-icon">🍱</div>
+              <div class="tx-info">
+                <div class="tx-name">Sweetgreen</div>
+                <div class="tx-sub">식비 · 외식 · Discover</div>
+              </div>
+              <div class="tx-amt">-$15.00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- May 26 -->
+        <div class="tx-day-group">
+          <div class="tx-day-head">
+            <span>어제, 5월 26일 (화)</span>
+            <span class="tx-day-total">-$89.20</span>
+          </div>
+          <div class="tx-list">
+            <div class="tx-row" data-account="Chase Sapphire">
+              <div class="tx-icon">🛒</div>
+              <div class="tx-info">
+                <div class="tx-name">Whole Foods</div>
+                <div class="tx-sub">식비 · 식재료 · Chase Sapphire</div>
+              </div>
+              <div class="tx-amt">-$89.20</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- May 25 -->
+        <div class="tx-day-group">
+          <div class="tx-day-head">
+            <span>5월 25일 (월)</span>
+            <span class="tx-day-total">-$162.40</span>
+          </div>
+          <div class="tx-list">
+            <div class="tx-row" data-account="Chase Sapphire">
+              <div class="tx-icon">⛽</div>
+              <div class="tx-info">
+                <div class="tx-name">Shell Gas Station</div>
+                <div class="tx-sub">차량유지비 · 주유 · Chase Sapphire</div>
+              </div>
+              <div class="tx-amt">-$52.40</div>
+            </div>
+            <div class="tx-row" data-account="Chase Checking">
+              <div class="tx-icon">📱</div>
+              <div class="tx-info">
+                <div class="tx-name">Verizon Wireless</div>
+                <div class="tx-sub">통신비 · 핸드폰 · Chase Checking</div>
+              </div>
+              <div class="tx-amt">-$95.00</div>
+            </div>
+            <div class="tx-row" data-account="Discover">
+              <div class="tx-icon">☕</div>
+              <div class="tx-info">
+                <div class="tx-name">Blue Bottle Coffee</div>
+                <div class="tx-sub">식비 · 간식/카페 · Discover</div>
+              </div>
+              <div class="tx-amt">-$15.00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- May 24 -->
+        <div class="tx-day-group">
+          <div class="tx-day-head">
+            <span>5월 24일 (일)</span>
+            <span class="tx-day-total">+$3,200.00</span>
+          </div>
+          <div class="tx-list">
+            <div class="tx-row" data-account="Chase Checking">
+              <div class="tx-icon" style="background:var(--accent-soft);">💰</div>
+              <div class="tx-info">
+                <div class="tx-name">Payroll Deposit</div>
+                <div class="tx-sub">수입 · 월급 · Chase Checking</div>
+              </div>
+              <div class="tx-amt income">+$3,200.00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- May 22 -->
+        <div class="tx-day-group">
+          <div class="tx-day-head">
+            <span>5월 22일 (금)</span>
+            <span class="tx-day-total">-$48.00</span>
+          </div>
+          <div class="tx-list">
+            <div class="tx-row" data-account="Chase Marriott">
+              <div class="tx-icon">🏨</div>
+              <div class="tx-info">
+                <div class="tx-name">Marriott Hotel</div>
+                <div class="tx-sub">여행 · 숙박 · Chase Marriott</div>
+              </div>
+              <div class="tx-amt">-$48.00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- May 20 -->
+        <div class="tx-day-group">
+          <div class="tx-day-head">
+            <span>5월 20일 (수)</span>
+            <span class="tx-day-total">-$240.00</span>
+          </div>
+          <div class="tx-list">
+            <div class="tx-row" data-account="Roth IRA">
+              <div class="tx-icon" style="background:rgba(232,121,249,0.15);">📈</div>
+              <div class="tx-info">
+                <div class="tx-name">IRA Contribution</div>
+                <div class="tx-sub">저축/투자 · 은퇴연금 · Roth IRA</div>
+              </div>
+              <div class="tx-amt">-$240.00</div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- 빈 결과 안내 -->
+        <div id="txEmpty" style="display:none; text-align:center; padding:60px 20px; color:var(--text-mute);">
+          <div style="font-size:36px; margin-bottom:12px;">🔍</div>
+          <div style="font-size:14px;">이 조건에 맞는 거래가 없어요</div>
+        </div>
+
+      </div>
+
+      <!-- ACCOUNT DETAIL PAGE -->
+      <div class="page" id="page-detail">
+        <!-- back header -->
+        <div style="display:flex; align-items:center; gap:14px; padding:8px 0 18px;">
+          <button id="detailBack" style="background:none; border:none; color:var(--text); cursor:pointer; padding:6px; margin-left:-6px; font-family:inherit;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div>
+            <div style="font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.05em; font-weight:500;" id="detailGroup">신용카드</div>
+            <div style="font-size:18px; font-weight:700; letter-spacing:-0.02em;" id="detailName">Chase Sapphire</div>
+          </div>
+        </div>
+
+        <!-- balance + sparkline -->
+        <div class="hero" style="padding-bottom:8px;">
+          <div class="hero-label">현재 잔액</div>
+          <div class="hero-amount" id="detailBal"><span class="currency">$</span>-1,240</div>
+          <div class="hero-change" id="detailChange" style="background:rgba(255,92,92,0.12); color:var(--negative);">
+            ↑ +$320 이번달 사용
+          </div>
+          <!-- sparkline -->
+          <div style="margin-top:18px; position:relative; z-index:1;">
+            <svg viewBox="0 0 320 70" preserveAspectRatio="none" style="width:100%; height:70px;">
+              <defs>
+                <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FF5C5C" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#FF5C5C" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,55 L30,52 L60,48 L90,50 L120,42 L150,38 L180,30 L210,32 L240,26 L270,20 L300,16 L320,12 L320,70 L0,70 Z" fill="url(#sparkGrad)"/>
+              <path d="M0,55 L30,52 L60,48 L90,50 L120,42 L150,38 L180,30 L210,32 L240,26 L270,20 L300,16 L320,12" stroke="#FF7878" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--text-mute); margin-top:4px;">
+              <span>4월 27일</span>
+              <span>오늘</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- period filter for detail -->
+        <div class="segmented" style="margin:18px 0 12px;">
+          <button class="seg-btn active">이번달</button>
+          <button class="seg-btn">3개월</button>
+          <button class="seg-btn">1년</button>
+        </div>
+
+        <div class="section-head" style="padding:8px 4px 10px;">
+          <div class="section-title">거래 내역</div>
+          <div class="section-action" id="detailCount">3건</div>
+        </div>
+
+        <div id="detailTxList"></div>
+      </div>
+
+      <!-- ANALYSIS PAGE (placeholder) -->
+      <div class="page" id="page-analysis">
+        <div class="page-header">
+          <div class="page-title">분석</div>
+          <div class="page-subtitle">월별 카테고리 추이</div>
+        </div>
+        <div class="hero">
+          <div class="hero-label">이번달 총 지출</div>
+          <div class="hero-amount"><span class="currency">$</span>2,340</div>
+          <div class="hero-change" style="background:rgba(255,92,92,0.12); color:var(--negative);">
+            ↑ +$180 vs 4월
+          </div>
+        </div>
+        <div class="cat-list" style="margin-top:16px;">
+          <div class="cat-row">
+            <div class="cat-icon">🍱</div>
+            <div class="cat-info">
+              <div class="cat-name">식비</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:100%; background:var(--accent);"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">$920</div>
+              <div class="cat-trend up">↑ 12%</div>
+            </div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-icon">🛍️</div>
+            <div class="cat-info">
+              <div class="cat-name">생활용품</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:57%;"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">$520</div>
+              <div class="cat-trend down">↓ 3%</div>
+            </div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-icon">🚗</div>
+            <div class="cat-info">
+              <div class="cat-name">차량유지비</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:39%;"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">$360</div>
+              <div class="cat-trend down">↓ 18%</div>
+            </div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-icon">🏥</div>
+            <div class="cat-info">
+              <div class="cat-name">건강/의료</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:16%;"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">$150</div>
+              <div class="cat-trend up">↑ 8%</div>
+            </div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-icon">📱</div>
+            <div class="cat-info">
+              <div class="cat-name">통신비</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:10%;"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">$95</div>
+              <div class="cat-trend">변동 없음</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FAB -->
+    <button class="fab" id="fabBtn" aria-label="새 거래 입력">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>
+    </button>
+
+    <!-- Tab Bar -->
+    <nav class="tabbar">
+      <button class="tab active" data-page="home">
+        <svg viewBox="0 0 24 24"><path d="M3 12L12 4l9 8M5 10v10h14V10"/></svg>
+        <span>홈</span>
+      </button>
+      <button class="tab" data-page="assets">
+        <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M8 14h3"/></svg>
+        <span>자산</span>
+      </button>
+      <div class="tab fab-slot"><span>·</span></div>
+      <button class="tab" data-page="tx">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h12"/></svg>
+        <span>가계부</span>
+      </button>
+      <button class="tab" data-page="analysis">
+        <svg viewBox="0 0 24 24"><path d="M3 20h18M6 16V8M11 16V4M16 16v-7M21 16v-3"/></svg>
+        <span>분석</span>
+      </button>
+    </nav>
+
+    <!-- Input Modal -->
+    <div class="modal-bg" id="modalBg">
+      <div class="modal">
+        <div class="modal-handle"></div>
+        <div class="modal-head">
+          <button class="modal-cancel" id="modalCancel">취소</button>
+          <span class="modal-title">새 거래</span>
+          <button class="modal-save" id="modalSave">저장</button>
+        </div>
+
+        <div class="segmented" id="typeSeg">
+          <button class="seg-btn active" data-type="variable">Variable</button>
+          <button class="seg-btn" data-type="fixed">Fixed</button>
+        </div>
+
+        <div class="amount-input-wrap">
+          <span class="amount-currency">$</span>
+          <input class="amount-input" id="inAmount" placeholder="0.00" inputmode="decimal" />
+        </div>
+
+        <div class="field-label">대분류</div>
+        <div class="chip-row" id="mainCatChips"></div>
+
+        <div class="field-label" id="subCatLabel" style="display:none;">소분류</div>
+        <div class="sub-chip-row" id="subCatChips"></div>
+
+        <div class="field-label">상세</div>
+        <div class="row-select">
+          <span class="lbl">계좌</span>
+          <select class="native-select" id="inAccount"></select>
+        </div>
+        <div class="row-select">
+          <span class="lbl">날짜</span>
+          <input type="date" class="native-date" id="inDate" />
+        </div>
+        <div class="row-select">
+          <span class="lbl">메모</span>
+          <input type="text" class="text-input" id="inMemo" placeholder="선택" maxlength="50" />
+        </div>
+
+        <button class="receipt-btn" title="이번 단계에서는 비활성">
+          <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          영수증 사진으로 입력 (준비 중)
+        </button>
+      </div>
+    </div>
+
+    <!-- 토스트 + 미동기화 배지 -->
+    <div class="toast" id="toast"></div>
+    <div class="pending-badge" id="pendingBadge" title="미전송 거래">미전송 0건</div>
+
+  </div>
+</div>
+
+<div class="caption">
+  하단 탭으로 화면 전환 · <strong>+ 버튼</strong>으로 입력 모달 · 12개 계좌 실제 이름 적용됨
+</div>
+
+<!-- 실제 가계부 데이터 (generate_app_data.py가 생성) -->
+<script src="app_data.js"></script>
+
+<script>
+  // ----- Tab switching -----
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+    document.getElementById('content').scrollTop = 0;
+  }
+  document.querySelectorAll('.tab[data-page]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      showPage(btn.dataset.page);
+    });
+  });
+
+  // ----- FAB → input modal -----
+  const modalBg = document.getElementById('modalBg');
+  document.getElementById('fabBtn').addEventListener('click', () => modalBg.classList.add('show'));
+  document.getElementById('modalCancel').addEventListener('click', () => modalBg.classList.remove('show'));
+  modalBg.addEventListener('click', (e) => { if (e.target === modalBg) modalBg.classList.remove('show'); });
+
+  // ----- Chip selection (modal-internal) -----
+  document.querySelectorAll('.modal .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.modal .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+  });
+
+  // ----- Segmented control (generic, per parent group) -----
+  document.querySelectorAll('.segmented').forEach(group => {
+    group.querySelectorAll('.seg-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        group.querySelectorAll('.seg-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  });
+
+  // ----- 가계부 탭: 계좌 필터 -----
+  function applyAccountFilter(account) {
+    const rows = document.querySelectorAll('#txGroups .tx-row');
+    let shown = 0;
+    rows.forEach(r => {
+      const match = (account === 'all') || (r.dataset.account === account);
+      r.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    // 빈 day-group 숨기기
+    document.querySelectorAll('#txGroups .tx-day-group').forEach(g => {
+      const visibleRows = g.querySelectorAll('.tx-row:not([style*="display: none"])').length;
+      g.style.display = visibleRows ? '' : 'none';
+    });
+    document.getElementById('txEmpty').style.display = shown ? 'none' : 'block';
+    const label = (account === 'all') ? '전체 계좌' : account;
+    document.getElementById('txSubtitle').textContent = `5월 1일 - 27일 · ${label} · ${shown}건`;
+  }
+  document.querySelectorAll('.account-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.account-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      applyAccountFilter(chip.dataset.account);
+    });
+  });
+
+  // ----- 자산 → 계좌 상세 페이지 -----
+  const ACCOUNT_META = {
+    'Chase Checking':  { group: '현금성 자산', bal: '$12,400',   change: '+$340 이번달',    changeCls: 'pos' },
+    'Robinhood Bank':  { group: '현금성 자산', bal: '$5,680',    change: '+$120 이번달',    changeCls: 'pos' },
+    'Roth IRA':        { group: '투자 자산',  bal: '$18,400',   change: '+$240 이번달',    changeCls: 'pos' },
+    'Robinhood':       { group: '투자 자산',  bal: '$12,800',   change: '+$580 이번달',    changeCls: 'pos' },
+    'Chase Sapphire':  { group: '신용카드',   bal: '-$1,240',   change: '↑ +$320 이번달 사용', changeCls: 'neg' },
+    'Chase Marriott':  { group: '신용카드',   bal: '-$600',     change: '↑ +$140 이번달 사용', changeCls: 'neg' },
+    'Discover':        { group: '신용카드',   bal: '-$1,000',   change: '↓ -$80 결제',     changeCls: 'pos' },
+    'Mortgage':        { group: '대출',      bal: '-$180,000', change: '↓ -$420 상환',     changeCls: 'pos' },
+  };
+
+  function openAccountDetail(name) {
+    const meta = ACCOUNT_META[name];
+    if (!meta) return;
+    document.getElementById('detailGroup').textContent = meta.group;
+    document.getElementById('detailName').textContent = name;
+    const bal = document.getElementById('detailBal');
+    bal.innerHTML = `<span class="currency">$</span>${meta.bal.replace(/^[-$]+/, '').replace(/[$]/, '')}`;
+    bal.classList.toggle('neg', meta.bal.startsWith('-'));
+    if (meta.bal.startsWith('-')) bal.style.color = 'var(--negative)'; else bal.style.color = '';
+    const change = document.getElementById('detailChange');
+    change.textContent = meta.change;
+    if (meta.changeCls === 'neg') {
+      change.style.background = 'rgba(255,92,92,0.12)';
+      change.style.color = 'var(--negative)';
+    } else {
+      change.style.background = 'var(--accent-soft)';
+      change.style.color = 'var(--accent)';
+    }
+
+    // 해당 계좌 거래만 렌더링 (가계부 탭의 데이터 재사용)
+    const list = document.getElementById('detailTxList');
+    list.innerHTML = '';
+    const groups = document.querySelectorAll('#txGroups .tx-day-group');
+    let count = 0;
+    groups.forEach(g => {
+      const matched = Array.from(g.querySelectorAll('.tx-row')).filter(r => r.dataset.account === name);
+      if (!matched.length) return;
+      const day = g.querySelector('.tx-day-head span').textContent;
+      const dayTotal = matched.reduce((sum, r) => {
+        const raw = r.querySelector('.tx-amt').textContent.replace(/[^0-9.\-]/g, '');
+        return sum + parseFloat(raw || 0);
+      }, 0);
+      const sign = dayTotal >= 0 ? '+' : '-';
+      const dayBlock = document.createElement('div');
+      dayBlock.className = 'tx-day-group';
+      dayBlock.innerHTML = `
+        <div class="tx-day-head">
+          <span>${day}</span>
+          <span class="tx-day-total">${sign}$${Math.abs(dayTotal).toFixed(2)}</span>
+        </div>
+        <div class="tx-list">
+          ${matched.map(r => r.outerHTML).join('')}
+        </div>`;
+      list.appendChild(dayBlock);
+      count += matched.length;
+    });
+    if (!count) {
+      list.innerHTML = '<div style="text-align:center; padding:40px 20px; color:var(--text-mute); font-size:13px;">이 계좌의 이번달 거래가 없어요</div>';
+    }
+    document.getElementById('detailCount').textContent = `${count}건`;
+    showPage('detail');
+  }
+
+  document.querySelectorAll('.asset-tap').forEach(item => {
+    item.addEventListener('click', () => openAccountDetail(item.dataset.account));
+  });
+
+  document.getElementById('detailBack').addEventListener('click', () => {
+    // 자산 탭으로 복귀
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('.tab[data-page="assets"]').classList.add('active');
+    showPage('assets');
+  });
+
+  // ============================================================
+  // 실제 데이터 바인딩 (app_data.js의 window.APP_DATA가 있을 때만)
+  // ============================================================
+  function fmt$(n, signed = false) {
+    if (n === null || n === undefined || isNaN(n)) return '$0';
+    const abs = Math.abs(n);
+    const sign = n < 0 ? '-' : (signed ? '+' : '');
+    return sign + '$' + abs.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+  }
+
+  function fmtKoreanDate(iso) {
+    // 'YYYY-MM-DD' → 'M월 D일 (요일)'
+    const [y, m, d] = iso.split('-').map(Number);
+    const dow = ['일','월','화','수','목','금','토'][new Date(y, m-1, d).getDay()];
+    return `${m}월 ${d}일 (${dow})`;
+  }
+
+  function isToday(iso) {
+    const t = new Date();
+    return iso === `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
+  }
+
+  function renderHome(d) {
+    // 총 자산 hero
+    const heroAmt = document.querySelector('#page-home .hero-amount');
+    if (heroAmt) heroAmt.innerHTML = `<span class="currency">$</span>${d.summary.total_positive.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+
+    // 자산 분배 (현금/투자만, 부채 제외)
+    const positiveAccs = d.accounts.filter(a => a.balance > 0);
+    const cashSum    = positiveAccs.filter(a => a.group === '현금성 자산').reduce((s,a) => s+a.balance, 0);
+    const investSum  = positiveAccs.filter(a => a.group === '투자 자산').reduce((s,a) => s+a.balance, 0);
+    const totalPos = cashSum + investSum;
+    const cashPct = totalPos ? Math.round((cashSum / totalPos) * 100) : 0;
+    const investPct = 100 - cashPct;
+    const allocBar = document.querySelector('#page-home .alloc-bar');
+    if (allocBar) {
+      allocBar.innerHTML = `
+        <div class="alloc-seg invest" style="width:${investPct}%"></div>
+        <div class="alloc-seg cash" style="width:${cashPct}%"></div>`;
+    }
+    const allocLegend = document.querySelector('#page-home .alloc-legend');
+    if (allocLegend) {
+      allocLegend.innerHTML = `
+        <span><span class="dot" style="background:var(--accent)"></span>투자 ${investPct}% · ${fmt$(investSum)}</span>
+        <span><span class="dot" style="background:#4DA8DA"></span>현금 ${cashPct}% · ${fmt$(cashSum)}</span>`;
+    }
+
+    // 예산 카드 (이번달 지출 합 / 예산은 가정 $5,000)
+    const budget = 5000;
+    const spent = d.category_total;
+    const pct = Math.min(100, Math.round((spent / budget) * 100));
+    document.querySelector('.budget-amounts .spent').textContent = fmt$(spent);
+    document.querySelector('.budget-amounts .total').textContent = ` / ${fmt$(budget)}`;
+    document.querySelector('.progress-fill').style.width = pct + '%';
+    const remain = budget - spent;
+    const today = new Date();
+    const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+    const daysLeft = lastDay - today.getDate();
+    const meta = document.querySelector('.budget-meta');
+    if (meta) {
+      meta.innerHTML = `<span>${pct}% 사용 · ${daysLeft}일 남음</span><span>${fmt$(remain)} 남음</span>`;
+    }
+
+    // 카테고리 TOP 3
+    const allCats = [...d.categories.fixed, ...d.categories.variable].sort((a,b) => b.amount - a.amount);
+    const top3 = allCats.slice(0, 3);
+    const maxAmt = top3[0] ? top3[0].amount : 1;
+    const catList = document.querySelector('#page-home .cat-list');
+    if (catList && top3.length) {
+      const ICONS = {
+        '주거비':'🏠','통신비':'📱','보험':'🛡️','대출':'💳','구독':'🔁','저축/투자':'📈','가족지원':'❤️',
+        '식비':'🍱','생활용품':'🛍️','의복/미용':'👕','건강/의료':'🏥','문화/여가':'🎬',
+        '여행':'✈️','차량유지비':'🚗','경조사/회비':'🎁','기타':'•'
+      };
+      catList.innerHTML = top3.map((c, i) => {
+        const w = Math.round((c.amount / maxAmt) * 100);
+        const color = i === 0 ? 'var(--accent)' : 'var(--text-dim)';
+        const icon = ICONS[c.name.trim()] || '•';
+        return `
+          <div class="cat-row">
+            <div class="cat-icon">${icon}</div>
+            <div class="cat-info">
+              <div class="cat-name">${c.name.trim()}</div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:${w}%;background:${color}"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount">${fmt$(c.amount)}</div>
+              <div class="cat-trend">${d.meta.current_month}</div>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // 헤더 인사
+    const subt = document.querySelector('#page-home .page-subtitle');
+    if (subt) {
+      const t = new Date();
+      subt.textContent = `${t.getFullYear()}년 ${t.getMonth()+1}월 ${t.getDate()}일 · ${d.meta.current_month} 데이터 기준`;
+    }
+  }
+
+  function renderAssets(d) {
+    // 순자산 카드
+    const nwAmt = document.querySelector('#page-assets .networth-amount');
+    if (nwAmt) {
+      nwAmt.innerHTML = `<span class="currency">$</span>${d.summary.net_worth.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+      nwAmt.style.color = d.summary.net_worth < 0 ? 'var(--negative)' : '';
+    }
+    const subt = document.querySelector('#page-assets .page-subtitle');
+    if (subt) {
+      const accCount = d.accounts.length;
+      subt.textContent = `${accCount}개 계좌 · ${d.meta.current_month} 데이터 · 탭하면 상세`;
+    }
+
+    // 모기지 제외 안내 → 학자금/자동차 대출 제외 안내로 변경
+    const noteRow = document.querySelector('#page-assets .networth-card > div:last-child');
+    if (noteRow) {
+      const excludeDebt = d.accounts
+        .filter(a => a.group === '대출')
+        .reduce((s,a) => s + a.balance, 0);
+      const withoutDebt = d.summary.net_worth - excludeDebt;
+      noteRow.innerHTML = `대출 제외 시 <span class="${withoutDebt >= 0 ? 'pos' : 'neg'}" style="font-weight:600;">${fmt$(withoutDebt, withoutDebt > 0)}</span>`;
+    }
+
+    // 계좌 그룹별 렌더링
+    const container = document.querySelector('#page-assets');
+    // 기존 자산 그룹 div 모두 제거
+    container.querySelectorAll('.asset-group').forEach(g => g.remove());
+
+    // 그룹 순서 고정
+    const GROUP_ORDER = ['현금성 자산', '투자 자산', '신용카드 (부채)', '대출'];
+    const byGroup = {};
+    d.accounts.forEach(a => {
+      (byGroup[a.group] = byGroup[a.group] || []).push(a);
+    });
+
+    GROUP_ORDER.forEach(group => {
+      const accs = byGroup[group];
+      if (!accs || !accs.length) return;
+      const total = accs.reduce((s,a) => s+a.balance, 0);
+      const totalCls = total < 0 ? 'negative' : 'pos';
+
+      const groupDiv = document.createElement('div');
+      groupDiv.className = 'asset-group';
+      groupDiv.innerHTML = `
+        <div class="asset-group-head">
+          <div class="asset-group-name">${group}</div>
+          <div class="asset-group-total ${totalCls}">${fmt$(total)}</div>
+        </div>
+        <div class="asset-card">
+          ${accs.map(a => {
+            const balCls = a.balance < 0 ? 'neg' : 'pos';
+            const change = a.balance - a.prev_balance;
+            const changeLabel = change === 0 ? '변동 없음' : (change > 0 ? `+${fmt$(change).replace('+','')}` : fmt$(change));
+            const changeCls = change > 0 ? 'up' : (change < 0 ? 'down' : '');
+            return `
+              <div class="asset-item asset-tap" data-account="${a.name}">
+                <div class="asset-logo" style="background:${a.logo_bg}; color:${a.logo_fg};">${a.logo}</div>
+                <div class="asset-info">
+                  <div class="asset-name">${a.name}</div>
+                  <div class="asset-meta">${a.meta}</div>
+                </div>
+                <div>
+                  <div class="asset-bal ${balCls}">${fmt$(a.balance)}</div>
+                  <div class="asset-bal-change ${changeCls}">${changeLabel}</div>
+                </div>
+              </div>`;
+          }).join('')}
+        </div>`;
+      container.appendChild(groupDiv);
+    });
+
+    // 새로 만들어진 카드들에 탭 핸들러 연결
+    container.querySelectorAll('.asset-tap').forEach(item => {
+      item.addEventListener('click', () => openAccountDetail(item.dataset.account));
+    });
+
+    // ACCOUNT_META 갱신 (계좌 상세 페이지가 사용)
+    d.accounts.forEach(a => {
+      const change = a.balance - a.prev_balance;
+      const changeText = change === 0 ? '변동 없음' :
+                         (change > 0 ? `↑ +${fmt$(change).replace(/^[+-]?\$/,'$')} 이번달` :
+                                       `↓ ${fmt$(change)} 이번달`);
+      ACCOUNT_META[a.name] = {
+        group:     a.group,
+        bal:       fmt$(a.balance),
+        change:    changeText,
+        changeCls: (a.balance < 0 || change < 0 && a.balance < 0) ? 'neg' : 'pos',
+      };
+    });
+  }
+
+  function renderTransactions(d) {
+    // 활성 계좌 칩 갱신
+    const chipRow = document.querySelector('#page-tx .chip-row');
+    if (chipRow) {
+      const uniqAccs = d.accounts.filter(a => a.group !== '대출').map(a => a.name);
+      chipRow.innerHTML = `
+        <button class="chip account-chip active" data-account="all">전체 (${d.transactions.length})</button>
+        ${uniqAccs.map(name => {
+          const count = d.transactions.filter(t => t.account === name || ACTIVE_KEY_TO_DISPLAY[t.account] === name).length;
+          const short = name.replace(' Checking','').replace(' Sapphire','').replace(' Marriott','');
+          return `<button class="chip account-chip" data-account="${name}">${short} (${count})</button>`;
+        }).join('')}`;
+      // 칩 핸들러 재연결
+      chipRow.querySelectorAll('.account-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          chipRow.querySelectorAll('.account-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          applyAccountFilter(chip.dataset.account);
+        });
+      });
+    }
+
+    // 거래 그룹 렌더링 (날짜별)
+    const groupsContainer = document.getElementById('txGroups');
+    if (!groupsContainer) return;
+    groupsContainer.innerHTML = '';
+
+    const ICONS = {
+      '주거비':'🏠','통신비':'📱','보험':'🛡️','대출':'💳','구독':'🔁','저축/투자':'📈','가족지원':'❤️','수입':'💰',
+      '식비':'🍱','생활용품':'🛍️','의복/미용':'👕','건강/의료':'🏥','문화/여가':'🎬',
+      '여행':'✈️','차량유지비':'🚗','경조사/회비':'🎁','기타':'•'
+    };
+    // 날짜별 그룹화
+    const byDate = {};
+    d.transactions.forEach(t => {
+      (byDate[t.date] = byDate[t.date] || []).push(t);
+    });
+    const sortedDates = Object.keys(byDate).sort().reverse();
+
+    sortedDates.forEach(date => {
+      const items = byDate[date];
+      const dayTotal = items.reduce((s,t) => {
+        return s + (t.type === 'income' ? t.amount : -Math.abs(t.amount));
+      }, 0);
+      const dayLabel = isToday(date) ? `오늘, ${fmtKoreanDate(date)}` : fmtKoreanDate(date);
+      const sign = dayTotal >= 0 ? '+' : '-';
+
+      const html = `
+        <div class="tx-day-group">
+          <div class="tx-day-head">
+            <span>${dayLabel}</span>
+            <span class="tx-day-total">${sign}$${Math.abs(dayTotal).toFixed(2)}</span>
+          </div>
+          <div class="tx-list">
+            ${items.map(t => {
+              const acc = ACTIVE_ACCOUNTS_DISPLAY[t.account] || t.account;
+              const cat = (t.category || '').trim();
+              const sub = (t.subcategory || '').trim();
+              const icon = ICONS[cat] || '•';
+              const memo = t.memo ? t.memo : (sub || cat);
+              const isIncome = t.type === 'income';
+              const amtCls = isIncome ? 'income' : '';
+              const amtTxt = isIncome ? `+$${t.amount.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})}` :
+                                        `-$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})}`;
+              return `
+                <div class="tx-row" data-account="${acc}">
+                  <div class="tx-icon"${isIncome ? ' style="background:var(--accent-soft);"' : ''}>${icon}</div>
+                  <div class="tx-info">
+                    <div class="tx-name">${memo || cat || sub}</div>
+                    <div class="tx-sub">${cat}${sub ? ' · ' + sub : ''} · ${acc}</div>
+                  </div>
+                  <div class="tx-amt ${amtCls}">${amtTxt}</div>
+                </div>`;
+            }).join('')}
+          </div>
+        </div>`;
+      groupsContainer.insertAdjacentHTML('beforeend', html);
+    });
+
+    document.getElementById('txSubtitle').textContent = `${d.meta.current_month} · 전체 계좌 · ${d.transactions.length}건`;
+  }
+
+  // 계좌 키 → 표시 이름 매핑 (transactions 데이터의 account 키 → 화면 표시명)
+  const ACTIVE_ACCOUNTS_DISPLAY = {
+    'Chase':           'Chase Checking',
+    'Chase Sphire':    'Chase Sapphire',
+    'Chase Marriott':  'Chase Marriott',
+    'Discover':        'Discover',
+    'Robinhood':       'Robinhood',
+    'Roth IRA':        'Roth IRA',
+  };
+  const ACTIVE_KEY_TO_DISPLAY = ACTIVE_ACCOUNTS_DISPLAY;
+
+  // ============================================================
+  // 입력 모달 — Google Sheets로 실제 저장 (Apps Script Web App)
+  // ============================================================
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAm7nb_YR1LKVOGvHl48HYlfFCwpZEjgiw6oCHXGtENK17BkvjVO7JZEhnsQrUy7-a/exec';
+
+  // 카테고리 데이터 (가계부_입력.html과 동일하게 유지)
+  const VARIABLE_CATS = {
+    '식비':       ['식재료','외식','패스트푸드','간식/카페','음료','배달음식','술/유흥'],
+    '생활용품':   ['가구/가전','전자제품','소모품','주방/욕실','인테리어/청소'],
+    '의복/미용':  ['의류/신발','헤어/뷰티','악세서리'],
+    '건강/의료':  ['병원/의약','운동/스포츠'],
+    '문화/여가':  ['문화생활','취미','게임','도박/경기'],
+    '여행':       ['항공권','숙박','렌터카','여행경비'],
+    '차량유지비': ['주유','차량수리/부품','세차','주차비','대중교통','차량등록'],
+    '경조사/회비':['선물','모임/회비','데이트'],
+    '기타':       ['출장비','세금/수수료','기타']
+  };
+  const FIXED_CATS = {
+    '주거비':   ['렌트비','유틸리티'],
+    '통신비':   ['인터넷','핸드폰'],
+    '보험':     ['자동차보험','렌터보험','생명/의료보험'],
+    '대출':     ['자동차대출','학자금','모기지'],
+    '구독':     ['헬스장','OTT','AI 구독','음악/앱 구독','세차 구독','연회비','클라우드'],
+    '저축/투자':['저축','주식투자','은퇴연금'],
+    '가족지원': ['부모님 지원','기부'],
+    '기타':     ['기타']
+  };
+  // 활성 계좌만 (사용자 결정 반영)
+  const MODAL_ACCOUNTS = ['Chase','Chase Sphire','Chase Marriott','Discover','Robinhood','Roth IRA'];
+  // Sheets에 저장되는 키 → 화면 표시명
+  const ACCOUNT_DISPLAY_NAMES = {
+    'Chase':'Chase Checking', 'Chase Sphire':'Chase Sapphire',
+    'Chase Marriott':'Chase Marriott', 'Discover':'Discover',
+    'Robinhood':'Robinhood', 'Roth IRA':'Roth IRA',
+  };
+  const CAT_ICONS = {
+    '주거비':'🏠','통신비':'📱','보험':'🛡️','대출':'💳','구독':'🔁','저축/투자':'📈','가족지원':'❤️',
+    '식비':'🍱','생활용품':'🛍️','의복/미용':'👕','건강/의료':'🏥','문화/여가':'🎬',
+    '여행':'✈️','차량유지비':'🚗','경조사/회비':'🎁','기타':'•'
+  };
+
+  // ── 모달 상태 ──
+  let modalType = 'variable';
+  let modalMain = '';
+  let modalSub  = '';
+
+  function renderModalMainCats() {
+    const cats = modalType === 'variable' ? VARIABLE_CATS : FIXED_CATS;
+    const wrap = document.getElementById('mainCatChips');
+    wrap.innerHTML = Object.keys(cats).map(c =>
+      `<button class="chip ${modalMain === c ? 'active' : ''}" data-main="${c}">${CAT_ICONS[c] || ''} ${c}</button>`
+    ).join('');
+    wrap.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        modalMain = chip.dataset.main;
+        modalSub  = '';
+        renderModalMainCats();
+        renderModalSubCats();
+      });
+    });
+  }
+
+  function renderModalSubCats() {
+    const wrap = document.getElementById('subCatChips');
+    const label = document.getElementById('subCatLabel');
+    if (!modalMain) {
+      wrap.innerHTML = '';
+      label.style.display = 'none';
+      return;
+    }
+    const cats = modalType === 'variable' ? VARIABLE_CATS : FIXED_CATS;
+    const subs = cats[modalMain] || [];
+    label.style.display = '';
+    wrap.innerHTML = subs.map(s =>
+      `<button class="chip ${modalSub === s ? 'active' : ''}" data-sub="${s}">${s}</button>`
+    ).join('');
+    wrap.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        modalSub = chip.dataset.sub;
+        renderModalSubCats();
+      });
+    });
+  }
+
+  function populateAccountSelect() {
+    const sel = document.getElementById('inAccount');
+    const lastUsed = localStorage.getItem('lastAccount') || 'Chase Sphire';
+    sel.innerHTML = MODAL_ACCOUNTS.map(a =>
+      `<option value="${a}" ${a === lastUsed ? 'selected' : ''}>${ACCOUNT_DISPLAY_NAMES[a] || a}</option>`
+    ).join('');
+  }
+
+  function setupModalDate() {
+    const inp = document.getElementById('inDate');
+    const t = new Date();
+    inp.value = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
+  }
+
+  function resetModalForm() {
+    document.getElementById('inAmount').value = '';
+    document.getElementById('inMemo').value = '';
+    modalMain = '';
+    modalSub  = '';
+    renderModalMainCats();
+    renderModalSubCats();
+    setupModalDate();
+  }
+
+  // ── Variable/Fixed 토글 (모달 전용) ──
+  document.querySelectorAll('#typeSeg .seg-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      modalType = btn.dataset.type;
+      modalMain = '';
+      modalSub  = '';
+      renderModalMainCats();
+      renderModalSubCats();
+    });
+  });
+
+  // ── 토스트 ──
+  let toastTimer = null;
+  function showToast(msg, kind = 'info') {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast show ' + (kind || '');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+  }
+
+  // ── 오프라인 큐 ──
+  function getPending() {
+    return JSON.parse(localStorage.getItem('pendingTx') || '[]');
+  }
+  function setPending(arr) {
+    localStorage.setItem('pendingTx', JSON.stringify(arr));
+    const badge = document.getElementById('pendingBadge');
+    if (arr.length > 0) {
+      badge.textContent = `미전송 ${arr.length}건`;
+      badge.classList.add('show');
+    } else {
+      badge.classList.remove('show');
+    }
+  }
+  function pushPending(payload) {
+    const q = getPending();
+    q.push(payload);
+    setPending(q);
+  }
+
+  // ── 저장 (POST to Apps Script) ──
+  async function saveTransaction() {
+    const amount = parseFloat(document.getElementById('inAmount').value);
+    const dateVal = document.getElementById('inDate').value;
+    const account = document.getElementById('inAccount').value;
+    const memo    = document.getElementById('inMemo').value.trim();
+
+    // 검증
+    if (!amount || amount <= 0)        { showToast('❌ 금액을 입력하세요', 'error'); return; }
+    if (!modalMain)                    { showToast('❌ 대분류를 선택하세요', 'error'); return; }
+    if (!modalSub)                     { showToast('❌ 소분류를 선택하세요', 'error'); return; }
+    if (!dateVal)                      { showToast('❌ 날짜를 선택하세요', 'error'); return; }
+
+    const [y, m, dd] = dateVal.split('-');
+    const payload = {
+      type:         modalType,
+      month:        `${parseInt(m, 10)}월`,
+      date:         `${m}/${dd}`,
+      category:     modalType === 'variable' ? modalSub : modalSub,
+      mainCategory: modalMain,
+      subcategory:  modalSub,
+      desc:         memo,
+      account:      account,
+      amount:       amount,
+      timestamp:    new Date().toISOString(),
+    };
+
+    const btn = document.getElementById('modalSave');
+    btn.disabled = true;
+    const origText = btn.textContent;
+    btn.textContent = '저장 중…';
+
+    let sentOk = false;
+    if (navigator.onLine && APPS_SCRIPT_URL && !APPS_SCRIPT_URL.includes('YOUR_')) {
+      try {
+        // Apps Script는 mode:'no-cors'에서도 작동 (응답 못 읽지만 요청은 도달)
+        // 응답 확인이 필요하므로 일반 fetch 사용
+        const res = await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(payload),
+          // Content-Type 명시하면 CORS preflight 발생 → 생략 (text/plain으로 처리됨)
+        });
+        if (res.ok) {
+          sentOk = true;
+          try {
+            const j = await res.json();
+            if (j && j.ok === false) {
+              showToast('⚠️ 서버: ' + (j.error || '알 수 없는 오류'), 'warn');
+              sentOk = false;
+            }
+          } catch (_) { /* 응답이 JSON이 아니어도 200이면 성공 처리 */ }
+        }
+      } catch (e) {
+        console.warn('POST 실패:', e);
+      }
+    }
+
+    if (sentOk) {
+      showToast('✅ Sheets에 저장됨', 'success');
+      localStorage.setItem('lastAccount', account);
+      applyOptimisticTx(payload);
+      resetModalForm();
+      document.getElementById('modalBg').classList.remove('show');
+    } else if (navigator.onLine) {
+      // 네트워크는 되는데 서버에 안 닿음 → 큐에
+      pushPending(payload);
+      applyOptimisticTx(payload, true);
+      showToast('📦 서버 응답 없음 — 큐에 저장', 'warn');
+      resetModalForm();
+      document.getElementById('modalBg').classList.remove('show');
+    } else {
+      pushPending(payload);
+      applyOptimisticTx(payload, true);
+      showToast('📡 오프라인 — 연결되면 자동 전송', 'warn');
+      resetModalForm();
+      document.getElementById('modalBg').classList.remove('show');
+    }
+
+    btn.disabled = false;
+    btn.textContent = origText;
+  }
+
+  // ── 낙관적 업데이트: APP_DATA에 추가 + 가계부 탭 다시 그리기 ──
+  function applyOptimisticTx(payload, isPending = false) {
+    if (!window.APP_DATA) return;
+    const display = ACCOUNT_DISPLAY_NAMES[payload.account] || payload.account;
+    const tx = {
+      date:        payload.timestamp.slice(0, 10),
+      category:    payload.mainCategory,
+      subcategory: payload.subcategory,
+      memo:        payload.desc || '',
+      account:     display,
+      amount:      payload.amount,
+      type:        payload.type,
+      _pending:    isPending,
+    };
+    window.APP_DATA.transactions.unshift(tx);
+    renderTransactions(window.APP_DATA);
+  }
+
+  // ── 미전송 큐 재시도 ──
+  async function retryPending() {
+    const q = getPending();
+    if (!q.length) return;
+    const succeeded = [];
+    for (const payload of q) {
+      try {
+        const res = await fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
+        if (res.ok) succeeded.push(payload);
+      } catch (_) { /* 다음 시도까지 보관 */ }
+    }
+    if (succeeded.length) {
+      const remaining = q.filter(p => !succeeded.includes(p));
+      setPending(remaining);
+      showToast(`📤 ${succeeded.length}건 재전송 완료`, 'success');
+    }
+  }
+  window.addEventListener('online', retryPending);
+
+  // ── 저장 버튼 + 모달 열림 시 폼 초기화 ──
+  document.getElementById('modalSave').addEventListener('click', saveTransaction);
+  document.getElementById('fabBtn').addEventListener('click', () => {
+    populateAccountSelect();
+    resetModalForm();
+  });
+
+  // 초기 1회 (모달이 닫혀있어도 차후 열림 대비)
+  populateAccountSelect();
+  setupModalDate();
+  renderModalMainCats();
+  setPending(getPending());
+
+  // ── 데이터가 로드되면 자동 렌더링 ──
+  if (window.APP_DATA) {
+    try {
+      const d = window.APP_DATA;
+      // 거래의 account 필드를 display name으로 변환
+      d.transactions.forEach(t => {
+        t.account = ACTIVE_ACCOUNTS_DISPLAY[t.account] || t.account;
+      });
+      renderAssets(d);
+      renderTransactions(d);
+      renderHome(d);
+      document.getElementById('dataLabel').textContent = `${d.meta.current_month} 실데이터 · ${d.transactions.length}건 · ${new Date(d.meta.generated_at).toLocaleString('ko-KR')} 갱신`;
+    } catch (e) {
+      console.error('데이터 렌더링 실패:', e);
+      document.getElementById('dataLabel').textContent = '목업 v1 (데이터 렌더링 오류)';
+    }
+  }
+</script>
+
+</body>
+</html>
