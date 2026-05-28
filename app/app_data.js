@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-05-27T23:19:02",
+    "generated_at": "2026-05-28T13:47:42",
     "source_file": "2026 가계부.xlsx",
     "current_month": "5월"
   },
@@ -154,7 +154,7 @@ window.APP_DATA = {
       "date": "2026-05-27",
       "category": "구독",
       "subcategory": "클라우드",
-      "memo": "applee",
+      "memo": "Apple",
       "account": "Discover",
       "amount": 2.99,
       "type": "fixed"
