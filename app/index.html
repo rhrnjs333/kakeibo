@@ -105,14 +105,17 @@
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 16px;
+    padding-bottom: calc(var(--tabbar-h) + var(--safe-bottom) + 16px);
     scrollbar-width: none;
   }
   .content::-webkit-scrollbar { display: none; }
 
-  /* Bottom tab bar — safe-area-inset 적용 */
+  /* Bottom tab bar — 뷰포트 하단에 고정 (safe-area-inset 적용) */
   .tabbar {
-    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
     flex-shrink: 0;
     height: calc(var(--tabbar-h) + var(--safe-bottom));
     background: rgba(15, 20, 25, 0.92);
@@ -120,7 +123,7 @@
     -webkit-backdrop-filter: blur(24px) saturate(140%);
     border-top: 1px solid var(--border);
     display: flex;
-    padding: 2px 4px calc(var(--safe-bottom) + 2px);
+    padding: 2px calc(4px + var(--safe-right)) calc(var(--safe-bottom) + 2px) calc(4px + var(--safe-left));
     z-index: 6;
   }
   .tab {
@@ -143,9 +146,9 @@
   .tab.active { color: var(--accent); }
   .tab.fab-slot { color: transparent; pointer-events: none; }
 
-  /* FAB — 탭바 위로 살짝 띄움, safe-area 고려 */
+  /* FAB — 탭바 위로 살짝 띄움, 뷰포트 하단 기준 고정 */
   .fab {
-    position: absolute;
+    position: fixed;
     bottom: calc(var(--safe-bottom) + var(--tabbar-h) / 2 - 16px);
     left: 50%;
     transform: translateX(-50%);
