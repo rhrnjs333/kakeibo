@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-05-30T17:35:41",
+    "generated_at": "2026-05-30T18:22:04",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
@@ -789,6 +789,24 @@ window.APP_DATA = {
     },
     {
       "date": "2026-04-30",
+      "category": "보험",
+      "subcategory": "렌터보험",
+      "memo": "Homeowners",
+      "account": "Chase Marriott",
+      "amount": 25.97,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-04-30",
+      "category": "구독",
+      "subcategory": "세차 구독",
+      "memo": "Jax",
+      "account": "Discover",
+      "amount": 25.99,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-04-30",
       "category": "여행",
       "subcategory": "여행경비",
       "memo": "시카고 여행",
@@ -834,12 +852,30 @@ window.APP_DATA = {
     },
     {
       "date": "2026-04-27",
+      "category": "구독",
+      "subcategory": "클라우드",
+      "memo": "Apple",
+      "account": "Discover",
+      "amount": 2.99,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-04-27",
       "category": "차량유지비",
       "subcategory": "주유",
       "memo": "주유",
       "account": "Chase Marriott",
       "amount": 52.93,
       "type": "variable"
+    },
+    {
+      "date": "2026-04-26",
+      "category": "구독",
+      "subcategory": "OTT",
+      "memo": "netflix",
+      "account": "Chase Sphire",
+      "amount": 7.99,
+      "type": "fixed"
     },
     {
       "date": "2026-04-25",
@@ -858,6 +894,15 @@ window.APP_DATA = {
       "account": "Chase Sphire",
       "amount": 8.88,
       "type": "variable"
+    },
+    {
+      "date": "2026-04-24",
+      "category": "통신비",
+      "subcategory": "핸드폰",
+      "memo": "Verizon",
+      "account": "Chase",
+      "amount": 49.8,
+      "type": "fixed"
     },
     {
       "date": "2026-04-23",
@@ -1032,6 +1077,15 @@ window.APP_DATA = {
     },
     {
       "date": "2026-04-15",
+      "category": "대출",
+      "subcategory": "자동차대출",
+      "memo": "Mazda",
+      "account": "Chase",
+      "amount": 475.34,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-04-15",
       "category": "건강/의료",
       "subcategory": "운동/스포츠",
       "memo": "Pickleball",
@@ -1122,6 +1176,15 @@ window.APP_DATA = {
     },
     {
       "date": "2026-04-10",
+      "category": "구독",
+      "subcategory": "헬스장",
+      "memo": "Powerhouse",
+      "account": "Chase Marriott",
+      "amount": 29.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-04-10",
       "category": "건강/의료",
       "subcategory": "운동/스포츠",
       "memo": "Rockclimbing",
@@ -1173,6 +1236,24 @@ window.APP_DATA = {
       "account": "Chase Sphire",
       "amount": 22.74,
       "type": "variable"
+    },
+    {
+      "date": "2026-04-05",
+      "category": "주거비",
+      "subcategory": "유틸리티",
+      "memo": "DTE",
+      "account": "Chase",
+      "amount": 76.42,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-04-05",
+      "category": "주거비",
+      "subcategory": "유틸리티",
+      "memo": "Consumer Energy",
+      "account": "Chase",
+      "amount": 67.06,
+      "type": "fixed"
     },
     {
       "date": "2026-04-05",
@@ -1230,6 +1311,15 @@ window.APP_DATA = {
     },
     {
       "date": "2026-04-03",
+      "category": "통신비",
+      "subcategory": "핸드폰",
+      "memo": "Verizon",
+      "account": "Chase",
+      "amount": 49.85,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-04-03",
       "category": "식비",
       "subcategory": "외식",
       "memo": "저녁 - 치맥",
@@ -1248,12 +1338,30 @@ window.APP_DATA = {
     },
     {
       "date": "2026-04-02",
+      "category": "통신비",
+      "subcategory": "인터넷",
+      "memo": "Xfinity",
+      "account": "Chase",
+      "amount": 40.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-04-02",
       "category": "차량유지비",
       "subcategory": "차량등록",
       "memo": "SOS - Title renew",
       "account": "Chase",
       "amount": 190.0,
       "type": "variable"
+    },
+    {
+      "date": "2026-04-01",
+      "category": "주거비",
+      "subcategory": "렌트비",
+      "memo": "4월 렌트비",
+      "account": "Chase",
+      "amount": 1370.93,
+      "type": "fixed"
     },
     {
       "date": "2026-04-01",
@@ -3576,114 +3684,191 @@ window.APP_DATA = {
       "account": "Chase Sphire",
       "amount": 25.71,
       "type": "variable"
-    },
-    {
-      "date": "04/30/2026",
-      "category": "보험",
-      "subcategory": "렌터보험",
-      "memo": "Homeowners",
-      "account": "Chase Marriott",
-      "amount": 25.97,
-      "type": "fixed"
-    },
-    {
-      "date": "04/30/2026",
-      "category": "구독",
-      "subcategory": "세차 구독",
-      "memo": "Jax",
-      "account": "Discover",
-      "amount": 25.99,
-      "type": "fixed"
-    },
-    {
-      "date": "04/27/2026",
-      "category": "구독",
-      "subcategory": "클라우드",
-      "memo": "Apple",
-      "account": "Discover",
-      "amount": 2.99,
-      "type": "fixed"
-    },
-    {
-      "date": "04/26/2026",
-      "category": "구독",
-      "subcategory": "OTT",
-      "memo": "netflix",
-      "account": "Chase Sphire",
-      "amount": 7.99,
-      "type": "fixed"
-    },
-    {
-      "date": "04/24/2026",
-      "category": "통신비",
-      "subcategory": "핸드폰",
-      "memo": "Verizon",
-      "account": "Chase",
-      "amount": 49.8,
-      "type": "fixed"
-    },
-    {
-      "date": "04/15/2026",
-      "category": "대출",
-      "subcategory": "자동차대출",
-      "memo": "Mazda",
-      "account": "Chase",
-      "amount": 475.34,
-      "type": "fixed"
-    },
-    {
-      "date": "04/10/2026",
-      "category": "구독",
-      "subcategory": "헬스장",
-      "memo": "Powerhouse",
-      "account": "Chase Marriott",
-      "amount": 29.0,
-      "type": "fixed"
-    },
-    {
-      "date": "04/05/2026",
-      "category": "주거비",
-      "subcategory": "유틸리티",
-      "memo": "DTE",
-      "account": "Chase",
-      "amount": 76.42,
-      "type": "fixed"
-    },
-    {
-      "date": "04/05/2026",
-      "category": "주거비",
-      "subcategory": "유틸리티",
-      "memo": "Consumer Energy",
-      "account": "Chase",
-      "amount": 67.06,
-      "type": "fixed"
-    },
-    {
-      "date": "04/03/2026",
-      "category": "통신비",
-      "subcategory": "핸드폰",
-      "memo": "Verizon",
-      "account": "Chase",
-      "amount": 49.85,
-      "type": "fixed"
-    },
-    {
-      "date": "04/02/2026",
-      "category": "통신비",
-      "subcategory": "인터넷",
-      "memo": "Xfinity",
-      "account": "Chase",
-      "amount": 40.0,
-      "type": "fixed"
-    },
-    {
-      "date": "04/01/2026",
-      "category": "주거비",
-      "subcategory": "렌트비",
-      "memo": "4월 렌트비",
-      "account": "Chase",
-      "amount": 1370.93,
-      "type": "fixed"
     }
-  ]
+  ],
+  "insights": [
+    {
+      "tier": "alert",
+      "icon": "📉",
+      "title": "5월 적자 -$269",
+      "body": "5월은 수입 $6,918보다 지출 $7,187이 많아 $269 적자입니다. 최근 저축률 중앙값 29% → 이번달 -4%로 떨어졌습니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
+      "severity": "high",
+      "score": 95,
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "보험 지출 416% 급증",
+      "body": "5월 보험 지출이 $1,622로 과거 평균 $314보다 416%($1,308) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "high",
+      "score": 95,
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "차량유지비 지출 221% 급증",
+      "body": "5월 차량유지비 지출이 $1,263로 과거 평균 $394보다 221%($869) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "high",
+      "score": 95,
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "⚠️",
+      "title": "저축률이 3개월 연속 하락 중",
+      "body": "저축률이 70% → 0% → -4%로 내려가고 있습니다. 고정비·반복지출 점검이 필요한 시점입니다.",
+      "severity": "high",
+      "score": 88,
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "생활용품 지출 54% 급증",
+      "body": "5월 생활용품 지출이 $241로 과거 평균 $156보다 54%($84) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "medium",
+      "score": 85.8,
+      "top": true
+    },
+    {
+      "tier": "recommendation",
+      "icon": "🏦",
+      "title": "현금 $5,323 투자 여력",
+      "body": "현재 현금 $28,380 중 권장 비상금(4개월치 $23,057)을 빼면 $5,323이 여유분입니다. 연 7% 가정 시 투자하면 연 약 $373의 기회가 생깁니다(현금으로 두면 그만큼 기회비용).",
+      "severity": "medium",
+      "score": 62,
+      "top": false
+    },
+    {
+      "tier": "recommendation",
+      "icon": "🔁",
+      "title": "구독 4종 월 $61 (연 $732)",
+      "body": "헬스장 $29, AI 구독 $20, OTT $9, 클라우드 $3. 최대는 헬스장($29/월, 연 $348)입니다. 이용 빈도가 낮은 구독을 1개만 정리해도 연 단위로 큰 차이가 납니다.",
+      "severity": "medium",
+      "score": 60,
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "🏠",
+      "title": "고정비가 지출의 59%",
+      "body": "5월 고정비 $4,245로 전체 지출의 59%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
+      "severity": "medium",
+      "score": 58,
+      "top": false
+    },
+    {
+      "tier": "recommendation",
+      "icon": "✂️",
+      "title": "차량유지비 20% 절감 시 연 $3,000 투자 여력",
+      "body": "5월 최대 지출 카테고리는 차량유지비 $1,263입니다. 월 $250(20%)만 줄여도 연 $3,000, 연 7% 투자 시 10년 뒤 약 $41,449이 됩니다.",
+      "severity": "medium",
+      "score": 57,
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "🔮",
+      "title": "90일 후 예상 현금 $33,886",
+      "body": "최근 월 순저축 중앙값 $1,835 기준, 현재 현금 $28,380에서 3개월 뒤 약 $33,886으로 예상됩니다. 현금흐름은 안정적입니다.",
+      "severity": "good",
+      "score": 55,
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "📊",
+      "title": "월 지출 증가 추세 ($7,187)",
+      "body": "최근 월 지출 중앙값 $5,764 대비 5월 $7,187(+25%)입니다.",
+      "severity": "low",
+      "score": 40,
+      "top": false
+    }
+  ],
+  "scores": {
+    "health": {
+      "score": 58,
+      "label": "양호",
+      "parts": {
+        "저축률": 12,
+        "현금흐름": 80,
+        "비상금": 100,
+        "소비안정성": 67
+      }
+    },
+    "lifestyle_inflation": {
+      "score": 80,
+      "label": "높음"
+    },
+    "savings_momentum": {
+      "score": 1,
+      "label": "둔화"
+    },
+    "spending_efficiency": {
+      "score": 34,
+      "label": "위험"
+    },
+    "wealth_building": {
+      "score": 68,
+      "label": "양호"
+    }
+  },
+  "action_items": {
+    "now": [
+      "5월 적자 $269 — 다음달 변동지출 한도 $5,188 설정",
+      "보험 급증분 점검 (과거比 +$1,308)",
+      "현금 여유분 $5,323 일부 투자 검토"
+    ],
+    "keep": [
+      "평소 저축률 29% 유지 습관"
+    ],
+    "reduce": [
+      "구독 4종 중 이용 적은 1개 해지 (연 $36 절약)",
+      "차량유지비 20% 절감 목표"
+    ],
+    "watch": [
+      "저축률 둔화 추세 — 다음달 반등 확인",
+      "고정비 비중 높음 — 보험·통신 재협상 검토"
+    ]
+  },
+  "insight_meta": {
+    "analysis_month": "2026-05",
+    "baseline_months": [
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04"
+    ],
+    "assumptions": "투자수익 연 7%, 비상금 4개월, 예산 없음→과거평균 기준",
+    "cat_increase_top": [
+      {
+        "name": "보험",
+        "delta": 1308
+      },
+      {
+        "name": "차량유지비",
+        "delta": 869
+      },
+      {
+        "name": "주거비",
+        "delta": 321
+      }
+    ],
+    "cat_decrease_top": [
+      {
+        "name": "식비",
+        "delta": -466
+      },
+      {
+        "name": "여행",
+        "delta": -227
+      },
+      {
+        "name": "건강/의료",
+        "delta": -70
+      }
+    ]
+  }
 };
