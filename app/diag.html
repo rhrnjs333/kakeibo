@@ -2,13 +2,13 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="진단">
 <meta name="theme-color" content="#0F1419">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>진단3</title>
+<title>진단4</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html, body { background:#0F1419; color:#fff; font-family:monospace; }
@@ -33,7 +33,7 @@
     document.body.appendChild(p);
     var sab = getComputedStyle(p).height; p.remove();
     document.getElementById('info').textContent =
-      '[ v3 scroll-test ]\n' +
+      '[ v4 no-viewport-fit ]\n' +
       'standalone = ' + window.navigator.standalone + '\n' +
       'initial innerH = ' + initialH + '\n' +
       'NOW innerH = ' + window.innerHeight + '\n' +
