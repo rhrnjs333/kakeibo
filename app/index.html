@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="가계부">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0F1419">
@@ -2200,29 +2200,6 @@
     }
   }
 
-  // ── 임시 진단 오버레이 (?diag=1 일 때만) ──
-  if (location.search.indexOf('diag') !== -1) {
-    var probe = document.createElement('div');
-    probe.style.cssText = 'position:fixed;bottom:0;left:0;width:1px;height:env(safe-area-inset-bottom,0px);';
-    document.body.appendChild(probe);
-    var sab = getComputedStyle(probe).height;
-    var vv = window.visualViewport || {};
-    var info = document.createElement('div');
-    info.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:99999;background:#0a84ff;color:#fff;font:13px/1.5 monospace;padding:8px;white-space:pre;';
-    info.textContent =
-      'standalone=' + (window.navigator.standalone) + ' dpr=' + window.devicePixelRatio + '\n' +
-      'innerH=' + window.innerHeight + ' innerW=' + window.innerWidth + '\n' +
-      'clientH=' + document.documentElement.clientHeight + '\n' +
-      'screen.h=' + window.screen.height + ' availH=' + window.screen.availHeight + '\n' +
-      'visualVP.h=' + (vv.height ? Math.round(vv.height) : '?') + '\n' +
-      'safe-bottom=' + sab + '\n' +
-      'bodyRectH=' + Math.round(document.body.getBoundingClientRect().height);
-    document.body.appendChild(info);
-    var bar = document.createElement('div');
-    bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;height:40px;z-index:99999;background:magenta;color:#000;font:bold 14px monospace;text-align:center;line-height:40px;';
-    bar.textContent = '↓ 이 막대가 화면 맨 아래 (bottom:0)';
-    document.body.appendChild(bar);
-  }
 </script>
 
 </body>
