@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="가계부">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0F1419">
@@ -108,7 +108,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: calc(var(--tabbar-h) + var(--safe-bottom) + 16px);
+    padding-bottom: calc(var(--tabbar-h) + 24px);
     scrollbar-width: none;
   }
   .content::-webkit-scrollbar { display: none; }
@@ -120,13 +120,13 @@
     right: 0;
     bottom: 0;
     flex-shrink: 0;
-    height: calc(var(--tabbar-h) + var(--safe-bottom));
+    height: calc(var(--tabbar-h) + 8px);
     background: rgba(15, 20, 25, 0.92);
     backdrop-filter: blur(24px) saturate(140%);
     -webkit-backdrop-filter: blur(24px) saturate(140%);
     border-top: 1px solid var(--border);
     display: flex;
-    padding: 2px calc(4px + var(--safe-right)) calc(var(--safe-bottom) + 2px) calc(4px + var(--safe-left));
+    padding: 2px calc(4px + var(--safe-right)) 8px calc(4px + var(--safe-left));
     z-index: 6;
   }
   .tab {
@@ -152,7 +152,7 @@
   /* FAB — 탭바 위로 살짝 띄움, 뷰포트 하단 기준 고정 */
   .fab {
     position: fixed;
-    bottom: calc(var(--safe-bottom) + var(--tabbar-h) / 2 - 16px);
+    bottom: calc(var(--tabbar-h) / 2 - 8px);
     left: 50%;
     transform: translateX(-50%);
     width: 56px;
