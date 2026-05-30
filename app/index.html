@@ -829,6 +829,45 @@
     text-align: center;
   }
   .caption strong { color: var(--accent); font-weight: 600; }
+
+  /* ── AI 인사이트 카드 ── */
+  .ins-card { display: flex; gap: 12px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--text-mute); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; }
+  .ins-card.sev-high { border-left-color: var(--danger); }
+  .ins-card.sev-medium { border-left-color: var(--warn); }
+  .ins-card.sev-low { border-left-color: var(--text-mute); }
+  .ins-card.sev-good { border-left-color: var(--accent); }
+  .ins-emoji { font-size: 20px; line-height: 1.2; flex-shrink: 0; }
+  .ins-body { flex: 1; min-width: 0; }
+  .ins-title { font-size: 13.5px; font-weight: 700; margin-bottom: 3px; }
+  .ins-desc { font-size: 12px; color: var(--text-dim); line-height: 1.45; }
+  .ins-tag { display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 6px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
+  .tag-alert { background: rgba(255,92,92,0.15); color: var(--danger); }
+  .tag-recommendation { background: rgba(0,200,150,0.14); color: var(--accent); }
+  .tag-insight { background: var(--surface-3); color: var(--text-dim); }
+
+  /* ── 점수 카드 ── */
+  .score-hero { background: linear-gradient(135deg,#1F2A2E,#1A1F26); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 14px; }
+  .score-big { display: flex; align-items: baseline; gap: 8px; }
+  .score-num { font-family: var(--num); font-size: 44px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+  .score-max { font-size: 15px; color: var(--text-mute); }
+  .score-label { margin-left: auto; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+  .score-parts { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .score-part { font-size: 11px; color: var(--text-dim); }
+  .score-part .pbar { height: 5px; border-radius: 3px; background: var(--surface-2); margin-top: 4px; overflow: hidden; }
+  .score-part .pfill { height: 100%; border-radius: 3px; }
+  .score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 4px; }
+  .mini-score { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; }
+  .mini-score .ms-label { font-size: 11px; color: var(--text-dim); }
+  .mini-score .ms-val { font-family: var(--num); font-size: 20px; font-weight: 700; margin-top: 2px; }
+  .mini-score .ms-tag { font-size: 11px; font-weight: 600; margin-top: 1px; }
+  .ana-section-title { font-size: 13px; font-weight: 700; margin: 20px 4px 10px; color: var(--text); }
+  .action-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; }
+  .action-block .ab-head { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+  .action-block ul { margin: 0; padding-left: 18px; }
+  .action-block li { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+  .chg-row { display: flex; justify-content: space-between; font-size: 12px; padding: 7px 4px; border-bottom: 1px solid var(--border); }
+  .chg-row:last-child { border-bottom: none; }
+  .ana-meta { font-size: 10.5px; color: var(--text-mute); margin-top: 16px; line-height: 1.5; padding: 0 4px 8px; }
 </style>
 </head>
 <body>
@@ -881,30 +920,12 @@
           </div>
         </div>
 
-        <!-- Insights -->
+        <!-- AI 인사이트 (우선순위 Top5, 데이터 기반 자동생성) -->
         <div class="section-head">
-          <div class="section-title">이번주 인사이트</div>
+          <div class="section-title">AI 인사이트</div>
+          <div class="section-action" id="goAnalysis">전체 보기 →</div>
         </div>
-
-        <div class="insight-card">
-          <div class="insight-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="insight-text">
-            <div class="title">카페 지출이 늘어났어요</div>
-            <div class="desc">이번주 카페 8회 ($45) — 평소의 2배예요. 이 속도면 월 $180.</div>
-          </div>
-        </div>
-
-        <div class="insight-card">
-          <div class="insight-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <div class="insight-text">
-            <div class="title">월말까지 +$660 여유 있어요</div>
-            <div class="desc">현재 속도면 $2,920로 마감 예상. 예산 안에 들어와요.</div>
-          </div>
-        </div>
+        <div id="homeInsights"></div>
 
         <!-- Top Categories -->
         <div class="section-head">
@@ -1329,76 +1350,13 @@
         <div id="detailTxList"></div>
       </div>
 
-      <!-- ANALYSIS PAGE (placeholder) -->
+      <!-- ANALYSIS PAGE — AI 재무코치 대시보드 (동적) -->
       <div class="page" id="page-analysis">
         <div class="page-header">
           <div class="page-title">분석</div>
-          <div class="page-subtitle">월별 카테고리 추이</div>
+          <div class="page-subtitle" id="analysisSubtitle">AI 재무 인사이트</div>
         </div>
-        <div class="hero">
-          <div class="hero-label">이번달 총 지출</div>
-          <div class="hero-amount"><span class="currency">$</span>2,340</div>
-          <div class="hero-change" style="background:rgba(255,92,92,0.12); color:var(--negative);">
-            ↑ +$180 vs 4월
-          </div>
-        </div>
-        <div class="cat-list" style="margin-top:16px;">
-          <div class="cat-row">
-            <div class="cat-icon">🍱</div>
-            <div class="cat-info">
-              <div class="cat-name">식비</div>
-              <div class="cat-bar"><div class="cat-bar-fill" style="width:100%; background:var(--accent);"></div></div>
-            </div>
-            <div>
-              <div class="cat-amount">$920</div>
-              <div class="cat-trend up">↑ 12%</div>
-            </div>
-          </div>
-          <div class="cat-row">
-            <div class="cat-icon">🛍️</div>
-            <div class="cat-info">
-              <div class="cat-name">생활용품</div>
-              <div class="cat-bar"><div class="cat-bar-fill" style="width:57%;"></div></div>
-            </div>
-            <div>
-              <div class="cat-amount">$520</div>
-              <div class="cat-trend down">↓ 3%</div>
-            </div>
-          </div>
-          <div class="cat-row">
-            <div class="cat-icon">🚗</div>
-            <div class="cat-info">
-              <div class="cat-name">차량유지비</div>
-              <div class="cat-bar"><div class="cat-bar-fill" style="width:39%;"></div></div>
-            </div>
-            <div>
-              <div class="cat-amount">$360</div>
-              <div class="cat-trend down">↓ 18%</div>
-            </div>
-          </div>
-          <div class="cat-row">
-            <div class="cat-icon">🏥</div>
-            <div class="cat-info">
-              <div class="cat-name">건강/의료</div>
-              <div class="cat-bar"><div class="cat-bar-fill" style="width:16%;"></div></div>
-            </div>
-            <div>
-              <div class="cat-amount">$150</div>
-              <div class="cat-trend up">↑ 8%</div>
-            </div>
-          </div>
-          <div class="cat-row">
-            <div class="cat-icon">📱</div>
-            <div class="cat-info">
-              <div class="cat-name">통신비</div>
-              <div class="cat-bar"><div class="cat-bar-fill" style="width:10%;"></div></div>
-            </div>
-            <div>
-              <div class="cat-amount">$95</div>
-              <div class="cat-trend">변동 없음</div>
-            </div>
-          </div>
-        </div>
+        <div id="analysisBody"></div>
       </div>
 
     </div>
@@ -1683,6 +1641,70 @@
   function isToday(iso) {
     const t = new Date();
     return iso === `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
+  }
+
+  // ── AI 인사이트 렌더 ──────────────────────────────────────────
+  const TIER_KO = { alert: '경고', recommendation: '추천', insight: '인사이트', action: '액션' };
+  function insCardHTML(it) {
+    return `<div class="ins-card sev-${it.severity || 'low'}">
+      <div class="ins-emoji">${it.icon || '•'}</div>
+      <div class="ins-body">
+        <div class="ins-title">${it.title}<span class="ins-tag tag-${it.tier}">${TIER_KO[it.tier] || ''}</span></div>
+        <div class="ins-desc">${it.body}</div>
+      </div></div>`;
+  }
+  function renderInsights(d) {
+    const wrap = document.getElementById('homeInsights');
+    if (!wrap) return;
+    const items = (d.insights || []).filter(x => x.top).slice(0, 5);
+    wrap.innerHTML = items.length
+      ? items.map(insCardHTML).join('')
+      : '<div class="ins-desc" style="padding:10px 4px;">인사이트를 만들 데이터가 아직 부족해요. 데이터를 갱신해 주세요.</div>';
+  }
+  function renderAnalysis(d) {
+    const body = document.getElementById('analysisBody');
+    if (!body) return;
+    const sc = d.scores || {}, ins = d.insights || [], ai = d.action_items || {}, meta = d.insight_meta || {};
+    if (!ins.length) { body.innerHTML = '<div class="ins-desc" style="padding:10px 4px;">분석할 데이터가 부족합니다.</div>'; return; }
+    const labelColor = s => s >= 75 ? 'var(--accent)' : s >= 55 ? 'var(--warn)' : 'var(--danger)';
+    const partColor  = v => v >= 70 ? 'var(--accent)' : v >= 45 ? 'var(--warn)' : 'var(--danger)';
+    const h = sc.health || { score: 0, label: '', parts: {} };
+    let html = '';
+    html += `<div class="score-hero">
+      <div class="score-big">
+        <span class="score-num" style="color:${labelColor(h.score)}">${h.score}</span><span class="score-max">/100</span>
+        <span class="score-label" style="background:${labelColor(h.score)}22;color:${labelColor(h.score)}">재무건강 ${h.label}</span>
+      </div>
+      <div class="score-parts">
+        ${Object.entries(h.parts || {}).map(([k, v]) =>
+          `<div class="score-part">${k} · ${v}<div class="pbar"><div class="pfill" style="width:${v}%;background:${partColor(v)}"></div></div></div>`).join('')}
+      </div></div>`;
+    const mini = [['lifestyle_inflation', '생활비 인플레'], ['savings_momentum', '저축 모멘텀'], ['spending_efficiency', '지출 효율'], ['wealth_building', '자산형성력']];
+    html += '<div class="score-grid">' + mini.map(([k, ko]) => {
+      const m = sc[k] || { score: 0, label: '' };
+      return `<div class="mini-score"><div class="ms-label">${ko}</div><div class="ms-val">${m.score}<span style="font-size:12px;color:var(--text-mute)">/100</span></div><div class="ms-tag" style="color:${labelColor(m.score)}">${m.label}</div></div>`;
+    }).join('') + '</div>';
+    [['alert', '⚠️ 경고'], ['insight', '💡 인사이트'], ['recommendation', '💰 추천']].forEach(([tier, title]) => {
+      const arr = ins.filter(x => x.tier === tier);
+      if (arr.length) html += `<div class="ana-section-title">${title}</div>` + arr.map(insCardHTML).join('');
+    });
+    html += '<div class="ana-section-title">이번 달 행동 우선순위</div>';
+    [['now', '🎯 지금 당장 할 것'], ['reduce', '✂️ 줄여야 할 것'], ['keep', '✅ 유지할 것'], ['watch', '👀 주의할 것']].forEach(([k, t]) => {
+      const arr = ai[k] || [];
+      if (arr.length) html += `<div class="action-block"><div class="ab-head">${t}</div><ul>${arr.map(x => `<li>${x}</li>`).join('')}</ul></div>`;
+    });
+    const inc = (meta.cat_increase_top || []).filter(c => c.delta > 0);
+    const dec = (meta.cat_decrease_top || []).filter(c => c.delta < 0);
+    if (inc.length || dec.length) {
+      html += '<div class="ana-section-title">카테고리 변화 (과거 평균 대비)</div><div class="cat-list" style="padding:4px 14px;">';
+      inc.forEach(c => html += `<div class="chg-row"><span>🔺 ${c.name}</span><span style="color:var(--negative)">+$${Math.abs(c.delta).toLocaleString()}</span></div>`);
+      dec.forEach(c => html += `<div class="chg-row"><span>🔻 ${c.name}</span><span style="color:var(--positive)">-$${Math.abs(c.delta).toLocaleString()}</span></div>`);
+      html += '</div>';
+    }
+    html += `<div class="ana-meta">분석 기준월 ${meta.analysis_month || ''} · 비교 ${(meta.baseline_months || []).length}개월 평균<br>${meta.assumptions || ''}</div>`;
+    body.innerHTML = html;
+    const sub = document.getElementById('analysisSubtitle');
+    if (sub) sub.textContent = `${meta.analysis_month || ''} 기준 · AI 재무 인사이트`;
   }
 
   function renderHome(d) {
@@ -2247,6 +2269,16 @@
       renderAssets(d);
       renderTransactions(d);
       renderHome(d);
+      renderInsights(d);
+      renderAnalysis(d);
+      // 홈의 '전체 보기 →' → 분석 탭으로 이동
+      const ga = document.getElementById('goAnalysis');
+      if (ga) ga.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        const at = document.querySelector('.tab[data-page="analysis"]');
+        if (at) at.classList.add('active');
+        showPage('analysis');
+      });
       // 콘솔에만 표시 (dataLabel 엘리먼트 제거됨)
       console.log(`[가계부] ${d.meta.current_month} 실데이터 ${d.transactions.length}건, 갱신 ${d.meta.generated_at}`);
     } catch (e) {
