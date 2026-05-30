@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-05-29T08:58:42",
+    "generated_at": "2026-05-29T21:00:42",
     "source_file": "2026 가계부.xlsx",
     "current_month": "5월"
   },
   "summary": {
-    "total_wealth": 38412.6,
-    "cash_total": 26703.38,
+    "total_wealth": 41627.26,
+    "cash_total": 29968.05,
     "saving": 14593.15,
     "prev_balance": 11496.55,
-    "card_balance": -2883.93,
-    "net": 23819.45,
-    "total_positive": 41296.53,
-    "total_negative": -2883.93,
-    "net_worth": 38412.6
+    "card_balance": -2933.94,
+    "net": 27034.11,
+    "total_positive": 44561.2,
+    "total_negative": -2933.94,
+    "net_worth": 41627.26
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 26703.38,
+      "balance": 29968.05,
       "prev_balance": 13007.94,
-      "income": 18201.23,
-      "expense": 4505.79
+      "income": 21415.89,
+      "expense": 4455.78
     },
     {
       "key": "Chase Sphire",
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -1205.27,
+      "balance": -1255.28,
       "prev_balance": -305.84,
       "income": 279.87,
-      "expense": 1179.3
+      "expense": 1229.31
     },
     {
       "key": "Discover",
@@ -98,8 +98,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 26703.38,
-    "신용카드 (부채)": -2883.93,
+    "현금성 자산": 29968.05,
+    "신용카드 (부채)": -2933.94,
     "투자 자산": 14593.15
   },
   "categories": {
@@ -151,6 +151,15 @@ window.APP_DATA = {
   "category_total": 4186.35,
   "transactions": [
     {
+      "date": "2026-05-29",
+      "account": "Chase",
+      "amount": 3214.66,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
+    },
+    {
       "date": "2026-05-28",
       "category": "구독",
       "subcategory": "OTT",
@@ -191,7 +200,7 @@ window.APP_DATA = {
       "category": "차량유지비",
       "subcategory": "주유",
       "memo": "주유",
-      "account": "Chase",
+      "account": "Chase Marriott",
       "amount": 50.01,
       "type": "variable"
     },
