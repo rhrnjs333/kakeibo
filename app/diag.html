@@ -8,11 +8,13 @@
 <meta name="apple-mobile-web-app-title" content="진단">
 <meta name="theme-color" content="#0F1419">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<title>진단</title>
+<title>진단3</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  html, body { height:100%; background:#0F1419; color:#fff; font-family:monospace; }
-  #info { position:fixed; top:env(safe-area-inset-top,0); left:0; right:0; background:#0a84ff; padding:10px; font-size:14px; line-height:1.7; white-space:pre; z-index:10; }
+  html, body { background:#0F1419; color:#fff; font-family:monospace; }
+  /* 일부러 스크롤 가능하게: 본문을 화면보다 길게 */
+  #spacer { height:1400px; }
+  #info { position:fixed; top:env(safe-area-inset-top,0); left:0; right:0; background:#0a84ff; padding:10px; font-size:13px; line-height:1.6; white-space:pre; z-index:10; }
   #topbar { position:fixed; top:0; left:0; right:0; height:6px; background:lime; z-index:11; }
   #botbar { position:fixed; bottom:0; left:0; right:0; height:46px; background:magenta; color:#000; font-weight:bold; text-align:center; line-height:46px; font-size:15px; z-index:11; }
 </style>
@@ -20,35 +22,35 @@
 <body>
   <div id="topbar"></div>
   <div id="info">측정 중…</div>
-  <div id="botbar">↓ 이 막대가 화면 맨 아래 (bottom:0)</div>
+  <div id="spacer"></div>
+  <div id="botbar">↓ bottom:0 막대</div>
 <script>
-  function probe(){
+  function readH(){ return window.innerHeight; }
+  var initialH = readH();
+  function show(extra){
     var p = document.createElement('div');
     p.style.cssText='position:fixed;bottom:0;left:0;width:1px;height:env(safe-area-inset-bottom,0px);';
     document.body.appendChild(p);
-    var sab = getComputedStyle(p).height;
-    p.remove();
-    var pt = document.createElement('div');
-    pt.style.cssText='position:fixed;top:0;left:0;width:1px;height:env(safe-area-inset-top,0px);';
-    document.body.appendChild(pt);
-    var sat = getComputedStyle(pt).height;
-    pt.remove();
-    var vv = window.visualViewport || {};
+    var sab = getComputedStyle(p).height; p.remove();
     document.getElementById('info').textContent =
-      '[ statusbar=black  v2 ]\n' +
+      '[ v3 scroll-test ]\n' +
       'standalone = ' + window.navigator.standalone + '\n' +
-      'devicePixelRatio = ' + window.devicePixelRatio + '\n' +
-      'window.innerHeight = ' + window.innerHeight + '\n' +
-      'documentEl.clientHeight = ' + document.documentElement.clientHeight + '\n' +
-      'screen.height = ' + window.screen.height + '\n' +
-      'screen.availHeight = ' + window.screen.availHeight + '\n' +
-      'visualViewport.height = ' + (vv.height ? Math.round(vv.height) : '?') + '\n' +
-      'safe-area-top = ' + sat + '\n' +
-      'safe-area-bottom = ' + sab;
+      'initial innerH = ' + initialH + '\n' +
+      'NOW innerH = ' + window.innerHeight + '\n' +
+      'screen.h = ' + window.screen.height + '\n' +
+      'safe-bottom = ' + sab + '\n' +
+      (extra || '');
   }
-  probe();
-  window.addEventListener('resize', probe);
-  if (window.visualViewport) window.visualViewport.addEventListener('resize', probe);
+  show();
+  // 스크롤 넛지 시퀀스
+  window.addEventListener('load', function(){
+    window.scrollTo(0, 1);
+    setTimeout(function(){
+      window.scrollTo(0, 0);
+      setTimeout(function(){ show('after nudge innerH = ' + window.innerHeight); }, 300);
+    }, 60);
+  });
+  window.addEventListener('resize', function(){ show('(resize) innerH = ' + window.innerHeight); });
 </script>
 </body>
 </html>
