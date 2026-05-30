@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="진단">
 <meta name="theme-color" content="#0F1419">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -35,6 +35,7 @@
     pt.remove();
     var vv = window.visualViewport || {};
     document.getElementById('info').textContent =
+      '[ statusbar=black  v2 ]\n' +
       'standalone = ' + window.navigator.standalone + '\n' +
       'devicePixelRatio = ' + window.devicePixelRatio + '\n' +
       'window.innerHeight = ' + window.innerHeight + '\n' +
