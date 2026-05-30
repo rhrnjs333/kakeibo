@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="진단">
+<meta name="theme-color" content="#0F1419">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>진단</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { height:100%; background:#0F1419; color:#fff; font-family:monospace; }
+  #info { position:fixed; top:env(safe-area-inset-top,0); left:0; right:0; background:#0a84ff; padding:10px; font-size:14px; line-height:1.7; white-space:pre; z-index:10; }
+  #topbar { position:fixed; top:0; left:0; right:0; height:6px; background:lime; z-index:11; }
+  #botbar { position:fixed; bottom:0; left:0; right:0; height:46px; background:magenta; color:#000; font-weight:bold; text-align:center; line-height:46px; font-size:15px; z-index:11; }
+</style>
+</head>
+<body>
+  <div id="topbar"></div>
+  <div id="info">측정 중…</div>
+  <div id="botbar">↓ 이 막대가 화면 맨 아래 (bottom:0)</div>
+<script>
+  function probe(){
+    var p = document.createElement('div');
+    p.style.cssText='position:fixed;bottom:0;left:0;width:1px;height:env(safe-area-inset-bottom,0px);';
+    document.body.appendChild(p);
+    var sab = getComputedStyle(p).height;
+    p.remove();
+    var pt = document.createElement('div');
+    pt.style.cssText='position:fixed;top:0;left:0;width:1px;height:env(safe-area-inset-top,0px);';
+    document.body.appendChild(pt);
+    var sat = getComputedStyle(pt).height;
+    pt.remove();
+    var vv = window.visualViewport || {};
+    document.getElementById('info').textContent =
+      'standalone = ' + window.navigator.standalone + '\n' +
+      'devicePixelRatio = ' + window.devicePixelRatio + '\n' +
+      'window.innerHeight = ' + window.innerHeight + '\n' +
+      'documentEl.clientHeight = ' + document.documentElement.clientHeight + '\n' +
+      'screen.height = ' + window.screen.height + '\n' +
+      'screen.availHeight = ' + window.screen.availHeight + '\n' +
+      'visualViewport.height = ' + (vv.height ? Math.round(vv.height) : '?') + '\n' +
+      'safe-area-top = ' + sat + '\n' +
+      'safe-area-bottom = ' + sab;
+  }
+  probe();
+  window.addEventListener('resize', probe);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', probe);
+</script>
+</body>
+</html>
