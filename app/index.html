@@ -328,6 +328,21 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* 월별 지출 (분석 탭) */
+  .month-list { padding: 2px 14px 4px; }
+  .month-row { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .month-row:last-child { border-bottom: none; }
+  .month-row.is-current .month-name { color: var(--accent); }
+  .month-row-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .month-name { font-size: 14px; font-weight: 600; color: var(--text); }
+  .month-name .month-badge { font-size: 10px; font-weight: 600; color: var(--accent); margin-left: 6px; }
+  .month-amt { font-family: var(--num); font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 700; color: var(--text); }
+  .mbar { height: 6px; border-radius: 3px; background: var(--border); margin: 7px 0 5px; overflow: hidden; }
+  .mbar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+  .month-sub { font-size: 11px; color: var(--text-mute); font-variant-numeric: tabular-nums; }
+  .month-sub .neg { color: var(--danger); }
+  .month-sub .pos { color: var(--accent); }
+
   /* Insight card */
   .insight-card {
     background: var(--surface);
@@ -1441,7 +1456,8 @@
 </div>
 
 <!-- 실제 가계부 데이터 (generate_app_data.py가 생성) -->
-<script src="app_data.js"></script>
+<!-- 캐시 무력화: 매 로드마다 고유 URL로 받아 Safari/PWA가 옛 데이터를 재사용하지 못하게 함 -->
+<script>document.write('<script src="app_data.js?v=' + Date.now() + '"><\/script>');</script>
 
 <script>
   // ----- Tab switching -----
@@ -1661,15 +1677,55 @@
       ? items.map(insCardHTML).join('')
       : '<div class="ins-desc" style="padding:10px 4px;">인사이트를 만들 데이터가 아직 부족해요. 데이터를 갱신해 주세요.</div>';
   }
+  // 거래내역(1월~최신월)을 월별로 집계해 지출/수입/순액을 만든다.
+  function monthlyTotals(d) {
+    const by = {};
+    (d.transactions || []).forEach(t => {
+      const ym = (t.date || '').slice(0, 7);
+      if (ym.length !== 7) return;
+      const m = by[ym] || (by[ym] = { expense: 0, income: 0 });
+      if (t.type === 'income') m.income += Math.abs(t.amount);
+      else m.expense += Math.abs(t.amount);
+    });
+    return by;
+  }
+  function renderMonthlySpending(d) {
+    const by = monthlyTotals(d);
+    const keys = Object.keys(by).sort().reverse();   // 최근 달이 위
+    if (!keys.length) return '';
+    const maxExp = Math.max(1, ...keys.map(k => by[k].expense));
+    const curYM = keys[0];   // 가장 최근 달을 '이번 달'로 표시
+    let html = '<div class="ana-section-title">월별 지출</div><div class="month-list">';
+    keys.forEach(k => {
+      const mo = parseInt(k.slice(5, 7), 10) + '월';
+      const e = by[k];
+      const w = Math.round((e.expense / maxExp) * 100);
+      const net = e.income - e.expense;
+      const sign = net >= 0 ? '+' : '-';
+      const netCls = net >= 0 ? 'pos' : 'neg';
+      const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+      html += `<div class="month-row${k === curYM ? ' is-current' : ''}">
+        <div class="month-row-top">
+          <span class="month-name">${mo}${k === curYM ? '<span class="month-badge">이번 달</span>' : ''}</span>
+          <span class="month-amt">${fmt(e.expense)}</span>
+        </div>
+        <div class="mbar"><div class="mbar-fill" style="width:${w}%"></div></div>
+        <div class="month-sub">수입 ${fmt(e.income)} · 순액 <span class="${netCls}">${sign}${fmt(Math.abs(net))}</span></div>
+      </div>`;
+    });
+    html += '</div>';
+    return html;
+  }
   function renderAnalysis(d) {
     const body = document.getElementById('analysisBody');
     if (!body) return;
+    const monthlyHTML = renderMonthlySpending(d);
     const sc = d.scores || {}, ins = d.insights || [], ai = d.action_items || {}, meta = d.insight_meta || {};
-    if (!ins.length) { body.innerHTML = '<div class="ins-desc" style="padding:10px 4px;">분석할 데이터가 부족합니다.</div>'; return; }
+    if (!ins.length) { body.innerHTML = monthlyHTML + '<div class="ins-desc" style="padding:14px 4px;">AI 인사이트는 데이터가 더 쌓이면 표시됩니다.</div>'; return; }
     const labelColor = s => s >= 75 ? 'var(--accent)' : s >= 55 ? 'var(--warn)' : 'var(--danger)';
     const partColor  = v => v >= 70 ? 'var(--accent)' : v >= 45 ? 'var(--warn)' : 'var(--danger)';
     const h = sc.health || { score: 0, label: '', parts: {} };
-    let html = '';
+    let html = monthlyHTML;
     html += `<div class="score-hero">
       <div class="score-big">
         <span class="score-num" style="color:${labelColor(h.score)}">${h.score}</span><span class="score-max">/100</span>
