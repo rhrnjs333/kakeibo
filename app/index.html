@@ -128,6 +128,18 @@
     padding: 2px calc(4px + var(--safe-right)) 8px calc(4px + var(--safe-left));
     z-index: 6;
   }
+  /* 콘텐츠(밝은 거래카드)가 탭바 위로 스크롤될 때 경계가 끊겨 보이지 않도록
+     탭바 바로 위에 배경색으로 자연스럽게 사라지는 페이드를 깐다 */
+  .tabbar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -28px;
+    height: 28px;
+    background: linear-gradient(to bottom, rgba(15,20,25,0) 0%, var(--bg) 100%);
+    pointer-events: none;
+  }
   .tab {
     flex: 1;
     display: flex;
@@ -1529,7 +1541,8 @@
     });
     document.getElementById('txEmpty').style.display = shown ? 'none' : 'block';
     const label = (account === 'all') ? '전체 계좌' : account;
-    document.getElementById('txSubtitle').textContent = `5월 1일 - 27일 · ${label} · ${shown}건`;
+    const periodLabel = (typeof PERIOD_LABEL !== 'undefined' && typeof currentPeriod !== 'undefined') ? (PERIOD_LABEL[currentPeriod] || '이번달') : '이번달';
+    document.getElementById('txSubtitle').textContent = `${periodLabel} · ${label} · ${shown}건`;
   }
   document.querySelectorAll('.account-chip').forEach(chip => {
     chip.addEventListener('click', () => {
@@ -1539,13 +1552,37 @@
     });
   });
 
-  // ----- 기간 필터: 어떤 버튼을 눌러도 항상 '이번달' 데이터만 표시 -----
-  // (현재 앱 데이터는 이번달치만 들어있으므로, 모든 기간 버튼이 이번달 내역을 보여준다)
+  // ----- 기간 필터: 클릭한 기간(이번주/이번달/3개월/전체)만 반영 -----
+  let currentPeriod = 'month';   // 기본값: 이번달
+  const PERIOD_LABEL = { week: '이번주', month: '이번달', '3month': '3개월', all: '전체' };
+
+  // 기준일(오늘) 대비 기간 안에 드는 거래만 반환
+  function filterByPeriod(transactions, period) {
+    if (period === 'all') return transactions.slice();
+    const today = new Date();
+    const y = today.getFullYear(), m = today.getMonth(), d = today.getDate();
+    let start;
+    if (period === 'week') {
+      start = new Date(y, m, d - 6);          // 오늘 포함 최근 7일
+    } else if (period === '3month') {
+      start = new Date(y, m - 2, 1);           // 이번달 포함 최근 3개월 1일부터
+    } else {                                    // month
+      start = new Date(y, m, 1);               // 이번달 1일부터
+    }
+    const end = new Date(y, m, d, 23, 59, 59);  // 오늘 끝까지
+    return transactions.filter(t => {
+      if (!t.date) return false;
+      const [ty, tm, td] = t.date.split('-').map(Number);
+      const dt = new Date(ty, tm - 1, td);
+      return dt >= start && dt <= end;
+    });
+  }
+
   document.querySelectorAll('.period-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      // 이번달 전체 거래 다시 렌더링 + 계좌 필터 초기화
+      currentPeriod = btn.dataset.period || 'month';
       if (window.APP_DATA) renderTransactions(window.APP_DATA);
     });
   });
@@ -1819,14 +1856,17 @@
   }
 
   function renderTransactions(d) {
-    // 활성 계좌 칩 갱신
+    // 선택된 기간(currentPeriod)에 해당하는 거래만 추림
+    const txs = filterByPeriod(d.transactions, currentPeriod);
+
+    // 활성 계좌 칩 갱신 (카운트는 기간 필터된 거래 기준)
     const chipRow = document.querySelector('#page-tx .chip-row');
     if (chipRow) {
       const uniqAccs = d.accounts.filter(a => a.group !== '대출').map(a => a.name);
       chipRow.innerHTML = `
-        <button class="chip account-chip active" data-account="all">전체 (${d.transactions.length})</button>
+        <button class="chip account-chip active" data-account="all">전체 (${txs.length})</button>
         ${uniqAccs.map(name => {
-          const count = d.transactions.filter(t => t.account === name || ACTIVE_KEY_TO_DISPLAY[t.account] === name).length;
+          const count = txs.filter(t => t.account === name || ACTIVE_KEY_TO_DISPLAY[t.account] === name).length;
           const short = name.replace(' Checking','').replace(' Sapphire','').replace(' Marriott','');
           return `<button class="chip account-chip" data-account="${name}">${short} (${count})</button>`;
         }).join('')}`;
@@ -1850,9 +1890,13 @@
       '식비':'🍱','생활용품':'🛍️','의복/미용':'👕','건강/의료':'🏥','문화/여가':'🎬',
       '여행':'✈️','차량유지비':'🚗','경조사/회비':'🎁','기타':'•'
     };
-    // 날짜별 그룹화
+    // 빈 결과 처리 (해당 기간에 거래가 없을 때)
+    const emptyEl = document.getElementById('txEmpty');
+    if (emptyEl) emptyEl.style.display = txs.length ? 'none' : 'block';
+
+    // 날짜별 그룹화 (기간 필터된 거래만)
     const byDate = {};
-    d.transactions.forEach(t => {
+    txs.forEach(t => {
       (byDate[t.date] = byDate[t.date] || []).push(t);
     });
     const sortedDates = Object.keys(byDate).sort().reverse();
@@ -1897,7 +1941,7 @@
       groupsContainer.insertAdjacentHTML('beforeend', html);
     });
 
-    document.getElementById('txSubtitle').textContent = `${d.meta.current_month} · 전체 계좌 · ${d.transactions.length}건`;
+    document.getElementById('txSubtitle').textContent = `${PERIOD_LABEL[currentPeriod] || '이번달'} · 전체 계좌 · ${txs.length}건`;
   }
 
   // 계좌 키 → 표시 이름 매핑 (transactions 데이터의 account 키 → 화면 표시명)
