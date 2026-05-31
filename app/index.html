@@ -1680,6 +1680,14 @@
   // 거래내역(1월~최신월)을 월별로 집계해 지출/수입/순액을 만든다.
   // 앱 전체(홈 카드·카테고리 TOP3·분석 월별 지출)가 이 함수만 쓰도록 단일화한다.
   function monthlyTotals(d) {
+    // 권위값: 엑셀 지출요약(d.monthly). 없을 때만 거래내역 합산으로 폴백.
+    if (d.monthly && Object.keys(d.monthly).length) {
+      const by = {};
+      Object.entries(d.monthly).forEach(([ym, m]) => {
+        by[ym] = { expense: m.expense || 0, income: m.income || 0 };
+      });
+      return by;
+    }
     const by = {};
     (d.transactions || []).forEach(t => {
       const ym = (t.date || '').slice(0, 7);
@@ -1697,6 +1705,14 @@
   }
   // 특정 달(ym)의 카테고리별 지출 — 거래내역 기준, income 제외, 금액 내림차순
   function monthCatList(d, ym) {
+    // 권위값: 엑셀 지출요약 카테고리(d.monthly[ym]). 없을 때만 거래내역 폴백.
+    const md = d.monthly && d.monthly[ym];
+    if (md && md.categories) {
+      return [...(md.categories.fixed || []), ...(md.categories.variable || [])]
+        .filter(c => c.amount > 0)
+        .map(c => ({ name: c.name, amount: c.amount }))
+        .sort((a, b) => b.amount - a.amount);
+    }
     const by = {};
     (d.transactions || []).forEach(t => {
       if ((t.date || '').slice(0, 7) !== ym || t.type === 'income') return;
@@ -2241,127 +2257,65 @@
         const res = await fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           body: JSON.stringify(payload),
-          // Content-Type 명시하면 CORS preflight 발생 → 생략 (text/plain으로 처리됨)
+          // Content-Type 명시하면 CORS preflight 발생 → 생략 (text/plain 으로 전송)
         });
-        if (res.ok) {
-          sentOk = true;
-          try {
-            const j = await res.json();
-            if (j && j.ok === false) {
-              showToast('⚠️ 서버: ' + (j.error || '알 수 없는 오류'), 'warn');
-              sentOk = false;
-            }
-          } catch (_) { /* 응답이 JSON이 아니어도 200이면 성공 처리 */ }
-        }
+        sentOk = res.ok;
       } catch (e) {
-        console.warn('POST 실패:', e);
+        sentOk = false;
       }
     }
 
     if (sentOk) {
-      showToast('✅ Sheets에 저장됨', 'success');
-      localStorage.setItem('lastAccount', account);
-      applyOptimisticTx(payload);
-      resetModalForm();
-      document.getElementById('modalBg').classList.remove('show');
-    } else if (navigator.onLine) {
-      // 네트워크는 되는데 서버에 안 닿음 → 큐에
-      pushPending(payload);
-      applyOptimisticTx(payload, true);
-      showToast('📦 서버 응답 없음 — 큐에 저장', 'warn');
-      resetModalForm();
-      document.getElementById('modalBg').classList.remove('show');
+      showToast('✅ 저장되었습니다 — 다음 동기화 때 엑셀에 반영됩니다', 'success');
     } else {
+      // 오프라인이거나 전송 실패 → 큐에 보관, 다음 접속 시 자동 재전송
       pushPending(payload);
-      applyOptimisticTx(payload, true);
-      showToast('📡 오프라인 — 연결되면 자동 전송', 'warn');
-      resetModalForm();
-      document.getElementById('modalBg').classList.remove('show');
+      showToast('📥 오프라인 저장됨 — 연결되면 자동 전송', 'info');
     }
 
     btn.disabled = false;
     btn.textContent = origText;
+    resetModalForm();
+    document.getElementById('modalBg').classList.remove('show');
   }
 
-  // ── 낙관적 업데이트: APP_DATA에 추가 + 가계부 탭 다시 그리기 ──
-  function applyOptimisticTx(payload, isPending = false) {
-    if (!window.APP_DATA) return;
-    const display = ACCOUNT_DISPLAY_NAMES[payload.account] || payload.account;
-    const tx = {
-      date:        payload.timestamp.slice(0, 10),
-      category:    payload.mainCategory,
-      subcategory: payload.subcategory,
-      memo:        payload.desc || '',
-      account:     display,
-      amount:      payload.amount,
-      type:        payload.type,
-      _pending:    isPending,
-    };
-    window.APP_DATA.transactions.unshift(tx);
-    renderTransactions(window.APP_DATA);
-  }
+  // 저장 버튼 → saveTransaction
+  document.getElementById('modalSave').addEventListener('click', saveTransaction);
 
-  // ── 미전송 큐 재시도 ──
-  async function retryPending() {
+  // ── 미전송 큐 자동 전송 (온라인 복귀 시) ──
+  async function flushPending() {
+    if (!navigator.onLine || !APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('YOUR_')) return;
     const q = getPending();
     if (!q.length) return;
-    const succeeded = [];
-    for (const payload of q) {
+    const remain = [];
+    for (const pItem of q) {
       try {
-        const res = await fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
-        if (res.ok) succeeded.push(payload);
-      } catch (_) { /* 다음 시도까지 보관 */ }
+        const r = await fetch(APPS_SCRIPT_URL, { method: 'POST', body: JSON.stringify(pItem) });
+        if (!r.ok) remain.push(pItem);
+      } catch (e) { remain.push(pItem); }
     }
-    if (succeeded.length) {
-      const remaining = q.filter(p => !succeeded.includes(p));
-      setPending(remaining);
-      showToast(`📤 ${succeeded.length}건 재전송 완료`, 'success');
-    }
+    setPending(remain);
+    if (remain.length < q.length) showToast('✅ 미전송 ' + (q.length - remain.length) + '건 전송 완료', 'success');
   }
-  window.addEventListener('online', retryPending);
+  window.addEventListener('online', flushPending);
 
-  // ── 저장 버튼 + 모달 열림 시 폼 초기화 ──
-  document.getElementById('modalSave').addEventListener('click', saveTransaction);
-  document.getElementById('fabBtn').addEventListener('click', () => {
-    populateAccountSelect();
-    resetModalForm();
-  });
-
-  // 초기 1회 (모달이 닫혀있어도 차후 열림 대비)
-  populateAccountSelect();
-  setupModalDate();
-  renderModalMainCats();
-  setPending(getPending());
-
-  // ── 데이터가 로드되면 자동 렌더링 ──
-  if (window.APP_DATA) {
-    try {
-      const d = window.APP_DATA;
-      // 거래의 account 필드를 display name으로 변환
-      d.transactions.forEach(t => {
-        t.account = ACTIVE_ACCOUNTS_DISPLAY[t.account] || t.account;
-      });
-      renderAssets(d);
-      renderTransactions(d);
-      renderHome(d);
-      renderInsights(d);
-      renderAnalysis(d);
-      // 홈의 '전체 보기 →' → 분석 탭으로 이동
-      const ga = document.getElementById('goAnalysis');
-      if (ga) ga.addEventListener('click', () => {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        const at = document.querySelector('.tab[data-page="analysis"]');
-        if (at) at.classList.add('active');
-        showPage('analysis');
-      });
-      // 콘솔에만 표시 (dataLabel 엘리먼트 제거됨)
-      console.log(`[가계부] ${d.meta.current_month} 실데이터 ${d.transactions.length}건, 갱신 ${d.meta.generated_at}`);
-    } catch (e) {
-      console.error('데이터 렌더링 실패:', e);
+  // ============================================================
+  // 부트스트랩 — window.APP_DATA 바인딩 (앱 로드 시 1회)
+  // ============================================================
+  (function init() {
+    try { populateAccountSelect(); } catch (e) { console.error('populateAccountSelect', e); }
+    try { resetModalForm(); }        catch (e) { console.error('resetModalForm', e); }
+    try { setPending(getPending()); } catch (e) {}
+    const d = window.APP_DATA;
+    if (d) {
+      try { renderHome(d); }         catch (e) { console.error('renderHome', e); }
+      try { renderAssets(d); }       catch (e) { console.error('renderAssets', e); }
+      try { renderTransactions(d); } catch (e) { console.error('renderTransactions', e); }
+      try { renderInsights(d); }     catch (e) { console.error('renderInsights', e); }
+      try { renderAnalysis(d); }     catch (e) { console.error('renderAnalysis', e); }
     }
-  }
-
+    flushPending();
+  })();
 </script>
-
 </body>
 </html>
