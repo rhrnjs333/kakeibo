@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-05-30T21:55:34",
+    "generated_at": "2026-05-30T22:53:20",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 39953.48,
+    "total_wealth": 39944.6,
     "cash_total": 28380.49,
     "saving": 14593.15,
-    "prev_balance": 26848.5,
-    "card_balance": -3020.16,
-    "net": 25360.33,
+    "prev_balance": 26839.62,
+    "card_balance": -3029.04,
+    "net": 25351.45,
     "total_positive": 42973.64,
-    "total_negative": -3020.16,
-    "net_worth": 39953.48
+    "total_negative": -3029.04,
+    "net_worth": 39944.6
   },
   "accounts": [
     {
@@ -39,8 +39,8 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -1686.43,
-      "prev_balance": -1686.43,
+      "balance": -1695.31,
+      "prev_balance": -1695.31,
       "income": 0.0,
       "expense": 0.0
     },
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 28380.49,
-    "신용카드 (부채)": -3020.16,
+    "신용카드 (부채)": -3029.04,
     "투자 자산": 14593.15
   },
   "categories": {
@@ -138,6 +138,15 @@ window.APP_DATA = {
       "memo": "주차",
       "account": "Chase Sphire",
       "amount": 3.96,
+      "type": "variable"
+    },
+    {
+      "date": "2026-05-30",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "McDonald",
+      "account": "Chase Sphire",
+      "amount": 8.88,
       "type": "variable"
     },
     {
@@ -3673,8 +3682,8 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "📉",
-      "title": "5월 적자 -$269",
-      "body": "5월은 수입 $6,918보다 지출 $7,187이 많아 $269 적자입니다. 최근 저축률 중앙값 29% → 이번달 -4%로 떨어졌습니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
+      "title": "5월 적자 -$278",
+      "body": "5월은 수입 $6,918보다 지출 $7,196이 많아 $278 적자입니다. 최근 저축률 중앙값 29% → 이번달 -4%로 떨어졌습니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
       "severity": "high",
       "score": 95,
       "top": true
@@ -3763,8 +3772,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "📊",
-      "title": "월 지출 증가 추세 ($7,187)",
-      "body": "최근 월 지출 중앙값 $5,764 대비 5월 $7,187(+25%)입니다.",
+      "title": "월 지출 증가 추세 ($7,196)",
+      "body": "최근 월 지출 중앙값 $5,764 대비 5월 $7,196(+25%)입니다.",
       "severity": "low",
       "score": 40,
       "top": false
@@ -3800,7 +3809,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "5월 적자 $269 — 다음달 변동지출 한도 $5,188 설정",
+      "5월 적자 $278 — 다음달 변동지출 한도 $5,188 설정",
       "보험 급증분 점검 (과거比 +$1,308)",
       "현금 여유분 $5,323 일부 투자 검토"
     ],
@@ -3842,7 +3851,7 @@ window.APP_DATA = {
     "cat_decrease_top": [
       {
         "name": "식비",
-        "delta": -466
+        "delta": -457
       },
       {
         "name": "여행",
