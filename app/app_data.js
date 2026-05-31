@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-05-30T21:00:30",
+    "generated_at": "2026-05-30T21:55:34",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
@@ -109,26 +109,9 @@ window.APP_DATA = {
         "amount": 1488.17
       }
     ],
-    "variable": [
-      {
-        "name": "식비",
-        "amount": 921.7
-      },
-      {
-        "name": "생활용품",
-        "amount": 105.22
-      },
-      {
-        "name": "문화/여가",
-        "amount": 33.62
-      },
-      {
-        "name": "차량유지비",
-        "amount": 3.7
-      }
-    ]
+    "variable": []
   },
-  "category_total": 2552.41,
+  "category_total": 1488.17,
   "transactions": [
     {
       "date": "2026-06-01",
