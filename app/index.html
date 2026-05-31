@@ -1678,6 +1678,7 @@
       : '<div class="ins-desc" style="padding:10px 4px;">인사이트를 만들 데이터가 아직 부족해요. 데이터를 갱신해 주세요.</div>';
   }
   // 거래내역(1월~최신월)을 월별로 집계해 지출/수입/순액을 만든다.
+  // 앱 전체(홈 카드·카테고리 TOP3·분석 월별 지출)가 이 함수만 쓰도록 단일화한다.
   function monthlyTotals(d) {
     const by = {};
     (d.transactions || []).forEach(t => {
@@ -1688,6 +1689,21 @@
       else m.expense += Math.abs(t.amount);
     });
     return by;
+  }
+  // 거래내역이 있는 가장 최근 달(YYYY-MM)
+  function latestTxMonth(d) {
+    const ks = Object.keys(monthlyTotals(d)).sort();
+    return ks.length ? ks[ks.length - 1] : null;
+  }
+  // 특정 달(ym)의 카테고리별 지출 — 거래내역 기준, income 제외, 금액 내림차순
+  function monthCatList(d, ym) {
+    const by = {};
+    (d.transactions || []).forEach(t => {
+      if ((t.date || '').slice(0, 7) !== ym || t.type === 'income') return;
+      const c = (t.category || '').trim() || '기타';
+      by[c] = (by[c] || 0) + Math.abs(t.amount);
+    });
+    return Object.entries(by).map(([name, amount]) => ({ name, amount })).sort((a, b) => b.amount - a.amount);
   }
   function renderMonthlySpending(d) {
     const by = monthlyTotals(d);
@@ -1789,8 +1805,11 @@
     }
 
     // 예산 카드 (이번달 지출 합 / 예산은 가정 $5,000)
+    // 거래내역 기준 — 분석 탭 월별 지출과 동일한 숫자가 나오도록 단일화 (엑셀 요약 셀은 고정값이라 미사용)
     const budget = 5000;
-    const spent = d.category_total;
+    const _curYM = latestTxMonth(d);
+    const _mt = monthlyTotals(d);
+    const spent = _curYM ? _mt[_curYM].expense : (d.category_total || 0);
     const pct = Math.min(100, Math.round((spent / budget) * 100));
     document.querySelector('.budget-amounts .spent').textContent = fmt$(spent);
     document.querySelector('.budget-amounts .total').textContent = ` / ${fmt$(budget)}`;
@@ -1804,8 +1823,8 @@
       meta.innerHTML = `<span>${pct}% 사용 · ${daysLeft}일 남음</span><span>${fmt$(remain)} 남음</span>`;
     }
 
-    // 카테고리 TOP 3
-    const allCats = [...d.categories.fixed, ...d.categories.variable].sort((a,b) => b.amount - a.amount);
+    // 카테고리 TOP 3 — 거래내역 기준(이번 달). 엑셀 요약 변동비 셀이 매월 고정값이라 미사용.
+    const allCats = _curYM ? monthCatList(d, _curYM) : [...d.categories.fixed, ...d.categories.variable].sort((a,b) => b.amount - a.amount);
     const top3 = allCats.slice(0, 3);
     const maxAmt = top3[0] ? top3[0].amount : 1;
     const catList = document.querySelector('#page-home .cat-list');
