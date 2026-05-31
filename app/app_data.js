@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-05-30T22:53:20",
+    "generated_at": "2026-05-30T23:10:09",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
@@ -113,15 +113,6 @@ window.APP_DATA = {
   },
   "category_total": 1488.17,
   "transactions": [
-    {
-      "date": "2026-06-01",
-      "category": "주거비",
-      "subcategory": "렌트비",
-      "memo": "6월 렌트비",
-      "account": "Chase",
-      "amount": 1488.17,
-      "type": "fixed"
-    },
     {
       "date": "2026-05-30",
       "category": "식비",
@@ -465,15 +456,6 @@ window.APP_DATA = {
       "type": "variable"
     },
     {
-      "date": "2026-05-13",
-      "account": "Chase",
-      "amount": -1.0,
-      "category": "수입",
-      "subcategory": "입금",
-      "memo": "입금 내역",
-      "type": "income"
-    },
-    {
       "date": "2026-05-12",
       "category": "차량유지비",
       "subcategory": "주유",
@@ -759,24 +741,6 @@ window.APP_DATA = {
       "memo": "tous les jours",
       "account": "Chase Sphire",
       "amount": 29.64,
-      "type": "variable"
-    },
-    {
-      "date": "2026-05-01",
-      "category": "주거비",
-      "subcategory": "렌트비",
-      "memo": "5월 렌트비",
-      "account": "Chase",
-      "amount": 1369.74,
-      "type": "fixed"
-    },
-    {
-      "date": "2026-05-01",
-      "category": "식비",
-      "subcategory": "외식",
-      "memo": "저녁",
-      "account": "Chase",
-      "amount": 50.0,
       "type": "variable"
     },
     {
@@ -1344,24 +1308,6 @@ window.APP_DATA = {
       "memo": "SOS - Title renew",
       "account": "Chase",
       "amount": 190.0,
-      "type": "variable"
-    },
-    {
-      "date": "2026-04-01",
-      "category": "주거비",
-      "subcategory": "렌트비",
-      "memo": "4월 렌트비",
-      "account": "Chase",
-      "amount": 1370.93,
-      "type": "fixed"
-    },
-    {
-      "date": "2026-04-01",
-      "category": "기타",
-      "subcategory": "세금/수수료",
-      "memo": "TurboTax",
-      "account": "Chase Sphire",
-      "amount": 87.97,
       "type": "variable"
     },
     {
@@ -2112,15 +2058,6 @@ window.APP_DATA = {
       "type": "variable"
     },
     {
-      "date": "2026-03-06",
-      "account": "Chase",
-      "amount": 562.06,
-      "category": "수입",
-      "subcategory": "입금",
-      "memo": "입금 내역",
-      "type": "income"
-    },
-    {
       "date": "2026-03-05",
       "category": "통신비",
       "subcategory": "핸드폰",
@@ -2173,24 +2110,6 @@ window.APP_DATA = {
       "account": "Chase",
       "amount": 40.0,
       "type": "fixed"
-    },
-    {
-      "date": "2026-03-01",
-      "category": "주거비",
-      "subcategory": "렌트비",
-      "memo": "3월 렌트비",
-      "account": "Chase",
-      "amount": 1374.98,
-      "type": "fixed"
-    },
-    {
-      "date": "2026-03-01",
-      "category": "식비",
-      "subcategory": "술/유흥",
-      "memo": "술",
-      "account": "Chase",
-      "amount": 15.0,
-      "type": "variable"
     },
     {
       "date": "2026-03-01",
@@ -2616,15 +2535,6 @@ window.APP_DATA = {
       "type": "variable"
     },
     {
-      "date": "2026-02-12",
-      "account": "Chase",
-      "amount": 20.0,
-      "category": "수입",
-      "subcategory": "입금",
-      "memo": "입금 내역",
-      "type": "income"
-    },
-    {
       "date": "2026-02-11",
       "category": "식비",
       "subcategory": "외식",
@@ -2888,29 +2798,11 @@ window.APP_DATA = {
     {
       "date": "2026-02-02",
       "category": "식비",
-      "subcategory": "외식",
-      "memo": "점심 - Ford",
-      "account": "Chase Sphire",
-      "amount": 7.79,
-      "type": "variable"
-    },
-    {
-      "date": "2026-02-02",
-      "category": "식비",
       "subcategory": "음료",
       "memo": "Amazon - Pocari",
       "account": "Chase Marriott",
       "amount": 35.9,
       "type": "variable"
-    },
-    {
-      "date": "2026-02-01",
-      "category": "구독",
-      "subcategory": "세차 구독",
-      "memo": "Jax",
-      "account": "Discover",
-      "amount": 25.99,
-      "type": "fixed"
     },
     {
       "date": "2026-01-31",
@@ -3345,15 +3237,6 @@ window.APP_DATA = {
       "type": "variable"
     },
     {
-      "date": "2026-01-13",
-      "account": "Chase",
-      "amount": 404.6,
-      "category": "수입",
-      "subcategory": "입금",
-      "memo": "입금 내역",
-      "type": "income"
-    },
-    {
       "date": "2026-01-12",
       "category": "차량유지비",
       "subcategory": "주유",
@@ -3658,36 +3541,9 @@ window.APP_DATA = {
       "account": "Chase Sphire",
       "amount": 9.21,
       "type": "variable"
-    },
-    {
-      "date": "2026-01-01",
-      "category": "주거비",
-      "subcategory": "렌트비",
-      "memo": "1월 렌트비",
-      "account": "Chase",
-      "amount": 1369.07,
-      "type": "fixed"
-    },
-    {
-      "date": "2026-01-01",
-      "category": "식비",
-      "subcategory": "외식",
-      "memo": "저녁 - 서울면",
-      "account": "Chase Sphire",
-      "amount": 25.71,
-      "type": "variable"
     }
   ],
   "insights": [
-    {
-      "tier": "alert",
-      "icon": "📉",
-      "title": "5월 적자 -$278",
-      "body": "5월은 수입 $6,918보다 지출 $7,196이 많아 $278 적자입니다. 최근 저축률 중앙값 29% → 이번달 -4%로 떨어졌습니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
-      "severity": "high",
-      "score": 95,
-      "top": true
-    },
     {
       "tier": "alert",
       "icon": "🔺",
@@ -3710,7 +3566,7 @@ window.APP_DATA = {
       "tier": "alert",
       "icon": "⚠️",
       "title": "저축률이 3개월 연속 하락 중",
-      "body": "저축률이 70% → 0% → -4%로 내려가고 있습니다. 고정비·반복지출 점검이 필요한 시점입니다.",
+      "body": "저축률이 77% → 23% → 16%로 내려가고 있습니다. 고정비·반복지출 점검이 필요한 시점입니다.",
       "severity": "high",
       "score": 88,
       "top": true
@@ -3725,10 +3581,19 @@ window.APP_DATA = {
       "top": true
     },
     {
+      "tier": "insight",
+      "icon": "💰",
+      "title": "5월 순저축 $1,141 (저축률 16%)",
+      "body": "수입 $6,917 중 $1,141을 저축했습니다. 최근 평균 저축률은 40%입니다.",
+      "severity": "medium",
+      "score": 80,
+      "top": true
+    },
+    {
       "tier": "recommendation",
       "icon": "🏦",
-      "title": "현금 $5,323 투자 여력",
-      "body": "현재 현금 $28,380 중 권장 비상금(4개월치 $23,057)을 빼면 $5,323이 여유분입니다. 연 7% 가정 시 투자하면 연 약 $373의 기회가 생깁니다(현금으로 두면 그만큼 기회비용).",
+      "title": "현금 $10,893 투자 여력",
+      "body": "현재 현금 $28,380 중 권장 비상금(4개월치 $17,488)을 빼면 $10,893이 여유분입니다. 연 7% 가정 시 투자하면 연 약 $762의 기회가 생깁니다(현금으로 두면 그만큼 기회비용).",
       "severity": "medium",
       "score": 62,
       "top": false
@@ -3745,8 +3610,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🏠",
-      "title": "고정비가 지출의 59%",
-      "body": "5월 고정비 $4,245로 전체 지출의 59%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
+      "title": "고정비가 지출의 50%",
+      "body": "5월 고정비 $2,876로 전체 지출의 50%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
       "severity": "medium",
       "score": 58,
       "top": false
@@ -3763,8 +3628,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 예상 현금 $33,886",
-      "body": "최근 월 순저축 중앙값 $1,835 기준, 현재 현금 $28,380에서 3개월 뒤 약 $33,886으로 예상됩니다. 현금흐름은 안정적입니다.",
+      "title": "90일 후 예상 현금 $36,095",
+      "body": "최근 월 순저축 중앙값 $2,571 기준, 현재 현금 $28,380에서 3개월 뒤 약 $36,095으로 예상됩니다. 현금흐름은 안정적입니다.",
       "severity": "good",
       "score": 55,
       "top": false
@@ -3772,8 +3637,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "📊",
-      "title": "월 지출 증가 추세 ($7,196)",
-      "body": "최근 월 지출 중앙값 $5,764 대비 5월 $7,196(+25%)입니다.",
+      "title": "월 지출 증가 추세 ($5,776)",
+      "body": "최근 월 지출 중앙값 $4,372 대비 5월 $5,776(+32%)입니다.",
       "severity": "low",
       "score": 40,
       "top": false
@@ -3781,40 +3646,39 @@ window.APP_DATA = {
   ],
   "scores": {
     "health": {
-      "score": 58,
+      "score": 73,
       "label": "양호",
       "parts": {
-        "저축률": 12,
+        "저축률": 53,
         "현금흐름": 80,
         "비상금": 100,
-        "소비안정성": 67
+        "소비안정성": 72
       }
     },
     "lifestyle_inflation": {
-      "score": 80,
+      "score": 89,
       "label": "높음"
     },
     "savings_momentum": {
-      "score": 1,
+      "score": 15,
       "label": "둔화"
     },
     "spending_efficiency": {
-      "score": 34,
-      "label": "위험"
+      "score": 61,
+      "label": "양호"
     },
     "wealth_building": {
-      "score": 68,
-      "label": "양호"
+      "score": 80,
+      "label": "우수"
     }
   },
   "action_items": {
     "now": [
-      "5월 적자 $278 — 다음달 변동지출 한도 $5,188 설정",
       "보험 급증분 점검 (과거比 +$1,308)",
-      "현금 여유분 $5,323 일부 투자 검토"
+      "현금 여유분 $10,893 일부 투자 검토"
     ],
     "keep": [
-      "평소 저축률 29% 유지 습관"
+      "평소 저축률 40% 유지 습관"
     ],
     "reduce": [
       "구독 4종 중 이용 적은 1개 해지 (연 $36 절약)",
@@ -3844,14 +3708,14 @@ window.APP_DATA = {
         "delta": 869
       },
       {
-        "name": "주거비",
-        "delta": 321
+        "name": "생활용품",
+        "delta": 123
       }
     ],
     "cat_decrease_top": [
       {
         "name": "식비",
-        "delta": -457
+        "delta": -495
       },
       {
         "name": "여행",
