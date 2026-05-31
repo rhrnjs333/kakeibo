@@ -945,7 +945,7 @@
         <!-- Top Categories -->
         <div class="section-head">
           <div class="section-title">카테고리 TOP 3</div>
-          <div class="section-action">전체 보기 →</div>
+          <div class="section-action" id="goCategories">전체 보기 →</div>
         </div>
 
         <div class="cat-list">
@@ -1331,30 +1331,15 @@
           <div class="hero-change" id="detailChange" style="background:rgba(255,92,92,0.12); color:var(--negative);">
             ↑ +$320 이번달 사용
           </div>
-          <!-- sparkline -->
-          <div style="margin-top:18px; position:relative; z-index:1;">
-            <svg viewBox="0 0 320 70" preserveAspectRatio="none" style="width:100%; height:70px;">
-              <defs>
-                <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#FF5C5C" stop-opacity="0.35"/>
-                  <stop offset="100%" stop-color="#FF5C5C" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path d="M0,55 L30,52 L60,48 L90,50 L120,42 L150,38 L180,30 L210,32 L240,26 L270,20 L300,16 L320,12 L320,70 L0,70 Z" fill="url(#sparkGrad)"/>
-              <path d="M0,55 L30,52 L60,48 L90,50 L120,42 L150,38 L180,30 L210,32 L240,26 L270,20 L300,16 L320,12" stroke="#FF7878" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--text-mute); margin-top:4px;">
-              <span>4월 27일</span>
-              <span>오늘</span>
-            </div>
-          </div>
+          <!-- sparkline (실데이터 기반, JS에서 주입) -->
+          <div id="detailSpark" style="margin-top:18px; position:relative; z-index:1;"></div>
         </div>
 
         <!-- period filter for detail -->
-        <div class="segmented" style="margin:18px 0 12px;">
-          <button class="seg-btn active">이번달</button>
-          <button class="seg-btn">3개월</button>
-          <button class="seg-btn">1년</button>
+        <div class="segmented" id="detailPeriodSeg" style="margin:18px 0 12px;">
+          <button class="seg-btn active" data-dperiod="month">이번달</button>
+          <button class="seg-btn" data-dperiod="3month">3개월</button>
+          <button class="seg-btn" data-dperiod="year">1년</button>
         </div>
 
         <div class="section-head" style="padding:8px 4px 10px;">
@@ -1475,6 +1460,20 @@
     });
   });
 
+  // 탭을 프로그래밍적으로 전환 (하단 탭바 active 상태도 동기화)
+  function activateTab(page) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    const tb = document.querySelector('.tab[data-page="' + page + '"]');
+    if (tb) tb.classList.add('active');
+    showPage(page);
+  }
+
+  // 홈 화면 "전체 보기 →" 버튼 → 분석 탭으로 이동
+  const goAnalysisBtn = document.getElementById('goAnalysis');
+  if (goAnalysisBtn) goAnalysisBtn.addEventListener('click', () => activateTab('analysis'));
+  const goCategoriesBtn = document.getElementById('goCategories');
+  if (goCategoriesBtn) goCategoriesBtn.addEventListener('click', () => activateTab('analysis'));
+
   // ----- FAB → input modal -----
   const modalBg = document.getElementById('modalBg');
   document.getElementById('fabBtn').addEventListener('click', () => modalBg.classList.add('show'));
@@ -1540,6 +1539,8 @@
       start = new Date(y, m, d - 6);          // 오늘 포함 최근 7일
     } else if (period === '3month') {
       start = new Date(y, m - 2, 1);           // 이번달 포함 최근 3개월 1일부터
+    } else if (period === 'year') {
+      start = new Date(y, m - 11, 1);          // 이번달 포함 최근 12개월 1일부터
     } else {                                    // month
       start = new Date(y, m, 1);               // 이번달 1일부터
     }
@@ -1573,58 +1574,183 @@
     'Mortgage':        { group: '대출',      bal: '-$180,000', change: '↓ -$420 상환',     changeCls: 'pos' },
   };
 
-  function openAccountDetail(name) {
-    const meta = ACCOUNT_META[name];
-    if (!meta) return;
-    document.getElementById('detailGroup').textContent = meta.group;
-    document.getElementById('detailName').textContent = name;
-    const bal = document.getElementById('detailBal');
-    bal.innerHTML = `<span class="currency">$</span>${meta.bal.replace(/^[-$]+/, '').replace(/[$]/, '')}`;
-    bal.classList.toggle('neg', meta.bal.startsWith('-'));
-    if (meta.bal.startsWith('-')) bal.style.color = 'var(--negative)'; else bal.style.color = '';
-    const change = document.getElementById('detailChange');
-    change.textContent = meta.change;
-    if (meta.changeCls === 'neg') {
-      change.style.background = 'rgba(255,92,92,0.12)';
-      change.style.color = 'var(--negative)';
+  // 계좌 상세: 현재 열린 계좌/기간 상태
+  let detailAccount = null;
+  let detailPeriod = 'month';
+  const DETAIL_PERIOD_LABEL = { month: '이번달', '3month': '3개월', year: '1년' };
+  const DETAIL_CAT_ICONS = {
+    '주거비':'🏠','통신비':'📱','보험':'🛡️','대출':'💳','구독':'🔁','저축/투자':'📈','가족지원':'❤️','수입':'💰',
+    '식비':'🍱','생활용품':'🛍️','의복/미용':'👕','건강/의료':'🏥','문화/여가':'🎬',
+    '여행':'✈️','차량유지비':'🚗','경조사/회비':'🎁','기타':'•'
+  };
+
+  // 표시명(예: 'Chase Sapphire') 으로 APP_DATA.accounts 에서 계좌 객체 찾기
+  function getAccountByName(name) {
+    const d = window.APP_DATA;
+    if (!d) return null;
+    return d.accounts.find(a => a.name === name) || null;
+  }
+  // 표시명에 해당하는 거래만 (거래의 account 는 키값이므로 표시명으로 변환해 비교)
+  function txForAccount(name, period) {
+    const d = window.APP_DATA;
+    if (!d) return [];
+    const inPeriod = filterByPeriod(d.transactions, period);
+    return inPeriod
+      .filter(t => (ACTIVE_ACCOUNTS_DISPLAY[t.account] || t.account) === name)
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+  }
+  // 거래의 현금흐름 부호 (수입 +, 그 외 -)
+  function txNet(t) { return t.type === 'income' ? Math.abs(t.amount) : -Math.abs(t.amount); }
+
+  // 실데이터 기반 스파크라인 SVG 생성 (기간 내 누적 잔액 추세, 현재 잔액에서 역산)
+  function buildSparkSVG(txs, endBalance, periodLabel) {
+    const W = 320, H = 66, PAD = 4;
+    let pts;
+    if (txs.length >= 1 && typeof endBalance === 'number') {
+      const totalNet = txs.reduce((s, t) => s + txNet(t), 0);
+      let bal = endBalance - totalNet;           // 기간 시작 직전 잔액
+      pts = [bal];
+      txs.forEach(t => { bal += txNet(t); pts.push(bal); });
     } else {
-      change.style.background = 'var(--accent-soft)';
-      change.style.color = 'var(--accent)';
+      pts = [0, 0];
+    }
+    const min = Math.min(...pts), max = Math.max(...pts);
+    const range = (max - min) || 1;
+    const stepX = pts.length > 1 ? W / (pts.length - 1) : W;
+    const coords = pts.map((v, i) => {
+      const x = pts.length > 1 ? i * stepX : W / 2;
+      const y = PAD + (1 - (v - min) / range) * (H - 2 * PAD);
+      return [x, y];
+    });
+    const line = pts.length > 1
+      ? 'M' + coords.map(c => c[0].toFixed(1) + ',' + c[1].toFixed(1)).join(' L')
+      : `M0,${H/2} L${W},${H/2}`;
+    const area = line + ` L${W},${H} L0,${H} Z`;
+    const up = pts[pts.length - 1] >= pts[0];
+    const col = up ? '#00C896' : '#FF7878';
+    const gid = 'sparkGrad';
+    const startLabel = txs.length ? fmtKoreanDate(txs[0].date).replace(/\s*\(.\)$/, '') : periodLabel + ' 시작';
+    return `
+      <svg viewBox="0 0 ${W} 70" preserveAspectRatio="none" style="width:100%; height:70px;">
+        <defs>
+          <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="${col}" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="${col}" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="${area}" fill="url(#${gid})"/>
+        <path d="${line}" stroke="${col}" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--text-mute); margin-top:4px;">
+        <span>${startLabel}</span>
+        <span>오늘</span>
+      </div>`;
+  }
+
+  // 상세 페이지 렌더 (detailAccount + detailPeriod 기준)
+  function renderAccountDetail() {
+    const name = detailAccount;
+    if (!name) return;
+    const acc = getAccountByName(name);
+    const meta = ACCOUNT_META[name] || {};
+    document.getElementById('detailGroup').textContent = (acc && acc.group) || meta.group || '';
+    document.getElementById('detailName').textContent = name;
+
+    // 현재 잔액
+    const balEl = document.getElementById('detailBal');
+    const balance = acc ? acc.balance : null;
+    if (balance !== null) {
+      balEl.innerHTML = `<span class="currency">$</span>${Math.abs(balance).toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+      const isNeg = balance < 0;
+      if (isNeg) balEl.innerHTML = `<span class="currency">-$</span>${Math.abs(balance).toLocaleString('en-US', {maximumFractionDigits: 0})}`;
+      balEl.style.color = isNeg ? 'var(--negative)' : '';
     }
 
-    // 해당 계좌 거래만 렌더링 (가계부 탭의 데이터 재사용)
+    // 전월 대비 변동 칩
+    const changeEl = document.getElementById('detailChange');
+    if (acc) {
+      const chg = acc.balance - acc.prev_balance;
+      const up = chg > 0;
+      changeEl.textContent = chg === 0 ? '전월 대비 변동 없음' : `${up ? '↑ +' : '↓ '}${fmt$(chg).replace('+','')} 전월 대비`;
+      // 잔액 증가(자산↑ 또는 부채↓)는 항상 긍정 → 초록, 감소는 부정 → 빨강
+      const good = chg >= 0;
+      changeEl.style.background = good ? 'var(--accent-soft)' : 'rgba(255,92,92,0.12)';
+      changeEl.style.color = good ? 'var(--accent)' : 'var(--negative)';
+    } else {
+      changeEl.textContent = '';
+    }
+
+    // 거래 목록 (APP_DATA 직접 사용, detailPeriod 적용)
+    const txs = txForAccount(name, detailPeriod);
+
+    // 스파크라인
+    const sparkEl = document.getElementById('detailSpark');
+    if (sparkEl) sparkEl.innerHTML = buildSparkSVG(txs, balance, DETAIL_PERIOD_LABEL[detailPeriod]);
+
+    // 날짜별 그룹화 (최신이 위)
+    const byDate = {};
+    txs.forEach(t => { (byDate[t.date] = byDate[t.date] || []).push(t); });
+    const sortedDates = Object.keys(byDate).sort().reverse();
     const list = document.getElementById('detailTxList');
     list.innerHTML = '';
-    const groups = document.querySelectorAll('#txGroups .tx-day-group');
-    let count = 0;
-    groups.forEach(g => {
-      const matched = Array.from(g.querySelectorAll('.tx-row')).filter(r => r.dataset.account === name);
-      if (!matched.length) return;
-      const day = g.querySelector('.tx-day-head span').textContent;
-      const dayTotal = matched.reduce((sum, r) => {
-        const raw = r.querySelector('.tx-amt').textContent.replace(/[^0-9.\-]/g, '');
-        return sum + parseFloat(raw || 0);
-      }, 0);
+    sortedDates.forEach(date => {
+      const items = byDate[date];
+      const dayTotal = items.reduce((s, t) => s + txNet(t), 0);
+      const dayLabel = isToday(date) ? `오늘, ${fmtKoreanDate(date)}` : fmtKoreanDate(date);
       const sign = dayTotal >= 0 ? '+' : '-';
-      const dayBlock = document.createElement('div');
-      dayBlock.className = 'tx-day-group';
-      dayBlock.innerHTML = `
-        <div class="tx-day-head">
-          <span>${day}</span>
-          <span class="tx-day-total">${sign}$${Math.abs(dayTotal).toFixed(2)}</span>
-        </div>
-        <div class="tx-list">
-          ${matched.map(r => r.outerHTML).join('')}
-        </div>`;
-      list.appendChild(dayBlock);
-      count += matched.length;
+      const rows = items.map(t => {
+        const cat = (t.category || '').trim();
+        const sub = (t.subcategory || '').trim();
+        const icon = DETAIL_CAT_ICONS[cat] || '•';
+        const memo = t.memo ? t.memo : (sub || cat);
+        const isIncome = t.type === 'income';
+        const amtTxt = isIncome
+          ? `+$${t.amount.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}`
+          : `-$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+        return `
+          <div class="tx-row">
+            <div class="tx-icon"${isIncome ? ' style="background:var(--accent-soft);"' : ''}>${icon}</div>
+            <div class="tx-info">
+              <div class="tx-name">${memo || cat || sub}</div>
+              <div class="tx-sub">${cat}${sub ? ' · ' + sub : ''}</div>
+            </div>
+            <div class="tx-amt ${isIncome ? 'income' : ''}">${amtTxt}</div>
+          </div>`;
+      }).join('');
+      list.insertAdjacentHTML('beforeend', `
+        <div class="tx-day-group">
+          <div class="tx-day-head">
+            <span>${dayLabel}</span>
+            <span class="tx-day-total">${sign}$${Math.abs(dayTotal).toFixed(2)}</span>
+          </div>
+          <div class="tx-list">${rows}</div>
+        </div>`);
     });
-    if (!count) {
-      list.innerHTML = '<div style="text-align:center; padding:40px 20px; color:var(--text-mute); font-size:13px;">이 계좌의 이번달 거래가 없어요</div>';
+    if (!txs.length) {
+      list.innerHTML = `<div style="text-align:center; padding:40px 20px; color:var(--text-mute); font-size:13px;">${DETAIL_PERIOD_LABEL[detailPeriod]} 거래가 없어요</div>`;
     }
-    document.getElementById('detailCount').textContent = `${count}건`;
-    showPage('detail');
+    document.getElementById('detailCount').textContent = `${txs.length}건`;
   }
+
+  function openAccountDetail(name) {
+    detailAccount = name;
+    detailPeriod = 'month';
+    // 상세 기간 세그먼트 active 초기화
+    document.querySelectorAll('#detailPeriodSeg .seg-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.dperiod === 'month');
+    });
+    renderAccountDetail();
+    showPage('detail');
+    document.getElementById('content').scrollTop = 0;
+  }
+
+  // 상세 기간 필터 핸들러
+  document.querySelectorAll('#detailPeriodSeg .seg-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      detailPeriod = btn.dataset.dperiod || 'month';
+      renderAccountDetail();
+    });
+  });
 
   document.querySelectorAll('.asset-tap').forEach(item => {
     item.addEventListener('click', () => openAccountDetail(item.dataset.account));
