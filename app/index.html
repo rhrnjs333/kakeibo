@@ -1810,7 +1810,7 @@
     if (d.monthly && Object.keys(d.monthly).length) {
       const by = {};
       Object.entries(d.monthly).forEach(([ym, m]) => {
-        by[ym] = { expense: m.expense || 0, income: m.income || 0 };
+        by[ym] = { expense: m.expense || 0, income: m.income || 0, saving: m.invest_deposit || 0 };
       });
       return by;
     }
@@ -1818,7 +1818,7 @@
     (d.transactions || []).forEach(t => {
       const ym = (t.date || '').slice(0, 7);
       if (ym.length !== 7) return;
-      const m = by[ym] || (by[ym] = { expense: 0, income: 0 });
+      const m = by[ym] || (by[ym] = { expense: 0, income: 0, saving: 0 });
       if (t.type === 'income') m.income += Math.abs(t.amount);
       else m.expense += Math.abs(t.amount);
     });
@@ -1862,6 +1862,9 @@
       const sign = net >= 0 ? '+' : '-';
       const netCls = net >= 0 ? 'pos' : 'neg';
       const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+      const save = e.saving || 0;
+      const srate = e.income > 0 ? Math.round(save / e.income * 100) : 0;
+      const saveCls = save > 0 ? 'pos' : 'neg';
       html += `<div class="month-row${k === curYM ? ' is-current' : ''}">
         <div class="month-row-top">
           <span class="month-name">${mo}${k === curYM ? '<span class="month-badge">이번 달</span>' : ''}</span>
@@ -1869,6 +1872,7 @@
         </div>
         <div class="mbar"><div class="mbar-fill" style="width:${w}%"></div></div>
         <div class="month-sub">수입 ${fmt(e.income)} · 순액 <span class="${netCls}">${sign}${fmt(Math.abs(net))}</span></div>
+        <div class="month-sub">저축 <span class="${saveCls}">${fmt(save)}</span> · 저축률 <span class="${saveCls}">${srate}%</span></div>
       </div>`;
     });
     html += '</div>';
