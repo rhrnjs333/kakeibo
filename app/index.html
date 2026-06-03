@@ -645,6 +645,8 @@
     padding: 18px 0 24px;
   }
   .amount-currency { font-size: 22px; color: var(--text-dim); font-weight: 600; vertical-align: top; }
+  .amount-input-wrap.income .amount-input,
+  .amount-input-wrap.income .amount-currency { color: var(--positive); }
   .amount-input {
     font-family: var(--num);
     font-size: 52px;
@@ -1510,6 +1512,7 @@
         <div class="segmented" id="typeSeg">
           <button class="seg-btn active" data-type="variable">Variable</button>
           <button class="seg-btn" data-type="fixed">Fixed</button>
+          <button class="seg-btn" data-type="income">수입</button>
         </div>
 
         <div class="amount-input-wrap">
@@ -1517,11 +1520,14 @@
           <input class="amount-input" id="inAmount" placeholder="0.00" inputmode="decimal" />
         </div>
 
-        <div class="field-label">대분류</div>
-        <div class="chip-row" id="mainCatChips"></div>
+        <!-- 카테고리 섹션 (수입일 때는 숨김) -->
+        <div id="catSection">
+          <div class="field-label">대분류</div>
+          <div class="chip-row" id="mainCatChips"></div>
 
-        <div class="field-label" id="subCatLabel" style="display:none;">소분류</div>
-        <div class="sub-chip-row" id="subCatChips"></div>
+          <div class="field-label" id="subCatLabel" style="display:none;">소분류</div>
+          <div class="sub-chip-row" id="subCatChips"></div>
+        </div>
 
         <div class="field-label">상세</div>
         <div class="row-select">
@@ -1532,7 +1538,7 @@
           <span class="lbl">날짜</span>
           <input type="date" class="native-date" id="inDate" />
         </div>
-        <div class="row-select">
+        <div class="row-select" id="memoRow">
           <span class="lbl">메모</span>
           <input type="text" class="text-input" id="inMemo" placeholder="선택" maxlength="50" />
         </div>
@@ -2406,6 +2412,26 @@
     inp.value = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
   }
 
+  // 수입이 들어오는 계좌 (신용카드 제외) — 입금 내역에 어울리는 기본값
+  const INCOME_ACCOUNTS = ['Chase', 'Robinhood', 'Roth IRA'];
+
+  // 타입(변동/고정/수입)에 따라 입력 필드 표시 전환
+  function applyTypeUI() {
+    const isIncome = modalType === 'income';
+    // 수입은 입금 내역(날짜·계좌·금액)만 → 카테고리/메모 숨김
+    document.getElementById('catSection').style.display = isIncome ? 'none' : '';
+    document.getElementById('memoRow').style.display    = isIncome ? 'none' : '';
+    document.querySelector('.modal-title').textContent  = isIncome ? '수입 입력' : '새 거래';
+    document.querySelector('.amount-input-wrap').classList.toggle('income', isIncome);
+    // 수입으로 전환 시 신용카드가 선택돼 있으면 입금 계좌(Chase)로 기본 변경
+    if (isIncome) {
+      const sel = document.getElementById('inAccount');
+      if (sel && !INCOME_ACCOUNTS.includes(sel.value)) {
+        sel.value = localStorage.getItem('lastIncomeAccount') || 'Chase';
+      }
+    }
+  }
+
   function resetModalForm() {
     document.getElementById('inAmount').value = '';
     document.getElementById('inMemo').value = '';
@@ -2414,9 +2440,10 @@
     renderModalMainCats();
     renderModalSubCats();
     setupModalDate();
+    applyTypeUI();
   }
 
-  // ── Variable/Fixed 토글 (모달 전용) ──
+  // ── Variable/Fixed/수입 토글 (모달 전용) ──
   document.querySelectorAll('#typeSeg .seg-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       modalType = btn.dataset.type;
@@ -2424,6 +2451,7 @@
       modalSub  = '';
       renderModalMainCats();
       renderModalSubCats();
+      applyTypeUI();
     });
   });
 
@@ -2464,18 +2492,29 @@
     const account = document.getElementById('inAccount').value;
     const memo    = document.getElementById('inMemo').value.trim();
 
-    // 검증
+    const isIncome = modalType === 'income';
+
+    // 검증 (수입은 카테고리 없이 금액·계좌·날짜만)
     if (!amount || amount <= 0)        { showToast('❌ 금액을 입력하세요', 'error'); return; }
-    if (!modalMain)                    { showToast('❌ 대분류를 선택하세요', 'error'); return; }
-    if (!modalSub)                     { showToast('❌ 소분류를 선택하세요', 'error'); return; }
+    if (!isIncome && !modalMain)       { showToast('❌ 대분류를 선택하세요', 'error'); return; }
+    if (!isIncome && !modalSub)        { showToast('❌ 소분류를 선택하세요', 'error'); return; }
+    if (!account)                      { showToast('❌ 계좌를 선택하세요', 'error'); return; }
     if (!dateVal)                      { showToast('❌ 날짜를 선택하세요', 'error'); return; }
 
     const [y, m, dd] = dateVal.split('-');
-    const payload = {
+    const payload = isIncome ? {
+      // 입금 내역(B42) → 날짜·계좌·금액만 기록
+      type:         'income',
+      month:        `${parseInt(m, 10)}월`,
+      date:         `${m}/${dd}`,
+      account:      account,
+      amount:       amount,
+      timestamp:    new Date().toISOString(),
+    } : {
       type:         modalType,
       month:        `${parseInt(m, 10)}월`,
       date:         `${m}/${dd}`,
-      category:     modalType === 'variable' ? modalSub : modalSub,
+      category:     modalSub,
       mainCategory: modalMain,
       subcategory:  modalSub,
       desc:         memo,
@@ -2505,8 +2544,16 @@
       }
     }
 
+    // 마지막 사용 계좌 기억 (수입/지출 별도)
+    try {
+      localStorage.setItem('lastAccount', account);
+      if (isIncome) localStorage.setItem('lastIncomeAccount', account);
+    } catch (e) {}
+
     if (sentOk) {
-      showToast('✅ 저장되었습니다 — 다음 동기화 때 엑셀에 반영됩니다', 'success');
+      showToast(isIncome
+        ? '✅ 수입이 저장되었습니다 — 다음 동기화 때 입금 내역에 반영됩니다'
+        : '✅ 저장되었습니다 — 다음 동기화 때 엑셀에 반영됩니다', 'success');
     } else {
       // 오프라인이거나 전송 실패 → 큐에 보관, 다음 접속 시 자동 재전송
       pushPending(payload);
