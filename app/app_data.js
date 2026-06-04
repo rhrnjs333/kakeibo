@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-02T21:00:24",
+    "generated_at": "2026-06-03T21:00:27",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 38871.53,
+    "total_wealth": 38772.67,
     "cash_total": 38854.52,
     "saving": 4113.15,
     "prev_balance": 26762.2,
-    "card_balance": -4096.14,
-    "net": 34758.38,
+    "card_balance": -4195.0,
+    "net": 34659.52,
     "total_positive": 42967.67,
-    "total_negative": -4096.15,
-    "net_worth": 38871.52
+    "total_negative": -4195.01,
+    "net_worth": 38772.66
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -2702.1,
+      "balance": -2722.87,
       "prev_balance": -1712.42,
       "income": 0.0,
-      "expense": 989.68
+      "expense": 1010.45
     },
     {
       "key": "Chase Marriott",
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -1281.25,
+      "balance": -1359.34,
       "prev_balance": -1281.25,
       "income": 0.0,
-      "expense": 0.0
+      "expense": 78.09
     },
     {
       "key": "Discover",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 38854.52,
-    "신용카드 (부채)": -4096.15,
+    "신용카드 (부채)": -4195.01,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -120,15 +120,19 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 65.1
+        "amount": 85.87
       },
       {
         "name": "생활용품",
         "amount": 200.0
+      },
+      {
+        "name": "차량유지비",
+        "amount": 78.09
       }
     ]
   },
-  "category_total": 2717.85,
+  "category_total": 2816.71,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -444,10 +448,10 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 2717.85,
+      "expense": 2816.71,
       "income": 234.03,
       "fixed": 2452.75,
-      "variable": 265.1,
+      "variable": 363.96,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -467,17 +471,66 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 65.1
+            "amount": 85.87
           },
           {
             "name": "생활용품",
             "amount": 200.0
+          },
+          {
+            "name": "차량유지비",
+            "amount": 78.09
           }
         ]
       }
     }
   },
   "transactions": [
+    {
+      "date": "2026-06-03",
+      "category": "식비",
+      "subcategory": "음료",
+      "memo": "음료",
+      "account": "Chase Sphire",
+      "amount": 5.2,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-03",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - 출장",
+      "account": "Chase Sphire",
+      "amount": 11.66,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-03",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Mcdonald",
+      "account": "Chase Sphire",
+      "amount": 3.91,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-03",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Marriott",
+      "amount": 57.41,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-03",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Marriott",
+      "amount": 20.68,
+      "type": "variable"
+    },
     {
       "date": "2026-06-02",
       "category": "통신비",
