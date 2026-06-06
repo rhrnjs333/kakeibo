@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-04T21:00:37",
+    "generated_at": "2026-06-05T21:00:31",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 38772.67,
-    "cash_total": 38854.52,
+    "total_wealth": 38172.67,
+    "cash_total": 38254.52,
     "saving": 4113.15,
     "prev_balance": 26762.2,
     "card_balance": -4195.0,
-    "net": 34659.52,
-    "total_positive": 42967.67,
+    "net": 34059.52,
+    "total_positive": 42367.67,
     "total_negative": -4195.01,
-    "net_worth": 38772.66
+    "net_worth": 38172.66
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 38854.52,
+      "balance": 38254.52,
       "prev_balance": 29868.66,
       "income": 10714.03,
-      "expense": 1728.17
+      "expense": 2328.17
     },
     {
       "key": "Chase Sphire",
@@ -98,7 +98,7 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 38854.52,
+    "현금성 자산": 38254.52,
     "신용카드 (부채)": -4195.01,
     "투자 자산": 4113.15
   },
@@ -115,6 +115,10 @@ window.APP_DATA = {
       {
         "name": "대출",
         "amount": 924.58
+      },
+      {
+        "name": "가족지원",
+        "amount": 600.0
       }
     ],
     "variable": [
@@ -132,7 +136,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 2816.71,
+  "category_total": 3416.71,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -448,9 +452,9 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 2816.71,
+      "expense": 3416.71,
       "income": 234.03,
-      "fixed": 2452.75,
+      "fixed": 3052.75,
       "variable": 363.96,
       "invest_deposit": 0.0,
       "categories": {
@@ -466,6 +470,10 @@ window.APP_DATA = {
           {
             "name": "대출",
             "amount": 924.58
+          },
+          {
+            "name": "가족지원",
+            "amount": 600.0
           }
         ],
         "variable": [
@@ -486,6 +494,15 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-06-05",
+      "category": "가족지원",
+      "subcategory": "부모님 지원",
+      "memo": "6월 부모님용돈",
+      "account": "Chase",
+      "amount": 600.0,
+      "type": "fixed"
+    },
     {
       "date": "2026-06-03",
       "category": "식비",
@@ -4154,8 +4171,8 @@ window.APP_DATA = {
     {
       "tier": "recommendation",
       "icon": "🏦",
-      "title": "현금 $18,840 투자 여력",
-      "body": "현재 현금 $38,855 중 권장 비상금(4개월치 $20,014)을 빼면 $18,840이 여유분입니다. 연 7% 가정 시 투자하면 연 약 $1,319의 기회가 생깁니다(현금으로 두면 그만큼 기회비용).",
+      "title": "현금 $18,240 투자 여력",
+      "body": "현재 현금 $38,255 중 권장 비상금(4개월치 $20,014)을 빼면 $18,240이 여유분입니다. 연 7% 가정 시 투자하면 연 약 $1,277의 기회가 생깁니다(현금으로 두면 그만큼 기회비용).",
       "severity": "medium",
       "score": 62,
       "top": true
@@ -4190,8 +4207,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 예상 현금 $44,327",
-      "body": "최근 월 순저축 중앙값 $1,824 기준, 현재 현금 $38,855에서 3개월 뒤 약 $44,327으로 예상됩니다. 현금흐름은 안정적입니다.",
+      "title": "90일 후 예상 현금 $43,727",
+      "body": "최근 월 순저축 중앙값 $1,824 기준, 현재 현금 $38,255에서 3개월 뒤 약 $43,727으로 예상됩니다. 현금흐름은 안정적입니다.",
       "severity": "good",
       "score": 55,
       "top": false
@@ -4237,7 +4254,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "차량유지비 급증분 점검 (과거比 +$870)",
-      "현금 여유분 $18,840 일부 투자 검토"
+      "현금 여유분 $18,240 일부 투자 검토"
     ],
     "keep": [
       "평소 저축률 32% 유지 습관"
