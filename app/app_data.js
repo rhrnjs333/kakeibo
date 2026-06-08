@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-07T21:00:29",
+    "generated_at": "2026-06-07T22:52:09",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 38172.67,
-    "cash_total": 38254.52,
+    "total_wealth": 37764.14,
+    "cash_total": 38158.43,
     "saving": 4113.15,
     "prev_balance": 26762.2,
-    "card_balance": -4195.0,
-    "net": 34059.52,
-    "total_positive": 42367.67,
-    "total_negative": -4195.01,
-    "net_worth": 38172.66
+    "card_balance": -4507.44,
+    "net": 33650.99,
+    "total_positive": 42271.58,
+    "total_negative": -4507.45,
+    "net_worth": 37764.13
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 38254.52,
+      "balance": 38158.43,
       "prev_balance": 29868.66,
       "income": 10714.03,
-      "expense": 2328.17
+      "expense": 2424.26
     },
     {
       "key": "Chase Sphire",
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -2722.87,
+      "balance": -2796.26,
       "prev_balance": -1712.42,
       "income": 0.0,
-      "expense": 1010.45
+      "expense": 1083.84
     },
     {
       "key": "Chase Marriott",
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -1359.34,
+      "balance": -1459.25,
       "prev_balance": -1281.25,
       "income": 0.0,
-      "expense": 78.09
+      "expense": 178.0
     },
     {
       "key": "Discover",
@@ -65,10 +65,10 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": -112.8,
+      "balance": -251.94,
       "prev_balance": -112.8,
       "income": 0.0,
-      "expense": 0.0
+      "expense": 139.14
     },
     {
       "key": "Robinhood",
@@ -98,15 +98,15 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 38254.52,
-    "신용카드 (부채)": -4195.01,
+    "현금성 자산": 38158.43,
+    "신용카드 (부채)": -4507.45,
     "투자 자산": 4113.15
   },
   "categories": {
     "fixed": [
       {
         "name": "주거비",
-        "amount": 1488.17
+        "amount": 1584.26
       },
       {
         "name": "통신비",
@@ -124,7 +124,7 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 85.87
+        "amount": 353.46
       },
       {
         "name": "생활용품",
@@ -132,11 +132,11 @@ window.APP_DATA = {
       },
       {
         "name": "차량유지비",
-        "amount": 78.09
+        "amount": 122.94
       }
     ]
   },
-  "category_total": 3416.71,
+  "category_total": 3825.24,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -452,16 +452,16 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 3416.71,
+      "expense": 3825.24,
       "income": 234.03,
-      "fixed": 3052.75,
-      "variable": 363.96,
+      "fixed": 3148.84,
+      "variable": 676.4,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 1488.17
+            "amount": 1584.26
           },
           {
             "name": "통신비",
@@ -479,7 +479,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 85.87
+            "amount": 353.46
           },
           {
             "name": "생활용품",
@@ -487,13 +487,85 @@ window.APP_DATA = {
           },
           {
             "name": "차량유지비",
-            "amount": 78.09
+            "amount": 122.94
           }
         ]
       }
     }
   },
   "transactions": [
+    {
+      "date": "2026-06-07",
+      "category": "주거비",
+      "subcategory": "유틸리티",
+      "memo": "DTE",
+      "account": "Chase",
+      "amount": 68.3,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-06-07",
+      "category": "주거비",
+      "subcategory": "유틸리티",
+      "memo": "Consumer Energy",
+      "account": "Chase",
+      "amount": 27.79,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-06-07",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Marriott",
+      "amount": 44.85,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-07",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - 청기와",
+      "account": "Chase Marriott",
+      "amount": 55.06,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-07",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "커피",
+      "account": "Chase Sphire",
+      "amount": 5.57,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-06",
+      "category": "식비",
+      "subcategory": "술/유흥",
+      "memo": "술",
+      "account": "Chase Sphire",
+      "amount": 43.18,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-06",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심",
+      "account": "Chase Sphire",
+      "amount": 24.64,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-06",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "커피",
+      "account": "Discover",
+      "amount": 17.69,
+      "type": "variable"
+    },
     {
       "date": "2026-06-05",
       "category": "가족지원",
@@ -502,6 +574,24 @@ window.APP_DATA = {
       "account": "Chase",
       "amount": 600.0,
       "type": "fixed"
+    },
+    {
+      "date": "2026-06-05",
+      "category": "식비",
+      "subcategory": "술/유흥",
+      "memo": "맥주",
+      "account": "Discover",
+      "amount": 44.64,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-05",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - 누리",
+      "account": "Discover",
+      "amount": 76.81,
+      "type": "variable"
     },
     {
       "date": "2026-06-03",
@@ -4171,8 +4261,8 @@ window.APP_DATA = {
     {
       "tier": "recommendation",
       "icon": "🏦",
-      "title": "현금 $18,240 투자 여력",
-      "body": "현재 현금 $38,255 중 권장 비상금(4개월치 $20,014)을 빼면 $18,240이 여유분입니다. 연 7% 가정 시 투자하면 연 약 $1,277의 기회가 생깁니다(현금으로 두면 그만큼 기회비용).",
+      "title": "현금 $18,144 투자 여력",
+      "body": "현재 현금 $38,158 중 권장 비상금(4개월치 $20,014)을 빼면 $18,144이 여유분입니다. 연 7% 가정 시 투자하면 연 약 $1,270의 기회가 생깁니다(현금으로 두면 그만큼 기회비용).",
       "severity": "medium",
       "score": 62,
       "top": true
@@ -4207,8 +4297,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 예상 현금 $43,727",
-      "body": "최근 월 순저축 중앙값 $1,824 기준, 현재 현금 $38,255에서 3개월 뒤 약 $43,727으로 예상됩니다. 현금흐름은 안정적입니다.",
+      "title": "90일 후 예상 현금 $43,631",
+      "body": "최근 월 순저축 중앙값 $1,824 기준, 현재 현금 $38,158에서 3개월 뒤 약 $43,631으로 예상됩니다. 현금흐름은 안정적입니다.",
       "severity": "good",
       "score": 55,
       "top": false
@@ -4254,7 +4344,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "차량유지비 급증분 점검 (과거比 +$870)",
-      "현금 여유분 $18,240 일부 투자 검토"
+      "현금 여유분 $18,144 일부 투자 검토"
     ],
     "keep": [
       "평소 저축률 32% 유지 습관"
