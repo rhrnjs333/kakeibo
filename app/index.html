@@ -857,6 +857,13 @@
   .ins-body { flex: 1; min-width: 0; }
   .ins-title { font-size: 13.5px; font-weight: 700; margin-bottom: 3px; }
   .ins-desc { font-size: 12px; color: var(--text-dim); line-height: 1.45; }
+  .ins-evidence { margin-top: 8px; font-size: 11px; color: var(--text-mute); }
+  .ins-evidence summary { cursor: pointer; color: var(--text-dim); font-weight: 700; list-style: none; }
+  .ins-evidence summary::-webkit-details-marker { display: none; }
+  .ins-evidence summary::after { content: ' 보기'; font-weight: 500; color: var(--text-mute); }
+  .ins-evidence[open] summary::after { content: ' 닫기'; }
+  .ins-evidence ul { margin: 6px 0 0; padding-left: 14px; }
+  .ins-evidence li { line-height: 1.45; margin: 2px 0; }
   .ins-tag { display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 6px; margin-left: 6px; vertical-align: middle; letter-spacing: 0.03em; }
   .tag-alert { background: rgba(255,92,92,0.15); color: var(--danger); }
   .tag-recommendation { background: rgba(0,200,150,0.14); color: var(--accent); }
@@ -2060,11 +2067,15 @@
     return String(v ?? '').replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch]));
   }
   function insCardHTML(it) {
+    const evidence = Array.isArray(it.evidence) && it.evidence.length
+      ? `<details class="ins-evidence"><summary>근거</summary><ul>${it.evidence.map(x => `<li>${escapeHTML(x)}</li>`).join('')}</ul></details>`
+      : '';
     return `<div class="ins-card sev-${it.severity || 'low'}">
       <div class="ins-emoji">${it.icon || '•'}</div>
       <div class="ins-body">
         <div class="ins-title">${escapeHTML(it.title)}<span class="ins-tag tag-${it.tier}">${TIER_KO[it.tier] || ''}</span></div>
         <div class="ins-desc">${escapeHTML(it.body)}</div>
+        ${evidence}
       </div></div>`;
   }
 
