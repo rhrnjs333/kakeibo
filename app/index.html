@@ -294,7 +294,7 @@
     padding: 22px 4px 12px;
   }
   .section-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
-  .section-action { font-size: 12px; color: var(--text-dim); font-weight: 500; }
+  .section-action { font-size: 12px; color: var(--text-dim); font-weight: 500; border: 0; background: transparent; font-family: inherit; cursor: pointer; }
 
   /* Budget card */
   .budget-card {
@@ -886,6 +886,29 @@
   .chg-row:last-child { border-bottom: none; }
   .ana-meta { font-size: 10.5px; color: var(--text-mute); margin-top: 16px; line-height: 1.5; padding: 0 4px 8px; }
 
+  /* ── 목표 카드 ── */
+  .goal-list { display: flex; flex-direction: column; gap: 10px; }
+  .goal-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; }
+  .goal-card.compact { margin-bottom: 10px; }
+  .goal-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+  .goal-name { font-size: 14px; font-weight: 700; }
+  .goal-meta { font-size: 11px; color: var(--text-dim); margin-top: 3px; }
+  .goal-pct { font-family: var(--num); font-size: 22px; font-weight: 800; color: var(--accent); line-height: 1; }
+  .goal-progress { height: 7px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+  .goal-progress-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), #4DA8DA); }
+  .goal-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .goal-stat { background: rgba(255,255,255,0.03); border-radius: 10px; padding: 9px 10px; }
+  .goal-stat .label { font-size: 10px; color: var(--text-mute); }
+  .goal-stat .value { font-size: 13px; font-weight: 700; margin-top: 2px; }
+  .goal-note { font-size: 12px; color: var(--text-dim); line-height: 1.45; margin-top: 10px; }
+  .goal-actions { display: flex; gap: 8px; margin-top: 12px; }
+  .goal-action-btn { flex: 1; border: 1px solid var(--border-2); background: transparent; color: var(--text-dim); border-radius: 10px; padding: 9px 10px; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .goal-action-btn.primary { color: var(--accent); border-color: rgba(0,200,150,0.35); background: rgba(0,200,150,0.08); }
+  .goal-action-btn.danger { color: var(--danger); border-color: rgba(255,92,92,0.25); }
+  .goal-empty { background: var(--surface); border: 1px dashed var(--border-2); border-radius: var(--radius); padding: 16px; color: var(--text-dim); font-size: 12px; line-height: 1.45; }
+  .goal-form-grid { display: flex; flex-direction: column; gap: 10px; }
+  .goal-helper { font-size: 11px; color: var(--text-mute); line-height: 1.4; padding: 2px 4px 0; }
+
   /* ═══════════════════════════════════════════════════════════════
    * iPad / 태블릿 전용 레이아웃
    * ─────────────────────────────────────────────────────────────
@@ -1046,6 +1069,13 @@
             <span>$660 남음</span>
           </div>
         </div>
+
+        <!-- Goals -->
+        <div class="section-head">
+          <div class="section-title">목표</div>
+          <button class="section-action goal-open-btn" type="button">추가</button>
+        </div>
+        <div id="homeGoals"></div>
 
         <!-- AI 인사이트 (우선순위 Top5, 데이터 기반 자동생성) -->
         <div class="section-head">
@@ -1550,6 +1580,54 @@
       </div>
     </div>
 
+    <!-- Goal Modal -->
+    <div class="modal-bg" id="goalModalBg">
+      <div class="modal">
+        <div class="modal-handle"></div>
+        <div class="modal-head">
+          <button class="modal-cancel" id="goalCancel">취소</button>
+          <span class="modal-title" id="goalModalTitle">목표 추가</span>
+          <button class="modal-save" id="goalSave">저장</button>
+        </div>
+
+        <input type="hidden" id="goalId" />
+        <div class="goal-form-grid">
+          <div class="row-select">
+            <span class="lbl">종류</span>
+            <select class="native-select" id="goalType">
+              <option value="emergency">비상금</option>
+              <option value="house">주택 다운페이</option>
+              <option value="investment">투자/은퇴</option>
+              <option value="debt">빚 상환</option>
+              <option value="travel">여행</option>
+              <option value="custom">직접 입력</option>
+            </select>
+          </div>
+          <div class="row-select">
+            <span class="lbl">이름</span>
+            <input type="text" class="text-input" id="goalName" placeholder="예: 비상금" maxlength="28" />
+          </div>
+          <div class="amount-input-wrap">
+            <span class="amount-currency">$</span>
+            <input class="amount-input" id="goalTarget" placeholder="목표 금액" inputmode="decimal" />
+          </div>
+          <div class="row-select">
+            <span class="lbl">현재</span>
+            <input type="number" class="text-input" id="goalCurrent" placeholder="0" inputmode="decimal" min="0" step="0.01" />
+          </div>
+          <div class="row-select">
+            <span class="lbl">목표월</span>
+            <input type="date" class="native-date" id="goalTargetMonth" />
+          </div>
+          <div class="row-select">
+            <span class="lbl">월 저축</span>
+            <input type="number" class="text-input" id="goalMonthly" placeholder="자동 계산" inputmode="decimal" min="0" step="0.01" />
+          </div>
+          <div class="goal-helper">월 저축을 비워두면 최근 저축 흐름으로 예상 달성 시점을 계산합니다.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- 토스트 + 미동기화 배지 -->
     <div class="toast" id="toast"></div>
     <div class="pending-badge" id="pendingBadge" title="미전송 거래">미전송 0건</div>
@@ -1595,6 +1673,81 @@
   document.getElementById('fabBtn').addEventListener('click', () => modalBg.classList.add('show'));
   document.getElementById('modalCancel').addEventListener('click', () => modalBg.classList.remove('show'));
   modalBg.addEventListener('click', (e) => { if (e.target === modalBg) modalBg.classList.remove('show'); });
+
+  // ----- 목표 설정 모달 -----
+  const goalModalBg = document.getElementById('goalModalBg');
+  function rerenderGoalsAndInsights() {
+    const d = window.APP_DATA;
+    if (!d) return;
+    renderGoals(d);
+    renderInsights(d);
+    renderAnalysis(d);
+  }
+  function resetGoalForm() {
+    document.getElementById('goalId').value = '';
+    document.getElementById('goalType').value = 'emergency';
+    document.getElementById('goalName').value = '비상금';
+    document.getElementById('goalTarget').value = '';
+    document.getElementById('goalCurrent').value = '';
+    document.getElementById('goalTargetMonth').value = '';
+    document.getElementById('goalMonthly').value = '';
+    document.getElementById('goalModalTitle').textContent = '목표 추가';
+  }
+  function openGoalModal(goalId) {
+    const goals = loadGoals();
+    const goal = goals.find(g => g.id === goalId);
+    resetGoalForm();
+    if (goal) {
+      document.getElementById('goalId').value = goal.id;
+      document.getElementById('goalType').value = goal.type || 'custom';
+      document.getElementById('goalName').value = goal.name || '';
+      document.getElementById('goalTarget').value = goal.targetAmount || '';
+      document.getElementById('goalCurrent').value = goal.currentAmount || '';
+      document.getElementById('goalTargetMonth').value = goal.targetMonth ? `${goal.targetMonth}-01` : '';
+      document.getElementById('goalMonthly').value = goal.monthlyContribution || '';
+      document.getElementById('goalModalTitle').textContent = '목표 수정';
+    }
+    goalModalBg.classList.add('show');
+  }
+  function closeGoalModal() {
+    goalModalBg.classList.remove('show');
+  }
+  function saveGoalFromModal() {
+    const id = document.getElementById('goalId').value || `goal_${Date.now()}`;
+    const type = document.getElementById('goalType').value || 'custom';
+    const name = document.getElementById('goalName').value.trim() || GOAL_DEFAULT_NAMES[type] || '목표';
+    const targetAmount = parseGoalAmount(document.getElementById('goalTarget').value);
+    const currentAmount = parseGoalAmount(document.getElementById('goalCurrent').value);
+    const targetMonth = document.getElementById('goalTargetMonth').value.slice(0, 7);
+    const monthlyContribution = parseGoalAmount(document.getElementById('goalMonthly').value);
+    if (!targetAmount) { showToast('목표 금액을 입력하세요', 'error'); return; }
+    if (currentAmount > targetAmount) { showToast('현재 금액이 목표보다 큽니다', 'error'); return; }
+    const goals = loadGoals();
+    const next = {
+      id, type, name, targetAmount, currentAmount,
+      targetMonth,
+      monthlyContribution: monthlyContribution || 0,
+      updatedAt: new Date().toISOString(),
+      createdAt: goals.find(g => g.id === id)?.createdAt || new Date().toISOString()
+    };
+    const idx = goals.findIndex(g => g.id === id);
+    if (idx >= 0) goals[idx] = next;
+    else goals.push(next);
+    saveGoals(goals);
+    closeGoalModal();
+    rerenderGoalsAndInsights();
+    showToast('목표를 저장했어요', 'success');
+  }
+  document.getElementById('goalCancel').addEventListener('click', closeGoalModal);
+  document.getElementById('goalSave').addEventListener('click', saveGoalFromModal);
+  goalModalBg.addEventListener('click', (e) => { if (e.target === goalModalBg) closeGoalModal(); });
+  document.getElementById('goalType').addEventListener('change', (e) => {
+    const name = document.getElementById('goalName');
+    const defaults = Object.values(GOAL_DEFAULT_NAMES);
+    if (!name.value.trim() || defaults.includes(name.value.trim())) {
+      name.value = GOAL_DEFAULT_NAMES[e.target.value] || '';
+    }
+  });
 
   // ----- Chip selection (modal-internal) -----
   document.querySelectorAll('.modal .chip').forEach(chip => {
@@ -1903,18 +2056,183 @@
 
   // ── AI 인사이트 렌더 ──────────────────────────────────────────
   const TIER_KO = { alert: '경고', recommendation: '추천', insight: '인사이트', action: '액션' };
+  function escapeHTML(v) {
+    return String(v ?? '').replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch]));
+  }
   function insCardHTML(it) {
     return `<div class="ins-card sev-${it.severity || 'low'}">
       <div class="ins-emoji">${it.icon || '•'}</div>
       <div class="ins-body">
-        <div class="ins-title">${it.title}<span class="ins-tag tag-${it.tier}">${TIER_KO[it.tier] || ''}</span></div>
-        <div class="ins-desc">${it.body}</div>
+        <div class="ins-title">${escapeHTML(it.title)}<span class="ins-tag tag-${it.tier}">${TIER_KO[it.tier] || ''}</span></div>
+        <div class="ins-desc">${escapeHTML(it.body)}</div>
       </div></div>`;
+  }
+
+  const GOALS_KEY = 'kakeibo_goals_v1';
+  const GOAL_TYPE_LABELS = {
+    emergency: '비상금',
+    house: '주택 다운페이',
+    investment: '투자/은퇴',
+    debt: '빚 상환',
+    travel: '여행',
+    custom: '직접 입력'
+  };
+  const GOAL_DEFAULT_NAMES = {
+    emergency: '비상금',
+    house: '주택 다운페이',
+    investment: '투자/은퇴',
+    debt: '빚 상환',
+    travel: '여행'
+  };
+  const money0 = n => '$' + Math.round(Math.max(0, Number(n) || 0)).toLocaleString('en-US');
+  const money1 = n => '$' + Math.max(0, Number(n) || 0).toLocaleString('en-US', { maximumFractionDigits: 0 });
+  function parseGoalAmount(v) {
+    const n = Number(String(v || '').replace(/[,$\s]/g, ''));
+    return Number.isFinite(n) ? Math.max(0, n) : 0;
+  }
+  function loadGoals() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(GOALS_KEY) || '[]');
+      return Array.isArray(raw) ? raw.filter(g => g && g.id && g.targetAmount > 0) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+  function saveGoals(goals) {
+    localStorage.setItem(GOALS_KEY, JSON.stringify(goals));
+  }
+  function monthDiffFromNow(targetMonth) {
+    if (!targetMonth) return null;
+    const [y, m] = String(targetMonth).split('-').map(Number);
+    if (!y || !m) return null;
+    const now = new Date();
+    return Math.max(0, (y - now.getFullYear()) * 12 + (m - (now.getMonth() + 1)));
+  }
+  function addMonths(date, months) {
+    const d = new Date(date.getFullYear(), date.getMonth() + months, 1);
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+  }
+  function formatGoalMonth(v) {
+    const ym = String(v || '').slice(0, 7);
+    return ym.length === 7 ? ym.replace('-', '.') : '';
+  }
+  function avgMonthlyPace(d) {
+    const by = monthlyTotals(d);
+    const keys = Object.keys(by).sort();
+    if (!keys.length) return 0;
+    const sample = keys.slice(-4, -1).length ? keys.slice(-4, -1) : keys.slice(-3);
+    const vals = sample.map(k => {
+      const m = by[k] || {};
+      const saving = Number(m.saving) || 0;
+      const net = (Number(m.income) || 0) - (Number(m.expense) || 0);
+      return Math.max(saving, net, 0);
+    }).filter(v => v > 0);
+    return vals.length ? vals.reduce((s, v) => s + v, 0) / vals.length : 0;
+  }
+  function goalMetrics(goal, d) {
+    const target = Number(goal.targetAmount) || 0;
+    const current = Math.min(target, Number(goal.currentAmount) || 0);
+    const remaining = Math.max(0, target - current);
+    const pct = target > 0 ? Math.min(100, Math.round(current / target * 100)) : 0;
+    const monthsLeft = monthDiffFromNow(goal.targetMonth);
+    const requiredMonthly = monthsLeft !== null && monthsLeft > 0 ? remaining / monthsLeft : remaining;
+    const estimatedPace = Number(goal.monthlyContribution) || avgMonthlyPace(d);
+    const etaMonths = remaining <= 0 ? 0 : (estimatedPace > 0 ? Math.ceil(remaining / estimatedPace) : null);
+    const etaMonth = etaMonths === null ? null : addMonths(new Date(), etaMonths);
+    const monthlyGap = requiredMonthly > 0 && estimatedPace > 0 ? Math.max(0, requiredMonthly - estimatedPace) : 0;
+    let status = '진행 중';
+    if (remaining <= 0) status = '달성';
+    else if (monthsLeft !== null && monthsLeft <= 0) status = '목표월 도달';
+    else if (monthlyGap > 0) status = '추가 저축 필요';
+    else if (estimatedPace > 0) status = '순항 중';
+    return { target, current, remaining, pct, monthsLeft, requiredMonthly, estimatedPace, etaMonths, etaMonth, monthlyGap, status };
+  }
+  function goalCardHTML(goal, d, compact = false) {
+    const m = goalMetrics(goal, d);
+    const typeLabel = GOAL_TYPE_LABELS[goal.type] || '목표';
+    const due = goal.targetMonth ? formatGoalMonth(goal.targetMonth) : '목표월 없음';
+    const note = m.remaining <= 0
+      ? '목표 금액에 도달했어요. 다음 목표를 세워도 좋습니다.'
+      : (m.monthlyGap > 0
+          ? `목표월까지 가려면 현재 속도보다 월 ${money0(m.monthlyGap)} 더 필요해요.`
+          : (m.estimatedPace > 0
+              ? `현재 속도 기준 예상 달성 시점은 ${m.etaMonth ? m.etaMonth.replace('-', '.') : '계산 중'}입니다.`
+              : '월 저축액을 입력하면 예상 달성 시점을 계산할 수 있어요.'));
+    return `<div class="goal-card ${compact ? 'compact' : ''}">
+      <div class="goal-top">
+        <div>
+          <div class="goal-name">${escapeHTML(goal.name || typeLabel)}</div>
+          <div class="goal-meta">${typeLabel} · ${due} · ${m.status}</div>
+        </div>
+        <div class="goal-pct">${m.pct}%</div>
+      </div>
+      <div class="goal-progress"><div class="goal-progress-fill" style="width:${m.pct}%"></div></div>
+      <div class="goal-stats">
+        <div class="goal-stat"><div class="label">현재 / 목표</div><div class="value">${money0(m.current)} / ${money0(m.target)}</div></div>
+        <div class="goal-stat"><div class="label">남은 금액</div><div class="value">${money0(m.remaining)}</div></div>
+        ${compact ? '' : `<div class="goal-stat"><div class="label">필요 월 저축</div><div class="value">${m.requiredMonthly ? money0(m.requiredMonthly) : '-'}</div></div>
+        <div class="goal-stat"><div class="label">예상 월 저축</div><div class="value">${m.estimatedPace ? money0(m.estimatedPace) : '-'}</div></div>`}
+      </div>
+      ${compact ? '' : `<div class="goal-note">${escapeHTML(note)}</div>
+      <div class="goal-actions">
+        <button class="goal-action-btn primary" data-goal-edit="${goal.id}">수정</button>
+        <button class="goal-action-btn danger" data-goal-delete="${goal.id}">삭제</button>
+      </div>`}
+    </div>`;
+  }
+  function computeGoalInsights(d) {
+    return loadGoals().map(goal => {
+      const m = goalMetrics(goal, d);
+      if (m.remaining <= 0) {
+        return { tier: 'insight', severity: 'good', icon: '🎯', title: `${goal.name} 달성`, body: `${money0(m.target)} 목표에 도달했어요.`, top: true, score: 96 };
+      }
+      if (m.monthlyGap > 0) {
+        return { tier: 'action', severity: 'medium', icon: '🎯', title: `${goal.name} 월 ${money0(m.monthlyGap)} 추가 필요`, body: `${formatGoalMonth(goal.targetMonth)}까지 달성하려면 월 ${money0(m.requiredMonthly)}가 필요해요.`, top: true, score: 88 };
+      }
+      if (m.estimatedPace > 0) {
+        return { tier: 'recommendation', severity: 'good', icon: '🎯', title: `${goal.name} ${m.pct}% 진행`, body: `현재 속도라면 ${formatGoalMonth(m.etaMonth)}쯤 목표에 도달할 수 있어요.`, top: true, score: 78 };
+      }
+      return { tier: 'insight', severity: 'low', icon: '🎯', title: `${goal.name} ${m.pct}% 진행`, body: `남은 금액은 ${money0(m.remaining)}입니다. 월 저축액을 넣으면 예상 시점을 계산해요.`, top: true, score: 60 };
+    }).sort((a, b) => b.score - a.score);
+  }
+  function renderGoals(d) {
+    const goals = loadGoals();
+    const home = document.getElementById('homeGoals');
+    if (home) {
+      home.innerHTML = goals.length
+        ? `<div class="goal-list">${goals.slice(0, 2).map(g => goalCardHTML(g, d, true)).join('')}</div>`
+        : '<div class="goal-empty">목표를 추가하면 진행률과 필요한 월 저축액을 홈에서 바로 볼 수 있어요.</div>';
+    }
+  }
+  function renderGoalDashboard(d) {
+    const goals = loadGoals();
+    if (!goals.length) {
+      return `<div class="ana-section-title">목표</div>
+        <div class="goal-empty">아직 설정한 목표가 없어요. 비상금, 주택 다운페이, 투자 목표를 추가하면 목표 기반 인사이트가 생성됩니다.</div>
+        <div class="goal-actions"><button class="goal-action-btn primary goal-open-btn">목표 추가</button></div>`;
+    }
+    return `<div class="section-head" style="padding-top:4px;">
+        <div class="section-title">목표</div>
+        <button class="section-action goal-open-btn" type="button">추가</button>
+      </div>
+      <div class="goal-list">${goals.map(g => goalCardHTML(g, d)).join('')}</div>`;
+  }
+  function attachGoalButtons(d) {
+    document.querySelectorAll('.goal-open-btn').forEach(btn => { btn.onclick = () => openGoalModal(); });
+    document.querySelectorAll('[data-goal-edit]').forEach(btn => { btn.onclick = () => openGoalModal(btn.dataset.goalEdit); });
+    document.querySelectorAll('[data-goal-delete]').forEach(btn => { btn.onclick = () => {
+      const goals = loadGoals();
+      const goal = goals.find(g => g.id === btn.dataset.goalDelete);
+      if (!goal || !confirm(`${goal.name} 목표를 삭제할까요?`)) return;
+      saveGoals(goals.filter(g => g.id !== goal.id));
+      rerenderGoalsAndInsights();
+      showToast('목표를 삭제했어요', 'success');
+    }; });
   }
   function renderInsights(d) {
     const wrap = document.getElementById('homeInsights');
     if (!wrap) return;
-    const items = (d.insights || []).filter(x => x.top).slice(0, 5);
+    const items = [...computeGoalInsights(d), ...(d.insights || []).filter(x => x.top)].slice(0, 5);
     wrap.innerHTML = items.length
       ? items.map(insCardHTML).join('')
       : '<div class="ins-desc" style="padding:10px 4px;">인사이트를 만들 데이터가 아직 부족해요. 데이터를 갱신해 주세요.</div>';
@@ -1997,13 +2315,19 @@
   function renderAnalysis(d) {
     const body = document.getElementById('analysisBody');
     if (!body) return;
+    const goalHTML = renderGoalDashboard(d);
+    const goalInsights = computeGoalInsights(d);
     const monthlyHTML = renderMonthlySpending(d);
     const sc = d.scores || {}, ins = d.insights || [], ai = d.action_items || {}, meta = d.insight_meta || {};
-    if (!ins.length) { body.innerHTML = monthlyHTML + '<div class="ins-desc" style="padding:14px 4px;">AI 인사이트는 데이터가 더 쌓이면 표시됩니다.</div>'; return; }
+    if (!ins.length) {
+      body.innerHTML = goalHTML + monthlyHTML + '<div class="ins-desc" style="padding:14px 4px;">AI 인사이트는 데이터가 더 쌓이면 표시됩니다.</div>';
+      attachGoalButtons(d);
+      return;
+    }
     const labelColor = s => s >= 75 ? 'var(--accent)' : s >= 55 ? 'var(--warn)' : 'var(--danger)';
     const partColor  = v => v >= 70 ? 'var(--accent)' : v >= 45 ? 'var(--warn)' : 'var(--danger)';
     const h = sc.health || { score: 0, label: '', parts: {} };
-    let html = monthlyHTML;
+    let html = goalHTML + monthlyHTML;
     html += `<div class="score-hero">
       <div class="score-big">
         <span class="score-num" style="color:${labelColor(h.score)}">${h.score}</span><span class="score-max">/100</span>
@@ -2018,6 +2342,7 @@
       const m = sc[k] || { score: 0, label: '' };
       return `<div class="mini-score"><div class="ms-label">${ko}</div><div class="ms-val">${m.score}<span style="font-size:12px;color:var(--text-mute)">/100</span></div><div class="ms-tag" style="color:${labelColor(m.score)}">${m.label}</div></div>`;
     }).join('') + '</div>';
+    if (goalInsights.length) html += '<div class="ana-section-title">목표 기반 인사이트</div>' + goalInsights.map(insCardHTML).join('');
     [['alert', '⚠️ 경고'], ['insight', '💡 인사이트'], ['recommendation', '💰 추천']].forEach(([tier, title]) => {
       const arr = ins.filter(x => x.tier === tier);
       if (arr.length) html += `<div class="ana-section-title">${title}</div>` + arr.map(insCardHTML).join('');
@@ -2037,6 +2362,7 @@
     }
     html += `<div class="ana-meta">분석 기준월 ${meta.analysis_month || ''} · 비교 ${(meta.baseline_months || []).length}개월 평균<br>${meta.assumptions || ''}</div>`;
     body.innerHTML = html;
+    attachGoalButtons(d);
     const sub = document.getElementById('analysisSubtitle');
     if (sub) sub.textContent = `${meta.analysis_month || ''} 기준 · AI 재무 인사이트`;
   }
@@ -2598,6 +2924,7 @@
       try { renderHome(d); }         catch (e) { console.error('renderHome', e); }
       try { renderAssets(d); }       catch (e) { console.error('renderAssets', e); }
       try { renderTransactions(d); } catch (e) { console.error('renderTransactions', e); }
+      try { renderGoals(d); }        catch (e) { console.error('renderGoals', e); }
       try { renderInsights(d); }     catch (e) { console.error('renderInsights', e); }
       try { renderAnalysis(d); }     catch (e) { console.error('renderAnalysis', e); }
     }
