@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-07T22:52:09",
+    "generated_at": "2026-06-08T20:19:57",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 37764.14,
+    "total_wealth": 37746.88,
     "cash_total": 38158.43,
     "saving": 4113.15,
     "prev_balance": 26762.2,
-    "card_balance": -4507.44,
-    "net": 33650.99,
+    "card_balance": -4524.7,
+    "net": 33633.73,
     "total_positive": 42271.58,
-    "total_negative": -4507.45,
-    "net_worth": 37764.13
+    "total_negative": -4524.71,
+    "net_worth": 37746.87
   },
   "accounts": [
     {
@@ -65,10 +65,10 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": -251.94,
+      "balance": -269.2,
       "prev_balance": -112.8,
       "income": 0.0,
-      "expense": 139.14
+      "expense": 156.4
     },
     {
       "key": "Robinhood",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 38158.43,
-    "신용카드 (부채)": -4507.45,
+    "신용카드 (부채)": -4524.71,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -124,7 +124,7 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 353.46
+        "amount": 370.72
       },
       {
         "name": "생활용품",
@@ -136,7 +136,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 3825.24,
+  "category_total": 3842.5,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -452,10 +452,10 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 3825.24,
+      "expense": 3842.5,
       "income": 234.03,
       "fixed": 3148.84,
-      "variable": 676.4,
+      "variable": 693.66,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -479,7 +479,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 353.46
+            "amount": 370.72
           },
           {
             "name": "생활용품",
@@ -494,6 +494,15 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-06-08",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심",
+      "account": "Discover",
+      "amount": 17.26,
+      "type": "variable"
+    },
     {
       "date": "2026-06-07",
       "category": "주거비",
