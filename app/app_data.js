@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-09T12:45:57",
+    "generated_at": "2026-06-10T21:00:31",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 37746.88,
+    "total_wealth": 37712.47,
     "cash_total": 38158.43,
     "saving": 4113.15,
     "prev_balance": 26762.2,
-    "card_balance": -4524.7,
-    "net": 33633.73,
+    "card_balance": -4559.11,
+    "net": 33599.32,
     "total_positive": 42271.58,
-    "total_negative": -4524.71,
-    "net_worth": 37746.87
+    "total_negative": -4559.12,
+    "net_worth": 37712.46
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -2796.26,
+      "balance": -2830.67,
       "prev_balance": -1712.42,
       "income": 0.0,
-      "expense": 1083.84
+      "expense": 1118.25
     },
     {
       "key": "Chase Marriott",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 38158.43,
-    "신용카드 (부채)": -4524.71,
+    "신용카드 (부채)": -4559.12,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -117,6 +117,10 @@ window.APP_DATA = {
         "amount": 924.58
       },
       {
+        "name": "구독",
+        "amount": 20.0
+      },
+      {
         "name": "가족지원",
         "amount": 600.0
       }
@@ -124,7 +128,7 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 370.72
+        "amount": 385.13
       },
       {
         "name": "생활용품",
@@ -136,7 +140,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 3842.5,
+  "category_total": 3876.91,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -452,10 +456,10 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 3842.5,
+      "expense": 3876.91,
       "income": 234.03,
-      "fixed": 3148.84,
-      "variable": 693.66,
+      "fixed": 3168.84,
+      "variable": 708.07,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -472,6 +476,10 @@ window.APP_DATA = {
             "amount": 924.58
           },
           {
+            "name": "구독",
+            "amount": 20.0
+          },
+          {
             "name": "가족지원",
             "amount": 600.0
           }
@@ -479,7 +487,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 370.72
+            "amount": 385.13
           },
           {
             "name": "생활용품",
@@ -494,6 +502,24 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-06-09",
+      "category": "구독",
+      "subcategory": "AI 구독",
+      "memo": "Chat GPT",
+      "account": "Chase Sphire",
+      "amount": 20.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-06-09",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - Five Guys",
+      "account": "Chase Sphire",
+      "amount": 14.41,
+      "type": "variable"
+    },
     {
       "date": "2026-06-08",
       "category": "식비",
@@ -4243,19 +4269,19 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "6월 예상 지출 $12,808",
-      "body": "9일차 현재 지출 $3,842입니다. 이 속도면 월말 $12,808로 최근 기준 $5,339 대비 $7,469 차이로 마감될 수 있어요.",
+      "title": "6월 예상 지출 $11,631",
+      "body": "10일차 현재 지출 $3,877입니다. 이 속도면 월말 $11,631로 최근 기준 $5,339 대비 $6,291 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 90,
       "forecast": {
-        "expense": 12808.33,
-        "daily_limit": 71.28
+        "expense": 11630.73,
+        "daily_limit": 73.12
       },
       "evidence": [
-        "분석일수: 9/30일",
-        "현재 지출: $3,842",
+        "분석일수: 10/30일",
+        "현재 지출: $3,877",
         "과거 지출 중앙값: $5,339",
-        "남은 기간 권장 일일 한도: $71"
+        "남은 기간 권장 일일 한도: $73"
       ],
       "top": true
     },
@@ -4398,7 +4424,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 21일 하루 $71 이하로 쓰면 최근 지출 기준선($5,339)에 근접",
+      "남은 20일 하루 $73 이하로 쓰면 최근 지출 기준선($5,339)에 근접",
       "차량유지비 급증분 점검 (과거比 +$870)",
       "현금 여유분 $18,144 일부 투자 검토"
     ],
