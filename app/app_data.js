@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-11T21:00:23",
+    "generated_at": "2026-06-12T13:08:59",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 2657.64,
+    "total_wealth": 3516.65,
     "cash_total": 3051.91,
     "saving": 4113.15,
     "prev_balance": 26762.2,
-    "card_balance": -4507.42,
-    "net": -1455.51,
+    "card_balance": -3648.41,
+    "net": -596.5,
     "total_positive": 7165.06,
-    "total_negative": -4507.43,
-    "net_worth": 2657.63
+    "total_negative": -3648.42,
+    "net_worth": 3516.64
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -2716.79,
+      "balance": -1857.78,
       "prev_balance": -1712.42,
       "income": 0.0,
-      "expense": 1004.37
+      "expense": 145.36
     },
     {
       "key": "Chase Marriott",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 3051.91,
-    "신용카드 (부채)": -4507.43,
+    "신용카드 (부채)": -3648.42,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -144,7 +144,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 3860.22,
+  "category_total": 3001.21,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -460,7 +460,7 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 3860.22,
+      "expense": 3001.21,
       "income": 234.03,
       "fixed": 3197.84,
       "variable": 686.47,
@@ -510,6 +510,15 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-06-12",
+      "category": "보험",
+      "subcategory": "자동차보험",
+      "memo": "Progressive",
+      "account": "Chase Sphire",
+      "amount": -859.01,
+      "type": "fixed"
+    },
     {
       "date": "2026-06-11",
       "category": "보험",
