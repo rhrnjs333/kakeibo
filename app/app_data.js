@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-12T16:54:11",
+    "generated_at": "2026-06-12T18:25:05",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
@@ -4326,5 +4326,248 @@ window.APP_DATA = {
       "amount": 9.21,
       "type": "variable"
     }
-  ]
+  ],
+  "insights": [
+    {
+      "tier": "alert",
+      "icon": "📉",
+      "title": "6월 적자 -$2,767",
+      "body": "6월은 수입 $234보다 지출 $3,001이 많아 $2,767 적자입니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
+      "severity": "high",
+      "score": 95,
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "대출 지출 95% 급증",
+      "body": "6월 대출 지출이 $925로 과거 평균 $475보다 95%($449) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "high",
+      "score": 93.9,
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🧭",
+      "title": "6월 예상 지출 $7,503",
+      "body": "12일차 현재 지출 $3,001입니다. 이 속도면 월말 $7,503로, 최근 기준 $5,339 대비 $2,164 차이로 마감될 수 있어요.",
+      "severity": "high",
+      "score": 89,
+      "forecast": {
+        "expense": 7503.02,
+        "daily_limit": 129.9
+      },
+      "evidence": [
+        "분석일수: 12/30일",
+        "현재 지출: $3,001",
+        "과거 지출 중앙값: $5,339",
+        "남은 기간 권장 일일 한도: $130"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "⚠️",
+      "title": "저축률이 3개월 연속 하락 중",
+      "body": "저축률이 124% → 0% → 0%로 내려가고 있습니다. 고정비·반복지출 점검이 필요한 시점입니다.",
+      "severity": "high",
+      "score": 88,
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "⏱️",
+      "title": "주거비 지출 속도가 빠릅니다",
+      "body": "현재 주거비 지출은 $1,584지만 월말 예상은 $3,961입니다. 과거 평균 $1,514보다 +162% 높을 수 있어요.",
+      "severity": "medium",
+      "score": 84,
+      "evidence": [
+        "주거비 현재 지출: $1,584",
+        "주거비 월말 예상: $3,961",
+        "주거비 과거 평균: $1,514"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "💸",
+      "title": "6월 투자 납입 $0 (저축률 0%)",
+      "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 30%였습니다. 정기 납입 재개를 검토하세요.",
+      "severity": "medium",
+      "score": 82,
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "✅",
+      "title": "이번 달 지출 $2,338 절감 중",
+      "body": "6월 지출 $3,001은 최근 기준 $5,339보다 $2,338 낮습니다. 현재 리듬을 유지하면 월말 현금흐름이 좋아질 가능성이 큽니다.",
+      "severity": "good",
+      "score": 66,
+      "evidence": [
+        "현재 지출: $3,001",
+        "과거 지출 중앙값: $5,339",
+        "차이: $2,338"
+      ],
+      "top": false
+    },
+    {
+      "tier": "recommendation",
+      "icon": "🔁",
+      "title": "구독 2종 월 $49 (연 $588)",
+      "body": "헬스장 $29, AI 구독 $20. 최대는 헬스장($29/월, 연 $348)입니다. 이용 빈도가 낮은 구독을 1개만 정리해도 연 단위로 큰 차이가 납니다.",
+      "severity": "medium",
+      "score": 60,
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "🏠",
+      "title": "고정비가 지출의 107%",
+      "body": "6월 고정비 $3,198로 전체 지출의 107%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
+      "severity": "medium",
+      "score": 58,
+      "top": false
+    },
+    {
+      "tier": "recommendation",
+      "icon": "✂️",
+      "title": "식비 20% 절감 시 연 $840 투자 여력",
+      "body": "6월 최대 지출 카테고리는 식비 $329입니다. 월 $70(20%)만 줄여도 연 $840, 연 7% 투자 시 10년 뒤 약 $11,606이 됩니다.",
+      "severity": "medium",
+      "score": 57,
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "📌",
+      "title": "반복지출 후보 4개 · 월 $1,685",
+      "body": "progressive $1,060, mazda $475, dte $76, hmart $74. 매월 자동으로 빠지는 항목인지 확인하면 고정비 관리가 쉬워집니다.",
+      "severity": "low",
+      "score": 56,
+      "evidence": [
+        "progressive: 3개월 반복, 중앙값 $1,060",
+        "mazda: 5개월 반복, 중앙값 $475",
+        "dte: 6개월 반복, 중앙값 $76",
+        "hmart: 5개월 반복, 중앙값 $74"
+      ],
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "🔮",
+      "title": "90일 후 예상 현금 $6,322",
+      "body": "최근 월 순저축 중앙값 $1,090 기준, 현재 현금 $3,052에서 3개월 뒤 약 $6,322으로 예상됩니다. 현금흐름은 안정적입니다.",
+      "severity": "good",
+      "score": 55,
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "🌱",
+      "title": "식비 지출 $593 감소",
+      "body": "식비 지출이 과거 평균보다 $593 줄었습니다. 무리 없이 줄어든 항목이라면 다음 달에도 같은 패턴을 유지해보세요.",
+      "severity": "good",
+      "score": 54,
+      "evidence": [
+        "식비 과거 평균 대비 변화: -$593"
+      ],
+      "top": false
+    },
+    {
+      "tier": "insight",
+      "icon": "📊",
+      "title": "월 지출 감소 추세 ($3,001)",
+      "body": "최근 월 지출 중앙값 $5,339 대비 6월 $3,001(-44%)입니다.",
+      "severity": "low",
+      "score": 40,
+      "top": false
+    }
+  ],
+  "scores": {
+    "health": {
+      "score": 45,
+      "label": "주의",
+      "parts": {
+        "저축률": 20,
+        "현금흐름": 80,
+        "비상금": 14,
+        "소비안정성": 73
+      }
+    },
+    "lifestyle_inflation": {
+      "score": 0,
+      "label": "낮음"
+    },
+    "savings_momentum": {
+      "score": 5,
+      "label": "둔화"
+    },
+    "spending_efficiency": {
+      "score": 41,
+      "label": "주의"
+    },
+    "wealth_building": {
+      "score": 14,
+      "label": "위험"
+    }
+  },
+  "action_items": {
+    "now": [
+      "6월 적자 $2,767 — 다음달 변동지출 한도 $4,805 설정",
+      "남은 18일 하루 $130 이하로 쓰면 최근 지출 기준선($5,339)에 근접",
+      "대출 급증분 점검 (과거比 +$449)"
+    ],
+    "keep": [
+      "평소 저축률 30% 유지 습관"
+    ],
+    "reduce": [
+      "식비 20% 절감 목표"
+    ],
+    "watch": [
+      "주거비 지출 속도 확인 — 월말 예상 $3,961",
+      "반복지출 후보 19개 확인",
+      "저축률 둔화 추세 — 다음달 반등 확인",
+      "고정비 비중 높음 — 보험·통신 재협상 검토"
+    ]
+  },
+  "insight_meta": {
+    "analysis_month": "2026-06",
+    "baseline_months": [
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05"
+    ],
+    "assumptions": "투자수익 연 7%, 비상금 4개월, 예산 없음→과거평균 기준",
+    "cat_increase_top": [
+      {
+        "name": "대출",
+        "delta": 449
+      },
+      {
+        "name": "가족지원",
+        "delta": 164
+      },
+      {
+        "name": "주거비",
+        "delta": 70
+      }
+    ],
+    "cat_decrease_top": [
+      {
+        "name": "식비",
+        "delta": -593
+      },
+      {
+        "name": "차량유지비",
+        "delta": -444
+      },
+      {
+        "name": "보험",
+        "delta": -356
+      }
+    ]
+  }
 };
