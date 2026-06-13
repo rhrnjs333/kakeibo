@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-12T18:25:05",
+    "generated_at": "2026-06-13T11:35:15",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
@@ -113,8 +113,8 @@ window.APP_DATA = {
         "amount": 40.0
       },
       {
-        "name": "대출",
-        "amount": 924.58
+        "name": "보험",
+        "amount": 41.48
       },
       {
         "name": "구독",
@@ -462,7 +462,7 @@ window.APP_DATA = {
     "2026-06": {
       "expense": 3001.21,
       "income": 234.03,
-      "fixed": 3197.84,
+      "fixed": 2314.74,
       "variable": 686.47,
       "invest_deposit": 0.0,
       "categories": {
@@ -476,8 +476,8 @@ window.APP_DATA = {
             "amount": 40.0
           },
           {
-            "name": "대출",
-            "amount": 924.58
+            "name": "보험",
+            "amount": 41.48
           },
           {
             "name": "구독",
@@ -782,8 +782,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-06-01",
-      "category": "대출",
-      "subcategory": "자동차대출",
+      "category": "보험",
+      "subcategory": "자동차보험",
       "memo": "AAA",
       "account": "Chase Sphire",
       "amount": 32.5,
@@ -791,8 +791,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-06-01",
-      "category": "대출",
-      "subcategory": "자동차대출",
+      "category": "보험",
+      "subcategory": "자동차보험",
       "memo": "AAA",
       "account": "Chase Sphire",
       "amount": 892.08,
@@ -4339,29 +4339,20 @@ window.APP_DATA = {
     },
     {
       "tier": "alert",
-      "icon": "🔺",
-      "title": "대출 지출 95% 급증",
-      "body": "6월 대출 지출이 $925로 과거 평균 $475보다 95%($449) 많습니다. 일회성인지 반복되는지 확인하세요.",
-      "severity": "high",
-      "score": 93.9,
-      "top": true
-    },
-    {
-      "tier": "alert",
       "icon": "🧭",
-      "title": "6월 예상 지출 $7,503",
-      "body": "12일차 현재 지출 $3,001입니다. 이 속도면 월말 $7,503로, 최근 기준 $5,339 대비 $2,164 차이로 마감될 수 있어요.",
+      "title": "6월 예상 지출 $6,926",
+      "body": "13일차 현재 지출 $3,001입니다. 이 속도면 월말 $6,926로, 최근 기준 $5,339 대비 $1,587 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 89,
       "forecast": {
-        "expense": 7503.02,
-        "daily_limit": 129.9
+        "expense": 6925.87,
+        "daily_limit": 137.54
       },
       "evidence": [
-        "분석일수: 12/30일",
+        "분석일수: 13/30일",
         "현재 지출: $3,001",
         "과거 지출 중앙값: $5,339",
-        "남은 기간 권장 일일 한도: $130"
+        "남은 기간 권장 일일 한도: $138"
       ],
       "top": true
     },
@@ -4378,12 +4369,12 @@ window.APP_DATA = {
       "tier": "alert",
       "icon": "⏱️",
       "title": "주거비 지출 속도가 빠릅니다",
-      "body": "현재 주거비 지출은 $1,584지만 월말 예상은 $3,961입니다. 과거 평균 $1,514보다 +162% 높을 수 있어요.",
+      "body": "현재 주거비 지출은 $1,584지만 월말 예상은 $3,656입니다. 과거 평균 $1,514보다 +141% 높을 수 있어요.",
       "severity": "medium",
       "score": 84,
       "evidence": [
         "주거비 현재 지출: $1,584",
-        "주거비 월말 예상: $3,961",
+        "주거비 월말 예상: $3,656",
         "주거비 과거 평균: $1,514"
       ],
       "top": true
@@ -4395,7 +4386,7 @@ window.APP_DATA = {
       "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 30%였습니다. 정기 납입 재개를 검토하세요.",
       "severity": "medium",
       "score": 82,
-      "top": false
+      "top": true
     },
     {
       "tier": "insight",
@@ -4423,8 +4414,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🏠",
-      "title": "고정비가 지출의 107%",
-      "body": "6월 고정비 $3,198로 전체 지출의 107%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
+      "title": "고정비가 지출의 77%",
+      "body": "6월 고정비 $2,315로 전체 지출의 77%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
       "severity": "medium",
       "score": 58,
       "top": false
@@ -4515,8 +4506,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "6월 적자 $2,767 — 다음달 변동지출 한도 $4,805 설정",
-      "남은 18일 하루 $130 이하로 쓰면 최근 지출 기준선($5,339)에 근접",
-      "대출 급증분 점검 (과거比 +$449)"
+      "남은 17일 하루 $138 이하로 쓰면 최근 지출 기준선($5,339)에 근접"
     ],
     "keep": [
       "평소 저축률 30% 유지 습관"
@@ -4525,7 +4515,7 @@ window.APP_DATA = {
       "식비 20% 절감 목표"
     ],
     "watch": [
-      "주거비 지출 속도 확인 — 월말 예상 $3,961",
+      "주거비 지출 속도 확인 — 월말 예상 $3,656",
       "반복지출 후보 19개 확인",
       "저축률 둔화 추세 — 다음달 반등 확인",
       "고정비 비중 높음 — 보험·통신 재협상 검토"
@@ -4543,16 +4533,16 @@ window.APP_DATA = {
     "assumptions": "투자수익 연 7%, 비상금 4개월, 예산 없음→과거평균 기준",
     "cat_increase_top": [
       {
-        "name": "대출",
-        "delta": 449
-      },
-      {
         "name": "가족지원",
         "delta": 164
       },
       {
         "name": "주거비",
         "delta": 70
+      },
+      {
+        "name": "생활용품",
+        "delta": 58
       }
     ],
     "cat_decrease_top": [
@@ -4561,12 +4551,12 @@ window.APP_DATA = {
         "delta": -593
       },
       {
-        "name": "차량유지비",
-        "delta": -444
+        "name": "대출",
+        "delta": -475
       },
       {
-        "name": "보험",
-        "delta": -356
+        "name": "차량유지비",
+        "delta": -444
       }
     ]
   }
