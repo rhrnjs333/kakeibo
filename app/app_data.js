@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-15T16:52:28",
+    "generated_at": "2026-06-15T21:00:35",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 6631.31,
+    "total_wealth": 6581.89,
     "cash_total": 3199.61,
     "saving": 4113.15,
     "prev_balance": 26762.2,
-    "card_balance": -681.45,
-    "net": 2518.16,
+    "card_balance": -730.87,
+    "net": 2468.74,
     "total_positive": 7312.76,
-    "total_negative": -681.46,
-    "net_worth": 6631.3
+    "total_negative": -730.88,
+    "net_worth": 6581.88
   },
   "accounts": [
     {
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -268.89,
+      "balance": -318.31,
       "prev_balance": -1281.25,
       "income": 1205.27,
-      "expense": 192.91
+      "expense": 242.33
     },
     {
       "key": "Discover",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 3199.61,
-    "신용카드 (부채)": -681.46,
+    "신용카드 (부채)": -730.88,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -136,7 +136,7 @@ window.APP_DATA = {
       },
       {
         "name": "차량유지비",
-        "amount": 122.94
+        "amount": 172.36
       },
       {
         "name": "경조사/회비",
@@ -148,7 +148,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 3101.21,
+  "category_total": 3150.63,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -464,10 +464,10 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 3101.21,
+      "expense": 3150.63,
       "income": 3448.69,
       "fixed": 2314.74,
-      "variable": 786.47,
+      "variable": 835.89,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -503,7 +503,7 @@ window.APP_DATA = {
           },
           {
             "name": "차량유지비",
-            "amount": 122.94
+            "amount": 172.36
           },
           {
             "name": "경조사/회비",
@@ -518,6 +518,15 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-06-15",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Marriott",
+      "amount": 49.42,
+      "type": "variable"
+    },
     {
       "date": "2026-06-14",
       "account": "Chase",
@@ -4389,33 +4398,33 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "6월 예상 지출 $6,202",
-      "body": "15일차 현재 지출 $3,101입니다. 이 속도면 월말 $6,202로, 최근 기준 $5,339 대비 $863 차이로 마감될 수 있어요.",
+      "title": "6월 예상 지출 $6,301",
+      "body": "15일차 현재 지출 $3,151입니다. 이 속도면 월말 $6,301로, 최근 기준 $5,339 대비 $962 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 72,
       "forecast": {
-        "expense": 6202.42,
-        "daily_limit": 149.21
+        "expense": 6301.26,
+        "daily_limit": 145.92
       },
       "evidence": [
         "분석일수: 15/30일",
-        "현재 지출: $3,101",
+        "현재 지출: $3,151",
         "과거 지출 중앙값: $5,339",
-        "남은 기간 권장 일일 한도: $149"
+        "남은 기간 권장 일일 한도: $146"
       ],
       "top": true
     },
     {
       "tier": "insight",
       "icon": "✅",
-      "title": "이번 달 지출 $2,238 절감 중",
-      "body": "6월 지출 $3,101은 최근 기준 $5,339보다 $2,238 낮습니다. 현재 리듬을 유지하면 월말 현금흐름이 좋아질 가능성이 큽니다.",
+      "title": "이번 달 지출 $2,189 절감 중",
+      "body": "6월 지출 $3,151은 최근 기준 $5,339보다 $2,189 낮습니다. 현재 리듬을 유지하면 월말 현금흐름이 좋아질 가능성이 큽니다.",
       "severity": "good",
       "score": 66,
       "evidence": [
-        "현재 지출: $3,101",
+        "현재 지출: $3,151",
         "과거 지출 중앙값: $5,339",
-        "차이: $2,238"
+        "차이: $2,189"
       ],
       "top": true
     },
@@ -4431,8 +4440,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🏠",
-      "title": "고정비가 지출의 75%",
-      "body": "6월 고정비 $2,315로 전체 지출의 75%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
+      "title": "고정비가 지출의 73%",
+      "body": "6월 고정비 $2,315로 전체 지출의 73%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
       "severity": "medium",
       "score": 58,
       "top": false
@@ -4485,8 +4494,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "📊",
-      "title": "월 지출 감소 추세 ($3,101)",
-      "body": "최근 월 지출 중앙값 $5,339 대비 6월 $3,101(-42%)입니다.",
+      "title": "월 지출 감소 추세 ($3,151)",
+      "body": "최근 월 지출 중앙값 $5,339 대비 6월 $3,151(-41%)입니다.",
       "severity": "low",
       "score": 40,
       "top": false
@@ -4504,7 +4513,7 @@ window.APP_DATA = {
       }
     },
     "lifestyle_inflation": {
-      "score": 0,
+      "score": 1,
       "label": "낮음"
     },
     "savings_momentum": {
@@ -4522,7 +4531,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 15일 하루 $149 이하로 쓰면 최근 지출 기준선($5,339)에 근접"
+      "남은 15일 하루 $146 이하로 쓰면 최근 지출 기준선($5,339)에 근접"
     ],
     "keep": [
       "평소 저축률 30% 유지 습관"
@@ -4572,7 +4581,7 @@ window.APP_DATA = {
       },
       {
         "name": "차량유지비",
-        "delta": -444
+        "delta": -394
       }
     ]
   }
