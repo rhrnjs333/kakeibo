@@ -1875,8 +1875,14 @@
       .filter(t => (ACTIVE_ACCOUNTS_DISPLAY[t.account] || t.account) === name)
       .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
   }
-  // 거래의 현금흐름 부호 (수입 +, 그 외 -)
-  function txNet(t) { return t.type === 'income' ? Math.abs(t.amount) : -Math.abs(t.amount); }
+  // 거래의 현금흐름 부호: 수입과 음수 지출(환불/차감)은 +, 일반 지출은 -
+  function isCashInflow(t) {
+    return t.type === 'income' || (t.type !== 'income' && Number(t.amount) < 0);
+  }
+  function txNet(t) {
+    const amount = Math.abs(Number(t.amount) || 0);
+    return isCashInflow(t) ? amount : -amount;
+  }
 
   // 실데이터 기반 스파크라인 SVG 생성 (기간 내 누적 잔액 추세, 현재 잔액에서 역산)
   function buildSparkSVG(txs, endBalance, periodLabel) {
@@ -1979,18 +1985,16 @@
         const sub = (t.subcategory || '').trim();
         const icon = DETAIL_CAT_ICONS[cat] || '•';
         const memo = t.memo ? t.memo : (sub || cat);
-        const isIncome = t.type === 'income';
-        const amtTxt = isIncome
-          ? `+$${t.amount.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}`
-          : `-$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}`;
+        const isInflow = isCashInflow(t);
+        const amtTxt = `${isInflow ? '+' : '-'}$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}`;
         return `
           <div class="tx-row">
-            <div class="tx-icon"${isIncome ? ' style="background:var(--accent-soft);"' : ''}>${icon}</div>
+            <div class="tx-icon"${isInflow ? ' style="background:var(--accent-soft);"' : ''}>${icon}</div>
             <div class="tx-info">
               <div class="tx-name">${memo || cat || sub}</div>
               <div class="tx-sub">${cat}${sub ? ' · ' + sub : ''}</div>
             </div>
-            <div class="tx-amt ${isIncome ? 'income' : ''}">${amtTxt}</div>
+            <div class="tx-amt ${isInflow ? 'income' : ''}">${amtTxt}</div>
           </div>`;
       }).join('');
       list.insertAdjacentHTML('beforeend', `
@@ -2265,7 +2269,7 @@
       if (ym.length !== 7) return;
       const m = by[ym] || (by[ym] = { expense: 0, income: 0, saving: 0 });
       if (t.type === 'income') m.income += Math.abs(t.amount);
-      else m.expense += Math.abs(t.amount);
+      else m.expense += Number(t.amount) || 0;
     });
     return by;
   }
@@ -2288,9 +2292,9 @@
     (d.transactions || []).forEach(t => {
       if ((t.date || '').slice(0, 7) !== ym || t.type === 'income') return;
       const c = (t.category || '').trim() || '기타';
-      by[c] = (by[c] || 0) + Math.abs(t.amount);
+      by[c] = (by[c] || 0) + (Number(t.amount) || 0);
     });
-    return Object.entries(by).map(([name, amount]) => ({ name, amount })).sort((a, b) => b.amount - a.amount);
+    return Object.entries(by).filter(([, amount]) => amount > 0).map(([name, amount]) => ({ name, amount })).sort((a, b) => b.amount - a.amount);
   }
   function renderMonthlySpending(d) {
     const by = monthlyTotals(d);
@@ -2599,9 +2603,7 @@
 
     sortedDates.forEach(date => {
       const items = byDate[date];
-      const dayTotal = items.reduce((s,t) => {
-        return s + (t.type === 'income' ? t.amount : -Math.abs(t.amount));
-      }, 0);
+      const dayTotal = items.reduce((s, t) => s + txNet(t), 0);
       const dayLabel = isToday(date) ? `오늘, ${fmtKoreanDate(date)}` : fmtKoreanDate(date);
       const sign = dayTotal >= 0 ? '+' : '-';
 
@@ -2618,13 +2620,12 @@
               const sub = (t.subcategory || '').trim();
               const icon = ICONS[cat] || '•';
               const memo = t.memo ? t.memo : (sub || cat);
-              const isIncome = t.type === 'income';
-              const amtCls = isIncome ? 'income' : '';
-              const amtTxt = isIncome ? `+$${t.amount.toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})}` :
-                                        `-$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})}`;
+              const isInflow = isCashInflow(t);
+              const amtCls = isInflow ? 'income' : '';
+              const amtTxt = `${isInflow ? '+' : '-'}$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})}`;
               return `
                 <div class="tx-row" data-account="${acc}">
-                  <div class="tx-icon"${isIncome ? ' style="background:var(--accent-soft);"' : ''}>${icon}</div>
+                  <div class="tx-icon"${isInflow ? ' style="background:var(--accent-soft);"' : ''}>${icon}</div>
                   <div class="tx-info">
                     <div class="tx-name">${memo || cat || sub}</div>
                     <div class="tx-sub">${cat}${sub ? ' · ' + sub : ''} · ${acc}</div>
