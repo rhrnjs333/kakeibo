@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-22T23:16:53",
+    "generated_at": "2026-06-23T21:00:27",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 5981.13,
+    "total_wealth": 5913.89,
     "cash_total": 2725.25,
     "saving": 4113.15,
     "prev_balance": 26762.2,
-    "card_balance": -857.27,
-    "net": 1867.98,
+    "card_balance": -924.51,
+    "net": 1800.74,
     "total_positive": 6838.4,
-    "total_negative": -857.28,
-    "net_worth": 5981.12
+    "total_negative": -924.52,
+    "net_worth": 5913.88
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -223.39,
+      "balance": -290.63,
       "prev_balance": -1712.42,
       "income": 1761.69,
-      "expense": 272.66
+      "expense": 339.9
     },
     {
       "key": "Chase Marriott",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 2725.25,
-    "신용카드 (부채)": -857.28,
+    "신용카드 (부채)": -924.52,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -136,7 +136,7 @@ window.APP_DATA = {
       },
       {
         "name": "생활용품",
-        "amount": 200.0
+        "amount": 267.24
       },
       {
         "name": "차량유지비",
@@ -152,7 +152,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 3985.42,
+  "category_total": 4052.66,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -468,10 +468,10 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 3985.42,
+      "expense": 4052.66,
       "income": 3682.72,
       "fixed": 2790.08,
-      "variable": 1195.34,
+      "variable": 1262.58,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -507,7 +507,7 @@ window.APP_DATA = {
           },
           {
             "name": "생활용품",
-            "amount": 200.0
+            "amount": 267.24
           },
           {
             "name": "차량유지비",
@@ -1581,6 +1581,15 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-06-23",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - 면도헤드/스마트버튼",
+      "account": "Chase Sphire",
+      "amount": 58.24,
+      "type": "variable"
+    },
+    {
       "date": "2026-06-22",
       "category": "식비",
       "subcategory": "식재료",
@@ -1605,6 +1614,15 @@ window.APP_DATA = {
       "memo": "점심 - ford",
       "account": "Discover",
       "amount": 12.19,
+      "type": "variable"
+    },
+    {
+      "date": "2026-06-22",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Engine Cleaner",
+      "account": "Chase Sphire",
+      "amount": 9.0,
       "type": "variable"
     },
     {
@@ -5572,8 +5590,8 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "📉",
-      "title": "6월 적자 -$303",
-      "body": "6월은 수입 $3,683보다 지출 $3,985이 많아 $303 적자입니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
+      "title": "6월 적자 -$370",
+      "body": "6월은 수입 $3,683보다 지출 $4,053이 많아 $370 적자입니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
       "severity": "high",
       "score": 95,
       "top": true
@@ -5609,14 +5627,23 @@ window.APP_DATA = {
     },
     {
       "tier": "alert",
+      "icon": "🔺",
+      "title": "생활용품 지출 50% 급증",
+      "body": "6월 생활용품 지출이 $267로 과거 평균 $178보다 50%($89) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "medium",
+      "score": 85.0,
+      "top": true
+    },
+    {
+      "tier": "alert",
       "icon": "⏱️",
       "title": "주거비 지출 속도가 빠릅니다",
-      "body": "현재 주거비 지출은 $1,584지만 월말 예상은 $2,160입니다. 과거 평균 $1,514보다 +43% 높을 수 있어요.",
+      "body": "현재 주거비 지출은 $1,584지만 월말 예상은 $2,066입니다. 과거 평균 $1,514보다 +36% 높을 수 있어요.",
       "severity": "medium",
       "score": 84,
       "evidence": [
         "주거비 현재 지출: $1,584",
-        "주거비 월말 예상: $2,160",
+        "주거비 월말 예상: $2,066",
         "주거비 과거 평균: $1,514"
       ],
       "top": true
@@ -5628,7 +5655,7 @@ window.APP_DATA = {
       "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 30%였습니다. 정기 납입 재개를 검토하세요.",
       "severity": "medium",
       "score": 82,
-      "top": true
+      "top": false
     },
     {
       "tier": "alert",
@@ -5653,33 +5680,33 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🧭",
-      "title": "6월 예상 지출 $5,435",
-      "body": "22일차 현재 지출 $3,985입니다. 이 속도면 월말 $5,435로, 최근 기준 $5,339 대비 $95 차이로 마감될 수 있어요.",
+      "title": "6월 예상 지출 $5,286",
+      "body": "23일차 현재 지출 $4,053입니다. 이 속도면 월말 $5,286로 최근 기준보다 낮게 마감될 가능성이 있어요.",
       "severity": "good",
       "score": 72,
       "forecast": {
-        "expense": 5434.66,
-        "daily_limit": 169.24
+        "expense": 5286.08,
+        "daily_limit": 183.81
       },
       "evidence": [
-        "분석일수: 22/30일",
-        "현재 지출: $3,985",
+        "분석일수: 23/30일",
+        "현재 지출: $4,053",
         "과거 지출 중앙값: $5,339",
-        "남은 기간 권장 일일 한도: $169"
+        "남은 기간 권장 일일 한도: $184"
       ],
       "top": false
     },
     {
       "tier": "insight",
       "icon": "✅",
-      "title": "이번 달 지출 $1,354 절감 중",
-      "body": "6월 지출 $3,985은 최근 기준 $5,339보다 $1,354 낮습니다. 현재 리듬을 유지하면 월말 현금흐름이 좋아질 가능성이 큽니다.",
+      "title": "이번 달 지출 $1,287 절감 중",
+      "body": "6월 지출 $4,053은 최근 기준 $5,339보다 $1,287 낮습니다. 현재 리듬을 유지하면 월말 현금흐름이 좋아질 가능성이 큽니다.",
       "severity": "good",
       "score": 66,
       "evidence": [
-        "현재 지출: $3,985",
+        "현재 지출: $4,053",
         "과거 지출 중앙값: $5,339",
-        "차이: $1,354"
+        "차이: $1,287"
       ],
       "top": false
     },
@@ -5709,8 +5736,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🏠",
-      "title": "고정비가 지출의 70%",
-      "body": "6월 고정비 $2,790로 전체 지출의 70%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
+      "title": "고정비가 지출의 69%",
+      "body": "6월 고정비 $2,790로 전체 지출의 69%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
       "severity": "medium",
       "score": 58,
       "top": false
@@ -5795,8 +5822,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "📊",
-      "title": "월 지출 감소 추세 ($3,985)",
-      "body": "최근 월 지출 중앙값 $5,339 대비 6월 $3,985(-25%)입니다.",
+      "title": "월 지출 감소 추세 ($4,053)",
+      "body": "최근 월 지출 중앙값 $5,339 대비 6월 $4,053(-24%)입니다.",
       "severity": "low",
       "score": 40,
       "top": false
@@ -5814,7 +5841,7 @@ window.APP_DATA = {
       }
     },
     "lifestyle_inflation": {
-      "score": 20,
+      "score": 21,
       "label": "낮음"
     },
     "savings_momentum": {
@@ -5832,17 +5859,18 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "6월 적자 $303 — 다음달 변동지출 한도 $4,805 설정",
-      "남은 8일 하루 $169 이하로 쓰면 최근 지출 기준선($5,339)에 근접"
+      "6월 적자 $370 — 다음달 변동지출 한도 $4,805 설정",
+      "생활용품 급증분 점검 (과거比 +$89)"
     ],
     "keep": [
+      "현재 지출 속도 유지 — 예상 월말 지출 $5,286",
       "평소 저축률 30% 유지 습관"
     ],
     "reduce": [
       "식비 20% 절감 목표"
     ],
     "watch": [
-      "주거비 지출 속도 확인 — 월말 예상 $2,160",
+      "주거비 지출 속도 확인 — 월말 예상 $2,066",
       "반복지출 후보 19개 확인",
       "저축률 둔화 추세 — 다음달 반등 확인",
       "고정비 비중 높음 — 보험·통신 재협상 검토"
@@ -5864,12 +5892,12 @@ window.APP_DATA = {
         "delta": 164
       },
       {
-        "name": "경조사/회비",
-        "delta": 100
+        "name": "생활용품",
+        "delta": 125
       },
       {
-        "name": "주거비",
-        "delta": 70
+        "name": "경조사/회비",
+        "delta": 100
       }
     ],
     "cat_decrease_top": [
