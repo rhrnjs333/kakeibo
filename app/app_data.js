@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-06-29T21:00:27",
+    "generated_at": "2026-06-30T21:00:28",
     "source_file": "2026 가계부.xlsx",
     "current_month": "6월"
   },
   "summary": {
-    "total_wealth": 5086.61,
-    "cash_total": 2633.76,
+    "total_wealth": 7647.53,
+    "cash_total": 5194.68,
     "saving": 4113.15,
     "prev_balance": 26762.2,
     "card_balance": -1660.3,
-    "net": 973.46,
-    "total_positive": 6746.91,
+    "net": 3534.38,
+    "total_positive": 9307.83,
     "total_negative": -1660.31,
-    "net_worth": 5086.6
+    "net_worth": 7647.52
   },
   "accounts": [
     {
@@ -26,9 +26,9 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 2633.76,
+      "balance": 5194.68,
       "prev_balance": 29868.66,
-      "income": 32162.72,
+      "income": 34723.64,
       "expense": 59397.62
     },
     {
@@ -98,7 +98,7 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 2633.76,
+    "현금성 자산": 5194.68,
     "신용카드 (부채)": -1660.31,
     "투자 자산": 4113.15
   },
@@ -469,7 +469,7 @@ window.APP_DATA = {
     },
     "2026-06": {
       "expense": 4879.94,
-      "income": 3682.72,
+      "income": 6243.64,
       "fixed": 2839.9,
       "variable": 2040.04,
       "invest_deposit": 0.0,
@@ -1580,6 +1580,15 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-06-30",
+      "account": "Chase",
+      "amount": 2560.92,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
+    },
     {
       "date": "2026-06-26",
       "category": "생활용품",
@@ -5724,15 +5733,6 @@ window.APP_DATA = {
   "insights": [
     {
       "tier": "alert",
-      "icon": "📉",
-      "title": "6월 적자 -$1,197",
-      "body": "6월은 수입 $3,683보다 지출 $4,880이 많아 $1,197 적자입니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
-      "severity": "high",
-      "score": 95,
-      "top": true
-    },
-    {
-      "tier": "alert",
       "icon": "🔺",
       "title": "생활용품 지출 440% 급증",
       "body": "6월 생활용품 지출이 $962로 과거 평균 $178보다 440%($784) 많습니다. 일회성인지 반복되는지 확인하세요.",
@@ -5796,7 +5796,7 @@ window.APP_DATA = {
         "차이: $702"
       ],
       "source": "연말정산 RAW DATA",
-      "top": false
+      "top": true
     },
     {
       "tier": "insight",
@@ -5871,8 +5871,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 예상 현금 $5,904",
-      "body": "최근 월 순저축 중앙값 $1,090 기준, 현재 현금 $2,634에서 3개월 뒤 약 $5,904으로 예상됩니다. 현금흐름은 안정적입니다.",
+      "title": "90일 후 예상 현금 $8,465",
+      "body": "최근 월 순저축 중앙값 $1,090 기준, 현재 현금 $5,195에서 3개월 뒤 약 $8,465으로 예상됩니다. 현금흐름은 안정적입니다.",
       "severity": "good",
       "score": 55,
       "top": false
@@ -5933,12 +5933,12 @@ window.APP_DATA = {
   ],
   "scores": {
     "health": {
-      "score": 46,
+      "score": 49,
       "label": "주의",
       "parts": {
         "저축률": 20,
         "현금흐름": 80,
-        "비상금": 12,
+        "비상금": 24,
         "소비안정성": 84
       }
     },
@@ -5955,13 +5955,12 @@ window.APP_DATA = {
       "label": "주의"
     },
     "wealth_building": {
-      "score": 14,
+      "score": 20,
       "label": "위험"
     }
   },
   "action_items": {
     "now": [
-      "6월 적자 $1,197 — 다음달 변동지출 한도 $4,805 설정",
       "생활용품 급증분 점검 (과거比 +$784)"
     ],
     "keep": [
