@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-01T12:31:32",
+    "generated_at": "2026-07-01T12:33:49",
     "source_file": "2026 가계부.xlsx",
     "current_month": "7월"
   },
   "summary": {
-    "total_wealth": 7245.61,
-    "cash_total": 5200.35,
+    "total_wealth": 6841.19,
+    "cash_total": 4795.93,
     "saving": 4113.15,
     "prev_balance": 3132.46,
     "card_balance": -2067.89,
-    "net": 3132.46,
-    "total_positive": 9313.5,
+    "net": 2728.04,
+    "total_positive": 8909.08,
     "total_negative": -2067.9,
-    "net_worth": 7245.6
+    "net_worth": 6841.18
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 5200.35,
+      "balance": 4795.93,
       "prev_balance": 5200.35,
       "income": 0.0,
-      "expense": 0.0
+      "expense": 404.42
     },
     {
       "key": "Chase Sphire",
@@ -98,15 +98,20 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 5200.35,
+    "현금성 자산": 4795.93,
     "신용카드 (부채)": -2067.9,
     "투자 자산": 4113.15
   },
   "categories": {
-    "fixed": [],
+    "fixed": [
+      {
+        "name": "주거비",
+        "amount": 404.42
+      }
+    ],
     "variable": []
   },
-  "category_total": 0.0,
+  "category_total": 404.42,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -483,13 +488,18 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 0.0,
+      "expense": 404.42,
       "income": 0.0,
-      "fixed": 0,
+      "fixed": 404.42,
       "variable": 0,
       "invest_deposit": 0.0,
       "categories": {
-        "fixed": [],
+        "fixed": [
+          {
+            "name": "주거비",
+            "amount": 404.42
+          }
+        ],
         "variable": []
       }
     }
@@ -1589,6 +1599,15 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-07-01",
+      "category": "주거비",
+      "subcategory": "렌트비",
+      "memo": "7월 렌트비",
+      "account": "Chase",
+      "amount": 404.42,
+      "type": "fixed"
+    },
     {
       "date": "2026-06-30",
       "category": "식비",
@@ -5859,6 +5878,25 @@ window.APP_DATA = {
     },
     {
       "tier": "alert",
+      "icon": "🧭",
+      "title": "7월 예상 지출 $12,537",
+      "body": "1일차 현재 지출 $404입니다. 이 속도면 월말 $12,537로 최근 기준 $5,306 대비 $7,231 차이로 마감될 수 있어요.",
+      "severity": "high",
+      "score": 90,
+      "forecast": {
+        "expense": 12537.02,
+        "daily_limit": 163.37
+      },
+      "evidence": [
+        "분석일수: 1/31일",
+        "현재 지출: $404",
+        "과거 지출 중앙값: $5,306",
+        "남은 기간 권장 일일 한도: $163"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
       "icon": "⚠️",
       "title": "저축률이 3개월 연속 하락 중",
       "body": "저축률이 124% → 0% → 0%로 내려가고 있습니다. 고정비·반복지출 점검이 필요한 시점입니다.",
@@ -5913,7 +5951,7 @@ window.APP_DATA = {
       "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 30%였습니다. 정기 납입 재개를 검토하세요.",
       "severity": "medium",
       "score": 82,
-      "top": true
+      "top": false
     },
     {
       "tier": "insight",
@@ -5974,8 +6012,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 예상 현금 $8,470",
-      "body": "최근 월 순저축 중앙값 $1,090 기준, 현재 현금 $5,200에서 3개월 뒤 약 $8,470으로 예상됩니다. 현금흐름은 안정적입니다.",
+      "title": "90일 후 예상 현금 $8,066",
+      "body": "최근 월 순저축 중앙값 $1,090 기준, 현재 현금 $4,796에서 3개월 뒤 약 $8,066으로 예상됩니다. 현금흐름은 안정적입니다.",
       "severity": "good",
       "score": 55,
       "top": false
@@ -6036,12 +6074,12 @@ window.APP_DATA = {
   ],
   "scores": {
     "health": {
-      "score": 49,
+      "score": 48,
       "label": "주의",
       "parts": {
         "저축률": 20,
         "현금흐름": 80,
-        "비상금": 24,
+        "비상금": 22,
         "소비안정성": 84
       }
     },
@@ -6058,12 +6096,13 @@ window.APP_DATA = {
       "label": "주의"
     },
     "wealth_building": {
-      "score": 20,
+      "score": 19,
       "label": "위험"
     }
   },
   "action_items": {
     "now": [
+      "남은 30일 하루 $163 이하로 쓰면 최근 지출 기준선($5,306)에 근접",
       "생활용품 급증분 점검 (과거比 +$1,035)"
     ],
     "keep": [
