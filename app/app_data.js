@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-01T13:31:36",
+    "generated_at": "2026-07-08T17:33:13",
     "source_file": "2026 가계부.xlsx",
     "current_month": "7월"
   },
   "summary": {
-    "total_wealth": 6841.19,
-    "cash_total": 4795.93,
+    "total_wealth": 3702.85,
+    "cash_total": 4260.93,
     "saving": 4113.15,
     "prev_balance": 3132.46,
-    "card_balance": -2067.89,
-    "net": 2728.04,
-    "total_positive": 8909.08,
-    "total_negative": -2067.9,
-    "net_worth": 6841.18
+    "card_balance": -4671.23,
+    "net": -410.3,
+    "total_positive": 8374.08,
+    "total_negative": -4671.24,
+    "net_worth": 3702.84
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 4795.93,
+      "balance": 4260.93,
       "prev_balance": 5200.35,
       "income": 0.0,
-      "expense": 404.42
+      "expense": 939.42
     },
     {
       "key": "Chase Sphire",
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -1289.0,
+      "balance": -3487.05,
       "prev_balance": -1289.0,
       "income": 0.0,
-      "expense": 0.0
+      "expense": 2198.05
     },
     {
       "key": "Chase Marriott",
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -442.57,
+      "balance": -847.86,
       "prev_balance": -442.57,
       "income": 0.0,
-      "expense": 0.0
+      "expense": 405.29
     },
     {
       "key": "Discover",
@@ -98,8 +98,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 4795.93,
-    "신용카드 (부채)": -2067.9,
+    "현금성 자산": 4260.93,
+    "신용카드 (부채)": -4671.24,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -107,11 +107,44 @@ window.APP_DATA = {
       {
         "name": "주거비",
         "amount": 404.42
+      },
+      {
+        "name": "통신비",
+        "amount": 40.0
+      },
+      {
+        "name": "대출",
+        "amount": 495.0
+      },
+      {
+        "name": "구독",
+        "amount": 95.0
       }
     ],
-    "variable": []
+    "variable": [
+      {
+        "name": "식비",
+        "amount": 1146.51
+      },
+      {
+        "name": "생활용품",
+        "amount": 374.92
+      },
+      {
+        "name": "여행",
+        "amount": 10.0
+      },
+      {
+        "name": "차량유지비",
+        "amount": 90.32
+      },
+      {
+        "name": "기타",
+        "amount": 610.0
+      }
+    ]
   },
-  "category_total": 404.42,
+  "category_total": 3266.17,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -488,19 +521,52 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 404.42,
+      "expense": 3266.17,
       "income": 0.0,
-      "fixed": 404.42,
-      "variable": 0,
+      "fixed": 1034.42,
+      "variable": 2231.75,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
             "amount": 404.42
+          },
+          {
+            "name": "통신비",
+            "amount": 40.0
+          },
+          {
+            "name": "대출",
+            "amount": 495.0
+          },
+          {
+            "name": "구독",
+            "amount": 95.0
           }
         ],
-        "variable": []
+        "variable": [
+          {
+            "name": "식비",
+            "amount": 1146.51
+          },
+          {
+            "name": "생활용품",
+            "amount": 374.92
+          },
+          {
+            "name": "여행",
+            "amount": 10.0
+          },
+          {
+            "name": "차량유지비",
+            "amount": 90.32
+          },
+          {
+            "name": "기타",
+            "amount": 610.0
+          }
+        ]
       }
     }
   },
@@ -2468,13 +2534,355 @@ window.APP_DATA = {
   },
   "transactions": [
     {
-      "date": "2026-07-01",
-      "category": "주거비",
-      "subcategory": "렌트비",
-      "memo": "7월 렌트비",
+      "date": "2026-07-08",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Marriott",
+      "amount": 29.44,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-08",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Lowes",
+      "account": "Chase Marriott",
+      "amount": 47.66,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-08",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "출장 - 점심",
+      "account": "Chase Sphire",
+      "amount": 14.84,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-08",
+      "category": "식비",
+      "subcategory": "음료",
+      "memo": "음료",
+      "account": "Chase Sphire",
+      "amount": 3.49,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-07",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유 (Deduction)",
+      "account": "Chase Sphire",
+      "amount": -26.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-07",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - 출장",
+      "account": "Chase Marriott",
+      "amount": 11.95,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-07",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "출장 - 점심",
+      "account": "Chase Sphire",
+      "amount": 6.2,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-07",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "출장 - 저녁",
+      "account": "Chase Sphire",
+      "amount": 18.02,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-06",
+      "category": "기타",
+      "subcategory": "기타",
+      "memo": "USPS",
+      "account": "Chase Sphire",
+      "amount": 1.25,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-06",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Showerhead",
+      "account": "Chase Sphire",
+      "amount": 74.56,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-06",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Tiger Market",
+      "account": "Chase Sphire",
+      "amount": 42.69,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-06",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - shower curtain",
+      "account": "Chase Sphire",
+      "amount": 10.58,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-06",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - velcro",
+      "account": "Chase Sphire",
+      "amount": 8.93,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-05",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Marriott",
+      "amount": 17.3,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-05",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "costco",
+      "account": "Chase Marriott",
+      "amount": 158.02,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-05",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Marriott",
+      "amount": 39.51,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-05",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - 삼봉",
+      "account": "Chase Sphire",
+      "amount": 23.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-04",
+      "category": "식비",
+      "subcategory": "음료",
+      "memo": "음료",
+      "account": "Chase Sphire",
+      "amount": 3.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-04",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - 청기와",
+      "account": "Chase Sphire",
+      "amount": 106.07,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-04",
+      "category": "문화/여가",
+      "subcategory": "문화생활",
+      "memo": "Ford Museum",
+      "account": "Chase Sphire",
+      "amount": 194.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-04",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - 청기와",
+      "account": "Chase Sphire",
+      "amount": 55.1,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-04",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "hmart",
+      "account": "Chase Sphire",
+      "amount": 16.58,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-03",
+      "category": "기타",
+      "subcategory": "기타",
+      "memo": "Uhaul",
+      "account": "Chase Marriott",
+      "amount": 81.34,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-03",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Marriott",
+      "amount": 20.07,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-03",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "커피",
+      "account": "Chase Sphire",
+      "amount": 12.19,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-03",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "hmart",
+      "account": "Chase Sphire",
+      "amount": 218.74,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-03",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Mcdonald",
+      "account": "Chase Sphire",
+      "amount": 18.72,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-03",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "Stoney Creek",
+      "account": "Chase Sphire",
+      "amount": 10.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-02",
+      "category": "통신비",
+      "subcategory": "인터넷",
+      "memo": "Xfinity",
       "account": "Chase",
-      "amount": 404.42,
+      "amount": 40.0,
       "type": "fixed"
+    },
+    {
+      "date": "2026-07-02",
+      "category": "대출",
+      "subcategory": "자동차대출",
+      "memo": "mazda",
+      "account": "Chase",
+      "amount": 495.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-07-02",
+      "category": "기타",
+      "subcategory": "기타",
+      "memo": "입주청소",
+      "account": "Chase Sphire",
+      "amount": 305.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-02",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Mcdonald",
+      "account": "Chase Sphire",
+      "amount": 13.88,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-02",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Chase Sphire",
+      "amount": 10.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-02",
+      "category": "식비",
+      "subcategory": "술/유흥",
+      "memo": "술",
+      "account": "Chase Sphire",
+      "amount": 48.49,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-02",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - 누리",
+      "account": "Chase Sphire",
+      "amount": 348.08,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-01",
+      "category": "구독",
+      "subcategory": "연회비",
+      "memo": "Annual Fee",
+      "account": "Chase Sphire",
+      "amount": 95.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-07-01",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Matress",
+      "account": "Chase Sphire",
+      "amount": 233.19,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-01",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - chick fil a",
+      "account": "Chase Sphire",
+      "amount": 12.82,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-01",
+      "category": "기타",
+      "subcategory": "기타",
+      "memo": "청소 - Two Maids",
+      "account": "Chase Sphire",
+      "amount": 305.0,
+      "type": "variable"
     },
     {
       "date": "2026-06-30",
@@ -6794,25 +7202,25 @@ window.APP_DATA = {
       "top": true
     },
     {
-      "tier": "insight",
+      "tier": "alert",
       "icon": "🧭",
-      "title": "7월 예상 지출 $5,427",
-      "body": "1일차 현재 지출 $404입니다. 과거 지출 시점을 반영하면 월말 $5,427로 최근 기준 $5,306 대비 $121 차이로 마감될 수 있어요.",
-      "severity": "good",
+      "title": "7월 예상 지출 $6,554",
+      "body": "8일차 현재 지출 $3,266입니다. 과거 지출 시점을 반영하면 월말 $6,554로 최근 기준 $5,306 대비 $1,249 차이로 마감될 수 있어요.",
+      "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 5426.99,
-        "daily_limit": 73.92,
-        "historical_progress": 0.0533,
+        "expense": 6554.44,
+        "daily_limit": 0.0,
+        "historical_progress": 0.3802,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 1/31일",
-        "현재 지출: $404",
+        "분석일수: 8/31일",
+        "현재 지출: $3,266",
         "과거 지출 중앙값: $5,306",
-        "과거 패턴상 현재 시점 누적 비중: 5% (18개월)",
-        "남은 기간 변동지출 일일 한도: $74"
+        "과거 패턴상 현재 시점 누적 비중: 38% (18개월)",
+        "남은 기간 변동지출 일일 한도: $0"
       ],
       "top": true
     },
@@ -6847,18 +7255,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $7,247~$11,370",
-      "body": "최근 6개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $7,889이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $6,712~$10,835",
+      "body": "최근 6개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $7,354이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 7247.46,
-        "mid": 7888.53,
-        "high": 11370.35,
+        "low": 6712.46,
+        "mid": 7353.53,
+        "high": 10835.35,
         "sample_months": 6
       },
       "evidence": [
-        "현재 현금: $4,796",
+        "현재 현금: $4,261",
         "월 순현금흐름 25백분위: $817",
         "월 순현금흐름 중앙값: $1,031",
         "월 순현금흐름 75백분위: $2,191"
@@ -6995,7 +7403,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 30일 변동지출 하루 $74 이하로 관리",
+      "남은 23일 변동지출 하루 $0 이하로 관리",
       "생활용품 급증분 점검 (과거比 +$1,035)"
     ],
     "keep": [
