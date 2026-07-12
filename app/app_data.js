@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-10T21:00:31",
+    "generated_at": "2026-07-11T23:17:30",
     "source_file": "2026 가계부.xlsx",
     "current_month": "7월"
   },
   "summary": {
-    "total_wealth": 3392.89,
+    "total_wealth": 3092.28,
     "cash_total": 2464.65,
     "saving": 4113.15,
     "prev_balance": 3132.46,
-    "card_balance": -3184.91,
-    "net": -720.26,
+    "card_balance": -3485.52,
+    "net": -1020.87,
     "total_positive": 6577.8,
-    "total_negative": -3184.92,
-    "net_worth": 3392.88
+    "total_negative": -3485.53,
+    "net_worth": 3092.27
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -2310.28,
+      "balance": -2610.89,
       "prev_balance": -1289.0,
       "income": 1342.21,
-      "expense": 2363.49
+      "expense": 2664.1
     },
     {
       "key": "Chase Marriott",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 2464.65,
-    "신용카드 (부채)": -3184.92,
+    "신용카드 (부채)": -3485.53,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -124,11 +124,11 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 652.73
+        "amount": 813.07
       },
       {
         "name": "생활용품",
-        "amount": 1039.14
+        "amount": 1179.41
       },
       {
         "name": "여행",
@@ -144,7 +144,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 3576.13,
+  "category_total": 3876.74,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -521,10 +521,10 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 3576.13,
+      "expense": 3876.74,
       "income": 0.0,
       "fixed": 1173.94,
-      "variable": 2402.19,
+      "variable": 2702.8,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -548,11 +548,11 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 652.73
+            "amount": 813.07
           },
           {
             "name": "생활용품",
-            "amount": 1039.14
+            "amount": 1179.41
           },
           {
             "name": "여행",
@@ -2534,6 +2534,15 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-07-11",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Hmart",
+      "account": "Chase Sphire",
+      "amount": 79.44,
+      "type": "variable"
+    },
+    {
       "date": "2026-07-10",
       "category": "구독",
       "subcategory": "헬스장",
@@ -2594,6 +2603,42 @@ window.APP_DATA = {
       "memo": "Amazon - Stud Finder",
       "account": "Chase Sphire",
       "amount": 15.61,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-10",
+      "category": "생활용품",
+      "subcategory": "가구/가전",
+      "memo": "Ikea",
+      "account": "Chase Sphire",
+      "amount": 58.24,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-10",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Homedepot",
+      "account": "Chase Sphire",
+      "amount": 22.75,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-10",
+      "category": "생활용품",
+      "subcategory": "가구/가전",
+      "memo": "Ikea",
+      "account": "Chase Sphire",
+      "amount": 59.28,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-10",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - izakaya Sanpai",
+      "account": "Chase Sphire",
+      "amount": 80.9,
       "type": "variable"
     },
     {
@@ -7294,22 +7339,22 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "7월 예상 지출 $6,417",
-      "body": "10일차 현재 지출 $3,576입니다. 과거 지출 시점을 반영하면 월말 $6,417로 최근 기준 $5,306 대비 $1,112 차이로 마감될 수 있어요.",
+      "title": "7월 예상 지출 $6,547",
+      "body": "11일차 현재 지출 $3,877입니다. 과거 지출 시점을 반영하면 월말 $6,547로 최근 기준 $5,306 대비 $1,241 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 6417.45,
+        "expense": 6546.63,
         "daily_limit": 0.0,
-        "historical_progress": 0.4645,
+        "historical_progress": 0.4968,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 10/31일",
-        "현재 지출: $3,576",
+        "분석일수: 11/31일",
+        "현재 지출: $3,877",
         "과거 지출 중앙값: $5,306",
-        "과거 패턴상 현재 시점 누적 비중: 46% (18개월)",
+        "과거 패턴상 현재 시점 누적 비중: 50% (18개월)",
         "남은 기간 변동지출 일일 한도: $0"
       ],
       "top": true
@@ -7493,7 +7538,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 21일 변동지출 하루 $0 이하로 관리",
+      "남은 20일 변동지출 하루 $0 이하로 관리",
       "생활용품 급증분 점검 (과거比 +$1,035)"
     ],
     "keep": [
