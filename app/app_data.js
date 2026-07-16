@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-15T22:21:16",
+    "generated_at": "2026-07-15T22:30:14",
     "source_file": "2026 가계부.xlsx",
     "current_month": "7월"
   },
   "summary": {
-    "total_wealth": 6185.45,
+    "total_wealth": 6308.19,
     "cash_total": 5596.82,
     "saving": 4113.15,
     "prev_balance": 3132.46,
-    "card_balance": -3524.52,
-    "net": 2072.3,
+    "card_balance": -3401.78,
+    "net": 2195.04,
     "total_positive": 9709.97,
-    "total_negative": -3524.53,
-    "net_worth": 6185.44
+    "total_negative": -3401.79,
+    "net_worth": 6308.18
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -2610.89,
+      "balance": -2427.98,
       "prev_balance": -1289.0,
       "income": 1342.21,
-      "expense": 2664.1
+      "expense": 2481.19
     },
     {
       "key": "Chase Marriott",
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -538.31,
+      "balance": -598.48,
       "prev_balance": -442.57,
       "income": 338.55,
-      "expense": 434.29
+      "expense": 494.46
     },
     {
       "key": "Discover",
@@ -99,7 +99,7 @@ window.APP_DATA = {
   ],
   "group_totals": {
     "현금성 자산": 5596.82,
-    "신용카드 (부채)": -3524.53,
+    "신용카드 (부채)": -3401.79,
     "투자 자산": 4113.15
   },
   "categories": {
@@ -124,11 +124,11 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 832.57
+        "amount": 935.22
       },
       {
         "name": "생활용품",
-        "amount": 1179.41
+        "amount": 1259.02
       },
       {
         "name": "의복/미용",
@@ -144,11 +144,11 @@ window.APP_DATA = {
       },
       {
         "name": "기타",
-        "amount": 610.0
+        "amount": 305.0
       }
     ]
   },
-  "category_total": 3998.24,
+  "category_total": 3875.5,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -525,10 +525,10 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 3998.24,
+      "expense": 3875.5,
       "income": 3214.67,
       "fixed": 1173.94,
-      "variable": 2824.3,
+      "variable": 2701.56,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -552,11 +552,11 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 832.57
+            "amount": 935.22
           },
           {
             "name": "생활용품",
-            "amount": 1179.41
+            "amount": 1259.02
           },
           {
             "name": "의복/미용",
@@ -572,7 +572,7 @@ window.APP_DATA = {
           },
           {
             "name": "기타",
-            "amount": 610.0
+            "amount": 305.0
           }
         ]
       }
@@ -2560,6 +2560,42 @@ window.APP_DATA = {
       "type": "income"
     },
     {
+      "date": "2026-07-14",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - 출장",
+      "account": "Chase Sphire",
+      "amount": 11.95,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-14",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Mcdonald",
+      "account": "Chase Sphire",
+      "amount": 3.81,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-13",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Mcdonald",
+      "account": "Chase Sphire",
+      "amount": 3.59,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-13",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - 출장",
+      "account": "Chase Sphire",
+      "amount": 11.95,
+      "type": "variable"
+    },
+    {
       "date": "2026-07-12",
       "category": "식비",
       "subcategory": "외식",
@@ -2569,12 +2605,75 @@ window.APP_DATA = {
       "type": "variable"
     },
     {
+      "date": "2026-07-12",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Costco",
+      "account": "Chase Marriott",
+      "amount": 21.25,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-12",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Costco",
+      "account": "Chase Marriott",
+      "amount": 128.27,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-12",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Costco (Deduction)",
+      "account": "Chase Marriott",
+      "amount": -89.35,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-12",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Homedepot",
+      "account": "Chase Sphire",
+      "amount": 33.32,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-12",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "아이스크림",
+      "account": "Chase Sphire",
+      "amount": 11.18,
+      "type": "variable"
+    },
+    {
       "date": "2026-07-11",
       "category": "식비",
       "subcategory": "식재료",
       "memo": "Hmart",
       "account": "Chase Sphire",
       "amount": 79.44,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-11",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "amazon - Brita Filter & Faucet Mat",
+      "account": "Chase Sphire",
+      "amount": 29.13,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-11",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "amazon - fry trap",
+      "account": "Chase Sphire",
+      "amount": 17.16,
       "type": "variable"
     },
     {
@@ -2972,15 +3071,6 @@ window.APP_DATA = {
       "account": "Chase",
       "amount": 495.0,
       "type": "fixed"
-    },
-    {
-      "date": "2026-07-02",
-      "category": "기타",
-      "subcategory": "기타",
-      "memo": "입주청소",
-      "account": "Chase Sphire",
-      "amount": 305.0,
-      "type": "variable"
     },
     {
       "date": "2026-07-02",
@@ -7383,12 +7473,12 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "7월 예상 지출 $6,073",
-      "body": "15일차 현재 지출 $3,998입니다. 과거 지출 시점을 반영하면 월말 $6,073로 최근 기준 $5,306 대비 $768 차이로 마감될 수 있어요.",
+      "title": "7월 예상 지출 $5,950",
+      "body": "15일차 현재 지출 $3,876입니다. 과거 지출 시점을 반영하면 월말 $5,950로 최근 기준 $5,306 대비 $645 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 6073.16,
+        "expense": 5950.42,
         "daily_limit": 0.0,
         "historical_progress": 0.6089,
         "sample_months": 18,
@@ -7396,7 +7486,7 @@ window.APP_DATA = {
       },
       "evidence": [
         "분석일수: 15/31일",
-        "현재 지출: $3,998",
+        "현재 지출: $3,876",
         "과거 지출 중앙값: $5,306",
         "과거 패턴상 현재 시점 누적 비중: 61% (18개월)",
         "남은 기간 변동지출 일일 한도: $0"
