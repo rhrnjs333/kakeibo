@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-16T23:38:42",
+    "generated_at": "2026-07-17T11:02:17",
     "source_file": "2026 가계부.xlsx",
     "current_month": "7월"
   },
@@ -128,7 +128,7 @@ window.APP_DATA = {
       },
       {
         "name": "생활용품",
-        "amount": 1433.31
+        "amount": 1546.84
       },
       {
         "name": "의복/미용",
@@ -148,7 +148,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 4578.9,
+  "category_total": 4692.43,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -525,10 +525,10 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 4578.9,
+      "expense": 4692.43,
       "income": 3214.67,
       "fixed": 1649.28,
-      "variable": 2929.62,
+      "variable": 3043.15,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -556,7 +556,7 @@ window.APP_DATA = {
           },
           {
             "name": "생활용품",
-            "amount": 1433.31
+            "amount": 1546.84
           },
           {
             "name": "의복/미용",
@@ -7527,22 +7527,22 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "7월 예상 지출 $6,359",
-      "body": "16일차 현재 지출 $4,579입니다. 과거 지출 시점을 반영하면 월말 $6,359로 최근 기준 $5,334 대비 $1,026 차이로 마감될 수 있어요.",
+      "title": "7월 예상 지출 $6,357",
+      "body": "17일차 현재 지출 $4,692입니다. 과거 지출 시점을 반영하면 월말 $6,357로 최근 기준 $5,334 대비 $1,024 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 6359.41,
+        "expense": 6357.35,
         "daily_limit": 0.0,
-        "historical_progress": 0.6662,
+        "historical_progress": 0.6879,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 16/31일",
-        "현재 지출: $4,579",
+        "분석일수: 17/31일",
+        "현재 지출: $4,692",
         "과거 지출 중앙값: $5,334",
-        "과거 패턴상 현재 시점 누적 비중: 67% (18개월)",
+        "과거 패턴상 현재 시점 누적 비중: 69% (18개월)",
         "남은 기간 변동지출 일일 한도: $0"
       ],
       "top": true
@@ -7726,7 +7726,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 15일 변동지출 하루 $0 이하로 관리",
+      "남은 14일 변동지출 하루 $0 이하로 관리",
       "생활용품 급증분 점검 (과거比 +$1,035)"
     ],
     "keep": [
