@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-15T22:30:14",
+    "generated_at": "2026-07-16T23:06:37",
     "source_file": "2026 가계부.xlsx",
     "current_month": "7월"
   },
   "summary": {
-    "total_wealth": 6308.19,
-    "cash_total": 5596.82,
+    "total_wealth": 5832.85,
+    "cash_total": 5121.48,
     "saving": 4113.15,
     "prev_balance": 3132.46,
     "card_balance": -3401.78,
-    "net": 2195.04,
-    "total_positive": 9709.97,
+    "net": 1719.7,
+    "total_positive": 9234.63,
     "total_negative": -3401.79,
-    "net_worth": 6308.18
+    "net_worth": 5832.84
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 5596.82,
+      "balance": 5121.48,
       "prev_balance": 5200.35,
       "income": 3214.67,
-      "expense": 2818.2
+      "expense": 3293.54
     },
     {
       "key": "Chase Sphire",
@@ -98,7 +98,7 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 5596.82,
+    "현금성 자산": 5121.48,
     "신용카드 (부채)": -3401.79,
     "투자 자산": 4113.15
   },
@@ -114,7 +114,7 @@ window.APP_DATA = {
       },
       {
         "name": "대출",
-        "amount": 495.0
+        "amount": 970.34
       },
       {
         "name": "구독",
@@ -148,7 +148,7 @@ window.APP_DATA = {
       }
     ]
   },
-  "category_total": 3875.5,
+  "category_total": 4350.84,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -525,9 +525,9 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 3875.5,
+      "expense": 4350.84,
       "income": 3214.67,
-      "fixed": 1173.94,
+      "fixed": 1649.28,
       "variable": 2701.56,
       "invest_deposit": 0.0,
       "categories": {
@@ -542,7 +542,7 @@ window.APP_DATA = {
           },
           {
             "name": "대출",
-            "amount": 495.0
+            "amount": 970.34
           },
           {
             "name": "구독",
@@ -2541,6 +2541,15 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-07-16",
+      "category": "대출",
+      "subcategory": "자동차대출",
+      "memo": "Mazda",
+      "account": "Chase",
+      "amount": 475.34,
+      "type": "fixed"
+    },
     {
       "date": "2026-07-15",
       "category": "의복/미용",
@@ -7473,22 +7482,22 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "7월 예상 지출 $5,950",
-      "body": "15일차 현재 지출 $3,876입니다. 과거 지출 시점을 반영하면 월말 $5,950로 최근 기준 $5,306 대비 $645 차이로 마감될 수 있어요.",
+      "title": "7월 예상 지출 $6,122",
+      "body": "16일차 현재 지출 $4,351입니다. 과거 지출 시점을 반영하면 월말 $6,122로 최근 기준 $5,306 대비 $816 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 5950.42,
+        "expense": 6121.96,
         "daily_limit": 0.0,
-        "historical_progress": 0.6089,
+        "historical_progress": 0.6662,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 15/31일",
-        "현재 지출: $3,876",
+        "분석일수: 16/31일",
+        "현재 지출: $4,351",
         "과거 지출 중앙값: $5,306",
-        "과거 패턴상 현재 시점 누적 비중: 61% (18개월)",
+        "과거 패턴상 현재 시점 누적 비중: 67% (18개월)",
         "남은 기간 변동지출 일일 한도: $0"
       ],
       "top": true
@@ -7524,18 +7533,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $8,048~$12,171",
-      "body": "최근 6개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $8,689이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $7,573~$11,696",
+      "body": "최근 6개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $8,214이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 8048.35,
-        "mid": 8689.42,
-        "high": 12171.24,
+        "low": 7573.01,
+        "mid": 8214.08,
+        "high": 11695.9,
         "sample_months": 6
       },
       "evidence": [
-        "현재 현금: $5,597",
+        "현재 현금: $5,121",
         "월 순현금흐름 25백분위: $817",
         "월 순현금흐름 중앙값: $1,031",
         "월 순현금흐름 75백분위: $2,191"
@@ -7672,7 +7681,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 16일 변동지출 하루 $0 이하로 관리",
+      "남은 15일 변동지출 하루 $0 이하로 관리",
       "생활용품 급증분 점검 (과거比 +$1,035)"
     ],
     "keep": [
