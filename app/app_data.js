@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-17T11:02:17",
+    "generated_at": "2026-07-17T21:00:27",
     "source_file": "2026 가계부.xlsx",
     "current_month": "7월"
   },
