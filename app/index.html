@@ -2648,6 +2648,7 @@
     'Chase Marriott':  'Chase Marriott',
     'Discover':        'Discover',
     'Robinhood':       'Robinhood',
+    'Robinhood Bank':  'Robinhood Bank',
     'Roth IRA':        'Roth IRA',
   };
   const ACTIVE_KEY_TO_DISPLAY = ACTIVE_ACCOUNTS_DISPLAY;
@@ -2680,12 +2681,12 @@
     '기타':     ['기타']
   };
   // 활성 계좌만 (사용자 결정 반영)
-  const MODAL_ACCOUNTS = ['Chase','Chase Sphire','Chase Marriott','Discover','Robinhood','Roth IRA'];
+  const MODAL_ACCOUNTS = ['Chase','Chase Sphire','Chase Marriott','Discover','Robinhood','Robinhood Bank','Roth IRA'];
   // Sheets에 저장되는 키 → 화면 표시명
   const ACCOUNT_DISPLAY_NAMES = {
     'Chase':'Chase Checking', 'Chase Sphire':'Chase Sapphire',
     'Chase Marriott':'Chase Marriott', 'Discover':'Discover',
-    'Robinhood':'Robinhood', 'Roth IRA':'Roth IRA',
+    'Robinhood':'Robinhood', 'Robinhood Bank':'Robinhood Bank', 'Roth IRA':'Roth IRA',
   };
   const CAT_ICONS = {
     '주거비':'🏠','통신비':'📱','보험':'🛡️','대출':'💳','구독':'🔁','저축/투자':'📈','가족지원':'❤️',
@@ -2751,7 +2752,7 @@
   }
 
   // 수입이 들어오는 계좌 (신용카드 제외) — 입금 내역에 어울리는 기본값
-  const INCOME_ACCOUNTS = ['Chase', 'Robinhood', 'Roth IRA'];
+  const INCOME_ACCOUNTS = ['Chase', 'Robinhood', 'Robinhood Bank', 'Roth IRA'];
 
   // 타입(변동/고정/수입)에 따라 입력 필드 표시 전환
   function applyTypeUI() {
