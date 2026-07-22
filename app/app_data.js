@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-22T13:03:45",
+    "generated_at": "2026-07-22T13:34:41",
     "source_file": "2026 가계부.xlsx",
     "current_month": "7월"
   },
@@ -7739,6 +7739,9 @@ window.APP_DATA = {
       "body": "6월 생활용품 지출이 $1,213로 과거 평균 $178보다 581%($1,035) 많습니다. 일회성인지 반복되는지 확인하세요.",
       "severity": "high",
       "score": 95,
+      "evidence": [
+        "비교 대상: 최근 4개월 평균 $178"
+      ],
       "top": true
     },
     {
