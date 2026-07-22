@@ -2641,16 +2641,12 @@
     document.getElementById('txSubtitle').textContent = `${PERIOD_LABEL[currentPeriod] || '이번달'} · 전체 계좌 · ${txs.length}건`;
   }
 
+  // 계좌 마스터 단일 소스: window.APP_DATA.accounts (앱/generate_app_data.py의
+  // ACTIVE_ACCOUNTS에서 생성됨). 새 계좌 추가 시 이 파일은 건드리지 말고
+  // generate_app_data.py의 ACTIVE_ACCOUNTS만 수정 후 재생성할 것.
+  const ACCOUNTS_MASTER = (window.APP_DATA && window.APP_DATA.accounts) || [];
   // 계좌 키 → 표시 이름 매핑 (transactions 데이터의 account 키 → 화면 표시명)
-  const ACTIVE_ACCOUNTS_DISPLAY = {
-    'Chase':           'Chase Checking',
-    'Chase Sphire':    'Chase Sapphire',
-    'Chase Marriott':  'Chase Marriott',
-    'Discover':        'Discover',
-    'Robinhood':       'Robinhood',
-    'Robinhood Bank':  'Robinhood Bank',
-    'Roth IRA':        'Roth IRA',
-  };
+  const ACTIVE_ACCOUNTS_DISPLAY = ACCOUNTS_MASTER.reduce((m, a) => { m[a.key] = a.name; return m; }, {});
   const ACTIVE_KEY_TO_DISPLAY = ACTIVE_ACCOUNTS_DISPLAY;
 
   // ============================================================
@@ -2658,8 +2654,13 @@
   // ============================================================
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwAm7nb_YR1LKVOGvHl48HYlfFCwpZEjgiw6oCHXGtENK17BkvjVO7JZEhnsQrUy7-a/exec';
 
-  // 카테고리 데이터 (가계부_입력.html과 동일하게 유지)
-  const VARIABLE_CATS = {
+  // 카테고리 마스터 단일 소스: window.APP_DATA.category_master (앱/generate_app_data.py가
+  // Excel '기본값' 시트의 고정비용/비고정비용 테이블 — 실제 대분류 VLOOKUP 수식이 참조하는
+  // 원본 — 에서 그대로 읽어온 값). 새 카테고리 추가 시 이 파일은 건드리지 말고 Excel의
+  // 기본값!고정비용/비고정비용 테이블만 수정 후 generate_app_data.py를 재실행할 것.
+  // (구버전 하드코딩 값은 APP_DATA 로딩 실패 시에만 쓰는 폴백.)
+  const _CAT_MASTER = (window.APP_DATA && window.APP_DATA.category_master) || {};
+  const VARIABLE_CATS = _CAT_MASTER.variable || {
     '식비':       ['식재료','외식','패스트푸드','간식/카페','음료','배달음식','술/유흥'],
     '생활용품':   ['가구/가전','전자제품','소모품','주방/욕실','인테리어/청소'],
     '의복/미용':  ['의류/신발','헤어/뷰티','악세서리'],
@@ -2670,7 +2671,7 @@
     '경조사/회비':['선물','모임/회비','데이트'],
     '기타':       ['출장비','세금/수수료','기타']
   };
-  const FIXED_CATS = {
+  const FIXED_CATS = _CAT_MASTER.fixed || {
     '주거비':   ['렌트비','유틸리티'],
     '통신비':   ['인터넷','핸드폰'],
     '보험':     ['자동차보험','렌터보험','생명/의료보험'],
@@ -2680,14 +2681,10 @@
     '가족지원': ['부모님 지원','기부'],
     '기타':     ['기타']
   };
-  // 활성 계좌만 (사용자 결정 반영)
-  const MODAL_ACCOUNTS = ['Chase','Chase Sphire','Chase Marriott','Discover','Robinhood','Robinhood Bank','Roth IRA'];
-  // Sheets에 저장되는 키 → 화면 표시명
-  const ACCOUNT_DISPLAY_NAMES = {
-    'Chase':'Chase Checking', 'Chase Sphire':'Chase Sapphire',
-    'Chase Marriott':'Chase Marriott', 'Discover':'Discover',
-    'Robinhood':'Robinhood', 'Robinhood Bank':'Robinhood Bank', 'Roth IRA':'Roth IRA',
-  };
+  // 활성 계좌 목록 — ACCOUNTS_MASTER(위에서 정의)에서 파생. 하드코딩 금지.
+  const MODAL_ACCOUNTS = ACCOUNTS_MASTER.map(a => a.key);
+  // Sheets에 저장되는 키 → 화면 표시명 (ACTIVE_ACCOUNTS_DISPLAY와 동일 소스)
+  const ACCOUNT_DISPLAY_NAMES = ACTIVE_ACCOUNTS_DISPLAY;
   const CAT_ICONS = {
     '주거비':'🏠','통신비':'📱','보험':'🛡️','대출':'💳','구독':'🔁','저축/투자':'📈','가족지원':'❤️',
     '식비':'🍱','생활용품':'🛍️','의복/미용':'👕','건강/의료':'🏥','문화/여가':'🎬',
@@ -2751,8 +2748,9 @@
     inp.value = `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
   }
 
-  // 수입이 들어오는 계좌 (신용카드 제외) — 입금 내역에 어울리는 기본값
-  const INCOME_ACCOUNTS = ['Chase', 'Robinhood', 'Robinhood Bank', 'Roth IRA'];
+  // 수입이 들어오는 계좌 (신용카드 제외) — ACCOUNTS_MASTER에서 그룹이
+  // '신용카드 (부채)'가 아닌 계좌를 자동으로 뽑음. 입금 내역에 어울리는 기본값.
+  const INCOME_ACCOUNTS = ACCOUNTS_MASTER.filter(a => a.group !== '신용카드 (부채)').map(a => a.key);
 
   // 타입(변동/고정/수입)에 따라 입력 필드 표시 전환
   function applyTypeUI() {
