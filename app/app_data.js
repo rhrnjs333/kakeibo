@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-27T12:41:53",
+    "generated_at": "2026-07-28T15:31:27",
     "source_file": "2026 가계부.xlsx",
-    "current_month": "7월"
+    "current_month": "8월"
   },
   "summary": {
-    "total_wealth": 7012.11,
-    "cash_total": 4990.61,
-    "saving": 5113.15,
+    "total_wealth": 4352.72,
+    "cash_total": 2323.49,
+    "saving": 4113.15,
     "prev_balance": 3116.43,
-    "card_balance": -3091.65,
-    "net": 1898.96,
-    "total_positive": 10103.76,
-    "total_negative": -3958.14,
-    "net_worth": 6145.62
+    "card_balance": -2083.92,
+    "net": 239.57,
+    "total_positive": 6436.64,
+    "total_negative": -2083.93,
+    "net_worth": 4352.71
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 4990.61,
+      "balance": 2323.49,
       "prev_balance": 5200.35,
-      "income": 4677.83,
-      "expense": 4887.57
+      "income": 0.0,
+      "expense": 2876.86
     },
     {
       "key": "Chase Sphire",
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -2510.3,
+      "balance": -1222.76,
       "prev_balance": -1222.76,
-      "income": 1342.21,
-      "expense": 2629.75
+      "income": 0.0,
+      "expense": 0.0
     },
     {
       "key": "Chase Marriott",
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -572.48,
+      "balance": -442.57,
       "prev_balance": -442.57,
-      "income": 338.55,
-      "expense": 468.46
+      "income": 0.0,
+      "expense": 0.0
     },
     {
       "key": "Discover",
@@ -65,10 +65,10 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": -8.88,
+      "balance": -418.6,
       "prev_balance": -418.6,
-      "income": 448.72,
-      "expense": 39.0
+      "income": 0.0,
+      "expense": 0.0
     },
     {
       "key": "Robinhood Bank",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -866.48,
+      "balance": 0.0,
       "prev_balance": 0.0,
       "income": 0.0,
-      "expense": 866.48
+      "expense": 0.0
     },
     {
       "key": "Robinhood",
@@ -91,9 +91,9 @@ window.APP_DATA = {
       "logo": "RH",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": 5113.15,
+      "balance": 4113.15,
       "prev_balance": 4113.15,
-      "income": 1000.0,
+      "income": 0.0,
       "expense": 0.0
     },
     {
@@ -111,60 +111,23 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 4124.13,
-    "신용카드 (부채)": -3091.66,
-    "투자 자산": 5113.15
+    "현금성 자산": 2323.49,
+    "신용카드 (부채)": -2083.93,
+    "투자 자산": 4113.15
   },
   "categories": {
     "fixed": [
       {
         "name": "주거비",
-        "amount": 587.75
-      },
-      {
-        "name": "통신비",
-        "amount": 40.0
-      },
-      {
-        "name": "대출",
-        "amount": 970.34
-      },
-      {
-        "name": "구독",
-        "amount": 144.0
+        "amount": 2876.86
       }
     ],
-    "variable": [
-      {
-        "name": "식비",
-        "amount": 1356.81
-      },
-      {
-        "name": "생활용품",
-        "amount": 1671.39
-      },
-      {
-        "name": "의복/미용",
-        "amount": 63.0
-      },
-      {
-        "name": "여행",
-        "amount": 55.0
-      },
-      {
-        "name": "차량유지비",
-        "amount": 230.74
-      },
-      {
-        "name": "기타",
-        "amount": 305.0
-      }
-    ]
+    "variable": []
   },
   "category_master": {
     "fixed": {
       "주거비": [
-        "렌트비",
+        "Mortgage",
         "유틸리티"
       ],
       "통신비": [
@@ -261,19 +224,19 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 5424.03,
+  "category_total": 2876.86,
   "monthly": {
     "2026-01": {
-      "expense": 5870.51,
+      "expense": 4501.44,
       "income": 5950.09,
-      "fixed": 3991.63,
+      "fixed": 2622.56,
       "variable": 1878.88,
       "invest_deposit": 2000.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 1513.8
+            "amount": 144.73
           },
           {
             "name": "통신비",
@@ -329,16 +292,16 @@ window.APP_DATA = {
       }
     },
     "2026-02": {
-      "expense": 4089.42,
+      "expense": 2719.13,
       "income": 6648.07,
-      "fixed": 2692.36,
+      "fixed": 1322.07,
       "variable": 1397.06,
       "invest_deposit": 2000.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 1537.3
+            "amount": 167.01
           },
           {
             "name": "통신비",
@@ -390,16 +353,16 @@ window.APP_DATA = {
       }
     },
     "2026-03": {
-      "expense": 4667.8,
+      "expense": 3292.82,
       "income": 17571.03,
-      "fixed": 2664.57,
+      "fixed": 1289.59,
       "variable": 2003.23,
       "invest_deposit": 2000.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 1507.44
+            "amount": 132.46
           },
           {
             "name": "통신비",
@@ -455,16 +418,16 @@ window.APP_DATA = {
       }
     },
     "2026-04": {
-      "expense": 5339.36,
+      "expense": 3968.43,
       "income": 6429.31,
-      "fixed": 2221.34,
+      "fixed": 850.41,
       "variable": 3118.02,
       "invest_deposit": 8000.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 1514.41
+            "amount": 143.48
           },
           {
             "name": "통신비",
@@ -512,16 +475,16 @@ window.APP_DATA = {
       }
     },
     "2026-05": {
-      "expense": 6150.25,
+      "expense": 4780.51,
       "income": 6915.89,
-      "fixed": 3174.07,
+      "fixed": 1804.33,
       "variable": 2976.18,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 1497.08
+            "amount": 127.34
           },
           {
             "name": "통신비",
@@ -577,16 +540,16 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 5287.89,
+      "expense": 3799.72,
       "income": 6243.64,
-      "fixed": 2868.88,
+      "fixed": 1380.71,
       "variable": 2419.01,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 1584.26
+            "amount": 96.09
           },
           {
             "name": "통신비",
@@ -638,20 +601,20 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 5424.03,
-      "income": 4677.83,
-      "fixed": 1742.09,
-      "variable": 3681.94,
+      "expense": 6407.66,
+      "income": 5059.99,
+      "fixed": 1387.53,
+      "variable": 5020.13,
       "invest_deposit": 1000.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 587.75
+            "amount": 183.33
           },
           {
             "name": "통신비",
-            "amount": 40.0
+            "amount": 89.86
           },
           {
             "name": "대출",
@@ -677,7 +640,7 @@ window.APP_DATA = {
           },
           {
             "name": "여행",
-            "amount": 55.0
+            "amount": 1393.19
           },
           {
             "name": "차량유지비",
@@ -688,6 +651,22 @@ window.APP_DATA = {
             "amount": 305.0
           }
         ]
+      }
+    },
+    "2026-08": {
+      "expense": 2876.86,
+      "income": 0.0,
+      "fixed": 2876.86,
+      "variable": 0,
+      "invest_deposit": 0.0,
+      "categories": {
+        "fixed": [
+          {
+            "name": "주거비",
+            "amount": 2876.86
+          }
+        ],
+        "variable": []
       }
     }
   },
@@ -2655,6 +2634,24 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-07-28",
+      "category": "통신비",
+      "subcategory": "핸드폰",
+      "memo": "Verizon",
+      "account": "Chase",
+      "amount": 49.86,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-07-28",
+      "account": "Chase",
+      "amount": 382.16,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
+    },
+    {
       "date": "2026-07-27",
       "category": "주거비",
       "subcategory": "유틸리티",
@@ -2671,6 +2668,24 @@ window.APP_DATA = {
       "account": "Chase",
       "amount": 12.67,
       "type": "fixed"
+    },
+    {
+      "date": "2026-07-27",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "여행 - 뉴욕 (비행기)",
+      "account": "Chase Sphire",
+      "amount": 835.69,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-27",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "여행 - 뉴욕 (호텔)",
+      "account": "Chase Marriott",
+      "amount": 502.5,
+      "type": "variable"
     },
     {
       "date": "2026-07-26",
@@ -7908,6 +7923,29 @@ window.APP_DATA = {
     },
     {
       "tier": "alert",
+      "icon": "🧭",
+      "title": "8월 예상 지출 $6,634",
+      "body": "1일차 현재 지출 $2,877입니다. 과거 지출 시점을 반영하면 월말 $6,634로 최근 기준 $3,968 대비 $2,665 차이로 마감될 수 있어요.",
+      "severity": "high",
+      "score": 90,
+      "forecast": {
+        "expense": 6633.58,
+        "daily_limit": 80.63,
+        "historical_progress": 0.0533,
+        "sample_months": 18,
+        "method": "historical_remaining_spend"
+      },
+      "evidence": [
+        "분석일수: 1/31일",
+        "현재 지출: $2,877",
+        "과거 지출 중앙값: $3,968",
+        "과거 패턴상 현재 시점 누적 비중: 5% (18개월)",
+        "남은 기간 변동지출 일일 한도: $81"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
       "icon": "📆",
       "title": "2026년 6월까지 지출 +13%",
       "body": "Raw Data 기준 2026년 1~6월 지출은 $31,652로, 2025년 같은 기간 $27,964보다 $3,687 늘었습니다.",
@@ -7956,29 +7994,6 @@ window.APP_DATA = {
       "top": true
     },
     {
-      "tier": "alert",
-      "icon": "🧭",
-      "title": "7월 예상 지출 $5,783",
-      "body": "27일차 현재 지출 $5,424입니다. 과거 지출 시점을 반영하면 월말 $5,783로 최근 기준 $5,314 대비 $470 차이로 마감될 수 있어요.",
-      "severity": "medium",
-      "score": 74,
-      "forecast": {
-        "expense": 5783.35,
-        "daily_limit": 0.0,
-        "historical_progress": 0.9324,
-        "sample_months": 18,
-        "method": "historical_remaining_spend"
-      },
-      "evidence": [
-        "분석일수: 27/31일",
-        "현재 지출: $5,424",
-        "과거 지출 중앙값: $5,314",
-        "과거 패턴상 현재 시점 누적 비중: 93% (18개월)",
-        "남은 기간 변동지출 일일 한도: $0"
-      ],
-      "top": true
-    },
-    {
       "tier": "insight",
       "icon": "🔎",
       "title": "Raw Data 저축 항목 방향 확인 필요",
@@ -8009,31 +8024,22 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $7,430~$11,565",
-      "body": "최근 6개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $8,059이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $8,961~$13,009",
+      "body": "최근 6개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,681이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 7430.11,
-        "mid": 8059.16,
-        "high": 11565.03,
+        "low": 8961.03,
+        "mid": 9680.69,
+        "high": 13009.27,
         "sample_months": 6
       },
       "evidence": [
-        "현재 현금: $4,991",
-        "월 순현금흐름 25백분위: $813",
-        "월 순현금흐름 중앙값: $1,023",
-        "월 순현금흐름 75백분위: $2,191"
+        "현재 현금: $2,323",
+        "월 순현금흐름 25백분위: $2,213",
+        "월 순현금흐름 중앙값: $2,452",
+        "월 순현금흐름 75백분위: $3,562"
       ],
-      "top": false
-    },
-    {
-      "tier": "insight",
-      "icon": "🏠",
-      "title": "고정비가 지출의 54%",
-      "body": "6월 고정비 $2,869로 전체 지출의 54%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
-      "severity": "medium",
-      "score": 58,
       "top": false
     },
     {
@@ -8122,12 +8128,12 @@ window.APP_DATA = {
       "tier": "insight",
       "icon": "📊",
       "title": "최근 3개월 지출 증가 추세",
-      "body": "최근 3개월 중앙값 $5,339은 이전 3개월 중앙값 $4,668 대비 +14%입니다.",
+      "body": "최근 3개월 중앙값 $3,968은 이전 3개월 중앙값 $3,293 대비 +21%입니다.",
       "severity": "low",
       "score": 40,
       "evidence": [
-        "이전 3개월: $5,871, $4,089, $4,668",
-        "최근 3개월: $5,339, $6,150, $5,288"
+        "이전 3개월: $4,501, $2,719, $3,293",
+        "최근 3개월: $3,968, $4,781, $3,800"
       ],
       "top": false
     }
@@ -8138,14 +8144,14 @@ window.APP_DATA = {
       "label": "보완 필요",
       "parts": {
         "저축률": 0,
-        "현금흐름": 90,
-        "비상금": 25,
-        "소비안정성": 85
+        "현금흐름": 100,
+        "비상금": 15,
+        "소비안정성": 80
       },
       "method": "ratio_based_heuristic"
     },
     "lifestyle_inflation": {
-      "score": 80,
+      "score": 90,
       "label": "높음",
       "method": "recent_3m_vs_prior_3m"
     },
@@ -8157,7 +8163,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 4일 변동지출 하루 $0 이하로 관리",
+      "남은 30일 변동지출 하루 $81 이하로 관리",
       "생활용품 급증분 점검 (과거比 +$994)"
     ],
     "keep": [
@@ -8168,8 +8174,7 @@ window.APP_DATA = {
       "식비 평소 지출 월 $90 조정 목표"
     ],
     "watch": [
-      "반복지출 후보 7개 확인",
-      "고정비 비중 높음 — 보험·통신 재협상 검토"
+      "반복지출 후보 7개 확인"
     ]
   },
   "insight_meta": {
