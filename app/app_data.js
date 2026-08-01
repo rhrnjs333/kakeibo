@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-07-28T15:31:27",
+    "generated_at": "2026-08-01T09:50:02",
     "source_file": "2026 가계부.xlsx",
     "current_month": "8월"
   },
@@ -601,10 +601,10 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 6407.66,
+      "expense": 6082.81,
       "income": 5059.99,
       "fixed": 1387.53,
-      "variable": 5020.13,
+      "variable": 4695.28,
       "invest_deposit": 1000.0,
       "categories": {
         "fixed": [
@@ -640,11 +640,11 @@ window.APP_DATA = {
           },
           {
             "name": "여행",
-            "amount": 1393.19
+            "amount": 975.34
           },
           {
             "name": "차량유지비",
-            "amount": 230.74
+            "amount": 323.74
           },
           {
             "name": "기타",
@@ -2634,6 +2634,33 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-07-30",
+      "category": "",
+      "subcategory": "클라우드",
+      "memo": "Google Nest Router",
+      "account": "Chase",
+      "amount": 50.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-30",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "Gas",
+      "account": "Chase",
+      "amount": 39.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-30",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Discover",
+      "amount": 54.0,
+      "type": "variable"
+    },
+    {
       "date": "2026-07-28",
       "category": "통신비",
       "subcategory": "핸드폰",
@@ -2685,6 +2712,15 @@ window.APP_DATA = {
       "memo": "여행 - 뉴욕 (호텔)",
       "account": "Chase Marriott",
       "amount": 502.5,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-27",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "여행 - 뉴욕 (비행기) (Deduction)",
+      "account": "Chase Marriott",
+      "amount": -417.85,
       "type": "variable"
     },
     {
@@ -7911,13 +7947,46 @@ window.APP_DATA = {
   "insights": [
     {
       "tier": "alert",
+      "icon": "📉",
+      "title": "7월 적자 -$1,023",
+      "body": "7월은 수입 $5,060보다 지출 $6,083이 많아 $1,023 적자입니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
+      "severity": "high",
+      "score": 95,
+      "top": true
+    },
+    {
+      "tier": "alert",
       "icon": "🔺",
-      "title": "생활용품 지출 558% 급증",
-      "body": "6월 생활용품 지출이 $1,173로 과거 평균 $178보다 558%($994) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "title": "생활용품 지출 343% 급증",
+      "body": "7월 생활용품 지출이 $1,671로 과거 평균 $377보다 343%($1,294) 많습니다. 일회성인지 반복되는지 확인하세요.",
       "severity": "high",
       "score": 95,
       "evidence": [
-        "비교 대상: 최근 4개월 평균 $178"
+        "비교 대상: 최근 5개월 평균 $377"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "여행 지출 546% 급증",
+      "body": "7월 여행 지출이 $975로 과거 평균 $151보다 546%($824) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "high",
+      "score": 95,
+      "evidence": [
+        "비교 대상: 최근 4개월 평균 $151"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "대출 지출 104% 급증",
+      "body": "7월 대출 지출이 $970로 과거 평균 $475보다 104%($495) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "high",
+      "score": 95,
+      "evidence": [
+        "비교 대상: 최근 6개월 평균 $475"
       ],
       "top": true
     },
@@ -7962,7 +8031,7 @@ window.APP_DATA = {
         "비교 기간: 1월~6월"
       ],
       "source": "연말정산 RAW DATA",
-      "top": true
+      "top": false
     },
     {
       "tier": "alert",
@@ -7982,16 +8051,16 @@ window.APP_DATA = {
         "차이: $1,026"
       ],
       "source": "연말정산 RAW DATA",
-      "top": true
+      "top": false
     },
     {
-      "tier": "alert",
-      "icon": "💸",
-      "title": "6월 투자 납입 $0 (저축률 0%)",
-      "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 21%였습니다. 정기 납입 재개를 검토하세요.",
+      "tier": "insight",
+      "icon": "💰",
+      "title": "7월 투자저축 $1,000 (저축률 20%)",
+      "body": "수입 $5,060 중 $1,000을 Robinhood·Roth IRA에 납입했습니다. 최근 평균 저축률은 11%입니다.",
       "severity": "medium",
-      "score": 82,
-      "top": true
+      "score": 80,
+      "top": false
     },
     {
       "tier": "insight",
@@ -8011,75 +8080,75 @@ window.APP_DATA = {
       "tier": "recommendation",
       "icon": "🔁",
       "title": "확인된 구독 3종 월 $63 (연 $756)",
-      "body": "헬스장 $29, 세차 구독 $26, ott $8. 최근 6개월 중 최소 절반 이상 반복되고 금액 변동이 작은 항목만 포함했습니다. 가장 큰 항목은 헬스장($29/월)입니다.",
+      "body": "헬스장 $29, 세차 구독 $26, ott $8. 최근 7개월 중 최소 절반 이상 반복되고 금액 변동이 작은 항목만 포함했습니다. 가장 큰 항목은 헬스장($29/월)입니다.",
       "severity": "medium",
       "score": 60,
       "evidence": [
-        "헬스장: 6개월 결제, 출현율 100%, 중앙값 $29",
-        "세차 구독: 5개월 결제, 출현율 83%, 중앙값 $26",
-        "ott: 5개월 결제, 출현율 83%, 중앙값 $8"
+        "헬스장: 7개월 결제, 출현율 100%, 중앙값 $29",
+        "세차 구독: 5개월 결제, 출현율 71%, 중앙값 $26",
+        "ott: 5개월 결제, 출현율 71%, 중앙값 $8"
       ],
       "top": false
     },
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $8,961~$13,009",
-      "body": "최근 6개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,681이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $7,700~$11,908",
+      "body": "최근 7개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,655이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 8961.03,
-        "mid": 9680.69,
-        "high": 13009.27,
-        "sample_months": 6
+        "low": 7699.54,
+        "mid": 9655.25,
+        "high": 11908.22,
+        "sample_months": 7
       },
       "evidence": [
         "현재 현금: $2,323",
-        "월 순현금흐름 25백분위: $2,213",
-        "월 순현금흐름 중앙값: $2,452",
-        "월 순현금흐름 75백분위: $3,562"
+        "월 순현금흐름 25백분위: $1,792",
+        "월 순현금흐름 중앙값: $2,444",
+        "월 순현금흐름 75백분위: $3,195"
       ],
       "top": false
     },
     {
       "tier": "recommendation",
       "icon": "✂️",
-      "title": "식비 평소 지출 10% 조정 시 월 $90",
-      "body": "최근 6개월 중 6개월 발생했고 중앙값은 $905입니다. 일회성 급증이 아닌 평소 수준에서 10%인 $90을 줄이는 목표가 현실적입니다.",
+      "title": "식비 평소 지출 10% 조정 시 월 $95",
+      "body": "최근 6개월 중 6개월 발생했고 중앙값은 $946입니다. 일회성 급증이 아닌 평소 수준에서 10%인 $95을 줄이는 목표가 현실적입니다.",
       "severity": "medium",
       "score": 57,
       "evidence": [
-        "최근 중앙값: $905",
+        "최근 중앙값: $946",
         "출현율: 100%",
-        "월 목표: $90"
+        "월 목표: $95"
       ],
       "top": false
     },
     {
       "tier": "insight",
       "icon": "📌",
-      "title": "반복지출 후보 4개 · 월 $641",
+      "title": "반복지출 후보 4개 · 월 $642",
       "body": "mazda $475, dte $76, verizon $50, xfinity $40. 매월 자동으로 빠지는 항목인지 확인하면 고정비 관리가 쉬워집니다.",
       "severity": "low",
       "score": 56,
       "evidence": [
-        "mazda: 6개월 반복, 출현율 100%, 중앙값 $475",
-        "dte: 6개월 반복, 출현율 100%, 중앙값 $76",
-        "verizon: 5개월 반복, 출현율 83%, 중앙값 $50",
-        "xfinity: 6개월 반복, 출현율 100%, 중앙값 $40"
+        "mazda: 7개월 반복, 출현율 100%, 중앙값 $475",
+        "dte: 7개월 반복, 출현율 100%, 중앙값 $76",
+        "verizon: 6개월 반복, 출현율 86%, 중앙값 $50",
+        "xfinity: 7개월 반복, 출현율 100%, 중앙값 $40"
       ],
       "top": false
     },
     {
       "tier": "insight",
       "icon": "🌱",
-      "title": "기타 지출 $341 감소",
-      "body": "기타 지출이 과거 평균보다 $341 줄었습니다. 무리 없이 줄어든 항목이라면 다음 달에도 같은 패턴을 유지해보세요.",
+      "title": "가족지원 지출 $463 감소",
+      "body": "가족지원 지출이 과거 평균보다 $463 줄었습니다. 무리 없이 줄어든 항목이라면 다음 달에도 같은 패턴을 유지해보세요.",
       "severity": "good",
       "score": 54,
       "evidence": [
-        "기타 과거 평균 대비 변화: -$341"
+        "가족지원 과거 평균 대비 변화: -$463"
       ],
       "top": false
     },
@@ -8118,8 +8187,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🧾",
-      "title": "이번 달 신규·불규칙 구독 $23",
-      "body": "클라우드, ai 구독 항목은 반복 이력이 충분하지 않아 연간 금액으로 확대하지 않았습니다.",
+      "title": "이번 달 신규·불규칙 구독 $115",
+      "body": "ai 구독, 연회비 항목은 반복 이력이 충분하지 않아 연간 금액으로 확대하지 않았습니다.",
       "severity": "low",
       "score": 44,
       "top": false
@@ -8128,91 +8197,91 @@ window.APP_DATA = {
       "tier": "insight",
       "icon": "📊",
       "title": "최근 3개월 지출 증가 추세",
-      "body": "최근 3개월 중앙값 $3,968은 이전 3개월 중앙값 $3,293 대비 +21%입니다.",
+      "body": "최근 3개월 중앙값 $4,781은 이전 3개월 중앙값 $3,293 대비 +45%입니다.",
       "severity": "low",
       "score": 40,
       "evidence": [
-        "이전 3개월: $4,501, $2,719, $3,293",
-        "최근 3개월: $3,968, $4,781, $3,800"
+        "이전 3개월: $2,719, $3,293, $3,968",
+        "최근 3개월: $4,781, $3,800, $6,083"
       ],
       "top": false
     }
   ],
   "scores": {
     "health": {
-      "score": 45,
+      "score": 40,
       "label": "보완 필요",
       "parts": {
-        "저축률": 0,
-        "현금흐름": 100,
+        "저축률": 70,
+        "현금흐름": 0,
         "비상금": 15,
-        "소비안정성": 80
+        "소비안정성": 70
       },
       "method": "ratio_based_heuristic"
     },
     "lifestyle_inflation": {
-      "score": 90,
+      "score": 100,
       "label": "높음",
       "method": "recent_3m_vs_prior_3m"
     },
     "savings_momentum": {
-      "score": 50,
-      "label": "데이터 부족",
+      "score": 100,
+      "label": "가속",
       "method": "three_consecutive_valid_months"
     }
   },
   "action_items": {
     "now": [
+      "7월 적자 $1,023 — 다음달 변동지출 한도 $3,496 설정",
       "남은 30일 변동지출 하루 $81 이하로 관리",
-      "생활용품 급증분 점검 (과거比 +$994)"
+      "생활용품 급증분 점검 (과거比 +$1,294)"
     ],
-    "keep": [
-      "평소 저축률 21% 유지 습관"
-    ],
+    "keep": [],
     "reduce": [
       "확인된 구독 3종 중 ott 이용 여부 점검",
-      "식비 평소 지출 월 $90 조정 목표"
+      "식비 평소 지출 월 $95 조정 목표"
     ],
     "watch": [
       "반복지출 후보 7개 확인"
     ]
   },
   "insight_meta": {
-    "analysis_month": "2026-06",
+    "analysis_month": "2026-07",
     "baseline_months": [
       "2026-01",
       "2026-02",
       "2026-03",
       "2026-04",
-      "2026-05"
+      "2026-05",
+      "2026-06"
     ],
     "assumptions": "비상금 4개월, 예산 없음→과거 완료월 기준",
     "cat_increase_top": [
       {
         "name": "생활용품",
-        "delta": 1030
+        "delta": 1357
       },
       {
-        "name": "가족지원",
-        "delta": 164
+        "name": "여행",
+        "delta": 875
       },
       {
-        "name": "경조사/회비",
-        "delta": 100
+        "name": "대출",
+        "delta": 495
       }
     ],
     "cat_decrease_top": [
       {
-        "name": "기타",
-        "delta": -341
+        "name": "가족지원",
+        "delta": -463
       },
       {
         "name": "보험",
-        "delta": -315
+        "delta": -304
       },
       {
-        "name": "식비",
-        "delta": -201
+        "name": "차량유지비",
+        "delta": -212
       }
     ],
     "history_range": {
