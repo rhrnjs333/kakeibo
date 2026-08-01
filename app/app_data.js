@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-08-01T09:50:02",
+    "generated_at": "2026-08-01T10:05:14",
     "source_file": "2026 가계부.xlsx",
     "current_month": "8월"
   },
   "summary": {
-    "total_wealth": 4352.72,
-    "cash_total": 2323.49,
-    "saving": 4113.15,
-    "prev_balance": 3116.43,
-    "card_balance": -2083.92,
-    "net": 239.57,
-    "total_positive": 6436.64,
-    "total_negative": -2083.93,
-    "net_worth": 4352.71
+    "total_wealth": 6139.38,
+    "cash_total": 4750.63,
+    "saving": 5068.78,
+    "prev_balance": 3697.99,
+    "card_balance": -3680.03,
+    "net": 1070.6,
+    "total_positive": 9819.41,
+    "total_negative": -5079.81,
+    "net_worth": 4739.6
   },
   "accounts": [
     {
@@ -26,8 +26,8 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 2323.49,
-      "prev_balance": 5200.35,
+      "balance": 4750.63,
+      "prev_balance": 7627.49,
       "income": 0.0,
       "expense": 2876.86
     },
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -1222.76,
-      "prev_balance": -1222.76,
+      "balance": -3114.66,
+      "prev_balance": -3364.13,
       "income": 0.0,
-      "expense": 0.0
+      "expense": -249.47
     },
     {
       "key": "Chase Marriott",
@@ -52,8 +52,8 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -442.57,
-      "prev_balance": -442.57,
+      "balance": -502.5,
+      "prev_balance": -502.5,
       "income": 0.0,
       "expense": 0.0
     },
@@ -65,8 +65,8 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": -418.6,
-      "prev_balance": -418.6,
+      "balance": -62.88,
+      "prev_balance": -62.88,
       "income": 0.0,
       "expense": 0.0
     },
@@ -78,8 +78,8 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": 0.0,
-      "prev_balance": 0.0,
+      "balance": -1399.77,
+      "prev_balance": -1399.77,
       "income": 0.0,
       "expense": 0.0
     },
@@ -91,10 +91,10 @@ window.APP_DATA = {
       "logo": "RH",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": 4113.15,
-      "prev_balance": 4113.15,
+      "balance": 5068.78,
+      "prev_balance": 5113.15,
       "income": 0.0,
-      "expense": 0.0
+      "expense": 44.37
     },
     {
       "key": "Roth IRA",
@@ -111,9 +111,9 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 2323.49,
-    "신용카드 (부채)": -2083.93,
-    "투자 자산": 4113.15
+    "현금성 자산": 3350.86,
+    "신용카드 (부채)": -3680.04,
+    "투자 자산": 5068.78
   },
   "categories": {
     "fixed": [
@@ -122,7 +122,12 @@ window.APP_DATA = {
         "amount": 2876.86
       }
     ],
-    "variable": []
+    "variable": [
+      {
+        "name": "생활용품",
+        "amount": 44.37
+      }
+    ]
   },
   "category_master": {
     "fixed": {
@@ -224,13 +229,13 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 2876.86,
+  "category_total": 2671.76,
   "monthly": {
     "2026-01": {
-      "expense": 4501.44,
+      "expense": 4463.38,
       "income": 5950.09,
       "fixed": 2622.56,
-      "variable": 1878.88,
+      "variable": 1840.82,
       "invest_deposit": 2000.0,
       "categories": {
         "fixed": [
@@ -262,7 +267,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 887.44
+            "amount": 849.38
           },
           {
             "name": "생활용품",
@@ -353,10 +358,10 @@ window.APP_DATA = {
       }
     },
     "2026-03": {
-      "expense": 3292.82,
+      "expense": 3246.61,
       "income": 17571.03,
       "fixed": 1289.59,
-      "variable": 2003.23,
+      "variable": 1957.02,
       "invest_deposit": 2000.0,
       "categories": {
         "fixed": [
@@ -388,7 +393,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 1077.93
+            "amount": 1031.72
           },
           {
             "name": "생활용품",
@@ -418,10 +423,10 @@ window.APP_DATA = {
       }
     },
     "2026-04": {
-      "expense": 3968.43,
+      "expense": 3945.69,
       "income": 6429.31,
       "fixed": 850.41,
-      "variable": 3118.02,
+      "variable": 3095.28,
       "invest_deposit": 8000.0,
       "categories": {
         "fixed": [
@@ -449,7 +454,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 969.91
+            "amount": 947.17
           },
           {
             "name": "문화/여가",
@@ -540,10 +545,10 @@ window.APP_DATA = {
       }
     },
     "2026-06": {
-      "expense": 3799.72,
+      "expense": 3747.0,
       "income": 6243.64,
       "fixed": 1380.71,
-      "variable": 2419.01,
+      "variable": 2366.29,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -575,7 +580,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 719.97
+            "amount": 667.25
           },
           {
             "name": "생활용품",
@@ -601,10 +606,10 @@ window.APP_DATA = {
       }
     },
     "2026-07": {
-      "expense": 6082.81,
-      "income": 5059.99,
+      "expense": 6570.09,
+      "income": 7608.2,
       "fixed": 1387.53,
-      "variable": 4695.28,
+      "variable": 5182.56,
       "invest_deposit": 1000.0,
       "categories": {
         "fixed": [
@@ -628,11 +633,11 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 1356.81
+            "amount": 1361.91
           },
           {
             "name": "생활용품",
-            "amount": 1671.39
+            "amount": 2153.57
           },
           {
             "name": "의복/미용",
@@ -654,10 +659,10 @@ window.APP_DATA = {
       }
     },
     "2026-08": {
-      "expense": 2876.86,
+      "expense": 2671.76,
       "income": 0.0,
       "fixed": 2876.86,
-      "variable": 0,
+      "variable": 44.37,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -666,7 +671,12 @@ window.APP_DATA = {
             "amount": 2876.86
           }
         ],
-        "variable": []
+        "variable": [
+          {
+            "name": "생활용품",
+            "amount": 44.37
+          }
+        ]
       }
     }
   },
@@ -2634,10 +2644,73 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-08-01",
+      "category": "기타",
+      "subcategory": "기타",
+      "memo": "Point redemption",
+      "account": "Chase Sphire",
+      "amount": -249.47,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-31",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "amazon - sofa",
+      "account": "Robinhood Bank",
+      "amount": 432.18,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-31",
+      "category": "건강/의료",
+      "subcategory": "운동/스포츠",
+      "memo": "Golf",
+      "account": "Robinhood Bank",
+      "amount": 16.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-31",
+      "category": "건강/의료",
+      "subcategory": "운동/스포츠",
+      "memo": "Golf",
+      "account": "Robinhood Bank",
+      "amount": 10.48,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-31",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "costco",
+      "account": "Robinhood Bank",
+      "amount": 28.66,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-31",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Asian mart",
+      "account": "Robinhood Bank",
+      "amount": 22.97,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-31",
+      "account": "Chase",
+      "amount": 2548.21,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
+    },
+    {
       "date": "2026-07-30",
-      "category": "",
-      "subcategory": "클라우드",
-      "memo": "Google Nest Router",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "facebook market",
       "account": "Chase",
       "amount": 50.0,
       "type": "variable"
@@ -2658,6 +2731,24 @@ window.APP_DATA = {
       "memo": "주유",
       "account": "Discover",
       "amount": 54.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-30",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심",
+      "account": "Chase Sphire",
+      "amount": 18.14,
+      "type": "variable"
+    },
+    {
+      "date": "2026-07-30",
+      "category": "건강/의료",
+      "subcategory": "운동/스포츠",
+      "memo": "Planet Rock",
+      "account": "Robinhood Bank",
+      "amount": 23.0,
       "type": "variable"
     },
     {
@@ -2968,8 +3059,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-07-18",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "Tiger Market",
       "account": "Robinhood Bank",
       "amount": 21.98,
@@ -3391,8 +3482,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-07-06",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "Tiger Market",
       "account": "Chase Sphire",
       "amount": 42.69,
@@ -3635,7 +3726,7 @@ window.APP_DATA = {
     {
       "date": "2026-07-01",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - chick fil a",
       "account": "Chase Sphire",
       "amount": 12.82,
@@ -3913,8 +4004,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-06-22",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "Tiger Market",
       "account": "Chase Sphire",
       "amount": 12.47,
@@ -4084,8 +4175,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-06-15",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "Tiger Market",
       "account": "Chase Sphire",
       "amount": 17.28,
@@ -4111,8 +4202,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-06-13",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "Tiger Market",
       "account": "Discover",
       "amount": 22.97,
@@ -4202,7 +4293,7 @@ window.APP_DATA = {
     {
       "date": "2026-06-09",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "저녁 - Five Guys",
       "account": "Chase Sphire",
       "amount": 14.41,
@@ -5003,7 +5094,7 @@ window.APP_DATA = {
     {
       "date": "2026-05-06",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - chick fil a",
       "account": "Chase Sphire",
       "amount": 12.18,
@@ -5282,7 +5373,7 @@ window.APP_DATA = {
     {
       "date": "2026-04-20",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - Chick fil a",
       "account": "Chase Sphire",
       "amount": 12.18,
@@ -5560,8 +5651,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-04-07",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "Tiger Market",
       "account": "Chase Sphire",
       "amount": 22.74,
@@ -5903,7 +5994,7 @@ window.APP_DATA = {
     {
       "date": "2026-03-25",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - Panda Express",
       "account": "Chase Sphire",
       "amount": 9.33,
@@ -5948,7 +6039,7 @@ window.APP_DATA = {
     {
       "date": "2026-03-24",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - chick fil a",
       "account": "Chase Sphire",
       "amount": 12.6,
@@ -5956,8 +6047,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-03-23",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "tiger market",
       "account": "Chase Sphire",
       "amount": 14.23,
@@ -6173,7 +6264,7 @@ window.APP_DATA = {
     {
       "date": "2026-03-16",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 -  Mcdonald",
       "account": "Chase Sphire",
       "amount": 9.23,
@@ -6380,7 +6471,7 @@ window.APP_DATA = {
     {
       "date": "2026-03-09",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - Panda Express",
       "account": "Chase Sphire",
       "amount": 9.33,
@@ -6452,7 +6543,7 @@ window.APP_DATA = {
     {
       "date": "2026-03-05",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - Mcdonald",
       "account": "Chase Sphire",
       "amount": 9.23,
@@ -6470,7 +6561,7 @@ window.APP_DATA = {
     {
       "date": "2026-03-04",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - Mcdonald",
       "account": "Chase Sphire",
       "amount": 7.61,
@@ -6478,8 +6569,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-03-04",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "tiger market",
       "account": "Chase Sphire",
       "amount": 31.98,
@@ -6542,7 +6633,7 @@ window.APP_DATA = {
     {
       "date": "2026-02-28",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - Mcdonald",
       "account": "Chase Sphire",
       "amount": 8.05,
@@ -6596,7 +6687,7 @@ window.APP_DATA = {
     {
       "date": "2026-02-25",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - Mcdonald",
       "account": "Chase Sphire",
       "amount": 9.74,
@@ -7288,8 +7379,8 @@ window.APP_DATA = {
     },
     {
       "date": "2026-01-27",
-      "category": "식비",
-      "subcategory": "식재료",
+      "category": "",
+      "subcategory": "",
       "memo": "Tiger market",
       "account": "Chase Sphire",
       "amount": 38.06,
@@ -7316,7 +7407,7 @@ window.APP_DATA = {
     {
       "date": "2026-01-26",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - chick fil a",
       "account": "Chase Sphire",
       "amount": 10.32,
@@ -7775,7 +7866,7 @@ window.APP_DATA = {
     {
       "date": "2026-01-08",
       "category": "식비",
-      "subcategory": "외식",
+      "subcategory": "패스트푸드",
       "memo": "점심 - chick fil a",
       "account": "Chase Sphire",
       "amount": 12.6,
@@ -7947,18 +8038,9 @@ window.APP_DATA = {
   "insights": [
     {
       "tier": "alert",
-      "icon": "📉",
-      "title": "7월 적자 -$1,023",
-      "body": "7월은 수입 $5,060보다 지출 $6,083이 많아 $1,023 적자입니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
-      "severity": "high",
-      "score": 95,
-      "top": true
-    },
-    {
-      "tier": "alert",
       "icon": "🔺",
-      "title": "생활용품 지출 343% 급증",
-      "body": "7월 생활용품 지출이 $1,671로 과거 평균 $377보다 343%($1,294) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "title": "생활용품 지출 471% 급증",
+      "body": "7월 생활용품 지출이 $2,154로 과거 평균 $377보다 471%($1,777) 많습니다. 일회성인지 반복되는지 확인하세요.",
       "severity": "high",
       "score": 95,
       "evidence": [
@@ -7980,36 +8062,36 @@ window.APP_DATA = {
     },
     {
       "tier": "alert",
-      "icon": "🔺",
-      "title": "대출 지출 104% 급증",
-      "body": "7월 대출 지출이 $970로 과거 평균 $475보다 104%($495) 많습니다. 일회성인지 반복되는지 확인하세요.",
-      "severity": "high",
-      "score": 95,
-      "evidence": [
-        "비교 대상: 최근 6개월 평균 $475"
-      ],
-      "top": true
-    },
-    {
-      "tier": "alert",
       "icon": "🧭",
-      "title": "8월 예상 지출 $6,634",
-      "body": "1일차 현재 지출 $2,877입니다. 과거 지출 시점을 반영하면 월말 $6,634로 최근 기준 $3,968 대비 $2,665 차이로 마감될 수 있어요.",
+      "title": "8월 예상 지출 $6,407",
+      "body": "1일차 현재 지출 $2,672입니다. 과거 지출 시점을 반영하면 월말 $6,407로 최근 기준 $3,946 대비 $2,461 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 90,
       "forecast": {
-        "expense": 6633.58,
-        "daily_limit": 80.63,
+        "expense": 6406.96,
+        "daily_limit": 77.4,
         "historical_progress": 0.0533,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
         "분석일수: 1/31일",
-        "현재 지출: $2,877",
-        "과거 지출 중앙값: $3,968",
+        "현재 지출: $2,672",
+        "과거 지출 중앙값: $3,946",
         "과거 패턴상 현재 시점 누적 비중: 5% (18개월)",
-        "남은 기간 변동지출 일일 한도: $81"
+        "남은 기간 변동지출 일일 한도: $77"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "식비 지출 58% 급증",
+      "body": "7월 식비 지출이 $1,362로 과거 평균 $861보다 58%($501) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "medium",
+      "score": 86.6,
+      "evidence": [
+        "비교 대상: 최근 6개월 평균 $861"
       ],
       "top": true
     },
@@ -8031,7 +8113,7 @@ window.APP_DATA = {
         "비교 기간: 1월~6월"
       ],
       "source": "연말정산 RAW DATA",
-      "top": false
+      "top": true
     },
     {
       "tier": "alert",
@@ -8056,8 +8138,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "💰",
-      "title": "7월 투자저축 $1,000 (저축률 20%)",
-      "body": "수입 $5,060 중 $1,000을 Robinhood·Roth IRA에 납입했습니다. 최근 평균 저축률은 11%입니다.",
+      "title": "7월 투자저축 $1,000 (저축률 13%)",
+      "body": "수입 $7,608 중 $1,000을 Robinhood·Roth IRA에 납입했습니다. 최근 평균 저축률은 11%입니다.",
       "severity": "medium",
       "score": 80,
       "top": false
@@ -8093,21 +8175,21 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $7,700~$11,908",
-      "body": "최근 7개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,655이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $10,184~$14,389",
+      "body": "최근 7개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $12,201이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 7699.54,
-        "mid": 9655.25,
-        "high": 11908.22,
+        "low": 10183.76,
+        "mid": 12201.49,
+        "high": 14389.0,
         "sample_months": 7
       },
       "evidence": [
-        "현재 현금: $2,323",
-        "월 순현금흐름 25백분위: $1,792",
-        "월 순현금흐름 중앙값: $2,444",
-        "월 순현금흐름 75백분위: $3,195"
+        "현재 현금: $4,751",
+        "월 순현금흐름 25백분위: $1,811",
+        "월 순현금흐름 중앙값: $2,484",
+        "월 순현금흐름 75백분위: $3,213"
       ],
       "top": false
     },
@@ -8115,11 +8197,11 @@ window.APP_DATA = {
       "tier": "recommendation",
       "icon": "✂️",
       "title": "식비 평소 지출 10% 조정 시 월 $95",
-      "body": "최근 6개월 중 6개월 발생했고 중앙값은 $946입니다. 일회성 급증이 아닌 평소 수준에서 10%인 $95을 줄이는 목표가 현실적입니다.",
+      "body": "최근 6개월 중 6개월 발생했고 중앙값은 $934입니다. 일회성 급증이 아닌 평소 수준에서 10%인 $95을 줄이는 목표가 현실적입니다.",
       "severity": "medium",
       "score": 57,
       "evidence": [
-        "최근 중앙값: $946",
+        "최근 중앙값: $934",
         "출현율: 100%",
         "월 목표: $95"
       ],
@@ -8197,25 +8279,25 @@ window.APP_DATA = {
       "tier": "insight",
       "icon": "📊",
       "title": "최근 3개월 지출 증가 추세",
-      "body": "최근 3개월 중앙값 $4,781은 이전 3개월 중앙값 $3,293 대비 +45%입니다.",
+      "body": "최근 3개월 중앙값 $4,781은 이전 3개월 중앙값 $3,247 대비 +47%입니다.",
       "severity": "low",
       "score": 40,
       "evidence": [
-        "이전 3개월: $2,719, $3,293, $3,968",
-        "최근 3개월: $4,781, $3,800, $6,083"
+        "이전 3개월: $2,719, $3,247, $3,946",
+        "최근 3개월: $4,781, $3,747, $6,570"
       ],
       "top": false
     }
   ],
   "scores": {
     "health": {
-      "score": 40,
-      "label": "보완 필요",
+      "score": 60,
+      "label": "양호",
       "parts": {
-        "저축률": 70,
-        "현금흐름": 0,
-        "비상금": 15,
-        "소비안정성": 70
+        "저축률": 50,
+        "현금흐름": 85,
+        "비상금": 30,
+        "소비안정성": 65
       },
       "method": "ratio_based_heuristic"
     },
@@ -8225,16 +8307,15 @@ window.APP_DATA = {
       "method": "recent_3m_vs_prior_3m"
     },
     "savings_momentum": {
-      "score": 100,
+      "score": 85,
       "label": "가속",
       "method": "three_consecutive_valid_months"
     }
   },
   "action_items": {
     "now": [
-      "7월 적자 $1,023 — 다음달 변동지출 한도 $3,496 설정",
-      "남은 30일 변동지출 하루 $81 이하로 관리",
-      "생활용품 급증분 점검 (과거比 +$1,294)"
+      "남은 30일 변동지출 하루 $77 이하로 관리",
+      "생활용품 급증분 점검 (과거比 +$1,777)"
     ],
     "keep": [],
     "reduce": [
@@ -8259,15 +8340,15 @@ window.APP_DATA = {
     "cat_increase_top": [
       {
         "name": "생활용품",
-        "delta": 1357
+        "delta": 1839
       },
       {
         "name": "여행",
         "delta": 875
       },
       {
-        "name": "대출",
-        "delta": 495
+        "name": "식비",
+        "delta": 501
       }
     ],
     "cat_decrease_top": [
