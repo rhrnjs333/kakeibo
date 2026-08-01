@@ -564,6 +564,22 @@
   }
   .tx-amt.income { color: var(--positive); }
 
+  /* 로컬 즉시반영(동기화 대기) 거래 */
+  .tx-row.tx-local { background: rgba(0, 200, 150, 0.05); }
+  .tx-pill-sync {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    background: var(--accent-soft, rgba(0,200,150,.15));
+    color: var(--accent, #00C896);
+    vertical-align: 1px;
+  }
+  .tx-amt.pending-amt { opacity: .82; }
+
   /* Input Modal */
   .modal-bg {
     position: absolute;
@@ -2623,14 +2639,15 @@
               const isInflow = isCashInflow(t);
               const amtCls = isInflow ? 'income' : '';
               const amtTxt = `${isInflow ? '+' : '-'}$${Math.abs(t.amount).toLocaleString('en-US', {minimumFractionDigits:2,maximumFractionDigits:2})}`;
+              const pending = !!t._local;
               return `
-                <div class="tx-row" data-account="${acc}">
+                <div class="tx-row${pending ? ' tx-local' : ''}" data-account="${acc}">
                   <div class="tx-icon"${isInflow ? ' style="background:var(--accent-soft);"' : ''}>${icon}</div>
                   <div class="tx-info">
                     <div class="tx-name">${memo || cat || sub}</div>
-                    <div class="tx-sub">${cat}${sub ? ' · ' + sub : ''} · ${acc}</div>
+                    <div class="tx-sub">${cat}${sub ? ' · ' + sub : ''} · ${acc}${pending ? '<span class="tx-pill-sync">동기화 대기</span>' : ''}</div>
                   </div>
-                  <div class="tx-amt ${amtCls}">${amtTxt}</div>
+                  <div class="tx-amt ${amtCls}${pending ? ' pending-amt' : ''}">${amtTxt}</div>
                 </div>`;
             }).join('')}
           </div>
@@ -2887,14 +2904,30 @@
       if (isIncome) localStorage.setItem('lastIncomeAccount', account);
     } catch (e) {}
 
+    // 전송 성공 여부와 무관하게 로컬에 즉시 반영 (전송 실패분도 화면에는 보이게)
+    try {
+      addLocalTx({
+        id:          (payload.timestamp || '') + '-' + Math.random().toString(36).slice(2, 8),
+        ts:          localISO(new Date()),
+        date:        `${y}-${m}-${dd}`,
+        type:        isIncome ? 'income' : modalType,
+        category:    isIncome ? '수입' : modalMain,
+        subcategory: isIncome ? '' : modalSub,
+        memo:        isIncome ? '수입' : memo,
+        account:     account,
+        amount:      amount,
+      });
+      refreshAfterLocalChange();
+    } catch (e) { console.error('localTx', e); }
+
     if (sentOk) {
       showToast(isIncome
-        ? '✅ 수입이 저장되었습니다 — 다음 동기화 때 입금 내역에 반영됩니다'
-        : '✅ 저장되었습니다 — 다음 동기화 때 엑셀에 반영됩니다', 'success');
+        ? '✅ 수입 반영됨 — 화면에 바로 표시, 동기화 때 엑셀에 기록됩니다'
+        : '✅ 저장됨 — 화면에 바로 반영, 동기화 때 엑셀에 기록됩니다', 'success');
     } else {
       // 오프라인이거나 전송 실패 → 큐에 보관, 다음 접속 시 자동 재전송
       pushPending(payload);
-      showToast('📥 오프라인 저장됨 — 연결되면 자동 전송', 'info');
+      showToast('📥 오프라인 저장됨 — 화면에는 반영, 연결되면 자동 전송', 'info');
     }
 
     btn.disabled = false;
@@ -2924,12 +2957,132 @@
   window.addEventListener('online', flushPending);
 
   // ============================================================
+  // 로컬 즉시반영 오버레이 (localTx)
+  // ------------------------------------------------------------
+  // 목적: 입력 즉시 거래목록 / 홈 요약 / 카테고리 분석에 반영.
+  // 정리: app_data.js 의 meta.generated_at 이후에 입력된 것만 임시로 유지.
+  //       동기화·배포로 generated_at 이 넘어가면 자동 소멸(중복 방지).
+  // 주의: 계좌 잔액(summary/accounts)은 건드리지 않는다 — 엑셀 계산 로직이 원천.
+  // ============================================================
+  const LOCAL_TX_KEY = 'localTx';
+  const LOCAL_TX_MAX_AGE_DAYS = 14;   // generated_at 이 오래 멈춰도 무한 누적 방지
+  let __BASE_SNAPSHOT = null;         // APP_DATA 원본(오버레이 이전) 보관
+
+  // 'YYYY-MM-DDTHH:MM:SS' 로컬시각 문자열 (generated_at 과 같은 포맷 → 문자열 비교 가능)
+  function localISO(dt) {
+    const p = n => String(n).padStart(2, '0');
+    return `${dt.getFullYear()}-${p(dt.getMonth() + 1)}-${p(dt.getDate())}` +
+           `T${p(dt.getHours())}:${p(dt.getMinutes())}:${p(dt.getSeconds())}`;
+  }
+
+  function getLocalTx() {
+    try { return JSON.parse(localStorage.getItem(LOCAL_TX_KEY) || '[]'); }
+    catch (e) { return []; }
+  }
+  function setLocalTx(arr) {
+    try { localStorage.setItem(LOCAL_TX_KEY, JSON.stringify(arr)); } catch (e) {}
+  }
+
+  // generated_at 이전 입력분 + 너무 오래된 항목 제거
+  function pruneLocalTx() {
+    const gen = (window.APP_DATA && window.APP_DATA.meta && window.APP_DATA.meta.generated_at) || '';
+    const cutoff = localISO(new Date(Date.now() - LOCAL_TX_MAX_AGE_DAYS * 86400000));
+    const kept = getLocalTx().filter(t => {
+      const ts = t.ts || '';
+      if (!ts) return false;
+      if (ts < cutoff) return false;      // 너무 오래됨
+      if (gen && ts <= gen) return false; // 이미 정식 데이터에 반영됨
+      return true;
+    });
+    setLocalTx(kept);
+    return kept;
+  }
+
+  function addLocalTx(rec) {
+    const arr = getLocalTx();
+    arr.push(rec);
+    setLocalTx(arr);
+  }
+
+  // 오버레이 적용: 원본 스냅샷 + localTx → window.APP_DATA 재구성 (반복 호출 안전)
+  function applyLocalOverlay() {
+    const d = window.APP_DATA;
+    if (!d) return;
+    if (!__BASE_SNAPSHOT) {
+      __BASE_SNAPSHOT = {
+        transactions: JSON.parse(JSON.stringify(d.transactions || [])),
+        monthly:      JSON.parse(JSON.stringify(d.monthly || {})),
+      };
+    }
+    const local = pruneLocalTx();
+
+    // 1) 거래목록: 원본 복원 후 로컬건 합치고 날짜 내림차순
+    const txs = JSON.parse(JSON.stringify(__BASE_SNAPSHOT.transactions));
+    const monthly = JSON.parse(JSON.stringify(__BASE_SNAPSHOT.monthly));
+
+    local.forEach(t => {
+      txs.push({
+        date:        t.date,
+        category:    t.category || '',
+        subcategory: t.subcategory || '',
+        memo:        t.memo || '',
+        account:     t.account,
+        amount:      t.amount,
+        type:        t.type,
+        _local:      true,
+        _ts:         t.ts,
+      });
+
+      // 2) 월별 요약(홈 예산카드 · 분석 월별지출 · 카테고리 TOP3의 권위값)
+      const ym = (t.date || '').slice(0, 7);
+      if (ym.length !== 7) return;
+      const m = monthly[ym] || (monthly[ym] = {
+        expense: 0, income: 0, fixed: 0, variable: 0, invest_deposit: 0,
+        categories: { fixed: [], variable: [] },
+      });
+      m.categories = m.categories || { fixed: [], variable: [] };
+      m.categories.fixed = m.categories.fixed || [];
+      m.categories.variable = m.categories.variable || [];
+
+      const amt = Number(t.amount) || 0;
+      if (t.type === 'income') {
+        m.income = (m.income || 0) + Math.abs(amt);
+        return;
+      }
+      m.expense = (m.expense || 0) + amt;
+      const bucket = t.type === 'fixed' ? 'fixed' : 'variable';
+      m[bucket] = (m[bucket] || 0) + amt;
+
+      const catName = (t.category || '기타').trim();
+      const list = m.categories[bucket];
+      const hit = list.find(c => (c.name || '').trim() === catName);
+      if (hit) hit.amount = (hit.amount || 0) + amt;
+      else list.push({ name: catName, amount: amt });
+    });
+
+    txs.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+    d.transactions = txs;
+    d.monthly = monthly;
+  }
+
+  // 오버레이 반영 후 관련 화면 재렌더
+  function refreshAfterLocalChange() {
+    applyLocalOverlay();
+    const d = window.APP_DATA;
+    if (!d) return;
+    try { renderHome(d); }         catch (e) { console.error('renderHome', e); }
+    try { renderTransactions(d); } catch (e) { console.error('renderTransactions', e); }
+    try { renderAnalysis(d); }     catch (e) { console.error('renderAnalysis', e); }
+  }
+
+  // ============================================================
   // 부트스트랩 — window.APP_DATA 바인딩 (앱 로드 시 1회)
   // ============================================================
   (function init() {
     try { populateAccountSelect(); } catch (e) { console.error('populateAccountSelect', e); }
     try { resetModalForm(); }        catch (e) { console.error('resetModalForm', e); }
     try { setPending(getPending()); } catch (e) {}
+    try { applyLocalOverlay(); }      catch (e) { console.error('applyLocalOverlay', e); }
     const d = window.APP_DATA;
     if (d) {
       try { renderHome(d); }         catch (e) { console.error('renderHome', e); }
