@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-08-04T21:12:14",
+    "generated_at": "2026-08-05T23:08:17",
     "source_file": "2026 가계부.xlsx",
     "current_month": "8월"
   },
   "summary": {
-    "total_wealth": 5815.29,
+    "total_wealth": 5837.97,
     "cash_total": 1544.75,
     "saving": 5068.78,
     "prev_balance": 3654.07,
-    "card_balance": -798.24,
-    "net": 746.51,
+    "card_balance": -775.56,
+    "net": 769.19,
     "total_positive": 6613.53,
-    "total_negative": -2394.48,
-    "net_worth": 4219.05
+    "total_negative": -2571.8,
+    "net_worth": 4041.73
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -63.88,
+      "balance": -23.2,
       "prev_balance": -3364.13,
-      "income": 3187.95,
-      "expense": -112.3
+      "income": 3234.66,
+      "expense": -106.27
     },
     {
       "key": "Chase Marriott",
@@ -65,10 +65,10 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": -136.87,
+      "balance": -154.87,
       "prev_balance": -88.87,
       "income": 0.0,
-      "expense": 48.0
+      "expense": 66.0
     },
     {
       "key": "Robinhood Bank",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -1596.23,
+      "balance": -1796.23,
       "prev_balance": -1399.77,
       "income": 0.0,
-      "expense": 196.46
+      "expense": 396.46
     },
     {
       "key": "Robinhood",
@@ -111,8 +111,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": -51.48,
-    "신용카드 (부채)": -798.25,
+    "현금성 자산": -251.48,
+    "신용카드 (부채)": -775.57,
     "투자 자산": 5068.78
   },
   "categories": {
@@ -129,7 +129,7 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 134.61
+        "amount": 140.64
       },
       {
         "name": "생활용품",
@@ -137,11 +137,11 @@ window.APP_DATA = {
       },
       {
         "name": "여행",
-        "amount": 120.0
+        "amount": 320.0
       },
       {
         "name": "차량유지비",
-        "amount": 48.0
+        "amount": 66.0
       }
     ]
   },
@@ -245,7 +245,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 3148.39,
+  "category_total": 3372.42,
   "monthly": {
     "2026-01": {
       "expense": 4501.44,
@@ -675,10 +675,10 @@ window.APP_DATA = {
       }
     },
     "2026-08": {
-      "expense": 3148.39,
-      "income": 0.0,
+      "expense": 3372.42,
+      "income": 46.71,
       "fixed": 3021.86,
-      "variable": 376.0,
+      "variable": 600.03,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -694,7 +694,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 134.61
+            "amount": 140.64
           },
           {
             "name": "생활용품",
@@ -702,11 +702,11 @@ window.APP_DATA = {
           },
           {
             "name": "여행",
-            "amount": 120.0
+            "amount": 320.0
           },
           {
             "name": "차량유지비",
-            "amount": 48.0
+            "amount": 66.0
           }
         ]
       }
@@ -2744,6 +2744,42 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-08-05",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - Sojo SPA",
+      "account": "Robinhood Bank",
+      "amount": 200.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-05",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Mcdonald",
+      "account": "Chase Sphire",
+      "amount": 6.03,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-05",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Discover",
+      "amount": 18.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-05",
+      "account": "Chase Sphire",
+      "amount": 46.71,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
+    },
     {
       "date": "2026-08-04",
       "category": "차량유지비",
@@ -8263,23 +8299,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "8월 예상 지출 $6,312",
-      "body": "4일차 현재 지출 $3,148입니다. 과거 지출 시점을 반영하면 월말 $6,312로 최근 기준 $3,968 대비 $2,344 차이로 마감될 수 있어요.",
+      "title": "8월 예상 지출 $6,371",
+      "body": "5일차 현재 지출 $3,372입니다. 과거 지출 시점을 반영하면 월말 $6,371로 최근 기준 $3,968 대비 $2,403 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 90,
       "forecast": {
-        "expense": 6312.49,
-        "daily_limit": 75.67,
-        "historical_progress": 0.2027,
+        "expense": 6371.09,
+        "daily_limit": 69.96,
+        "historical_progress": 0.2444,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 4/31일",
-        "현재 지출: $3,148",
+        "분석일수: 5/31일",
+        "현재 지출: $3,372",
         "과거 지출 중앙값: $3,968",
-        "과거 패턴상 현재 시점 누적 비중: 20% (18개월)",
-        "남은 기간 변동지출 일일 한도: $76"
+        "과거 패턴상 현재 시점 누적 비중: 24% (18개월)",
+        "남은 기간 변동지출 일일 한도: $70"
       ],
       "top": true
     },
@@ -8532,7 +8568,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 27일 변동지출 하루 $76 이하로 관리",
+      "남은 26일 변동지출 하루 $70 이하로 관리",
       "생활용품 급증분 점검 (과거比 +$1,777)"
     ],
     "keep": [],
