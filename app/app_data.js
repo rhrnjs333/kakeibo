@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-08-05T23:08:17",
+    "generated_at": "2026-08-10T23:46:07",
     "source_file": "2026 가계부.xlsx",
     "current_month": "8월"
   },
   "summary": {
-    "total_wealth": 5837.97,
-    "cash_total": 1544.75,
+    "total_wealth": 5200.11,
+    "cash_total": 1534.75,
     "saving": 5068.78,
     "prev_balance": 3654.07,
-    "card_balance": -775.56,
-    "net": 769.19,
-    "total_positive": 6613.53,
-    "total_negative": -2571.8,
-    "net_worth": 4041.73
+    "card_balance": -1403.42,
+    "net": 131.33,
+    "total_positive": 6603.53,
+    "total_negative": -3867.62,
+    "net_worth": 2735.91
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 1544.75,
+      "balance": 1534.75,
       "prev_balance": 7609.56,
       "income": 0.0,
-      "expense": 6064.81
+      "expense": 6074.81
     },
     {
       "key": "Chase Sphire",
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -23.2,
+      "balance": -632.06,
       "prev_balance": -3364.13,
       "income": 3234.66,
-      "expense": -106.27
+      "expense": 502.59
     },
     {
       "key": "Chase Marriott",
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -597.5,
+      "balance": -616.5,
       "prev_balance": -502.5,
       "income": 0.0,
-      "expense": 95.0
+      "expense": 114.0
     },
     {
       "key": "Discover",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -1796.23,
+      "balance": -2464.19,
       "prev_balance": -1399.77,
       "income": 0.0,
-      "expense": 396.46
+      "expense": 1064.42
     },
     {
       "key": "Robinhood",
@@ -111,8 +111,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": -251.48,
-    "신용카드 (부채)": -775.57,
+    "현금성 자산": -929.44,
+    "신용카드 (부채)": -1403.43,
     "투자 자산": 5068.78
   },
   "categories": {
@@ -123,13 +123,13 @@ window.APP_DATA = {
       },
       {
         "name": "구독",
-        "amount": 145.0
+        "amount": 164.0
       }
     ],
     "variable": [
       {
         "name": "식비",
-        "amount": 140.64
+        "amount": 296.19
       },
       {
         "name": "생활용품",
@@ -137,11 +137,15 @@ window.APP_DATA = {
       },
       {
         "name": "여행",
-        "amount": 320.0
+        "amount": 1007.93
       },
       {
         "name": "차량유지비",
-        "amount": 66.0
+        "amount": 215.38
+      },
+      {
+        "name": "경조사/회비",
+        "amount": 293.96
       }
     ]
   },
@@ -245,7 +249,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 3372.42,
+  "category_total": 4678.24,
   "monthly": {
     "2026-01": {
       "expense": 4501.44,
@@ -675,10 +679,10 @@ window.APP_DATA = {
       }
     },
     "2026-08": {
-      "expense": 3372.42,
+      "expense": 4678.24,
       "income": 46.71,
-      "fixed": 3021.86,
-      "variable": 600.03,
+      "fixed": 3040.86,
+      "variable": 1886.85,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -688,13 +692,13 @@ window.APP_DATA = {
           },
           {
             "name": "구독",
-            "amount": 145.0
+            "amount": 164.0
           }
         ],
         "variable": [
           {
             "name": "식비",
-            "amount": 140.64
+            "amount": 296.19
           },
           {
             "name": "생활용품",
@@ -702,11 +706,15 @@ window.APP_DATA = {
           },
           {
             "name": "여행",
-            "amount": 320.0
+            "amount": 1007.93
           },
           {
             "name": "차량유지비",
-            "amount": 66.0
+            "amount": 215.38
+          },
+          {
+            "name": "경조사/회비",
+            "amount": 293.96
           }
         ]
       }
@@ -2745,6 +2753,312 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-08-10",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - 포드",
+      "account": "Chase Sphire",
+      "amount": 14.52,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-09",
+      "category": "구독",
+      "subcategory": "헬스장",
+      "memo": "Powerhouse",
+      "account": "Chase Marriott",
+      "amount": 19.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-08-09",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Aldi",
+      "account": "Robinhood Bank",
+      "amount": 14.81,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-09",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "hmart",
+      "account": "Robinhood Bank",
+      "amount": 29.51,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-09",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Aldi",
+      "account": "Robinhood Bank",
+      "amount": 3.29,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-09",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Costco",
+      "account": "Robinhood Bank",
+      "amount": 54.04,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-09",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Robinhood Bank",
+      "amount": 43.44,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - 버스",
+      "account": "Chase Sphire",
+      "amount": 54.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - Manhatto",
+      "account": "Chase Sphire",
+      "amount": 91.44,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "뉴욕여행 - 스타벅스",
+      "account": "Robinhood Bank",
+      "amount": 10.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - MTA",
+      "account": "Robinhood Bank",
+      "amount": 6.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "경조사/회비",
+      "subcategory": "선물",
+      "memo": "시연이 생일선물",
+      "account": "Robinhood Bank",
+      "amount": 293.96,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "Tea",
+      "account": "Robinhood Bank",
+      "amount": 10.03,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - anita icecream",
+      "account": "Robinhood Bank",
+      "amount": 13.63,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "식비",
+      "subcategory": "음료",
+      "memo": "음료",
+      "account": "Robinhood Bank",
+      "amount": 4.55,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "차량유지비",
+      "subcategory": "주차비",
+      "memo": "Parking",
+      "account": "Robinhood Bank",
+      "amount": 39.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-08",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "간식",
+      "account": "Chase",
+      "amount": 10.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - Raku",
+      "account": "Chase Sphire",
+      "amount": 92.79,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 -  ?",
+      "account": "Chase Sphire",
+      "amount": 45.2,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - Tomi Jazz",
+      "account": "Chase Sphire",
+      "amount": 139.79,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - Ben & Jack's",
+      "account": "Chase Sphire",
+      "amount": 176.89,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - 커피",
+      "account": "Robinhood Bank",
+      "amount": 7.62,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - MTA",
+      "account": "Robinhood Bank",
+      "amount": 18.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - 수박주스",
+      "account": "Robinhood Bank",
+      "amount": 5.44,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - Japanese Grocery Store",
+      "account": "Robinhood Bank",
+      "amount": 12.91,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - ?",
+      "account": "Robinhood Bank",
+      "amount": 2.99,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - Toptoy",
+      "account": "Robinhood Bank",
+      "amount": 55.5,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-06",
+      "category": "차량유지비",
+      "subcategory": "대중교통",
+      "memo": "뉴욕여행 -  Lyft",
+      "account": "Chase Sphire",
+      "amount": 66.94,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-06",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - 옥동식",
+      "account": "Chase Sphire",
+      "amount": 47.29,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-06",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - 커피",
+      "account": "Robinhood Bank",
+      "amount": 12.52,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-06",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - MTA",
+      "account": "Robinhood Bank",
+      "amount": 9.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-06",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "뉴욕여행 - 아이스크림",
+      "account": "Robinhood Bank",
+      "amount": 4.8,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-06",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - 물",
+      "account": "Robinhood Bank",
+      "amount": 1.17,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-06",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - 음료",
+      "account": "Robinhood Bank",
+      "amount": 15.75,
+      "type": "variable"
+    },
+    {
       "date": "2026-08-05",
       "category": "여행",
       "subcategory": "여행경비",
@@ -2841,6 +3155,15 @@ window.APP_DATA = {
       "memo": "global entry",
       "account": "Chase Sphire",
       "amount": 120.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-08-03",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "global entry (Deduction)",
+      "account": "Chase Sphire",
+      "amount": -120.0,
       "type": "variable"
     },
     {
@@ -8299,23 +8622,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "8월 예상 지출 $6,371",
-      "body": "5일차 현재 지출 $3,372입니다. 과거 지출 시점을 반영하면 월말 $6,371로 최근 기준 $3,968 대비 $2,403 차이로 마감될 수 있어요.",
+      "title": "8월 예상 지출 $6,828",
+      "body": "10일차 현재 지출 $4,678입니다. 과거 지출 시점을 반영하면 월말 $6,828로 최근 기준 $3,968 대비 $2,860 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 90,
       "forecast": {
-        "expense": 6371.09,
-        "daily_limit": 69.96,
-        "historical_progress": 0.2444,
+        "expense": 6828.33,
+        "daily_limit": 25.34,
+        "historical_progress": 0.4582,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 5/31일",
-        "현재 지출: $3,372",
+        "분석일수: 10/31일",
+        "현재 지출: $4,678",
         "과거 지출 중앙값: $3,968",
-        "과거 패턴상 현재 시점 누적 비중: 24% (18개월)",
-        "남은 기간 변동지출 일일 한도: $70"
+        "과거 패턴상 현재 시점 누적 비중: 46% (18개월)",
+        "남은 기간 변동지출 일일 한도: $25"
       ],
       "top": true
     },
@@ -8429,18 +8752,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $6,921~$11,129",
-      "body": "최근 7개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $8,877이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $6,911~$11,119",
+      "body": "최근 7개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $8,867이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 6920.8,
-        "mid": 8876.51,
-        "high": 11129.48,
+        "low": 6910.8,
+        "mid": 8866.51,
+        "high": 11119.48,
         "sample_months": 7
       },
       "evidence": [
-        "현재 현금: $1,545",
+        "현재 현금: $1,535",
         "월 순현금흐름 25백분위: $1,792",
         "월 순현금흐름 중앙값: $2,444",
         "월 순현금흐름 75백분위: $3,195"
@@ -8568,7 +8891,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 26일 변동지출 하루 $70 이하로 관리",
+      "남은 21일 변동지출 하루 $25 이하로 관리",
       "생활용품 급증분 점검 (과거比 +$1,777)"
     ],
     "keep": [],
