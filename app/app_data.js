@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-08-11T21:34:26",
+    "generated_at": "2026-08-12T01:21:21",
     "source_file": "2026 가계부.xlsx",
     "current_month": "8월"
   },
   "summary": {
-    "total_wealth": 5179.19,
-    "cash_total": 1528.88,
+    "total_wealth": 5149.96,
+    "cash_total": 1344.78,
     "saving": 5068.78,
     "prev_balance": 3654.07,
-    "card_balance": -1418.47,
-    "net": 110.41,
-    "total_positive": 6597.66,
-    "total_negative": -3882.67,
-    "net_worth": 2714.99
+    "card_balance": -1263.6,
+    "net": 81.18,
+    "total_positive": 6413.56,
+    "total_negative": -3762.74,
+    "net_worth": 2650.82
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 1528.88,
+      "balance": 1344.78,
       "prev_balance": 7609.56,
       "income": 0.0,
-      "expense": 6080.68
+      "expense": 6264.78
     },
     {
       "key": "Chase Sphire",
@@ -65,10 +65,10 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": -154.87,
+      "balance": 0.0,
       "prev_balance": -88.87,
-      "income": 0.0,
-      "expense": 66.0
+      "income": 139.87,
+      "expense": 51.0
     },
     {
       "key": "Robinhood Bank",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -2464.19,
+      "balance": -2499.13,
       "prev_balance": -1399.77,
       "income": 0.0,
-      "expense": 1064.42
+      "expense": 1099.36
     },
     {
       "key": "Robinhood",
@@ -111,8 +111,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": -935.31,
-    "신용카드 (부채)": -1418.48,
+    "현금성 자산": -1154.35,
+    "신용카드 (부채)": -1263.61,
     "투자 자산": 5068.78
   },
   "categories": {
@@ -123,17 +123,17 @@ window.APP_DATA = {
       },
       {
         "name": "구독",
-        "amount": 164.0
+        "amount": 214.12
       }
     ],
     "variable": [
       {
         "name": "식비",
-        "amount": 311.24
+        "amount": 317.11
       },
       {
         "name": "생활용품",
-        "amount": 73.39
+        "amount": 108.33
       },
       {
         "name": "여행",
@@ -141,7 +141,7 @@ window.APP_DATA = {
       },
       {
         "name": "차량유지비",
-        "amount": 215.38
+        "amount": 200.38
       },
       {
         "name": "경조사/회비",
@@ -249,7 +249,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 4693.29,
+  "category_total": 4769.22,
   "monthly": {
     "2026-01": {
       "expense": 4501.44,
@@ -679,10 +679,10 @@ window.APP_DATA = {
       }
     },
     "2026-08": {
-      "expense": 4693.29,
-      "income": 46.71,
-      "fixed": 3040.86,
-      "variable": 1901.9,
+      "expense": 4769.22,
+      "income": 52.6,
+      "fixed": 3090.98,
+      "variable": 1927.71,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -692,17 +692,17 @@ window.APP_DATA = {
           },
           {
             "name": "구독",
-            "amount": 164.0
+            "amount": 214.12
           }
         ],
         "variable": [
           {
             "name": "식비",
-            "amount": 311.24
+            "amount": 317.11
           },
           {
             "name": "생활용품",
-            "amount": 73.39
+            "amount": 108.33
           },
           {
             "name": "여행",
@@ -710,7 +710,7 @@ window.APP_DATA = {
           },
           {
             "name": "차량유지비",
-            "amount": 215.38
+            "amount": 200.38
           },
           {
             "name": "경조사/회비",
@@ -2753,10 +2753,28 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-08-12",
+      "category": "생활용품",
+      "subcategory": "가구/가전",
+      "memo": "Ikea",
+      "account": "Robinhood Bank",
+      "amount": 34.94,
+      "type": "variable"
+    },
+    {
       "date": "2026-08-11",
-      "category": "",
-      "subcategory": "",
-      "memo": "",
+      "category": "구독",
+      "subcategory": "연회비",
+      "memo": "Annual Fee (Prime)",
+      "account": "Chase",
+      "amount": 50.12,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-08-11",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - 은서네",
       "account": "Chase",
       "amount": 5.87,
       "type": "variable"
@@ -2769,6 +2787,15 @@ window.APP_DATA = {
       "account": "Chase Sphire",
       "amount": 15.05,
       "type": "variable"
+    },
+    {
+      "date": "2026-08-11",
+      "account": "Discover",
+      "amount": 5.89,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
     },
     {
       "date": "2026-08-10",
@@ -3100,7 +3127,7 @@ window.APP_DATA = {
       "subcategory": "주유",
       "memo": "주유",
       "account": "Discover",
-      "amount": 18.0,
+      "amount": 13.0,
       "type": "variable"
     },
     {
@@ -3118,7 +3145,7 @@ window.APP_DATA = {
       "subcategory": "주유",
       "memo": "주유",
       "account": "Discover",
-      "amount": 48.0,
+      "amount": 38.0,
       "type": "variable"
     },
     {
@@ -8640,22 +8667,22 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "8월 예상 지출 $6,706",
-      "body": "11일차 현재 지출 $4,693입니다. 과거 지출 시점을 반영하면 월말 $6,706로 최근 기준 $3,968 대비 $2,737 차이로 마감될 수 있어요.",
+      "title": "8월 예상 지출 $6,719",
+      "body": "12일차 현재 지출 $4,769입니다. 과거 지출 시점을 반영하면 월말 $6,719로 최근 기준 $3,968 대비 $2,751 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 90,
       "forecast": {
-        "expense": 6705.7,
+        "expense": 6719.31,
         "daily_limit": 25.86,
-        "historical_progress": 0.4929,
+        "historical_progress": 0.5086,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 11/31일",
-        "현재 지출: $4,693",
+        "분석일수: 12/31일",
+        "현재 지출: $4,769",
         "과거 지출 중앙값: $3,968",
-        "과거 패턴상 현재 시점 누적 비중: 49% (18개월)",
+        "과거 패턴상 현재 시점 누적 비중: 51% (18개월)",
         "남은 기간 변동지출 일일 한도: $26"
       ],
       "top": true
@@ -8770,18 +8797,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $6,905~$11,114",
-      "body": "최근 7개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $8,861이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $6,721~$10,930",
+      "body": "최근 7개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $8,677이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 6904.93,
-        "mid": 8860.64,
-        "high": 11113.61,
+        "low": 6720.83,
+        "mid": 8676.54,
+        "high": 10929.51,
         "sample_months": 7
       },
       "evidence": [
-        "현재 현금: $1,529",
+        "현재 현금: $1,345",
         "월 순현금흐름 25백분위: $1,792",
         "월 순현금흐름 중앙값: $2,444",
         "월 순현금흐름 75백분위: $3,195"
@@ -8909,7 +8936,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 20일 변동지출 하루 $26 이하로 관리",
+      "남은 19일 변동지출 하루 $26 이하로 관리",
       "생활용품 급증분 점검 (과거比 +$1,777)"
     ],
     "keep": [],
