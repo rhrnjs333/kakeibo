@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-09-24T00:34:47",
+    "generated_at": "2026-09-24T00:38:45",
     "source_file": "2026 가계부.xlsx",
     "current_month": "9월"
   },
   "summary": {
-    "total_wealth": 7356.33,
-    "cash_total": 2514.5,
+    "total_wealth": 7351.25,
+    "cash_total": 2495.01,
     "saving": 5113.15,
     "prev_balance": 1680.86,
-    "card_balance": -271.32,
-    "net": 2243.18,
-    "total_positive": 7627.65,
-    "total_negative": -1135.96,
-    "net_worth": 6491.69
+    "card_balance": -256.91,
+    "net": 2238.1,
+    "total_positive": 7608.16,
+    "total_negative": -1121.55,
+    "net_worth": 6486.61
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 2514.5,
+      "balance": 2495.01,
       "prev_balance": 4212.45,
       "income": 5579.73,
-      "expense": 7277.68
+      "expense": 7297.17
     },
     {
       "key": "Chase Sphire",
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -242.33,
+      "balance": -227.92,
       "prev_balance": -2431.99,
       "income": 2330.82,
-      "expense": 141.16
+      "expense": 126.75
     },
     {
       "key": "Chase Marriott",
@@ -111,8 +111,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 1649.87,
-    "신용카드 (부채)": -271.33,
+    "현금성 자산": 1630.38,
+    "신용카드 (부채)": -256.92,
     "투자 자산": 5113.15
   },
   "categories": {
@@ -141,7 +141,7 @@ window.APP_DATA = {
       },
       {
         "name": "생활용품",
-        "amount": 74.82
+        "amount": 60.41
       },
       {
         "name": "의복/미용",
@@ -257,7 +257,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 4569.74,
+  "category_total": 4555.33,
   "monthly": {
     "2026-01": {
       "expense": 4501.44,
@@ -740,10 +740,10 @@ window.APP_DATA = {
       }
     },
     "2026-09": {
-      "expense": 4569.74,
+      "expense": 4555.33,
       "income": 5579.73,
       "fixed": 3568.63,
-      "variable": 1200.71,
+      "variable": 1186.3,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -771,7 +771,7 @@ window.APP_DATA = {
           },
           {
             "name": "생활용품",
-            "amount": 74.82
+            "amount": 60.41
           },
           {
             "name": "의복/미용",
@@ -2888,6 +2888,33 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-09-24",
+      "category": "기타",
+      "subcategory": "기타",
+      "memo": "Point Redeem",
+      "account": "Discover",
+      "amount": -199.6,
+      "type": "variable"
+    },
+    {
+      "date": "2026-09-24",
+      "category": "문화/여가",
+      "subcategory": "문화생활",
+      "memo": "Bowling",
+      "account": "Chase",
+      "amount": 19.49,
+      "type": "variable"
+    },
+    {
+      "date": "2026-09-24",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon",
+      "account": "Chase Sphire",
+      "amount": -14.41,
+      "type": "variable"
+    },
     {
       "date": "2026-09-24",
       "account": "Chase",
@@ -9908,23 +9935,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "9월 예상 지출 $5,171",
-      "body": "24일차 현재 지출 $4,570입니다. 과거 지출 시점을 반영하면 월말 $5,171로 최근 기준 $4,235 대비 $936 차이로 마감될 수 있어요.",
+      "title": "9월 예상 지출 $5,157",
+      "body": "24일차 현재 지출 $4,555입니다. 과거 지출 시점을 반영하면 월말 $5,157로 최근 기준 $4,235 대비 $922 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 5171.01,
-        "daily_limit": 248.65,
+        "expense": 5156.6,
+        "daily_limit": 251.05,
         "historical_progress": 0.858,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
         "분석일수: 24/30일",
-        "현재 지출: $4,570",
+        "현재 지출: $4,555",
         "과거 지출 중앙값: $4,235",
         "과거 패턴상 현재 시점 누적 비중: 86% (18개월)",
-        "남은 기간 변동지출 일일 한도: $249"
+        "남은 기간 변동지출 일일 한도: $251"
       ],
       "top": false
     },
@@ -9978,18 +10005,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $6,168~$10,998",
-      "body": "최근 8개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,398이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $6,148~$10,979",
+      "body": "최근 8개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,379이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 6167.79,
-        "mid": 9398.45,
-        "high": 10998.19,
+        "low": 6148.3,
+        "mid": 9378.96,
+        "high": 10978.7,
         "sample_months": 8
       },
       "evidence": [
-        "현재 현금: $2,514",
+        "현재 현금: $2,495",
         "월 순현금흐름 25백분위: $1,218",
         "월 순현금흐름 중앙값: $2,295",
         "월 순현금흐름 75백분위: $2,828"
@@ -10127,7 +10154,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "8월 적자 $1,815 — 다음달 변동지출 한도 $3,572 설정",
-      "남은 6일 변동지출 하루 $249 이하로 관리",
+      "남은 6일 변동지출 하루 $251 이하로 관리",
       "주거비 급증분 점검 (과거比 +$2,797)"
     ],
     "keep": [],
