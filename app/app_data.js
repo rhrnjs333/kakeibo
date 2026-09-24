@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-09-24T00:31:13",
+    "generated_at": "2026-09-24T00:34:47",
     "source_file": "2026 가계부.xlsx",
     "current_month": "9월"
   },
   "summary": {
-    "total_wealth": 7156.73,
-    "cash_total": 2583.49,
+    "total_wealth": 7356.33,
+    "cash_total": 2514.5,
     "saving": 5113.15,
     "prev_balance": 1680.86,
-    "card_balance": -539.91,
-    "net": 2043.58,
-    "total_positive": 7696.64,
-    "total_negative": -1404.55,
-    "net_worth": 6292.09
+    "card_balance": -271.32,
+    "net": 2243.18,
+    "total_positive": 7627.65,
+    "total_negative": -1135.96,
+    "net_worth": 6491.69
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 2583.49,
+      "balance": 2514.5,
       "prev_balance": 4212.45,
       "income": 5579.73,
-      "expense": 7208.69
+      "expense": 7277.68
     },
     {
       "key": "Chase Sphire",
@@ -65,10 +65,10 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": -268.59,
+      "balance": 0.0,
       "prev_balance": -99.61,
-      "income": 0.0,
-      "expense": 168.98
+      "income": 68.99,
+      "expense": -30.62
     },
     {
       "key": "Robinhood Bank",
@@ -111,8 +111,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 1718.86,
-    "신용카드 (부채)": -539.92,
+    "현금성 자산": 1649.87,
+    "신용카드 (부채)": -271.33,
     "투자 자산": 5113.15
   },
   "categories": {
@@ -257,7 +257,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 4769.34,
+  "category_total": 4569.74,
   "monthly": {
     "2026-01": {
       "expense": 4501.44,
@@ -740,7 +740,7 @@ window.APP_DATA = {
       }
     },
     "2026-09": {
-      "expense": 4769.34,
+      "expense": 4569.74,
       "income": 5579.73,
       "fixed": 3568.63,
       "variable": 1200.71,
@@ -9858,29 +9858,6 @@ window.APP_DATA = {
     },
     {
       "tier": "alert",
-      "icon": "🧭",
-      "title": "9월 예상 지출 $5,371",
-      "body": "24일차 현재 지출 $4,769입니다. 과거 지출 시점을 반영하면 월말 $5,371로 최근 기준 $4,235 대비 $1,136 차이로 마감될 수 있어요.",
-      "severity": "high",
-      "score": 90,
-      "forecast": {
-        "expense": 5370.61,
-        "daily_limit": 248.65,
-        "historical_progress": 0.858,
-        "sample_months": 18,
-        "method": "historical_remaining_spend"
-      },
-      "evidence": [
-        "분석일수: 24/30일",
-        "현재 지출: $4,769",
-        "과거 지출 중앙값: $4,235",
-        "과거 패턴상 현재 시점 누적 비중: 86% (18개월)",
-        "남은 기간 변동지출 일일 한도: $249"
-      ],
-      "top": true
-    },
-    {
-      "tier": "alert",
       "icon": "📆",
       "title": "2026년 8월까지 지출 +22%",
       "body": "Raw Data 기준 2026년 1~8월 지출은 $46,619로, 2025년 같은 기간 $38,238보다 $8,381 늘었습니다.",
@@ -9897,7 +9874,7 @@ window.APP_DATA = {
         "비교 기간: 1월~8월"
       ],
       "source": "연말정산 RAW DATA",
-      "top": false
+      "top": true
     },
     {
       "tier": "alert",
@@ -9926,6 +9903,29 @@ window.APP_DATA = {
       "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 12%였습니다. 정기 납입 재개를 검토하세요.",
       "severity": "medium",
       "score": 82,
+      "top": false
+    },
+    {
+      "tier": "alert",
+      "icon": "🧭",
+      "title": "9월 예상 지출 $5,171",
+      "body": "24일차 현재 지출 $4,570입니다. 과거 지출 시점을 반영하면 월말 $5,171로 최근 기준 $4,235 대비 $936 차이로 마감될 수 있어요.",
+      "severity": "medium",
+      "score": 74,
+      "forecast": {
+        "expense": 5171.01,
+        "daily_limit": 248.65,
+        "historical_progress": 0.858,
+        "sample_months": 18,
+        "method": "historical_remaining_spend"
+      },
+      "evidence": [
+        "분석일수: 24/30일",
+        "현재 지출: $4,570",
+        "과거 지출 중앙값: $4,235",
+        "과거 패턴상 현재 시점 누적 비중: 86% (18개월)",
+        "남은 기간 변동지출 일일 한도: $249"
+      ],
       "top": false
     },
     {
@@ -9978,18 +9978,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $6,237~$11,067",
-      "body": "최근 8개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,467이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $6,168~$10,998",
+      "body": "최근 8개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,398이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 6236.78,
-        "mid": 9467.44,
-        "high": 11067.18,
+        "low": 6167.79,
+        "mid": 9398.45,
+        "high": 10998.19,
         "sample_months": 8
       },
       "evidence": [
-        "현재 현금: $2,583",
+        "현재 현금: $2,514",
         "월 순현금흐름 25백분위: $1,218",
         "월 순현금흐름 중앙값: $2,295",
         "월 순현금흐름 75백분위: $2,828"
