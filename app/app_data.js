@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-09-19T22:48:57",
+    "generated_at": "2026-09-24T00:31:13",
     "source_file": "2026 가계부.xlsx",
     "current_month": "9월"
   },
   "summary": {
-    "total_wealth": 6586.76,
-    "cash_total": 2013.52,
+    "total_wealth": 7156.73,
+    "cash_total": 2583.49,
     "saving": 5113.15,
     "prev_balance": 1680.86,
     "card_balance": -539.91,
-    "net": 1473.61,
-    "total_positive": 7126.67,
-    "total_negative": -1169.97,
-    "net_worth": 5956.7
+    "net": 2043.58,
+    "total_positive": 7696.64,
+    "total_negative": -1404.55,
+    "net_worth": 6292.09
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 2013.52,
+      "balance": 2583.49,
       "prev_balance": 4212.45,
-      "income": 4950.23,
-      "expense": 7149.16
+      "income": 5579.73,
+      "expense": 7208.69
     },
     {
       "key": "Chase Sphire",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -630.05,
+      "balance": -864.63,
       "prev_balance": -1292.54,
       "income": 1358.24,
-      "expense": 695.75
+      "expense": 930.33
     },
     {
       "key": "Robinhood",
@@ -111,7 +111,7 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 1383.47,
+    "현금성 자산": 1718.86,
     "신용카드 (부채)": -539.92,
     "투자 자산": 5113.15
   },
@@ -122,22 +122,30 @@ window.APP_DATA = {
         "amount": 2984.76
       },
       {
+        "name": "통신비",
+        "amount": 59.53
+      },
+      {
         "name": "대출",
         "amount": 475.34
       },
       {
         "name": "구독",
-        "amount": 29.0
+        "amount": 49.0
       }
     ],
     "variable": [
       {
         "name": "식비",
-        "amount": 646.65
+        "amount": 767.96
       },
       {
         "name": "생활용품",
         "amount": 74.82
+      },
+      {
+        "name": "의복/미용",
+        "amount": 93.27
       },
       {
         "name": "차량유지비",
@@ -249,7 +257,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 4475.23,
+  "category_total": 4769.34,
   "monthly": {
     "2026-01": {
       "expense": 4501.44,
@@ -732,10 +740,10 @@ window.APP_DATA = {
       }
     },
     "2026-09": {
-      "expense": 4475.23,
-      "income": 4950.23,
-      "fixed": 3489.1,
-      "variable": 986.13,
+      "expense": 4769.34,
+      "income": 5579.73,
+      "fixed": 3568.63,
+      "variable": 1200.71,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -744,22 +752,30 @@ window.APP_DATA = {
             "amount": 2984.76
           },
           {
+            "name": "통신비",
+            "amount": 59.53
+          },
+          {
             "name": "대출",
             "amount": 475.34
           },
           {
             "name": "구독",
-            "amount": 29.0
+            "amount": 49.0
           }
         ],
         "variable": [
           {
             "name": "식비",
-            "amount": 646.65
+            "amount": 767.96
           },
           {
             "name": "생활용품",
             "amount": 74.82
+          },
+          {
+            "name": "의복/미용",
+            "amount": 93.27
           },
           {
             "name": "차량유지비",
@@ -2872,6 +2888,60 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-09-24",
+      "account": "Chase",
+      "amount": 629.5,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
+    },
+    {
+      "date": "2026-09-22",
+      "category": "통신비",
+      "subcategory": "핸드폰",
+      "memo": "Verizon",
+      "account": "Chase",
+      "amount": 59.53,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-09-22",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - Ford",
+      "account": "Robinhood Bank",
+      "amount": 13.3,
+      "type": "variable"
+    },
+    {
+      "date": "2026-09-22",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Trader Joes",
+      "account": "Robinhood Bank",
+      "amount": 108.01,
+      "type": "variable"
+    },
+    {
+      "date": "2026-09-21",
+      "category": "의복/미용",
+      "subcategory": "의류/신발",
+      "memo": "carhart",
+      "account": "Robinhood Bank",
+      "amount": 93.27,
+      "type": "variable"
+    },
+    {
+      "date": "2026-09-20",
+      "category": "구독",
+      "subcategory": "AI 구독",
+      "memo": "Claude",
+      "account": "Robinhood Bank",
+      "amount": 20.0,
+      "type": "fixed"
+    },
     {
       "date": "2026-09-19",
       "category": "문화/여가",
@@ -9789,23 +9859,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "9월 예상 지출 $5,578",
-      "body": "19일차 현재 지출 $4,475입니다. 과거 지출 시점을 반영하면 월말 $5,578로 최근 기준 $4,235 대비 $1,343 차이로 마감될 수 있어요.",
+      "title": "9월 예상 지출 $5,371",
+      "body": "24일차 현재 지출 $4,769입니다. 과거 지출 시점을 반영하면 월말 $5,371로 최근 기준 $4,235 대비 $1,136 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 90,
       "forecast": {
-        "expense": 5577.78,
-        "daily_limit": 155.13,
-        "historical_progress": 0.7397,
+        "expense": 5370.61,
+        "daily_limit": 248.65,
+        "historical_progress": 0.858,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 19/30일",
-        "현재 지출: $4,475",
+        "분석일수: 24/30일",
+        "현재 지출: $4,769",
         "과거 지출 중앙값: $4,235",
-        "과거 패턴상 현재 시점 누적 비중: 74% (18개월)",
-        "남은 기간 변동지출 일일 한도: $155"
+        "과거 패턴상 현재 시점 누적 비중: 86% (18개월)",
+        "남은 기간 변동지출 일일 한도: $249"
       ],
       "top": true
     },
@@ -9908,18 +9978,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $5,667~$10,497",
-      "body": "최근 8개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $8,897이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $6,237~$11,067",
+      "body": "최근 8개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $9,467이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 5666.81,
-        "mid": 8897.47,
-        "high": 10497.21,
+        "low": 6236.78,
+        "mid": 9467.44,
+        "high": 11067.18,
         "sample_months": 8
       },
       "evidence": [
-        "현재 현금: $2,014",
+        "현재 현금: $2,583",
         "월 순현금흐름 25백분위: $1,218",
         "월 순현금흐름 중앙값: $2,295",
         "월 순현금흐름 75백분위: $2,828"
@@ -10057,7 +10127,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "8월 적자 $1,815 — 다음달 변동지출 한도 $3,572 설정",
-      "남은 11일 변동지출 하루 $155 이하로 관리",
+      "남은 6일 변동지출 하루 $249 이하로 관리",
       "주거비 급증분 점검 (과거比 +$2,797)"
     ],
     "keep": [],
