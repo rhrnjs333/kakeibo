@@ -418,6 +418,82 @@
   .cat-trend.up { color: var(--negative); }
   .cat-trend.down { color: var(--positive); }
 
+  /* ── 카테고리별 지출 페이지 (catp-) ─────────────────────────────
+     색: 고정비 #3987e5 / 변동비 #199e70 — 배경 #1A1F26 기준 색약(CVD) ΔE 19.6,
+     명도 대비 3:1 이상 검증. 막대는 크기, 색은 고정/변동 구분만 담당. */
+  .catp-head { display: flex; align-items: center; gap: 14px; padding: 8px 0 14px; }
+  .catp-back { background: none; border: none; color: var(--text); cursor: pointer; padding: 6px; margin-left: -6px; font-family: inherit; }
+  .catp-kicker { font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; font-weight: 500; }
+  .catp-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+  .catp-month { display: flex; align-items: center; justify-content: space-between; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 4px; margin-bottom: 10px; }
+  .catp-mbtn { width: 44px; height: 36px; border: none; background: transparent; color: var(--text); font-size: 22px; line-height: 1; border-radius: 8px; cursor: pointer; font-family: inherit; }
+  .catp-mbtn:disabled { color: var(--text-mute); opacity: .35; cursor: default; }
+  .catp-mbtn:not(:disabled):active { background: var(--surface-2); }
+  .catp-mlabel { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .catp-badge { font-size: 10px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 2px 7px; border-radius: 999px; margin-left: 6px; vertical-align: 2px; }
+  #page-categories .segmented { margin-bottom: 12px; }
+  .catp-hero { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; }
+  .catp-total { font-family: var(--num); font-size: 34px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; margin-top: 2px; }
+  .catp-total .currency { font-size: 22px; color: var(--text-dim); margin-right: 3px; font-weight: 600; }
+  .catp-delta { font-size: 12px; color: var(--text-dim); margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .catp-delta .up { color: var(--negative); font-weight: 600; }
+  .catp-delta .down { color: var(--positive); font-weight: 600; }
+  .catp-split { display: flex; gap: 2px; height: 10px; margin-top: 18px; }
+  .catp-split > div { height: 100%; border-radius: 4px; min-width: 4px; flex-basis: 0; }
+  .catp-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 12px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+  .catp-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+  .catp-legend b { color: var(--text); font-weight: 600; }
+  .catp-legend .dim { opacity: .45; }
+  .catp-list .cat-row { cursor: pointer; transition: background .15s; padding-right: 12px; }
+  .catp-list .cat-row:active { background: var(--surface-2); }
+  .catp-list .cat-row.open { background: var(--surface-2); border-bottom-color: transparent; }
+  .catp-list .cat-amount.pos { color: var(--positive); }
+  .catp-list .cat-row.open .cat-icon { background: var(--surface-3); }
+  .catp-share { font-size: 11px; color: var(--text-mute); font-weight: 500; margin-left: 6px; font-variant-numeric: tabular-nums; }
+  .catp-chev { color: var(--text-mute); font-size: 18px; margin-left: -6px; transition: transform .2s; }
+  .cat-row.open .catp-chev { transform: rotate(90deg); }
+  .catp-detail { background: var(--surface-2); padding: 2px 18px 16px; border-bottom: 1px solid var(--border); }
+  .catp-detail:last-child { border-bottom: none; }
+  .catp-sec { font-size: 11px; color: var(--text-dim); font-weight: 600; letter-spacing: .04em; margin: 14px 0 8px; }
+  .catp-cap { font-size: 12px; color: var(--text-dim); margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+  .catp-cap b { color: var(--text); font-weight: 600; }
+  .catp-plot { position: relative; display: flex; gap: 8px; height: 84px; align-items: flex-end; }
+  .catp-col { flex: 1; height: 100%; display: flex; align-items: flex-end; background: none; border: none; padding: 0; cursor: pointer; }
+  .catp-fill { width: 100%; border-radius: 4px 4px 0 0; background: #3A4350; transition: background .15s; }
+  .catp-col.pick .catp-fill { background: #5E6A79; }
+  .catp-avg { position: absolute; left: 0; right: 0; border-top: 1px dashed rgba(255,255,255,0.30); pointer-events: none; }
+  .catp-base { height: 1px; background: var(--border-2); }
+  .catp-xl { display: flex; gap: 8px; margin-top: 6px; }
+  .catp-xl span { flex: 1; text-align: center; font-size: 10.5px; color: var(--text-mute); }
+  .catp-xl span.sel { color: var(--text); font-weight: 600; }
+  .catp-subrow { display: flex; align-items: baseline; gap: 8px; padding: 7px 0; font-size: 13px; border-bottom: 1px solid var(--border); }
+  .catp-subrow:last-child { border-bottom: none; }
+  .catp-subname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .catp-subcnt { font-size: 11px; color: var(--text-mute); font-variant-numeric: tabular-nums; }
+  .catp-subamt { font-family: var(--num); font-variant-numeric: tabular-nums; font-weight: 600; min-width: 74px; text-align: right; }
+  .catp-tx { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .catp-tx:last-of-type { border-bottom: none; }
+  .catp-txdate { font-size: 11px; color: var(--text-mute); width: 36px; flex-shrink: 0; font-variant-numeric: tabular-nums; }
+  .catp-txinfo { flex: 1; min-width: 0; }
+  .catp-txname { font-size: 13px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .catp-txsub { font-size: 11px; color: var(--text-mute); margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .catp-txamt { font-family: var(--num); font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; flex-shrink: 0; }
+  .catp-txamt.refund { color: var(--positive); }
+  .catp-tag { font-size: 10px; color: var(--text-dim); border: 1px solid var(--border-2); border-radius: 6px; padding: 0 5px; margin-left: 6px; font-weight: 500; vertical-align: 1px; }
+  .catp-more { width: 100%; margin-top: 8px; padding: 10px; background: var(--surface-3); border: none; border-radius: 10px; color: var(--text-dim); font-size: 12px; font-weight: 600; font-family: inherit; cursor: pointer; }
+  .catp-note { font-size: 11px; color: var(--text-mute); line-height: 1.55; padding: 14px 4px 8px; }
+  .catp-note p + p { margin-top: 6px; }
+  .catp-note .warn { color: var(--warn); }
+  .catp-empty { text-align: center; padding: 48px 20px; color: var(--text-mute); font-size: 13px; }
+  .catp-link { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin: 0 0 6px; color: var(--text); font-family: inherit; cursor: pointer; }
+  .catp-link:active { background: var(--surface-2); }
+  .catp-link .ic { width: 36px; height: 36px; border-radius: 10px; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+  .catp-link .tt { display: block; font-size: 14px; font-weight: 600; }
+  .catp-link .ds { display: block; font-size: 12px; color: var(--text-dim); margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .catp-link .ar { margin-left: auto; color: var(--text-mute); font-size: 18px; }
+  #page-home .cat-row[data-cat-key] { cursor: pointer; transition: background .15s; }
+  #page-home .cat-row[data-cat-key]:active { background: var(--surface-2); }
+
   /* Assets page */
   .asset-group { margin-bottom: 22px; }
   .asset-group-head {
@@ -1515,6 +1591,20 @@
         <div id="detailTxList"></div>
       </div>
 
+      <!-- CATEGORY PAGE — 카테고리별 지출 (거래내역 기준, 동적) -->
+      <div class="page" id="page-categories">
+        <div class="catp-head">
+          <button class="catp-back" id="catBack" aria-label="뒤로">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div>
+            <div class="catp-kicker">지출 분석</div>
+            <div class="catp-title">카테고리별 지출</div>
+          </div>
+        </div>
+        <div id="catBody"></div>
+      </div>
+
       <!-- ANALYSIS PAGE — AI 재무코치 대시보드 (동적) -->
       <div class="page" id="page-analysis">
         <div class="page-header">
@@ -1689,7 +1779,7 @@
   const goAnalysisBtn = document.getElementById('goAnalysis');
   if (goAnalysisBtn) goAnalysisBtn.addEventListener('click', () => activateTab('analysis'));
   const goCategoriesBtn = document.getElementById('goCategories');
-  if (goCategoriesBtn) goCategoriesBtn.addEventListener('click', () => activateTab('analysis'));
+  if (goCategoriesBtn) goCategoriesBtn.addEventListener('click', () => openCategories('home'));
 
   // ----- FAB → input modal -----
   const modalBg = document.getElementById('modalBg');
@@ -2349,16 +2439,17 @@
     const goalHTML = renderGoalDashboard(d);
     const goalInsights = computeGoalInsights(d);
     const monthlyHTML = renderMonthlySpending(d);
+    const catLink = catLinkCardHTML(d);
     const sc = d.scores || {}, ins = d.insights || [], ai = d.action_items || {}, meta = d.insight_meta || {};
     if (!ins.length) {
-      body.innerHTML = goalHTML + monthlyHTML + '<div class="ins-desc" style="padding:14px 4px;">AI 인사이트는 데이터가 더 쌓이면 표시됩니다.</div>';
+      body.innerHTML = catLink + goalHTML + monthlyHTML + '<div class="ins-desc" style="padding:14px 4px;">AI 인사이트는 데이터가 더 쌓이면 표시됩니다.</div>';
       attachGoalButtons(d);
       return;
     }
     const labelColor = s => s >= 75 ? 'var(--accent)' : s >= 55 ? 'var(--warn)' : 'var(--danger)';
     const partColor  = v => v >= 70 ? 'var(--accent)' : v >= 45 ? 'var(--warn)' : 'var(--danger)';
     const h = sc.health || { score: 0, label: '', parts: {} };
-    let html = goalHTML + monthlyHTML;
+    let html = catLink + goalHTML + monthlyHTML;
     html += `<div class="score-hero">
       <div class="score-big">
         <span class="score-num" style="color:${labelColor(h.score)}">${h.score}</span><span class="score-max">/100</span>
@@ -2442,34 +2533,35 @@
       meta.innerHTML = `<span>${pct}% 사용 · ${daysLeft}일 남음</span><span>${fmt$(remain)} 남음</span>`;
     }
 
-    // 카테고리 TOP 3 — 거래내역 기준(이번 달). 엑셀 요약 변동비 셀이 매월 고정값이라 미사용.
-    const allCats = _curYM ? monthCatList(d, _curYM) : [...d.categories.fixed, ...d.categories.variable].sort((a,b) => b.amount - a.amount);
-    const top3 = allCats.slice(0, 3);
-    const maxAmt = top3[0] ? top3[0].amount : 1;
+    // 카테고리 TOP 3 — 카테고리별 지출 페이지와 같은 거래내역 기준(전체 보기와 숫자 일치).
+    // 오른쪽 아래는 전월 대비 증감(진행 중인 달은 전월 같은 기간 대비). 누르면 해당 카테고리 상세.
+    const _catMonths = catMonths(d);
+    const _catYM = _catMonths[_catMonths.length - 1];
     const catList = document.querySelector('#page-home .cat-list');
-    if (catList && top3.length) {
-      const ICONS = {
-        '주거비':'🏠','통신비':'📱','보험':'🛡️','대출':'💳','구독':'🔁','저축/투자':'📈','가족지원':'❤️',
-        '식비':'🍱','생활용품':'🛍️','의복/미용':'👕','건강/의료':'🏥','문화/여가':'🎬',
-        '여행':'✈️','차량유지비':'🚗','경조사/회비':'🎁','기타':'•'
-      };
+    if (catList && _catYM) {
+      const { cur: _cur, prv: _prv } = catCompare(d, _catYM, _catMonths);
+      const top3 = catRanked(_cur, 'all').filter(c => c.amount > 0).slice(0, 3);
+      const maxAmt = top3[0] ? top3[0].amount : 1;
       catList.innerHTML = top3.map((c, i) => {
         const w = Math.round((c.amount / maxAmt) * 100);
         const color = i === 0 ? 'var(--accent)' : 'var(--text-dim)';
-        const icon = ICONS[c.name.trim()] || '•';
+        const icon = CATP_ICONS[c.name] || '•';
+        const trend = _prv
+          ? catTrendHTML(c.amount - (_prv[c.key] ? _prv[c.key].amount : 0))
+          : `<div class="cat-trend">${catYMLabel(_catYM)}</div>`;
         return `
-          <div class="cat-row">
+          <div class="cat-row" data-cat-key="${escapeHTML(c.key)}" role="button">
             <div class="cat-icon">${icon}</div>
             <div class="cat-info">
-              <div class="cat-name">${c.name.trim()}</div>
+              <div class="cat-name">${escapeHTML(c.label)}</div>
               <div class="cat-bar"><div class="cat-bar-fill" style="width:${w}%;background:${color}"></div></div>
             </div>
             <div>
-              <div class="cat-amount">${fmt$(c.amount)}</div>
-              <div class="cat-trend">${d.meta.current_month}</div>
+              <div class="cat-amount">${fmt$(Math.round(c.amount))}</div>
+              ${trend}
             </div>
           </div>`;
-      }).join('');
+      }).join('') || '<div class="cat-row"><div class="cat-info" style="color:var(--text-mute);font-size:13px;">이번 달 지출이 아직 없어요</div></div>';
     }
 
     // 헤더 인사
@@ -2957,6 +3049,367 @@
   window.addEventListener('online', flushPending);
 
   // ============================================================
+  // 카테고리별 지출 페이지 (page-categories)
+  // ------------------------------------------------------------
+  // 기준: 거래내역(엑셀 월 시트의 고정지출/비고정지출 표 전체).
+  //   합계·순위·소분류·거래 목록이 모두 같은 거래에서 나오므로 항목을 눌러
+  //   내려가도 숫자가 그대로 맞는다. 엑셀 '지출요약' 표와 합계가 다르면
+  //   하단에 차이 나는 항목을 안내한다(요약표 라벨 오타 등을 찾는 용도).
+  // 비교: 진행 중인 달은 전월 같은 기간(1일~오늘), 지난 달은 전월 전체와 비교.
+  // ============================================================
+  const CATP_KIND_COLOR = { fixed: '#3987e5', variable: '#199e70' };
+  const CATP_KIND_LABEL = { fixed: '고정비', variable: '변동비' };
+  const CATP_ICONS = Object.assign({ '미분류': '❔' }, DETAIL_CAT_ICONS);
+  const CATP_TX_PAGE = 20;
+  const catState = { ym: null, kind: 'all', open: null, from: 'home', pick: null, txShown: CATP_TX_PAGE };
+
+  const catMoney  = n => (n < -0.004 ? '-$' : '$') + Math.round(Math.abs(n)).toLocaleString('en-US');
+  const catMoney2 = n => (n < -0.004 ? '-$' : '$') + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const catPad = n => String(n).padStart(2, '0');
+  const catYMLabel = ym => `${parseInt(ym.slice(5, 7), 10)}월`;
+  function catPrevYM(ym) {
+    let y = +ym.slice(0, 4), m = +ym.slice(5, 7) - 1;
+    if (m < 1) { m = 12; y -= 1; }
+    return `${y}-${catPad(m)}`;
+  }
+  function catThisYM() { const t = new Date(); return `${t.getFullYear()}-${catPad(t.getMonth() + 1)}`; }
+
+  // 지출 거래가 있는 달 목록 (오름차순, 'YYYY-MM')
+  function catMonths(d) {
+    const s = new Set();
+    ((d && d.transactions) || []).forEach(t => {
+      if (t.type !== 'income' && /^\d{4}-\d{2}/.test(t.date || '')) s.add(t.date.slice(0, 7));
+    });
+    return [...s].sort();
+  }
+
+  // ym 달의 지출을 '고정/변동|대분류' 단위로 집계. dayLimit이 있으면 그 날(일)까지만.
+  function catAggregate(d, ym, dayLimit) {
+    const by = {};
+    ((d && d.transactions) || []).forEach(t => {
+      if (t.type === 'income' || (t.date || '').slice(0, 7) !== ym) return;
+      if (dayLimit && parseInt(t.date.slice(8, 10), 10) > dayLimit) return;
+      const kind = t.type === 'fixed' ? 'fixed' : 'variable';
+      const name = (t.category || '').trim() || '미분류';
+      const key = kind + '|' + name;
+      const c = by[key] || (by[key] = { key, kind, name, amount: 0, count: 0, txs: [] });
+      c.amount += Number(t.amount) || 0;
+      c.count += 1;
+      c.txs.push(t);
+    });
+    Object.values(by).forEach(c => { c.amount = Math.round(c.amount * 100) / 100; });
+    return by;
+  }
+
+  // 비교 기준: 진행 중인 달이면 전월 1일~오늘, 지난 달이면 전월 전체
+  function catCompare(d, ym, months) {
+    const prev = catPrevYM(ym);
+    const cur = catAggregate(d, ym);
+    if (!(months || catMonths(d)).includes(prev)) return { cur, prv: null, label: '' };
+    const live = ym === catThisYM();
+    const day = new Date().getDate();
+    return {
+      cur,
+      prv: catAggregate(d, prev, live ? day : null),
+      label: live ? `${catYMLabel(prev)} 1~${day}일 대비` : `${catYMLabel(prev)} 대비`,
+    };
+  }
+
+  const catSum = (agg, kind) => Object.values(agg)
+    .filter(c => kind === 'all' || c.kind === kind)
+    .reduce((s, c) => s + c.amount, 0);
+
+  // 금액 내림차순 목록 — 같은 이름이 고정/변동 양쪽에 있으면 '(고정비)'처럼 구분
+  function catRanked(agg, kind) {
+    const rows = Object.values(agg).filter(c => kind === 'all' || c.kind === kind);
+    const seen = {};
+    rows.forEach(c => { seen[c.name] = (seen[c.name] || 0) + 1; });
+    rows.forEach(c => { c.label = seen[c.name] > 1 ? `${c.name} (${CATP_KIND_LABEL[c.kind]})` : c.name; });
+    return rows.sort((a, b) => b.amount - a.amount);
+  }
+
+  function catTrendHTML(delta) {
+    if (delta === null || delta === undefined) return '';
+    if (Math.abs(delta) < 0.5) return '<div class="cat-trend">변동 없음</div>';
+    return delta > 0
+      ? `<div class="cat-trend up">↑ ${catMoney(delta)}</div>`
+      : `<div class="cat-trend down">↓ ${catMoney(-delta)}</div>`;
+  }
+
+  // 엑셀 '지출요약' 합계와 거래 합계가 다르면 차이 나는 대분류를 안내
+  function catExcelNote(d, ym, agg) {
+    const md = d.monthly && d.monthly[ym];
+    if (!md || !md.categories) return '';
+    const diff = catSum(agg, 'all') - (md.expense || 0);
+    if (Math.abs(diff) < 1) return '';
+    const xl = {};
+    ['fixed', 'variable'].forEach(k => (md.categories[k] || []).forEach(c => {
+      const key = k + '|' + (c.name || '').trim();
+      xl[key] = (xl[key] || 0) + (Number(c.amount) || 0);
+    }));
+    const off = new Set();
+    new Set([...Object.keys(xl), ...Object.keys(agg)]).forEach(k => {
+      const a = agg[k] ? agg[k].amount : 0;
+      if (a <= 0 && !xl[k]) return;                 // 환불만 있는 항목은 요약표에 원래 없음
+      if (Math.abs(a - (xl[k] || 0)) >= 1) off.add(k.split('|')[1]);
+    });
+    return `<p class="warn">ⓘ 엑셀 '지출요약' 합계 ${catMoney2(md.expense || 0)}와 ${catMoney2(Math.abs(diff))} 차이가 있어요` +
+      (off.size ? ` (차이 나는 항목: ${escapeHTML([...off].join(', '))})` : '') +
+      '. 이 화면은 실제 거래 합계예요.</p>';
+  }
+
+  // 펼친 카테고리: 최근 6개월 추이 + 소분류 + 거래 목록
+  function catDetailHTML(d, c, months) {
+    const idx = months.indexOf(catState.ym);
+    const span = months.slice(Math.max(0, idx - 5), idx + 1);
+    const series = span.map(ym => {
+      const a = catAggregate(d, ym)[c.key];
+      return { ym, amount: a ? a.amount : 0 };
+    });
+    const color = CATP_KIND_COLOR[c.kind];
+    let h = '<div class="catp-detail">';
+
+    if (series.length > 1) {
+      const max = Math.max(1, ...series.map(s => s.amount));
+      const avg = series.reduce((s, x) => s + x.amount, 0) / series.length;
+      const pick = series.find(s => s.ym === catState.pick && s.ym !== catState.ym);
+      const head = pick ? pick : { ym: catState.ym, amount: c.amount };
+      h += `<div class="catp-sec">최근 ${series.length}개월 추이</div>
+        <div class="catp-cap"><b>${catYMLabel(head.ym)} ${catMoney(head.amount)}</b> · ${series.length}개월 평균 ${catMoney(avg)} <span style="opacity:.7">(점선)</span></div>
+        <div class="catp-plot">
+          <div class="catp-avg" style="bottom:${(Math.max(0, avg) / max * 100).toFixed(1)}%"></div>
+          ${series.map(s => {
+            const sel = s.ym === catState.ym;
+            const hh = s.amount > 0 ? Math.max(3, s.amount / max * 100) : 0;
+            return `<button class="catp-col${pick && pick.ym === s.ym ? ' pick' : ''}" data-trend-ym="${s.ym}" aria-label="${catYMLabel(s.ym)} ${catMoney(s.amount)}">` +
+              `<div class="catp-fill" style="height:${hh.toFixed(1)}%;${sel ? 'background:' + color : ''}"></div></button>`;
+          }).join('')}
+        </div>
+        <div class="catp-base"></div>
+        <div class="catp-xl">${series.map(s => `<span class="${s.ym === catState.ym ? 'sel' : ''}">${catYMLabel(s.ym)}</span>`).join('')}</div>`;
+    }
+
+    // 소분류
+    const subs = {};
+    c.txs.forEach(t => {
+      const n = (t.subcategory || '').trim() || '(소분류 없음)';
+      const o = subs[n] || (subs[n] = { name: n, amount: 0, count: 0 });
+      o.amount += Number(t.amount) || 0;
+      o.count += 1;
+    });
+    h += '<div class="catp-sec">소분류</div>' + Object.values(subs)
+      .sort((a, b) => b.amount - a.amount)
+      .map(s => {
+        const pct = c.amount > 0 && s.amount > 0 ? ' · ' + Math.round(s.amount / c.amount * 100) + '%' : '';
+        return `<div class="catp-subrow"><span class="catp-subname">${escapeHTML(s.name)}</span>` +
+          `<span class="catp-subcnt">${s.count}건${pct}</span><span class="catp-subamt">${catMoney2(s.amount)}</span></div>`;
+      }).join('');
+
+    // 거래 목록 (최신순)
+    const txs = [...c.txs].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : (Number(b.amount) || 0) - (Number(a.amount) || 0)));
+    const shown = txs.slice(0, catState.txShown);
+    h += `<div class="catp-sec">거래 ${txs.length}건</div>` + shown.map(t => {
+      const amt = Number(t.amount) || 0;
+      const sub = (t.subcategory || '').trim();
+      const acct = ACTIVE_ACCOUNTS_DISPLAY[t.account] || t.account || '';
+      const name = (t.memo || '').trim() || sub || c.name;
+      const tags = (t.cat_inferred ? '<span class="catp-tag">자동분류</span>' : '') +
+                   (t._local ? '<span class="catp-tag">방금 입력</span>' : '');
+      return `<div class="catp-tx">
+          <div class="catp-txdate">${+t.date.slice(5, 7)}/${+t.date.slice(8, 10)}</div>
+          <div class="catp-txinfo">
+            <div class="catp-txname">${escapeHTML(name)}${tags}</div>
+            <div class="catp-txsub">${escapeHTML([sub, acct].filter(Boolean).join(' · '))}</div>
+          </div>
+          <div class="catp-txamt${amt < 0 ? ' refund' : ''}">${catMoney2(amt)}</div>
+        </div>`;
+    }).join('');
+    if (txs.length > shown.length) {
+      h += `<button class="catp-more" data-cat-more="1">${txs.length - shown.length}건 더 보기</button>`;
+    }
+    return h + '</div>';
+  }
+
+  function renderCategoryPage() {
+    const d = window.APP_DATA;
+    const body = document.getElementById('catBody');
+    if (!d || !body) return;
+    const months = catMonths(d);
+    if (!months.length) { body.innerHTML = '<div class="catp-empty">아직 지출 거래가 없어요</div>'; return; }
+    if (!catState.ym || !months.includes(catState.ym)) catState.ym = months[months.length - 1];
+    const ym = catState.ym, idx = months.indexOf(ym), kind = catState.kind;
+    const live = ym === catThisYM();
+    const { cur, prv, label } = catCompare(d, ym, months);
+
+    const total = catSum(cur, kind);
+    const fixedT = catSum(cur, 'fixed'), varT = catSum(cur, 'variable');
+    const fPos = Math.max(0, fixedT), vPos = Math.max(0, varT);
+    const fPct = fPos + vPos > 0 ? Math.round(fPos / (fPos + vPos) * 100) : 0;
+    const vPct = fPos + vPos > 0 ? 100 - fPct : 0;
+    const heroLabel = kind === 'all' ? `${catYMLabel(ym)} 총 지출` : `${catYMLabel(ym)} ${CATP_KIND_LABEL[kind]}`;
+    const totalDelta = prv ? total - catSum(prv, kind) : null;
+    let deltaHTML = '비교할 이전 달 거래가 없어요';
+    if (prv) {
+      deltaHTML = Math.abs(totalDelta) < 0.5 ? '변동 없음'
+        : totalDelta > 0 ? `<span class="up">↑ ${catMoney(totalDelta)}</span>`
+        : `<span class="down">↓ ${catMoney(-totalDelta)}</span>`;
+      deltaHTML += ` · ${label}`;
+    }
+
+    let html = `
+      <div class="catp-month">
+        <button class="catp-mbtn" data-cat-month="-1" ${idx === 0 ? 'disabled' : ''} aria-label="이전 달">‹</button>
+        <div class="catp-mlabel">${ym.slice(0, 4)}년 ${catYMLabel(ym)}${live ? '<span class="catp-badge">진행 중</span>' : ''}</div>
+        <button class="catp-mbtn" data-cat-month="1" ${idx === months.length - 1 ? 'disabled' : ''} aria-label="다음 달">›</button>
+      </div>
+      <div class="segmented">
+        ${[['all', '전체'], ['fixed', '고정비'], ['variable', '변동비']].map(([k, t]) =>
+          `<button class="seg-btn${kind === k ? ' active' : ''}" data-cat-kind="${k}">${t}</button>`).join('')}
+      </div>
+      <div class="catp-hero">
+        <div class="hero-label">${heroLabel}</div>
+        <div class="catp-total"><span class="currency">${total < -0.004 ? '-$' : '$'}</span>${Math.round(Math.abs(total)).toLocaleString('en-US')}</div>
+        <div class="catp-delta">${deltaHTML}</div>
+        ${fPct + vPct > 0 ? `<div class="catp-split" role="img" aria-label="고정비 ${fPct}%, 변동비 ${vPct}%">
+          ${fPct > 0 ? `<div style="flex-grow:${fPos};background:${CATP_KIND_COLOR.fixed}${kind === 'variable' ? ';opacity:.3' : ''}"></div>` : ''}
+          ${vPct > 0 ? `<div style="flex-grow:${vPos};background:${CATP_KIND_COLOR.variable}${kind === 'fixed' ? ';opacity:.3' : ''}"></div>` : ''}
+        </div>` : ''}
+        <div class="catp-legend">
+          <span class="${kind === 'variable' ? 'dim' : ''}"><i style="background:${CATP_KIND_COLOR.fixed}"></i>고정비 <b>${catMoney(fixedT)}</b> · ${fPct}%</span>
+          <span class="${kind === 'fixed' ? 'dim' : ''}"><i style="background:${CATP_KIND_COLOR.variable}"></i>변동비 <b>${catMoney(varT)}</b> · ${vPct}%</span>
+        </div>
+      </div>`;
+
+    const rows = catRanked(cur, kind);
+    const gross = rows.reduce((s, c) => s + Math.max(0, c.amount), 0) || 1;
+    const maxAmt = Math.max(1, ...rows.map(c => c.amount));
+    html += `<div class="section-head"><div class="section-title">카테고리 ${rows.length}개</div>` +
+            `<div class="section-action" style="cursor:default">${prv ? escapeHTML(label) : ''}</div></div>`;
+    if (!rows.length) {
+      html += `<div class="catp-empty">${catYMLabel(ym)} ${CATP_KIND_LABEL[kind] || ''} 지출이 없어요</div>`;
+    } else {
+      html += '<div class="cat-list catp-list">';
+      rows.forEach(c => {
+        const open = catState.open === c.key;
+        const share = c.amount > 0 ? Math.round(c.amount / gross * 100) + '%' : '환불';
+        const w = c.amount > 0 ? Math.max(2, Math.round(c.amount / maxAmt * 100)) : 0;
+        const delta = prv ? c.amount - (prv[c.key] ? prv[c.key].amount : 0) : null;
+        html += `
+          <div class="cat-row${open ? ' open' : ''}" data-cat-key="${escapeHTML(c.key)}" role="button" aria-expanded="${open}">
+            <div class="cat-icon">${CATP_ICONS[c.name] || '•'}</div>
+            <div class="cat-info">
+              <div class="cat-name">${escapeHTML(c.label)}<span class="catp-share">${share}</span></div>
+              <div class="cat-bar"><div class="cat-bar-fill" style="width:${w}%;background:${CATP_KIND_COLOR[c.kind]}"></div></div>
+            </div>
+            <div>
+              <div class="cat-amount${c.amount < 0 ? ' pos' : ''}">${catMoney(c.amount)}</div>
+              ${prv ? catTrendHTML(delta) : `<div class="cat-trend">${c.count}건</div>`}
+            </div>
+            <span class="catp-chev">›</span>
+          </div>`;
+        if (open) html += catDetailHTML(d, c, months);
+      });
+      html += '</div>';
+    }
+
+    const notes = [];
+    const nTx = rows.reduce((s, c) => s + c.count, 0);
+    notes.push(`<p>${catYMLabel(ym)} ${kind === 'all' ? '' : CATP_KIND_LABEL[kind] + ' '}거래 ${nTx}건 기준 · 항목을 누르면 소분류·거래 내역·6개월 추이가 보여요.</p>`);
+    const xn = catExcelNote(d, ym, cur);
+    if (xn) notes.push(xn);
+    const inferred = rows.reduce((s, c) => s + c.txs.filter(t => t.cat_inferred).length, 0);
+    if (inferred) notes.push(`<p>대분류가 비어 있던 거래 ${inferred}건은 소분류로 분류했어요(예: 렌트비 → 주거비). 거래에 '자동분류'로 표시돼요.</p>`);
+    html += `<div class="catp-note">${notes.join('')}</div>`;
+    body.innerHTML = html;
+  }
+
+  // 진입: from = 돌아갈 탭('home' | 'analysis'), key = 펼쳐서 열 카테고리
+  function openCategories(from, key) {
+    const d = window.APP_DATA;
+    const months = d ? catMonths(d) : [];
+    catState.from = from || 'home';
+    catState.kind = 'all';
+    catState.pick = null;
+    catState.txShown = CATP_TX_PAGE;
+    catState.ym = months.length ? months[months.length - 1] : null;
+    catState.open = key || null;
+    renderCategoryPage();
+    showPage('categories');
+    if (key) {
+      requestAnimationFrame(() => {
+        // scrollIntoView는 iOS에서 바깥 고정 컨테이너까지 밀어낼 수 있어 .content만 직접 스크롤
+        const content = document.getElementById('content');
+        const row = [...document.querySelectorAll('#catBody .cat-row[data-cat-key]')].find(r => r.dataset.catKey === key);
+        if (row && content) {
+          content.scrollTop += row.getBoundingClientRect().top - content.getBoundingClientRect().top - 12;
+        }
+      });
+    }
+  }
+
+  // 분석 탭 상단 진입 카드
+  function catLinkCardHTML(d) {
+    const months = catMonths(d);
+    if (!months.length) return '';
+    const ym = months[months.length - 1];
+    const agg = catAggregate(d, ym);
+    const top = catRanked(agg, 'all')[0];
+    return `<button class="catp-link" type="button" data-open-categories="1">
+        <span class="ic">📊</span>
+        <span><span class="tt">카테고리별 지출</span>
+        <span class="ds">${catYMLabel(ym)} · 카테고리 ${Object.keys(agg).length}개${top && top.amount > 0 ? ` · 1위 ${escapeHTML(top.label)} ${catMoney(top.amount)}` : ''}</span></span>
+        <span class="ar">›</span>
+      </button>`;
+  }
+
+  (function bindCategoryPage() {
+    const body = document.getElementById('catBody');
+    if (body) body.addEventListener('click', e => {
+      const mBtn = e.target.closest('[data-cat-month]');
+      if (mBtn) {
+        if (mBtn.disabled) return;
+        const months = catMonths(window.APP_DATA);
+        const i = months.indexOf(catState.ym) + Number(mBtn.dataset.catMonth);
+        if (i >= 0 && i < months.length) {
+          catState.ym = months[i]; catState.pick = null; catState.txShown = CATP_TX_PAGE;
+          renderCategoryPage();
+        }
+        return;
+      }
+      const kBtn = e.target.closest('[data-cat-kind]');
+      if (kBtn) { catState.kind = kBtn.dataset.catKind; renderCategoryPage(); return; }
+      const tBtn = e.target.closest('[data-trend-ym]');
+      if (tBtn) {
+        const ym = tBtn.dataset.trendYm;
+        catState.pick = (ym === catState.pick || ym === catState.ym) ? null : ym;
+        renderCategoryPage();
+        return;
+      }
+      if (e.target.closest('[data-cat-more]')) { catState.txShown += 40; renderCategoryPage(); return; }
+      const row = e.target.closest('.cat-row[data-cat-key]');
+      if (row) {
+        const k = row.dataset.catKey;
+        catState.open = catState.open === k ? null : k;
+        catState.pick = null; catState.txShown = CATP_TX_PAGE;
+        renderCategoryPage();
+      }
+    });
+    const back = document.getElementById('catBack');
+    if (back) back.addEventListener('click', () => activateTab(catState.from || 'home'));
+    // 분석 탭 진입 카드 (analysisBody는 다시 그려지므로 위임)
+    const ana = document.getElementById('analysisBody');
+    if (ana) ana.addEventListener('click', e => {
+      if (e.target.closest('[data-open-categories]')) openCategories('analysis');
+    });
+    // 홈 TOP 3 항목 → 해당 카테고리를 펼친 채로 열기
+    const homeCats = document.querySelector('#page-home .cat-list');
+    if (homeCats) homeCats.addEventListener('click', e => {
+      const row = e.target.closest('.cat-row[data-cat-key]');
+      if (row) openCategories('home', row.dataset.catKey);
+    });
+  })();
+
+  // ============================================================
   // 로컬 즉시반영 오버레이 (localTx)
   // ------------------------------------------------------------
   // 목적: 입력 즉시 거래목록 / 홈 요약 / 카테고리 분석에 반영.
@@ -3073,6 +3526,7 @@
     try { renderHome(d); }         catch (e) { console.error('renderHome', e); }
     try { renderTransactions(d); } catch (e) { console.error('renderTransactions', e); }
     try { renderAnalysis(d); }     catch (e) { console.error('renderAnalysis', e); }
+    try { renderCategoryPage(); }  catch (e) { console.error('renderCategoryPage', e); }
   }
 
   // ============================================================
