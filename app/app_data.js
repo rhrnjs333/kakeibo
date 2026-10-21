@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-10-18T09:29:43",
+    "generated_at": "2026-10-21T10:29:44",
     "source_file": "2026 가계부.xlsx",
     "current_month": "10월"
   },
   "summary": {
-    "total_wealth": 7668.79,
+    "total_wealth": 7642.93,
     "cash_total": 2511.34,
     "saving": 5113.15,
     "prev_balance": 4297.1,
-    "card_balance": 44.3,
-    "net": 2555.64,
-    "total_positive": 7939.8,
-    "total_negative": -29.0,
-    "net_worth": 7910.8
+    "card_balance": 18.44,
+    "net": 2529.78,
+    "total_positive": 7671.92,
+    "total_negative": -2182.69,
+    "net_worth": 5489.23
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 73.29,
+      "balance": 47.43,
       "prev_balance": -229.84,
       "income": 303.13,
-      "expense": 0.0
+      "expense": 25.86
     },
     {
       "key": "Chase Marriott",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": 242.02,
+      "balance": -2153.69,
       "prev_balance": -1196.91,
       "income": 1438.93,
-      "expense": 0.0
+      "expense": 2395.71
     },
     {
       "key": "Robinhood",
@@ -111,8 +111,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 2753.36,
-    "신용카드 (부채)": 44.29,
+    "현금성 자산": 357.65,
+    "신용카드 (부채)": 18.43,
     "투자 자산": 5113.15
   },
   "categories": {
@@ -127,10 +127,27 @@ window.APP_DATA = {
       },
       {
         "name": "구독",
-        "amount": 29.0
+        "amount": 49.0
       }
     ],
-    "variable": []
+    "variable": [
+      {
+        "name": "식비",
+        "amount": 68.71
+      },
+      {
+        "name": "생활용품",
+        "amount": 604.16
+      },
+      {
+        "name": "여행",
+        "amount": 1491.66
+      },
+      {
+        "name": "차량유지비",
+        "amount": 136.95
+      }
+    ]
   },
   "category_master": {
     "fixed": {
@@ -232,7 +249,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 3517.2,
+  "category_total": 5838.68,
   "monthly": {
     "2026-01": {
       "expense": 4501.44,
@@ -772,10 +789,10 @@ window.APP_DATA = {
       }
     },
     "2026-10": {
-      "expense": 3517.2,
+      "expense": 5838.68,
       "income": 3214.67,
-      "fixed": 3517.2,
-      "variable": 0,
+      "fixed": 3537.2,
+      "variable": 2301.48,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -789,10 +806,27 @@ window.APP_DATA = {
           },
           {
             "name": "구독",
-            "amount": 29.0
+            "amount": 49.0
           }
         ],
-        "variable": []
+        "variable": [
+          {
+            "name": "식비",
+            "amount": 68.71
+          },
+          {
+            "name": "생활용품",
+            "amount": 604.16
+          },
+          {
+            "name": "여행",
+            "amount": 1491.66
+          },
+          {
+            "name": "차량유지비",
+            "amount": 136.95
+          }
+        ]
       }
     }
   },
@@ -2896,6 +2930,69 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-10-20",
+      "category": "구독",
+      "subcategory": "AI 구독",
+      "memo": "claude",
+      "account": "Robinhood Bank",
+      "amount": 20.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-10-20",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "costco",
+      "account": "Robinhood Bank",
+      "amount": 41.26,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-20",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "costco",
+      "account": "Robinhood Bank",
+      "amount": 1.59,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-20",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - Ford",
+      "account": "Chase Sphire",
+      "amount": 13.25,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-19",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Robinhood Bank",
+      "amount": 54.06,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-19",
+      "category": "차량유지비",
+      "subcategory": "차량수리/부품",
+      "memo": "oil change",
+      "account": "Robinhood Bank",
+      "amount": 82.89,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-19",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - Ford",
+      "account": "Chase Sphire",
+      "amount": 12.61,
+      "type": "variable"
+    },
+    {
       "date": "2026-10-16",
       "category": "대출",
       "subcategory": "자동차대출",
@@ -2905,6 +3002,87 @@ window.APP_DATA = {
       "type": "fixed"
     },
     {
+      "date": "2026-10-16",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 5.93,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-16",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 23.1,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-16",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 7.7,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-16",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 5.23,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-15",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 정주",
+      "account": "Robinhood Bank",
+      "amount": 9.49,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-15",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 정주",
+      "account": "Robinhood Bank",
+      "amount": 67.17,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-15",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 정주",
+      "account": "Robinhood Bank",
+      "amount": 23.93,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-15",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 3.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-15",
+      "category": "건강/의료",
+      "subcategory": "병원/의약",
+      "memo": "건강검진",
+      "account": "Robinhood Bank",
+      "amount": 100.09,
+      "type": "variable"
+    },
+    {
       "date": "2026-10-15",
       "account": "Chase",
       "amount": 3214.67,
@@ -2912,6 +3090,24 @@ window.APP_DATA = {
       "subcategory": "입금",
       "memo": "입금 내역",
       "type": "income"
+    },
+    {
+      "date": "2026-10-14",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 1.62,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-14",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 16.22,
+      "type": "variable"
     },
     {
       "date": "2026-10-13",
@@ -2932,6 +3128,213 @@ window.APP_DATA = {
       "type": "fixed"
     },
     {
+      "date": "2026-10-13",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 25.56,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-13",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 4.18,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-13",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 23.23,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-13",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 8.44,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-13",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 25.94,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-13",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 8.6,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-13",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 10.76,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-13",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 15.45,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 7.76,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 49.99,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 54.61,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 20.76,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 12.3,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 2.99,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 12.3,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 6.92,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 0.77,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-12",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 첸",
+      "account": "Robinhood Bank",
+      "amount": 8.9,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-11",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 13.84,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-11",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 17.61,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-11",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 4.23,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-11",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 3.07,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-11",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 4.45,
+      "type": "variable"
+    },
+    {
       "date": "2026-10-10",
       "category": "구독",
       "subcategory": "헬스장",
@@ -2939,6 +3342,321 @@ window.APP_DATA = {
       "account": "Chase Marriott",
       "amount": 29.0,
       "type": "fixed"
+    },
+    {
+      "date": "2026-10-10",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 5.08,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-10",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 3.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-10",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 0.77,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-10",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 3.46,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-10",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 사우나",
+      "account": "Robinhood Bank",
+      "amount": 11.53,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-09",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 기훈",
+      "account": "Robinhood Bank",
+      "amount": 48.02,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-08",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 3.47,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-08",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 80.92,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 병원",
+      "account": "Robinhood Bank",
+      "amount": 4.31,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 3.38,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 7.85,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-07",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 19.25,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-07",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Bed frame",
+      "account": "Robinhood Bank",
+      "amount": 604.16,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-06",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "일본여행",
+      "account": "Robinhood Bank",
+      "amount": 143.23,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-06",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "일본여행",
+      "account": "Robinhood Bank",
+      "amount": 29.98,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-05",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 3.85,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-05",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 8.99,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-05",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "일본여행",
+      "account": "Robinhood Bank",
+      "amount": 129.94,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-04",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 동네",
+      "account": "Robinhood Bank",
+      "amount": 3.83,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-04",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 동네",
+      "account": "Robinhood Bank",
+      "amount": 15.33,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-04",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 동네",
+      "account": "Robinhood Bank",
+      "amount": 96.02,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-03",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 철원",
+      "account": "Robinhood Bank",
+      "amount": 32.59,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-02",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 철원",
+      "account": "Robinhood Bank",
+      "amount": 11.69,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-02",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 철원",
+      "account": "Robinhood Bank",
+      "amount": 96.48,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-02",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 철원",
+      "account": "Robinhood Bank",
+      "amount": 37.22,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-02",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 철원",
+      "account": "Robinhood Bank",
+      "amount": 23.03,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-02",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 철원",
+      "account": "Robinhood Bank",
+      "amount": 28.91,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-02",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 철원",
+      "account": "Robinhood Bank",
+      "amount": 16.1,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-01",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 9.91,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-01",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 13.72,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-01",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 16.46,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-01",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 4.57,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-01",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행 - 민지",
+      "account": "Robinhood Bank",
+      "amount": 89.22,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-01",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 2.27,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-01",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "한국여행",
+      "account": "Robinhood Bank",
+      "amount": 6.23,
+      "type": "variable"
     },
     {
       "date": "2026-09-30",
@@ -10165,6 +10883,29 @@ window.APP_DATA = {
     },
     {
       "tier": "alert",
+      "icon": "🧭",
+      "title": "10월 예상 지출 $6,880",
+      "body": "21일차 현재 지출 $5,839입니다. 과거 지출 시점을 반영하면 월말 $6,880로 최근 기준 $4,501 대비 $2,379 차이로 마감될 수 있어요.",
+      "severity": "high",
+      "score": 90,
+      "forecast": {
+        "expense": 6880.28,
+        "daily_limit": 11.75,
+        "historical_progress": 0.7686,
+        "sample_months": 18,
+        "method": "historical_remaining_spend"
+      },
+      "evidence": [
+        "분석일수: 21/31일",
+        "현재 지출: $5,839",
+        "과거 지출 중앙값: $4,501",
+        "과거 패턴상 현재 시점 누적 비중: 77% (18개월)",
+        "남은 기간 변동지출 일일 한도: $12"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
       "icon": "📆",
       "title": "2026년 8월까지 지출 +22%",
       "body": "Raw Data 기준 2026년 1~8월 지출은 $46,619로, 2025년 같은 기간 $38,238보다 $8,381 늘었습니다.",
@@ -10210,29 +10951,6 @@ window.APP_DATA = {
       "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 11%였습니다. 정기 납입 재개를 검토하세요.",
       "severity": "medium",
       "score": 82,
-      "top": true
-    },
-    {
-      "tier": "insight",
-      "icon": "🧭",
-      "title": "10월 예상 지출 $4,817",
-      "body": "18일차 현재 지출 $3,517입니다. 과거 지출 시점을 반영하면 월말 $4,817로 최근 기준 $4,501 대비 $316 차이로 마감될 수 있어요.",
-      "severity": "good",
-      "score": 74,
-      "forecast": {
-        "expense": 4817.16,
-        "daily_limit": 186.08,
-        "historical_progress": 0.7112,
-        "sample_months": 18,
-        "method": "historical_remaining_spend"
-      },
-      "evidence": [
-        "분석일수: 18/31일",
-        "현재 지출: $3,517",
-        "과거 지출 중앙값: $4,501",
-        "과거 패턴상 현재 시점 누적 비중: 71% (18개월)",
-        "남은 기간 변동지출 일일 한도: $186"
-      ],
       "top": true
     },
     {
@@ -10424,7 +11142,7 @@ window.APP_DATA = {
   },
   "action_items": {
     "now": [
-      "남은 13일 변동지출 하루 $186 이하로 관리",
+      "남은 10일 변동지출 하루 $12 이하로 관리",
       "주거비 급증분 점검 (과거比 +$2,435)"
     ],
     "keep": [],
