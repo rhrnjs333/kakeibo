@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-10-21T18:26:07",
+    "generated_at": "2026-11-03T11:31:25",
     "source_file": "2026 가계부.xlsx",
-    "current_month": "10월"
+    "current_month": "11월"
   },
   "summary": {
-    "total_wealth": 7642.93,
-    "cash_total": 2511.34,
+    "total_wealth": 6515.44,
+    "cash_total": 1392.79,
     "saving": 5113.15,
-    "prev_balance": 4297.1,
-    "card_balance": 18.44,
-    "net": 2529.78,
-    "total_positive": 7671.92,
-    "total_negative": -2182.69,
-    "net_worth": 5489.23
+    "prev_balance": 4850.0,
+    "card_balance": 9.5,
+    "net": 1402.29,
+    "total_positive": 6547.15,
+    "total_negative": -2965.22,
+    "net_worth": 3581.93
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 2511.34,
-      "prev_balance": 4555.93,
-      "income": 3214.67,
-      "expense": 5259.26
+      "balance": 1392.79,
+      "prev_balance": 4881.71,
+      "income": 0.0,
+      "expense": 3488.92
     },
     {
       "key": "Chase Sphire",
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 47.43,
-      "prev_balance": -229.84,
-      "income": 303.13,
-      "expense": 25.86
+      "balance": -2.72,
+      "prev_balance": -2.72,
+      "income": 0.0,
+      "expense": 0.0
     },
     {
       "key": "Chase Marriott",
@@ -54,8 +54,8 @@ window.APP_DATA = {
       "logo_fg": "#fdba74",
       "balance": -29.0,
       "prev_balance": -29.0,
-      "income": 29.0,
-      "expense": 29.0
+      "income": 0.0,
+      "expense": 0.0
     },
     {
       "key": "Discover",
@@ -65,10 +65,10 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": 0.0,
+      "balance": 41.21,
       "prev_balance": 0.0,
-      "income": 0.0,
-      "expense": 0.0
+      "income": 57.96,
+      "expense": 16.75
     },
     {
       "key": "Robinhood Bank",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -2153.69,
-      "prev_balance": -1196.91,
-      "income": 1438.93,
-      "expense": 2395.71
+      "balance": -2933.5,
+      "prev_balance": -2912.39,
+      "income": 0.0,
+      "expense": 21.11
     },
     {
       "key": "Robinhood",
@@ -111,45 +111,29 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 357.65,
-    "신용카드 (부채)": 18.43,
+    "현금성 자산": -1540.71,
+    "신용카드 (부채)": 9.49,
     "투자 자산": 5113.15
   },
   "categories": {
     "fixed": [
       {
         "name": "주거비",
-        "amount": 3012.86
+        "amount": 2930.96
       },
       {
-        "name": "대출",
-        "amount": 475.34
-      },
-      {
-        "name": "구독",
-        "amount": 49.0
+        "name": "가족지원",
+        "amount": 500.0
       }
     ],
     "variable": [
       {
         "name": "식비",
-        "amount": 68.71
+        "amount": 27.27
       },
       {
         "name": "생활용품",
-        "amount": 604.16
-      },
-      {
-        "name": "건강/의료",
-        "amount": 100.09
-      },
-      {
-        "name": "여행",
-        "amount": 1491.66
-      },
-      {
-        "name": "차량유지비",
-        "amount": 136.95
+        "amount": 10.59
       }
     ]
   },
@@ -254,7 +238,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 5938.77,
+  "category_total": 3468.82,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -753,9 +737,9 @@ window.APP_DATA = {
       }
     },
     "2026-09": {
-      "expense": 5428.78,
+      "expense": 5468.78,
       "income": 8140.65,
-      "fixed": 4068.63,
+      "fixed": 4108.63,
       "variable": 1559.75,
       "invest_deposit": 0.0,
       "categories": {
@@ -766,7 +750,7 @@ window.APP_DATA = {
           },
           {
             "name": "통신비",
-            "amount": 59.53
+            "amount": 99.53
           },
           {
             "name": "대출",
@@ -814,16 +798,20 @@ window.APP_DATA = {
       }
     },
     "2026-10": {
-      "expense": 5938.77,
-      "income": 3214.67,
-      "fixed": 3537.2,
-      "variable": 2401.57,
+      "expense": 6898.17,
+      "income": 5775.59,
+      "fixed": 3629.61,
+      "variable": 3293.56,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
             "amount": 3012.86
+          },
+          {
+            "name": "통신비",
+            "amount": 92.41
           },
           {
             "name": "대출",
@@ -837,23 +825,56 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 68.71
+            "amount": 384.33
           },
           {
             "name": "생활용품",
-            "amount": 604.16
+            "amount": 753.19
+          },
+          {
+            "name": "의복/미용",
+            "amount": 63.0
           },
           {
             "name": "건강/의료",
-            "amount": 100.09
+            "amount": 123.09
           },
           {
             "name": "여행",
-            "amount": 1491.66
+            "amount": 1773.62
           },
           {
             "name": "차량유지비",
-            "amount": 136.95
+            "amount": 196.33
+          }
+        ]
+      }
+    },
+    "2026-11": {
+      "expense": 3468.82,
+      "income": 0.0,
+      "fixed": 3430.96,
+      "variable": 37.86,
+      "invest_deposit": 0.0,
+      "categories": {
+        "fixed": [
+          {
+            "name": "주거비",
+            "amount": 2930.96
+          },
+          {
+            "name": "가족지원",
+            "amount": 500.0
+          }
+        ],
+        "variable": [
+          {
+            "name": "식비",
+            "amount": 27.27
+          },
+          {
+            "name": "생활용품",
+            "amount": 10.59
           }
         ]
       }
@@ -861,11 +882,11 @@ window.APP_DATA = {
   },
   "history": {
     "source_sheet": "연말정산 RAW DATA",
-    "records_count": 2737,
-    "expense_records_count": 2540,
+    "records_count": 2847,
+    "expense_records_count": 2648,
     "range": {
       "start": "2024-01",
-      "end": "2026-09",
+      "end": "2026-10",
       "years": [
         2024,
         2025,
@@ -2997,6 +3018,71 @@ window.APP_DATA = {
           "28": 2.97,
           "29": 50.81
         }
+      },
+      "2026-10": {
+        "income": 5775.59,
+        "fixed": 3629.61,
+        "variable": 3268.56,
+        "expense": 6898.17,
+        "savings": 0.0,
+        "carryover": 0.0,
+        "categories": {
+          "주거비": 3012.86,
+          "구독": 49.0,
+          "대출": 475.34,
+          "통신비": 92.41,
+          "기타": -25.0,
+          "여행": 1773.62,
+          "생활용품": 753.19,
+          "건강/의료": 123.09,
+          "차량유지비": 196.33,
+          "식비": 384.33,
+          "의복/미용": 63.0
+        },
+        "fixed_categories": {
+          "주거비": 3012.86,
+          "구독": 49.0,
+          "대출": 475.34,
+          "통신비": 92.41
+        },
+        "variable_categories": {
+          "기타": -25.0,
+          "여행": 1773.62,
+          "생활용품": 753.19,
+          "건강/의료": 123.09,
+          "차량유지비": 196.33,
+          "식비": 384.33,
+          "의복/미용": 63.0
+        },
+        "daily_expense": {
+          "1": 2994.24,
+          "10": 52.84,
+          "13": 258.16,
+          "16": 517.3,
+          "20": 76.1,
+          "28": 210.6,
+          "2": 213.43,
+          "3": 32.59,
+          "4": 115.18,
+          "5": 142.78,
+          "6": 173.21,
+          "7": 638.95,
+          "8": 84.39,
+          "9": 48.02,
+          "11": 43.2,
+          "12": 177.3,
+          "14": 17.84,
+          "15": 203.68,
+          "19": 169.7,
+          "21": 7.41,
+          "22": 84.53,
+          "24": 64.94,
+          "25": 5.83,
+          "26": 27.0,
+          "27": 307.5,
+          "29": 72.54,
+          "31": 158.91
+        }
       }
     },
     "yearly": {
@@ -3017,16 +3103,304 @@ window.APP_DATA = {
         "carryover": 0.0
       },
       "2026": {
-        "income": 71473.67,
-        "fixed": 27378.06,
-        "variable": 24669.33,
-        "expense": 52047.39,
+        "income": 77249.26,
+        "fixed": 31007.67,
+        "variable": 27937.89,
+        "expense": 58945.56,
         "savings": -15500.0,
         "carryover": 0.0
       }
     }
   },
   "transactions": [
+    {
+      "date": "2026-11-03",
+      "category": "주거비",
+      "subcategory": "유틸리티",
+      "memo": "DTE",
+      "account": "Chase",
+      "amount": 54.1,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-11-02",
+      "category": "가족지원",
+      "subcategory": "부모님 지원",
+      "memo": "11월 부모님용돈",
+      "account": "Chase",
+      "amount": 500.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-11-02",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Panda Express",
+      "account": "Discover",
+      "amount": 16.75,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-02",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - 네일",
+      "account": "Robinhood Bank",
+      "amount": 10.59,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-02",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "kroger",
+      "account": "Robinhood Bank",
+      "amount": 10.52,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-01",
+      "category": "주거비",
+      "subcategory": "Mortgage",
+      "memo": "11월 mortgage",
+      "account": "Chase",
+      "amount": 2876.86,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-10-31",
+      "category": "건강/의료",
+      "subcategory": "운동/스포츠",
+      "memo": "Climbing",
+      "account": "Robinhood Bank",
+      "amount": 23.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-31",
+      "category": "식비",
+      "subcategory": "술/유흥",
+      "memo": "술",
+      "account": "Robinhood Bank",
+      "amount": 105.99,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-31",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - 한강포차",
+      "account": "Robinhood Bank",
+      "amount": 144.96,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-31",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - 한강포차 (Deduction)",
+      "account": "Robinhood Bank",
+      "amount": -115.04,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-30",
+      "account": "Chase",
+      "amount": 2560.92,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
+    },
+    {
+      "date": "2026-10-29",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Robinhood Bank",
+      "amount": 55.43,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-29",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Kroger",
+      "account": "Robinhood Bank",
+      "amount": 17.11,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-28",
+      "category": "통신비",
+      "subcategory": "인터넷",
+      "memo": "Xfinity",
+      "account": "Chase",
+      "amount": 40.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-10-28",
+      "category": "통신비",
+      "subcategory": "핸드폰",
+      "memo": "verizon",
+      "account": "Chase",
+      "amount": 52.41,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-10-28",
+      "category": "의복/미용",
+      "subcategory": "헤어/뷰티",
+      "memo": "머리",
+      "account": "Chase",
+      "amount": 63.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-28",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "hmart",
+      "account": "Robinhood Bank",
+      "amount": 55.19,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-27",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Chick fil a",
+      "account": "Chase Sphire",
+      "amount": 12.39,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-27",
+      "category": "여행",
+      "subcategory": "항공권",
+      "memo": "frontier",
+      "account": "Robinhood Bank",
+      "amount": 256.96,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-27",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Bed Sheet",
+      "account": "Robinhood Bank",
+      "amount": 38.15,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-26",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Jason Mraz LP",
+      "account": "Robinhood Bank",
+      "amount": 27.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-25",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "커피",
+      "account": "Robinhood Bank",
+      "amount": 5.83,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-24",
+      "category": "차량유지비",
+      "subcategory": "주차비",
+      "memo": "parking",
+      "account": "Chase Sphire",
+      "amount": 2.85,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-24",
+      "category": "차량유지비",
+      "subcategory": "주차비",
+      "memo": "parking",
+      "account": "Chase Sphire",
+      "amount": 1.1,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-24",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "bb.q",
+      "account": "Chase Sphire",
+      "amount": 33.81,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-24",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "커피",
+      "account": "Robinhood Bank",
+      "amount": 5.3,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-24",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Meijer",
+      "account": "Robinhood Bank",
+      "amount": 21.88,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-22",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - landscaping light",
+      "account": "Robinhood Bank",
+      "amount": 31.79,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-22",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon -  Flies trap",
+      "account": "Robinhood Bank",
+      "amount": 15.87,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-22",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - Ford",
+      "account": "Robinhood Bank",
+      "amount": 8.06,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-22",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Target",
+      "account": "Robinhood Bank",
+      "amount": 28.81,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-21",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Car Engine Airfilter",
+      "account": "Robinhood Bank",
+      "amount": 7.41,
+      "type": "variable"
+    },
     {
       "date": "2026-10-20",
       "category": "구독",
@@ -3088,6 +3462,15 @@ window.APP_DATA = {
       "memo": "점심 - Ford",
       "account": "Chase Sphire",
       "amount": 12.61,
+      "type": "variable"
+    },
+    {
+      "date": "2026-10-19",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - 현준이네",
+      "account": "Chase",
+      "amount": 20.14,
       "type": "variable"
     },
     {
@@ -3704,10 +4087,10 @@ window.APP_DATA = {
     },
     {
       "date": "2026-10-01",
-      "category": "여행",
-      "subcategory": "여행경비",
-      "memo": "한국여행",
-      "account": "Robinhood Bank",
+      "category": "기타",
+      "subcategory": "기타",
+      "memo": "Refund",
+      "account": "Chase",
       "amount": -25.0,
       "type": "variable"
     },
@@ -4016,6 +4399,15 @@ window.APP_DATA = {
       "account": "Robinhood Bank",
       "amount": 4.95,
       "type": "variable"
+    },
+    {
+      "date": "2026-09-24",
+      "category": "통신비",
+      "subcategory": "인터넷",
+      "memo": "xfinity",
+      "account": "Chase",
+      "amount": 40.0,
+      "type": "fixed"
     },
     {
       "date": "2026-09-24",
@@ -11176,55 +11568,76 @@ window.APP_DATA = {
   "insights": [
     {
       "tier": "alert",
-      "icon": "🔺",
-      "title": "주거비 지출 87% 급증",
-      "body": "9월 주거비 지출이 $2,985로 과거 평균 $1,592보다 87%($1,392) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "icon": "📉",
+      "title": "10월 적자 -$1,123",
+      "body": "10월은 수입 $5,776보다 지출 $6,898이 많아 $1,123 적자입니다. 가장 큰 변동지출부터 줄이면 흑자 전환이 가능합니다.",
       "severity": "high",
-      "score": 92.5,
+      "score": 95,
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "여행 지출 209% 급증",
+      "body": "10월 여행 지출이 $1,774로 과거 평균 $573보다 209%($1,200) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "high",
+      "score": 95,
       "evidence": [
-        "비교 대상: 최근 8개월 평균 $1,592"
+        "비교 대상: 최근 7개월 평균 $573"
       ],
       "top": true
     },
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "10월 예상 지출 $7,195",
-      "body": "21일차 현재 지출 $5,939입니다. 과거 지출 시점을 반영하면 월말 $7,195로 최근 기준 $5,429 대비 $1,766 차이로 마감될 수 있어요.",
+      "title": "11월 예상 지출 $8,229",
+      "body": "3일차 현재 지출 $3,469입니다. 과거 지출 시점을 반영하면 월말 $8,229로 최근 기준 $5,670 대비 $2,559 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 90,
       "forecast": {
-        "expense": 7194.95,
-        "daily_limit": 2.74,
-        "historical_progress": 0.7686,
+        "expense": 8228.69,
+        "daily_limit": 98.69,
+        "historical_progress": 0.1605,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 21/31일",
-        "현재 지출: $5,939",
-        "과거 지출 중앙값: $5,429",
-        "과거 패턴상 현재 시점 누적 비중: 77% (18개월)",
-        "남은 기간 변동지출 일일 한도: $3"
+        "분석일수: 3/30일",
+        "현재 지출: $3,469",
+        "과거 지출 중앙값: $5,670",
+        "과거 패턴상 현재 시점 누적 비중: 16% (18개월)",
+        "남은 기간 변동지출 일일 한도: $99"
+      ],
+      "top": true
+    },
+    {
+      "tier": "alert",
+      "icon": "🔺",
+      "title": "주거비 지출 72% 급증",
+      "body": "10월 주거비 지출이 $3,013로 과거 평균 $1,747보다 72%($1,266) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "severity": "high",
+      "score": 89.5,
+      "evidence": [
+        "비교 대상: 최근 9개월 평균 $1,747"
       ],
       "top": true
     },
     {
       "tier": "alert",
       "icon": "📆",
-      "title": "2026년 9월까지 지출 +19%",
-      "body": "Raw Data 기준 2026년 1~9월 지출은 $52,047로, 2025년 같은 기간 $43,581보다 $8,466 늘었습니다.",
+      "title": "2026년 10월까지 지출 +15%",
+      "body": "Raw Data 기준 2026년 1~10월 지출은 $58,946로, 2025년 같은 기간 $51,140보다 $7,806 늘었습니다.",
       "severity": "high",
       "score": 86,
       "history": {
-        "period": "2026-01~2026-09",
-        "delta": 8466.4,
-        "ratio": 0.1943
+        "period": "2026-01~2026-10",
+        "delta": 7806.03,
+        "ratio": 0.1526
       },
       "evidence": [
-        "2026년 YTD: $52,047",
-        "2025년 YTD: $43,581",
-        "비교 기간: 1월~9월"
+        "2026년 YTD: $58,946",
+        "2025년 YTD: $51,140",
+        "비교 기간: 1월~10월"
       ],
       "source": "연말정산 RAW DATA",
       "top": true
@@ -11232,55 +11645,49 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "📈",
-      "title": "생활용품 지출 전년동기 대비 $3,115 증가",
-      "body": "2026년 1~9월 생활용품 지출은 $4,546입니다. 작년 같은 기간 $1,430 대비 +218% 변화라, 반복 지출인지 재분류 영향인지 확인할 만합니다.",
+      "title": "생활용품 지출 전년동기 대비 $3,781 증가",
+      "body": "2026년 1~10월 생활용품 지출은 $5,299입니다. 작년 같은 기간 $1,518 대비 +249% 변화라, 반복 지출인지 재분류 영향인지 확인할 만합니다.",
       "severity": "high",
       "score": 84,
       "history": {
         "category": "생활용품",
-        "delta": 3115.26,
-        "ratio": 2.1778
+        "delta": 3781.24,
+        "ratio": 2.4915
       },
       "evidence": [
-        "생활용품 2026년 YTD: $4,546",
-        "생활용품 2025년 YTD: $1,430",
-        "차이: $3,115"
+        "생활용품 2026년 YTD: $5,299",
+        "생활용품 2025년 YTD: $1,518",
+        "차이: $3,781"
       ],
       "source": "연말정산 RAW DATA",
-      "top": true
+      "top": false
     },
     {
       "tier": "alert",
       "icon": "💸",
-      "title": "9월 투자 납입 $0 (저축률 0%)",
-      "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 11%였습니다. 정기 납입 재개를 검토하세요.",
+      "title": "10월 투자 납입 $0 (저축률 0%)",
+      "body": "이번 달 Robinhood·Roth IRA 납입이 없습니다. 최근 평균 저축률은 6%였습니다. 정기 납입 재개를 검토하세요.",
       "severity": "medium",
       "score": 82,
-      "top": true
+      "top": false
     },
     {
       "tier": "alert",
-      "icon": "🧭",
-      "title": "최근 12개월 월평균 지출 $5,683",
-      "body": "최근 12개월 평균은 $5,683이고, 그 이전 12개월 평균 $5,117 대비 +11%입니다. 월 예산 기준선은 최근 12개월 평균을 우선으로 잡는 편이 현실적입니다.",
+      "icon": "🔺",
+      "title": "생활용품 지출 34% 급증",
+      "body": "10월 생활용품 지출이 $753로 과거 평균 $562보다 34%($191) 많습니다. 일회성인지 반복되는지 확인하세요.",
       "severity": "medium",
-      "score": 74,
-      "history": {
-        "recent_12_avg": 5682.69,
-        "previous_12_avg": 5117.05
-      },
+      "score": 81.8,
       "evidence": [
-        "최근 12개월: 2025-10~2026-09",
-        "이전 12개월: 2024-10~2025-09"
+        "비교 대상: 최근 8개월 평균 $562"
       ],
-      "source": "연말정산 RAW DATA",
       "top": false
     },
     {
       "tier": "insight",
       "icon": "🔎",
       "title": "Raw Data 저축 항목 방향 확인 필요",
-      "body": "2026년 1~9월 저축 항목 합계가 -$15,500로 음수입니다. 작년 같은 기간은 $16,000였으니, 투자 출금/계좌이체가 지출처럼 분류됐는지 확인하면 저축률 인사이트가 더 정확해집니다.",
+      "body": "2026년 1~10월 저축 항목 합계가 -$15,500로 음수입니다. 작년 같은 기간은 $16,000였으니, 투자 출금/계좌이체가 지출처럼 분류됐는지 확인하면 저축률 인사이트가 더 정확해집니다.",
       "severity": "medium",
       "score": 64,
       "evidence": [
@@ -11294,58 +11701,76 @@ window.APP_DATA = {
       "tier": "recommendation",
       "icon": "🔁",
       "title": "확인된 구독 4종 월 $83 (연 $996)",
-      "body": "헬스장 $29, 세차 구독 $26, ai 구독 $20, ott $8. 최근 9개월 중 최소 절반 이상 반복되고 금액 변동이 작은 항목만 포함했습니다. 가장 큰 항목은 헬스장($29/월)입니다.",
+      "body": "헬스장 $29, 세차 구독 $26, ai 구독 $20, ott $8. 최근 10개월 중 최소 절반 이상 반복되고 금액 변동이 작은 항목만 포함했습니다. 가장 큰 항목은 헬스장($29/월)입니다.",
       "severity": "medium",
       "score": 60,
       "evidence": [
-        "헬스장: 9개월 결제, 출현율 100%, 중앙값 $29",
-        "세차 구독: 7개월 결제, 출현율 78%, 중앙값 $26",
-        "ai 구독: 5개월 결제, 출현율 56%, 중앙값 $20",
-        "ott: 5개월 결제, 출현율 56%, 중앙값 $8"
+        "헬스장: 10개월 결제, 출현율 100%, 중앙값 $29",
+        "세차 구독: 7개월 결제, 출현율 70%, 중앙값 $26",
+        "ai 구독: 6개월 결제, 출현율 60%, 중앙값 $20",
+        "ott: 5개월 결제, 출현율 50%, 중앙값 $8"
       ],
       "top": false
     },
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $2,925~$10,187",
-      "body": "최근 9개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $5,349이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $1,675~$7,967",
+      "body": "최근 10개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $3,960이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 2924.95,
-        "mid": 5348.59,
-        "high": 10187.29,
-        "sample_months": 9
+        "low": 1675.25,
+        "mid": 3959.88,
+        "high": 7967.21,
+        "sample_months": 10
       },
       "evidence": [
-        "현재 현금: $2,511",
-        "월 순현금흐름 25백분위: $138",
-        "월 순현금흐름 중앙값: $946",
-        "월 순현금흐름 75백분위: $2,559"
+        "현재 현금: $1,393",
+        "월 순현금흐름 25백분위: $94",
+        "월 순현금흐름 중앙값: $856",
+        "월 순현금흐름 75백분위: $2,191"
       ],
       "top": false
     },
     {
       "tier": "insight",
       "icon": "🏠",
-      "title": "고정비가 지출의 75%",
-      "body": "9월 고정비 $4,069로 전체 지출의 75%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
+      "title": "고정비가 지출의 53%",
+      "body": "10월 고정비 $3,630로 전체 지출의 53%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
       "severity": "medium",
       "score": 58,
       "top": false
     },
     {
+      "tier": "insight",
+      "icon": "🧭",
+      "title": "최근 12개월 월평균 지출 $5,628",
+      "body": "최근 12개월 평균은 $5,628이고, 그 이전 12개월 평균 $5,356 대비 +5%입니다. 월 예산 기준선은 최근 12개월 평균을 우선으로 잡는 편이 현실적입니다.",
+      "severity": "low",
+      "score": 58,
+      "history": {
+        "recent_12_avg": 5627.66,
+        "previous_12_avg": 5355.67
+      },
+      "evidence": [
+        "최근 12개월: 2025-11~2026-10",
+        "이전 12개월: 2024-11~2025-10"
+      ],
+      "source": "연말정산 RAW DATA",
+      "top": false
+    },
+    {
       "tier": "recommendation",
       "icon": "✂️",
-      "title": "식비 평소 지출 10% 조정 시 월 $85",
-      "body": "최근 6개월 중 6개월 발생했고 중앙값은 $838입니다. 일회성 급증이 아닌 평소 수준에서 10%인 $85을 줄이는 목표가 현실적입니다.",
+      "title": "식비 평소 지출 10% 조정 시 월 $75",
+      "body": "최근 6개월 중 6개월 발생했고 중앙값은 $774입니다. 일회성 급증이 아닌 평소 수준에서 10%인 $75을 줄이는 목표가 현실적입니다.",
       "severity": "medium",
       "score": 57,
       "evidence": [
-        "최근 중앙값: $838",
+        "최근 중앙값: $774",
         "출현율: 100%",
-        "월 목표: $85"
+        "월 목표: $75"
       ],
       "top": false
     },
@@ -11357,30 +11782,30 @@ window.APP_DATA = {
       "severity": "low",
       "score": 56,
       "evidence": [
-        "mazda: 9개월 반복, 출현율 100%, 중앙값 $475",
-        "dte: 8개월 반복, 출현율 89%, 중앙값 $77",
-        "verizon: 8개월 반복, 출현율 89%, 중앙값 $50",
-        "xfinity: 8개월 반복, 출현율 89%, 중앙값 $40"
+        "mazda: 10개월 반복, 출현율 100%, 중앙값 $475",
+        "dte: 9개월 반복, 출현율 90%, 중앙값 $77",
+        "verizon: 9개월 반복, 출현율 90%, 중앙값 $50",
+        "xfinity: 10개월 반복, 출현율 100%, 중앙값 $40"
       ],
       "top": false
     },
     {
       "tier": "insight",
       "icon": "🌱",
-      "title": "생활용품 지출 $494 감소",
-      "body": "생활용품 지출이 과거 평균보다 $494 줄었습니다. 무리 없이 줄어든 항목이라면 다음 달에도 같은 패턴을 유지해보세요.",
+      "title": "식비 지출 $554 감소",
+      "body": "식비 지출이 과거 평균보다 $554 줄었습니다. 무리 없이 줄어든 항목이라면 다음 달에도 같은 패턴을 유지해보세요.",
       "severity": "good",
       "score": 54,
       "evidence": [
-        "생활용품 과거 평균 대비 변화: -$494"
+        "식비 과거 평균 대비 변화: -$554"
       ],
       "top": false
     },
     {
       "tier": "insight",
       "icon": "🧩",
-      "title": "2024년 이후 상위 3개 항목이 지출의 53%",
-      "body": "2024-01~2026-09 누적 지출 $174,108 중 상위 3개 항목은 주거/통신 $43,635, 식비 $32,906, 대출 $16,181입니다. 필수비와 선택비를 나눈 뒤 조정 가능한 항목부터 보는 것이 좋습니다.",
+      "title": "2024년 이후 상위 3개 항목이 지출의 52%",
+      "body": "2024-01~2026-10 누적 지출 $181,006 중 상위 3개 항목은 주거/통신 $43,635, 식비 $33,290, 대출 $16,657입니다. 필수비와 선택비를 나눈 뒤 조정 가능한 항목부터 보는 것이 좋습니다.",
       "severity": "low",
       "score": 52,
       "history": {
@@ -11391,19 +11816,19 @@ window.APP_DATA = {
           },
           {
             "name": "식비",
-            "amount": 32905.66
+            "amount": 33289.99
           },
           {
             "name": "대출",
-            "amount": 16181.22
+            "amount": 16656.56
           }
         ],
-        "share": 0.5326
+        "share": 0.517
       },
       "evidence": [
         "주거/통신: $43,635",
-        "식비: $32,906",
-        "대출: $16,181"
+        "식비: $33,290",
+        "대출: $16,657"
       ],
       "source": "연말정산 RAW DATA",
       "top": false
@@ -11412,57 +11837,57 @@ window.APP_DATA = {
       "tier": "insight",
       "icon": "📊",
       "title": "최근 3개월 지출 증가 추세",
-      "body": "최근 3개월 중앙값 $7,470은 이전 3개월 중앙값 $5,339 대비 +40%입니다.",
+      "body": "최근 3개월 중앙값 $6,898은 이전 3개월 중앙값 $6,150 대비 +12%입니다.",
       "severity": "low",
       "score": 40,
       "evidence": [
-        "이전 3개월: $5,339, $6,150, $5,298",
-        "최근 3개월: $7,470, $7,853, $5,429"
+        "이전 3개월: $6,150, $5,298, $7,470",
+        "최근 3개월: $7,853, $5,469, $6,898"
       ],
       "top": false
     }
   ],
   "scores": {
     "health": {
-      "score": 40,
-      "label": "보완 필요",
+      "score": 15,
+      "label": "기초 단계",
       "parts": {
         "저축률": 0,
-        "현금흐름": 100,
-        "비상금": 10,
+        "현금흐름": 0,
+        "비상금": 5,
         "소비안정성": 75
       },
       "method": "ratio_based_heuristic"
     },
     "lifestyle_inflation": {
-      "score": 100,
+      "score": 75,
       "label": "높음",
       "method": "recent_3m_vs_prior_3m"
     },
     "savings_momentum": {
-      "score": 15,
-      "label": "둔화",
+      "score": 50,
+      "label": "정체",
       "method": "three_consecutive_valid_months"
     }
   },
   "action_items": {
     "now": [
-      "남은 10일 변동지출 하루 $3 이하로 관리",
-      "주거비 급증분 점검 (과거比 +$1,392)"
+      "10월 적자 $1,123 — 다음달 변동지출 한도 $4,922 설정",
+      "남은 27일 변동지출 하루 $99 이하로 관리",
+      "주거비 급증분 점검 (과거比 +$1,266)"
     ],
     "keep": [],
     "reduce": [
       "확인된 구독 4종 중 ott 이용 여부 점검",
-      "식비 평소 지출 월 $85 조정 목표"
+      "식비 평소 지출 월 $75 조정 목표"
     ],
     "watch": [
       "반복지출 후보 7개 확인",
-      "저축률 둔화 추세 — 다음달 반등 확인",
       "고정비 비중 높음 — 보험·통신 재협상 검토"
     ]
   },
   "insight_meta": {
-    "analysis_month": "2026-09",
+    "analysis_month": "2026-10",
     "baseline_months": [
       "2026-01",
       "2026-02",
@@ -11471,40 +11896,41 @@ window.APP_DATA = {
       "2026-05",
       "2026-06",
       "2026-07",
-      "2026-08"
+      "2026-08",
+      "2026-09"
     ],
     "assumptions": "비상금 4개월, 예산 없음→과거 완료월 기준",
     "cat_increase_top": [
       {
+        "name": "여행",
+        "delta": 1328
+      },
+      {
         "name": "주거비",
-        "delta": 1392
+        "delta": 1266
       },
       {
-        "name": "가족지원",
-        "delta": 152
-      },
-      {
-        "name": "의복/미용",
-        "delta": 28
+        "name": "생활용품",
+        "delta": 253
       }
     ],
     "cat_decrease_top": [
       {
-        "name": "생활용품",
-        "delta": -494
+        "name": "식비",
+        "delta": -554
       },
       {
-        "name": "기타",
-        "delta": -288
+        "name": "가족지원",
+        "delta": -364
       },
       {
         "name": "차량유지비",
-        "delta": -229
+        "delta": -265
       }
     ],
     "history_range": {
       "start": "2024-01",
-      "end": "2026-09",
+      "end": "2026-10",
       "years": [
         2024,
         2025,
