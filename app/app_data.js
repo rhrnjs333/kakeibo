@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-11-11T00:55:42",
+    "generated_at": "2026-11-11T01:17:12",
     "source_file": "2026 가계부.xlsx",
     "current_month": "11월"
   },
   "summary": {
-    "total_wealth": 6215.44,
-    "cash_total": 1092.79,
+    "total_wealth": 6109.92,
+    "cash_total": 1016.27,
     "saving": 5113.15,
     "prev_balance": 4850.0,
-    "card_balance": 9.5,
-    "net": 1102.29,
-    "total_positive": 6247.15,
-    "total_negative": -2989.52,
-    "net_worth": 3257.63
+    "card_balance": -19.5,
+    "net": 996.77,
+    "total_positive": 6170.63,
+    "total_negative": -3252.43,
+    "net_worth": 2918.2
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 1092.79,
+      "balance": 1016.27,
       "prev_balance": 4881.71,
       "income": 0.0,
-      "expense": 3788.92
+      "expense": 3865.44
     },
     {
       "key": "Chase Sphire",
@@ -52,10 +52,10 @@ window.APP_DATA = {
       "logo": "CM",
       "logo_bg": "#7c2d12",
       "logo_fg": "#fdba74",
-      "balance": -29.0,
+      "balance": -58.0,
       "prev_balance": -29.0,
       "income": 0.0,
-      "expense": 0.0
+      "expense": 29.0
     },
     {
       "key": "Discover",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -2957.8,
+      "balance": -3191.71,
       "prev_balance": -2912.39,
       "income": 0.0,
-      "expense": 45.41
+      "expense": 279.32
     },
     {
       "key": "Robinhood",
@@ -111,15 +111,19 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": -1865.01,
-    "신용카드 (부채)": 9.49,
+    "현금성 자산": -2175.44,
+    "신용카드 (부채)": -19.51,
     "투자 자산": 5113.15
   },
   "categories": {
     "fixed": [
       {
         "name": "주거비",
-        "amount": 2930.96
+        "amount": 2957.48
+      },
+      {
+        "name": "구독",
+        "amount": 29.0
       },
       {
         "name": "가족지원",
@@ -129,11 +133,11 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 51.57
+        "amount": 285.48
       },
       {
         "name": "생활용품",
-        "amount": 10.59
+        "amount": 60.59
       }
     ]
   },
@@ -238,7 +242,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 3793.12,
+  "category_total": 4132.55,
   "monthly": {
     "2026-01": {
       "expense": 5870.51,
@@ -851,16 +855,20 @@ window.APP_DATA = {
       }
     },
     "2026-11": {
-      "expense": 3793.12,
+      "expense": 4132.55,
       "income": 0.0,
-      "fixed": 3730.96,
-      "variable": 62.16,
+      "fixed": 3786.48,
+      "variable": 346.07,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
           {
             "name": "주거비",
-            "amount": 2930.96
+            "amount": 2957.48
+          },
+          {
+            "name": "구독",
+            "amount": 29.0
           },
           {
             "name": "가족지원",
@@ -870,11 +878,11 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 51.57
+            "amount": 285.48
           },
           {
             "name": "생활용품",
-            "amount": 10.59
+            "amount": 60.59
           }
         ]
       }
@@ -3114,6 +3122,69 @@ window.APP_DATA = {
   },
   "transactions": [
     {
+      "date": "2026-11-10",
+      "category": "구독",
+      "subcategory": "헬스장",
+      "memo": "Powerhouse",
+      "account": "Chase Marriott",
+      "amount": 29.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-11-10",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심",
+      "account": "Robinhood Bank",
+      "amount": 15.28,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-09",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Costco",
+      "account": "Robinhood Bank",
+      "amount": 49.04,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-09",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Costco",
+      "account": "Robinhood Bank",
+      "amount": 21.77,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-09",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "hmart",
+      "account": "Robinhood Bank",
+      "amount": 18.17,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-09",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "hmart",
+      "account": "Robinhood Bank",
+      "amount": 7.99,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-08",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "커피",
+      "account": "Robinhood Bank",
+      "amount": 5.57,
+      "type": "variable"
+    },
+    {
       "date": "2026-11-07",
       "category": "가족지원",
       "subcategory": "부모님 지원",
@@ -3121,6 +3192,60 @@ window.APP_DATA = {
       "account": "Chase",
       "amount": 300.0,
       "type": "fixed"
+    },
+    {
+      "date": "2026-11-07",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "점심 - Panda Express",
+      "account": "Robinhood Bank",
+      "amount": 13.57,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-06",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "hmart",
+      "account": "Robinhood Bank",
+      "amount": 200.29,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-06",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "hmart (Deduction)",
+      "account": "Robinhood Bank",
+      "amount": -120.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-06",
+      "category": "식비",
+      "subcategory": "술/유흥",
+      "memo": "술",
+      "account": "Robinhood Bank",
+      "amount": 22.23,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-05",
+      "category": "주거비",
+      "subcategory": "유틸리티",
+      "memo": "Consumer Energy",
+      "account": "Chase",
+      "amount": 26.52,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-11-04",
+      "category": "생활용품",
+      "subcategory": "전자제품",
+      "memo": "Leaf Blower",
+      "account": "Chase",
+      "amount": 50.0,
+      "type": "variable"
     },
     {
       "date": "2026-11-03",
@@ -3134,19 +3259,19 @@ window.APP_DATA = {
     {
       "date": "2026-11-03",
       "category": "식비",
-      "subcategory": "식재료",
-      "memo": "Whole Foods",
+      "subcategory": "간식/카페",
+      "memo": "Tous Les Jours",
       "account": "Robinhood Bank",
-      "amount": 10.68,
+      "amount": 13.62,
       "type": "variable"
     },
     {
       "date": "2026-11-03",
       "category": "식비",
-      "subcategory": "간식/카페",
-      "memo": "Tous Les Jours",
+      "subcategory": "식재료",
+      "memo": "Whole Foods",
       "account": "Robinhood Bank",
-      "amount": 13.62,
+      "amount": 10.68,
       "type": "variable"
     },
     {
@@ -3157,15 +3282,6 @@ window.APP_DATA = {
       "account": "Chase",
       "amount": 500.0,
       "type": "fixed"
-    },
-    {
-      "date": "2026-11-02",
-      "category": "식비",
-      "subcategory": "패스트푸드",
-      "memo": "Panda Express",
-      "account": "Discover",
-      "amount": 16.75,
-      "type": "variable"
     },
     {
       "date": "2026-11-02",
@@ -3183,6 +3299,15 @@ window.APP_DATA = {
       "memo": "kroger",
       "account": "Robinhood Bank",
       "amount": 10.52,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-02",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Panda Express",
+      "account": "Discover",
+      "amount": 16.75,
       "type": "variable"
     },
     {
@@ -11690,23 +11815,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "11월 예상 지출 $6,570",
-      "body": "11일차 현재 지출 $3,793입니다. 과거 지출 시점을 반영하면 월말 $6,570로 최근 기준 $5,670 대비 $900 차이로 마감될 수 있어요.",
+      "title": "11월 예상 지출 $6,909",
+      "body": "11일차 현재 지출 $4,133입니다. 과거 지출 시점을 반영하면 월말 $6,909로 최근 기준 $5,670 대비 $1,239 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 6569.62,
-        "daily_limit": 138.97,
+        "expense": 6909.05,
+        "daily_limit": 124.03,
         "historical_progress": 0.5103,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
         "분석일수: 11/30일",
-        "현재 지출: $3,793",
+        "현재 지출: $4,133",
         "과거 지출 중앙값: $5,670",
         "과거 패턴상 현재 시점 누적 비중: 51% (18개월)",
-        "남은 기간 변동지출 일일 한도: $139"
+        "남은 기간 변동지출 일일 한도: $124"
       ],
       "top": false
     },
@@ -11742,18 +11867,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $1,375~$7,667",
-      "body": "최근 10개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $3,660이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $1,299~$7,591",
+      "body": "최근 10개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $3,583이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 1375.25,
-        "mid": 3659.88,
-        "high": 7667.21,
+        "low": 1298.73,
+        "mid": 3583.36,
+        "high": 7590.69,
         "sample_months": 10
       },
       "evidence": [
-        "현재 현금: $1,093",
+        "현재 현금: $1,016",
         "월 순현금흐름 25백분위: $94",
         "월 순현금흐름 중앙값: $856",
         "월 순현금흐름 75백분위: $2,191"
@@ -11900,7 +12025,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "10월 적자 $1,123 — 다음달 변동지출 한도 $4,922 설정",
-      "남은 19일 변동지출 하루 $139 이하로 관리",
+      "남은 19일 변동지출 하루 $124 이하로 관리",
       "주거비 급증분 점검 (과거比 +$1,266)"
     ],
     "keep": [],
