@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-11-18T21:27:52",
+    "generated_at": "2026-11-18T23:32:08",
     "source_file": "2026 가계부.xlsx",
     "current_month": "11월"
   },
   "summary": {
-    "total_wealth": 5702.3,
+    "total_wealth": 5670.67,
     "cash_total": 839.93,
     "saving": 5113.15,
     "prev_balance": 4744.73,
-    "card_balance": -250.78,
-    "net": 589.15,
+    "card_balance": -282.41,
+    "net": 557.52,
     "total_positive": 5953.08,
-    "total_negative": -656.41,
-    "net_worth": 5296.67
+    "total_negative": -739.5,
+    "net_worth": 5213.58
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -76.01,
+      "balance": -115.01,
       "prev_balance": -76.01,
       "income": 0.0,
-      "expense": 0.0
+      "expense": 39.0
     },
     {
       "key": "Chase Marriott",
@@ -65,10 +65,10 @@ window.APP_DATA = {
       "logo": "D",
       "logo_bg": "#7c1d1d",
       "logo_fg": "#fca5a5",
-      "balance": -116.77,
+      "balance": -109.4,
       "prev_balance": -31.97,
       "income": 57.96,
-      "expense": 142.76
+      "expense": 135.39
     },
     {
       "key": "Robinhood Bank",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -405.63,
+      "balance": -457.09,
       "prev_balance": -2912.39,
       "income": 2895.65,
-      "expense": 388.89
+      "expense": 440.35
     },
     {
       "key": "Robinhood",
@@ -111,8 +111,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 434.3,
-    "신용카드 (부채)": -250.78,
+    "현금성 자산": 382.84,
+    "신용카드 (부채)": -282.41,
     "투자 자산": 5113.15
   },
   "categories": {
@@ -137,7 +137,7 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 438.91
+        "amount": 510.76
       },
       {
         "name": "생활용품",
@@ -149,7 +149,7 @@ window.APP_DATA = {
       },
       {
         "name": "차량유지비",
-        "amount": 20.01
+        "amount": 31.25
       }
     ]
   },
@@ -254,7 +254,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 4843.47,
+  "category_total": 4926.56,
   "monthly": {
     "2026-01": {
       "expense": 5879.41,
@@ -867,10 +867,10 @@ window.APP_DATA = {
       }
     },
     "2026-11": {
-      "expense": 4843.47,
+      "expense": 4926.56,
       "income": 3214.65,
       "fixed": 4287.81,
-      "variable": 555.66,
+      "variable": 638.75,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -894,7 +894,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 438.91
+            "amount": 510.76
           },
           {
             "name": "생활용품",
@@ -906,7 +906,7 @@ window.APP_DATA = {
           },
           {
             "name": "차량유지비",
-            "amount": 20.01
+            "amount": 31.25
           }
         ]
       }
@@ -3167,9 +3167,9 @@ window.APP_DATA = {
       "date": "2026-11-17",
       "category": "식비",
       "subcategory": "외식",
-      "memo": "점심 - Ford",
-      "account": "Discover",
-      "amount": 7.37,
+      "memo": "점심 - Deduction",
+      "account": "Chase Sphire",
+      "amount": 39.0,
       "type": "variable"
     },
     {
@@ -3188,6 +3188,33 @@ window.APP_DATA = {
       "memo": "amazon - mold cleaner",
       "account": "Robinhood Bank",
       "amount": 12.46,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-16",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "점심 - Ford",
+      "account": "Robinhood Bank",
+      "amount": 7.37,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-15",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Robinhood Bank",
+      "amount": 11.24,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-14",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Kroger",
+      "account": "Robinhood Bank",
+      "amount": 32.85,
       "type": "variable"
     },
     {
@@ -12073,23 +12100,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "11월 예상 지출 $6,433",
-      "body": "18일차 현재 지출 $4,843입니다. 과거 지출 시점을 반영하면 월말 $6,433로 최근 기준 $5,676 대비 $757 차이로 마감될 수 있어요.",
+      "title": "11월 예상 지출 $6,516",
+      "body": "18일차 현재 지출 $4,927입니다. 과거 지출 시점을 반영하면 월말 $6,516로 최근 기준 $5,676 대비 $840 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 6432.68,
-        "daily_limit": 181.24,
+        "expense": 6515.77,
+        "daily_limit": 174.31,
         "historical_progress": 0.72,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
         "분석일수: 18/30일",
-        "현재 지출: $4,843",
+        "현재 지출: $4,927",
         "과거 지출 중앙값: $5,676",
         "과거 패턴상 현재 시점 누적 비중: 72% (18개월)",
-        "남은 기간 변동지출 일일 한도: $181"
+        "남은 기간 변동지출 일일 한도: $174"
       ],
       "top": false
     },
@@ -12292,7 +12319,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "10월 적자 $1,152 — 다음달 변동지출 한도 $4,925 설정",
-      "남은 12일 변동지출 하루 $181 이하로 관리",
+      "남은 12일 변동지출 하루 $174 이하로 관리",
       "주거비 급증분 점검 (과거比 +$1,266)"
     ],
     "keep": [],
