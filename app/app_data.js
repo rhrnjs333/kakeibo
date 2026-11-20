@@ -2,7 +2,7 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-11-18T23:32:08",
+    "generated_at": "2026-11-20T14:09:42",
     "source_file": "2026 가계부.xlsx",
     "current_month": "11월"
   },
@@ -14,8 +14,8 @@ window.APP_DATA = {
     "card_balance": -282.41,
     "net": 557.52,
     "total_positive": 5953.08,
-    "total_negative": -739.5,
-    "net_worth": 5213.58
+    "total_negative": -804.09,
+    "net_worth": 5148.99
   },
   "accounts": [
     {
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -457.09,
+      "balance": -521.68,
       "prev_balance": -2912.39,
       "income": 2895.65,
-      "expense": 440.35
+      "expense": 504.94
     },
     {
       "key": "Robinhood",
@@ -111,7 +111,7 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": 382.84,
+    "현금성 자산": 318.25,
     "신용카드 (부채)": -282.41,
     "투자 자산": 5113.15
   },
@@ -137,7 +137,7 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 510.76
+        "amount": 524.23
       },
       {
         "name": "생활용품",
@@ -149,7 +149,7 @@ window.APP_DATA = {
       },
       {
         "name": "차량유지비",
-        "amount": 31.25
+        "amount": 82.37
       }
     ]
   },
@@ -254,7 +254,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 4926.56,
+  "category_total": 4991.15,
   "monthly": {
     "2026-01": {
       "expense": 5879.41,
@@ -867,10 +867,10 @@ window.APP_DATA = {
       }
     },
     "2026-11": {
-      "expense": 4926.56,
+      "expense": 4991.15,
       "income": 3214.65,
       "fixed": 4287.81,
-      "variable": 638.75,
+      "variable": 703.34,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -894,7 +894,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 510.76
+            "amount": 524.23
           },
           {
             "name": "생활용품",
@@ -906,7 +906,7 @@ window.APP_DATA = {
           },
           {
             "name": "차량유지비",
-            "amount": 31.25
+            "amount": 82.37
           }
         ]
       }
@@ -3145,6 +3145,42 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-11-19",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Robinhood Bank",
+      "amount": 12.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-19",
+      "category": "차량유지비",
+      "subcategory": "주유",
+      "memo": "주유",
+      "account": "Robinhood Bank",
+      "amount": 39.12,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-19",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Costco",
+      "account": "Robinhood Bank",
+      "amount": 11.88,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-19",
+      "category": "식비",
+      "subcategory": "식재료",
+      "memo": "Costco",
+      "account": "Robinhood Bank",
+      "amount": 1.59,
+      "type": "variable"
+    },
     {
       "date": "2026-11-17",
       "category": "대출",
@@ -12100,23 +12136,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "11월 예상 지출 $6,516",
-      "body": "18일차 현재 지출 $4,927입니다. 과거 지출 시점을 반영하면 월말 $6,516로 최근 기준 $5,676 대비 $840 차이로 마감될 수 있어요.",
+      "title": "11월 예상 지출 $6,340",
+      "body": "20일차 현재 지출 $4,991입니다. 과거 지출 시점을 반영하면 월말 $6,340로 최근 기준 $5,676 대비 $664 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 6515.77,
-        "daily_limit": 174.31,
-        "historical_progress": 0.72,
+        "expense": 6340.06,
+        "daily_limit": 202.72,
+        "historical_progress": 0.7623,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 18/30일",
-        "현재 지출: $4,927",
+        "분석일수: 20/30일",
+        "현재 지출: $4,991",
         "과거 지출 중앙값: $5,676",
-        "과거 패턴상 현재 시점 누적 비중: 72% (18개월)",
-        "남은 기간 변동지출 일일 한도: $174"
+        "과거 패턴상 현재 시점 누적 비중: 76% (18개월)",
+        "남은 기간 변동지출 일일 한도: $203"
       ],
       "top": false
     },
@@ -12319,7 +12355,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "10월 적자 $1,152 — 다음달 변동지출 한도 $4,925 설정",
-      "남은 12일 변동지출 하루 $174 이하로 관리",
+      "남은 10일 변동지출 하루 $203 이하로 관리",
       "주거비 급증분 점검 (과거比 +$1,266)"
     ],
     "keep": [],
