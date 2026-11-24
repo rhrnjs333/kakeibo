@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-11-23T19:48:51",
+    "generated_at": "2026-11-23T20:03:00",
     "source_file": "2026 가계부.xlsx",
     "current_month": "11월"
   },
   "summary": {
-    "total_wealth": 5663.3,
+    "total_wealth": 5544.47,
     "cash_total": 839.93,
     "saving": 5113.15,
     "prev_balance": 4744.73,
-    "card_balance": -289.78,
-    "net": 550.15,
+    "card_balance": -408.61,
+    "net": 431.32,
     "total_positive": 5953.08,
-    "total_negative": -1633.95,
-    "net_worth": 4319.13
+    "total_negative": -1830.04,
+    "net_worth": 4123.04
   },
   "accounts": [
     {
@@ -39,10 +39,10 @@ window.APP_DATA = {
       "logo": "CS",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": -115.01,
+      "balance": -233.84,
       "prev_balance": -76.01,
       "income": 0.0,
-      "expense": 39.0
+      "expense": 157.83
     },
     {
       "key": "Chase Marriott",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -1344.17,
+      "balance": -1421.43,
       "prev_balance": -2912.39,
       "income": 2895.65,
-      "expense": 1327.43
+      "expense": 1404.69
     },
     {
       "key": "Robinhood",
@@ -111,8 +111,8 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": -504.24,
-    "신용카드 (부채)": -289.78,
+    "현금성 자산": -581.5,
+    "신용카드 (부채)": -408.61,
     "투자 자산": 5113.15
   },
   "categories": {
@@ -127,7 +127,7 @@ window.APP_DATA = {
       },
       {
         "name": "구독",
-        "amount": 54.99
+        "amount": 74.99
       },
       {
         "name": "가족지원",
@@ -137,7 +137,7 @@ window.APP_DATA = {
     "variable": [
       {
         "name": "식비",
-        "amount": 1217.3
+        "amount": 934.54
       },
       {
         "name": "생활용품",
@@ -148,8 +148,12 @@ window.APP_DATA = {
         "amount": 23.69
       },
       {
+        "name": "여행",
+        "amount": 553.64
+      },
+      {
         "name": "차량유지비",
-        "amount": 219.16
+        "amount": 124.37
       }
     ]
   },
@@ -232,14 +236,14 @@ window.APP_DATA = {
         "항공권",
         "숙박",
         "렌터카",
-        "여행경비"
+        "여행경비",
+        "대중교통"
       ],
       "차량유지비": [
-        "주유",
         "차량수리/부품",
         "세차",
         "주차비",
-        "대중교통",
+        "주유",
         "차량등록"
       ],
       "경조사/회비": [
@@ -254,7 +258,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 5821.01,
+  "category_total": 6017.1,
   "monthly": {
     "2026-01": {
       "expense": 5879.41,
@@ -739,11 +743,11 @@ window.APP_DATA = {
           },
           {
             "name": "여행",
-            "amount": 1969.66
+            "amount": 2036.6
           },
           {
             "name": "차량유지비",
-            "amount": 364.76
+            "amount": 297.82
           },
           {
             "name": "경조사/회비",
@@ -867,10 +871,10 @@ window.APP_DATA = {
       }
     },
     "2026-11": {
-      "expense": 5821.01,
+      "expense": 6017.1,
       "income": 3214.65,
-      "fixed": 4287.81,
-      "variable": 1533.2,
+      "fixed": 4307.81,
+      "variable": 1709.29,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -884,7 +888,7 @@ window.APP_DATA = {
           },
           {
             "name": "구독",
-            "amount": 54.99
+            "amount": 74.99
           },
           {
             "name": "가족지원",
@@ -894,7 +898,7 @@ window.APP_DATA = {
         "variable": [
           {
             "name": "식비",
-            "amount": 1217.3
+            "amount": 934.54
           },
           {
             "name": "생활용품",
@@ -905,8 +909,12 @@ window.APP_DATA = {
             "amount": 23.69
           },
           {
+            "name": "여행",
+            "amount": 553.64
+          },
+          {
             "name": "차량유지비",
-            "amount": 219.16
+            "amount": 124.37
           }
         ]
       }
@@ -3147,7 +3155,7 @@ window.APP_DATA = {
   "transactions": [
     {
       "date": "2026-11-22",
-      "category": "차량유지비",
+      "category": "여행",
       "subcategory": "대중교통",
       "memo": "Lyft",
       "account": "Robinhood Bank",
@@ -3165,7 +3173,7 @@ window.APP_DATA = {
     },
     {
       "date": "2026-11-22",
-      "category": "차량유지비",
+      "category": "여행",
       "subcategory": "대중교통",
       "memo": "Lyft",
       "account": "Robinhood Bank",
@@ -3174,7 +3182,7 @@ window.APP_DATA = {
     },
     {
       "date": "2026-11-22",
-      "category": "차량유지비",
+      "category": "여행",
       "subcategory": "대중교통",
       "memo": "Lyft",
       "account": "Robinhood Bank",
@@ -3186,8 +3194,53 @@ window.APP_DATA = {
       "category": "식비",
       "subcategory": "외식",
       "memo": "저녁 - Jukai",
-      "account": "Robinhood Bank",
+      "account": "Chase Sphire",
       "amount": 110.4,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-22",
+      "category": "여행",
+      "subcategory": "항공권",
+      "memo": "United Airline",
+      "account": "Robinhood Bank",
+      "amount": 378.4,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-22",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - Airport Express",
+      "account": "Robinhood Bank",
+      "amount": 27.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-22",
+      "category": "차량유지비",
+      "subcategory": "주차비",
+      "memo": "parking",
+      "account": "Robinhood Bank",
+      "amount": 42.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-22",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - MTA",
+      "account": "Chase Sphire",
+      "amount": 3.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-22",
+      "category": "식비",
+      "subcategory": "간식/카페",
+      "memo": "간식",
+      "account": "Chase Sphire",
+      "amount": 5.43,
       "type": "variable"
     },
     {
@@ -3197,6 +3250,51 @@ window.APP_DATA = {
       "memo": "저녁 - Charlie Palmer",
       "account": "Robinhood Bank",
       "amount": 544.01,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-21",
+      "category": "식비",
+      "subcategory": "외식",
+      "memo": "저녁 - Charlie Palmer (Deduction)",
+      "account": "Robinhood Bank",
+      "amount": -300.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-20",
+      "category": "구독",
+      "subcategory": "AI 구독",
+      "memo": "Claude",
+      "account": "Robinhood Bank",
+      "amount": 20.0,
+      "type": "fixed"
+    },
+    {
+      "date": "2026-11-20",
+      "category": "식비",
+      "subcategory": "패스트푸드",
+      "memo": "Mcdonald",
+      "account": "Robinhood Bank",
+      "amount": 11.81,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-20",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - MTA",
+      "account": "Robinhood Bank",
+      "amount": 3.0,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-20",
+      "category": "여행",
+      "subcategory": "여행경비",
+      "memo": "뉴욕여행 - MTA",
+      "account": "Robinhood Bank",
+      "amount": 5.45,
       "type": "variable"
     },
     {
@@ -6261,7 +6359,7 @@ window.APP_DATA = {
     },
     {
       "date": "2026-08-06",
-      "category": "차량유지비",
+      "category": "여행",
       "subcategory": "대중교통",
       "memo": "뉴욕여행 -  Lyft",
       "account": "Chase Sphire",
@@ -12105,12 +12203,12 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🔺",
-      "title": "여행 지출 209% 급증",
-      "body": "10월 여행 지출이 $1,774로 과거 평균 $573보다 209%($1,200) 많습니다. 일회성인지 반복되는지 확인하세요.",
+      "title": "여행 지출 204% 급증",
+      "body": "10월 여행 지출이 $1,774로 과거 평균 $583보다 204%($1,191) 많습니다. 일회성인지 반복되는지 확인하세요.",
       "severity": "high",
       "score": 95,
       "evidence": [
-        "비교 대상: 최근 7개월 평균 $573"
+        "비교 대상: 최근 7개월 평균 $583"
       ],
       "top": true
     },
@@ -12190,23 +12288,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "11월 예상 지출 $6,712",
-      "body": "23일차 현재 지출 $5,821입니다. 과거 지출 시점을 반영하면 월말 $6,712로 최근 기준 $5,676 대비 $1,036 차이로 마감될 수 있어요.",
+      "title": "11월 예상 지출 $6,908",
+      "body": "23일차 현재 지출 $6,017입니다. 과거 지출 시점을 반영하면 월말 $6,908로 최근 기준 $5,676 대비 $1,232 차이로 마감될 수 있어요.",
       "severity": "medium",
       "score": 74,
       "forecast": {
-        "expense": 6711.59,
-        "daily_limit": 171.04,
+        "expense": 6907.68,
+        "daily_limit": 145.89,
         "historical_progress": 0.8431,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
         "분석일수: 23/30일",
-        "현재 지출: $5,821",
+        "현재 지출: $6,017",
         "과거 지출 중앙값: $5,676",
         "과거 패턴상 현재 시점 누적 비중: 84% (18개월)",
-        "남은 기간 변동지출 일일 한도: $171"
+        "남은 기간 변동지출 일일 한도: $146"
       ],
       "top": false
     },
@@ -12409,7 +12507,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "10월 적자 $1,152 — 다음달 변동지출 한도 $4,925 설정",
-      "남은 7일 변동지출 하루 $171 이하로 관리",
+      "남은 7일 변동지출 하루 $146 이하로 관리",
       "주거비 급증분 점검 (과거比 +$1,266)"
     ],
     "keep": [],
@@ -12439,7 +12537,7 @@ window.APP_DATA = {
     "cat_increase_top": [
       {
         "name": "여행",
-        "delta": 1328
+        "delta": 1320
       },
       {
         "name": "주거비",
@@ -12461,7 +12559,7 @@ window.APP_DATA = {
       },
       {
         "name": "차량유지비",
-        "delta": -265
+        "delta": -258
       }
     ],
     "history_range": {
