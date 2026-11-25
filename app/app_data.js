@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-11-24T19:02:06",
+    "generated_at": "2026-11-25T15:47:19",
     "source_file": "2026 가계부.xlsx",
     "current_month": "11월"
   },
   "summary": {
-    "total_wealth": 5552.93,
-    "cash_total": 799.93,
+    "total_wealth": 5500.67,
+    "cash_total": 747.67,
     "saving": 5113.15,
     "prev_balance": 4744.73,
     "card_balance": -360.15,
-    "net": 439.78,
-    "total_positive": 5913.08,
+    "net": 387.52,
+    "total_positive": 5860.82,
     "total_negative": -2184.54,
-    "net_worth": 3728.54
+    "net_worth": 3676.28
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 799.93,
+      "balance": 747.67,
       "prev_balance": 4881.71,
       "income": 3214.65,
-      "expense": 7296.43
+      "expense": 7348.69
     },
     {
       "key": "Chase Sphire",
@@ -111,7 +111,7 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": -1024.46,
+    "현금성 자산": -1076.72,
     "신용카드 (부채)": -360.15,
     "투자 자산": 5113.15
   },
@@ -123,7 +123,7 @@ window.APP_DATA = {
       },
       {
         "name": "통신비",
-        "amount": 40.0
+        "amount": 92.26
       },
       {
         "name": "대출",
@@ -262,7 +262,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 6411.6,
+  "category_total": 6463.86,
   "monthly": {
     "2026-01": {
       "expense": 5879.41,
@@ -875,9 +875,9 @@ window.APP_DATA = {
       }
     },
     "2026-11": {
-      "expense": 6411.6,
+      "expense": 6463.86,
       "income": 3214.65,
-      "fixed": 4347.81,
+      "fixed": 4400.07,
       "variable": 2063.79,
       "invest_deposit": 0.0,
       "categories": {
@@ -888,7 +888,7 @@ window.APP_DATA = {
           },
           {
             "name": "통신비",
-            "amount": 40.0
+            "amount": 92.26
           },
           {
             "name": "대출",
@@ -3161,6 +3161,15 @@ window.APP_DATA = {
     }
   },
   "transactions": [
+    {
+      "date": "2026-11-25",
+      "category": "통신비",
+      "subcategory": "핸드폰",
+      "memo": "Verizon",
+      "account": "Chase",
+      "amount": 52.26,
+      "type": "fixed"
+    },
     {
       "date": "2026-11-24",
       "category": "통신비",
@@ -12268,23 +12277,23 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "11월 예상 지출 $7,289",
-      "body": "24일차 현재 지출 $6,412입니다. 과거 지출 시점을 반영하면 월말 $7,289로 최근 기준 $5,676 대비 $1,614 차이로 마감될 수 있어요.",
+      "title": "11월 예상 지출 $7,228",
+      "body": "25일차 현재 지출 $6,464입니다. 과거 지출 시점을 반영하면 월말 $7,228로 최근 기준 $5,676 대비 $1,552 차이로 마감될 수 있어요.",
       "severity": "high",
       "score": 90,
       "forecast": {
-        "expense": 7289.2,
-        "daily_limit": 111.12,
-        "historical_progress": 0.8454,
+        "expense": 7227.99,
+        "daily_limit": 133.34,
+        "historical_progress": 0.8654,
         "sample_months": 18,
         "method": "historical_remaining_spend"
       },
       "evidence": [
-        "분석일수: 24/30일",
-        "현재 지출: $6,412",
+        "분석일수: 25/30일",
+        "현재 지출: $6,464",
         "과거 지출 중앙값: $5,676",
-        "과거 패턴상 현재 시점 누적 비중: 85% (18개월)",
-        "남은 기간 변동지출 일일 한도: $111"
+        "과거 패턴상 현재 시점 누적 비중: 87% (18개월)",
+        "남은 기간 변동지출 일일 한도: $133"
       ],
       "top": true
     },
@@ -12393,18 +12402,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $1,108~$7,377",
-      "body": "최근 10개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $3,283이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $1,055~$7,325",
+      "body": "최근 10개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $3,231이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 1107.62,
-        "mid": 3283.29,
-        "high": 7377.24,
+        "low": 1055.36,
+        "mid": 3231.03,
+        "high": 7324.98,
         "sample_months": 10
       },
       "evidence": [
-        "현재 현금: $800",
+        "현재 현금: $748",
         "월 순현금흐름 25백분위: $103",
         "월 순현금흐름 중앙값: $828",
         "월 순현금흐름 75백분위: $2,192"
@@ -12560,7 +12569,7 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "10월 적자 $1,152 — 다음달 변동지출 한도 $4,925 설정",
-      "남은 6일 변동지출 하루 $111 이하로 관리",
+      "남은 5일 변동지출 하루 $133 이하로 관리",
       "주거비 급증분 점검 (과거比 +$1,266)"
     ],
     "keep": [],
