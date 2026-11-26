@@ -1224,6 +1224,100 @@
   /* 입력 모달: 자주 쓰는 곳 */
   #quickPicks { margin-bottom: 6px; }
   #quickPicks .qp-chip.active { border-color: var(--accent); background: var(--accent-soft); color: var(--text); }
+  /* ── 투자 포트폴리오 (pf-) 2026-11-26 ───────────────────────────
+     손익: 초록=이익 / 빨강=손실(--positive/--negative). 막대는 크기만(--bar).
+     유형색: 주식 #3987e5 / 옵션 #d08a3a / 코인 #9a7fd1 — 범례에 이름·금액 병기 */
+  .pf-entry { display: block; width: 100%; text-align: left; font-family: inherit; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 18px; cursor: pointer; }
+  .pf-entry:active { background: var(--surface-2); }
+  .pf-entry-top { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-dim); font-weight: 500; }
+  .pf-entry-top .chev { color: var(--text-mute); font-size: 18px; }
+  .pf-entry-row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px; gap: 10px; }
+  .pf-entry-val { font-family: var(--num); font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .pf-entry-pl { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+  .pf-entry-sub { font-size: 11px; color: var(--text-mute); margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .pf-up { color: var(--positive); }
+  .pf-down { color: var(--negative); }
+  .pf-flat { color: var(--text-dim); }
+  .pf-seg { display: flex; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 4px; margin-bottom: 10px; }
+  .pf-seg .seg-btn { padding: 7px 8px; font-size: 13px; }
+  .pf-hero { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; }
+  .pf-hero-label { font-size: 12px; color: var(--text-dim); font-weight: 500; }
+  .pf-lines { margin-top: 8px; display: grid; gap: 4px; font-size: 13px; font-variant-numeric: tabular-nums; }
+  .pf-lines .k { color: var(--text-dim); display: inline-block; min-width: 64px; }
+  .pf-lines b { font-weight: 600; }
+  .pf-price { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-mute); font-variant-numeric: tabular-nums; }
+  .pf-price .live-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 6px; vertical-align: 1px; }
+  .pf-btn { background: var(--surface-2); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .pf-btn:disabled { opacity: .5; }
+  .pf-btn.primary { background: var(--accent-soft); color: var(--accent); border-color: transparent; }
+  .pf-keyform { margin-top: 12px; display: grid; gap: 8px; font-size: 12px; color: var(--text-dim); line-height: 1.45; }
+  .pf-keyform input { width: 100%; box-sizing: border-box; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-family: var(--num); font-size: 14px; padding: 10px 12px; }
+  .pf-keyform .row { display: flex; gap: 8px; justify-content: flex-end; }
+  .pf-err { color: var(--warn); }
+  .pf-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+  .pf-stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px; min-width: 0; }
+  .pf-stat .k { font-size: 11px; color: var(--text-dim); }
+  .pf-stat .v { font-family: var(--num); font-size: 15px; font-weight: 700; margin-top: 4px; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pf-stat .s { font-size: 10px; color: var(--text-mute); margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .pf-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; }
+  .pf-split { display: flex; gap: 2px; height: 10px; }
+  .pf-split > div { height: 100%; border-radius: 4px; min-width: 4px; }
+  .pf-sortrow { display: flex; gap: 6px; }
+  .pf-chip { background: transparent; border: 1px solid var(--border); color: var(--text-dim); font-family: inherit; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px; cursor: pointer; }
+  .pf-chip.active { background: var(--surface-3); color: var(--text); border-color: transparent; }
+  .pf-list .cat-row { cursor: pointer; padding-right: 14px; }
+  .pf-list .cat-row:active, .pf-list .cat-row.open { background: var(--surface-2); }
+  .pf-list .cat-row.open { border-bottom-color: transparent; }
+  .pf-logo { width: 42px; height: 36px; border-radius: 10px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-family: var(--num); font-size: 11px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); flex-shrink: 0; border-left: 3px solid var(--bar); }
+  .cat-row.open .pf-logo { background: var(--surface-3); }
+  .pf-meta { font-size: 11px; color: var(--text-dim); margin-top: 3px; font-variant-numeric: tabular-nums; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pf-acc { display: inline-block; font-size: 9px; font-weight: 700; color: var(--text-dim); background: var(--surface-3); padding: 1px 5px; border-radius: 4px; margin-left: 5px; vertical-align: 1px; }
+  .pf-sub { font-size: 11px; text-align: right; margin-top: 2px; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .pf-detail { background: var(--surface-2); padding: 4px 18px 16px; border-bottom: 1px solid var(--border); }
+  .pf-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 14px; padding: 10px 0 12px; font-size: 12px; font-variant-numeric: tabular-nums; }
+  .pf-grid .k { color: var(--text-dim); font-size: 11px; }
+  .pf-grid .v { font-weight: 600; margin-top: 2px; }
+  .pf-dh { font-size: 11px; color: var(--text-dim); font-weight: 600; margin: 8px 0 4px; }
+  .pf-mini { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; border-top: 1px solid var(--border); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .pf-mini .l { color: var(--text-dim); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .pf-mini .r { text-align: right; flex-shrink: 0; font-weight: 600; }
+  .pf-note { font-size: 11px; color: var(--text-mute); line-height: 1.5; margin-top: 8px; }
+  .pf-chart { display: flex; align-items: flex-end; gap: 4px; height: 96px; margin-top: 12px; }
+  .pf-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; background: none; border: none; padding: 0; cursor: pointer; font-family: inherit; }
+  .pf-col i { display: block; width: 100%; max-width: 22px; background: var(--bar); border-radius: 3px 3px 0 0; min-height: 2px; }
+  .pf-col.pick i { background: var(--accent); }
+  .pf-col span { font-size: 9px; color: var(--text-mute); margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .pf-col.pick span { color: var(--text); font-weight: 600; }
+  .pf-pick { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-dim); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .pf-pick b { color: var(--text); font-weight: 600; }
+  .pf-kind { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-right: 6px; background: var(--surface-3); color: var(--text-dim); }
+  .pf-kind.buy { color: #7fb3f0; }
+  .pf-kind.sell { color: #e8b067; }
+  .pf-more { display: block; width: 100%; background: none; border: none; border-top: 1px solid var(--border); color: var(--text-dim); font-family: inherit; font-size: 12px; font-weight: 600; padding: 12px; cursor: pointer; }
+  .pf-card > .pf-mini:first-child { border-top: none; }
+  /* 보유 종목 표 (2026-11-26) — 4열 × 2줄, 숫자 오른쪽 정렬·고정폭 숫자 */
+  .pf-table { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .pf-tr { display: grid; grid-template-columns: 1.25fr 1fr 1fr 1fr; gap: 6px; align-items: center; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .pf-thead { padding-top: 9px; padding-bottom: 9px; background: var(--surface-2); }
+  .pf-th { background: none; border: none; padding: 0; font-family: inherit; text-align: left; font-size: 11px; font-weight: 600; color: var(--text-dim); line-height: 1.35; cursor: pointer; }
+  div.pf-th { cursor: default; }
+  .pf-th span { font-weight: 500; color: var(--text-mute); }
+  .pf-th.r { text-align: right; }
+  .pf-th-arrow { color: var(--text); margin-left: 2px; }
+  .pf-td { min-width: 0; font-variant-numeric: tabular-nums; line-height: 1.3; }
+  .pf-td b { display: block; font-family: var(--num); font-size: 13.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pf-td span { display: block; font-size: 11px; color: var(--text-mute); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .pf-td.pf-up span, .pf-td.pf-down span { color: inherit; opacity: .85; }
+  .pf-td.r { text-align: right; }
+  .pf-td b i { display: inline-block; width: 3px; height: 11px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+  .pf-td b em { font-style: normal; font-size: 10px; font-weight: 600; color: var(--text-mute); margin-left: 4px; font-family: var(--font); }
+  .pf-td.pf-up b { color: var(--positive); }
+  .pf-td.pf-down b { color: var(--negative); }
+  .pf-row { cursor: pointer; }
+  .pf-row:active, .pf-row.open { background: var(--surface-2); }
+  .pf-row.open { border-bottom-color: transparent; }
+  .pf-tfoot { border-bottom: none; background: var(--surface-2); }
+  .pf-table .pf-detail { border-bottom: 1px solid var(--border); }
 </style>
 </head>
 <body>
@@ -1720,6 +1814,20 @@
           </div>
         </div>
         <div id="catBody"></div>
+      </div>
+
+      <!-- INVEST PAGE — 투자 포트폴리오 (엑셀 '거래내역' 시트 기준, 동적) -->
+      <div class="page" id="page-invest">
+        <div class="catp-head">
+          <button class="catp-back" id="pfBack" aria-label="뒤로">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div>
+            <div class="catp-kicker">투자</div>
+            <div class="catp-title">포트폴리오</div>
+          </div>
+        </div>
+        <div id="pfBody"></div>
       </div>
 
       <!-- ANALYSIS PAGE — AI 재무코치 대시보드 (동적) -->
@@ -3943,6 +4051,430 @@
   }
 
   // ============================================================
+  // 투자 포트폴리오 (2026-11-26) — 엑셀 '거래내역'·'시세' 시트 → APP_DATA.portfolio
+  // 평단·실현손익은 엑셀 계산값을 그대로 쓴다(앱에서 재계산 안 함).
+  // 시세: 기본 = 엑셀 '시세' 시트(저장 시점). 이 기기에 Finnhub 키를 넣으면 주식·ETF
+  //       실시간 갱신, 코인은 Coinbase 공개 API(키 불필요). 키는 localStorage에만 저장.
+  // ============================================================
+  const PF_KEY_LS = 'pf_finnhub_key', PF_QUOTE_LS = 'pf_quotes_v1', PF_STALE_MS = 5 * 60 * 1000;
+  const PF_TYPE_COLOR = { '주식': '#3987e5', '옵션': '#d08a3a', '코인': '#9a7fd1' };
+  const PF_ACC_SHORT = { 'Robinhood': 'RH', 'Roth IRA': 'IRA' };
+  const pfState = { acc: 'all', sort: 'value', dir: 'desc', plMode: 'unreal', open: null, shown: 15, ym: null, loading: false, err: '', keyForm: false, from: 'assets' };
+
+  function pfLS(k, v) {
+    try {
+      if (v === undefined) return localStorage.getItem(k);
+      if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v);
+    } catch (e) { return null; }
+  }
+  function pfEsc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+  function pfUSD(n, signed, dec) {
+    if (n == null || isNaN(n)) return '—';
+    const abs = Math.abs(n);
+    const d = dec != null ? dec : (abs >= 1000 ? 0 : 2);
+    const sign = n < 0 ? '-' : (signed && n > 0 ? '+' : '');
+    return sign + '$' + abs.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+  }
+  function pfPct(r) {
+    if (r == null || !isFinite(r)) return '';
+    const v = r * 100;
+    return (v > 0 ? '+' : '') + v.toFixed(Math.abs(v) >= 100 ? 0 : 1) + '%';
+  }
+  function pfCls(n) { return n > 0.005 ? 'pf-up' : (n < -0.005 ? 'pf-down' : 'pf-flat'); }
+  function pfQty(q) { return Math.abs(q - Math.round(q)) < 1e-6 ? Math.round(q).toLocaleString('en-US') : q.toLocaleString('en-US', { maximumFractionDigits: 4 }); }
+  function pfDateLabel(iso) {
+    const [y, m, d] = (iso || '').split('-').map(Number);
+    if (!y) return '';
+    return (y !== new Date().getFullYear() ? `'${String(y).slice(2)} ` : '') + `${m}/${d}`;
+  }
+
+  // 실시간 시세 캐시 — 엑셀 저장 시각보다 오래된 캐시는 버리고 엑셀 값을 쓴다
+  function pfQuotes() {
+    let q = null;
+    try { q = JSON.parse(pfLS(PF_QUOTE_LS) || 'null'); } catch (e) { q = null; }
+    const pf = window.APP_DATA && window.APP_DATA.portfolio;
+    if (!q || !q.ts || !q.quotes) return null;
+    const excelTs = pf && pf.price_file_mtime ? Date.parse(pf.price_file_mtime) : 0;
+    if (excelTs && q.ts < excelTs) return null;
+    return q;
+  }
+
+  // 계좌 필터 적용 + (전체일 때) 같은 종목 합치기
+  function pfPositions(acc) {
+    const pf = window.APP_DATA.portfolio;
+    const q = pfQuotes();
+    const rows = pf.holdings.filter(h => h.qty && (acc === 'all' || h.account === acc)).map(h => {
+      const lq = h.priced && q && q.quotes[h.ticker];
+      const price = lq && lq.c > 0 ? lq.c : h.price;
+      const value = h.priced ? h.qty * price : h.value;
+      const prev = lq && lq.pc > 0 ? lq.pc : null;
+      return {
+        key: h.ticker + '|' + h.type, ticker: h.ticker, type: h.type, priced: h.priced,
+        qty: h.qty, cost: h.cost, value, price, live: !!(lq && lq.c > 0),
+        day: prev ? h.qty * (price - prev) : null, prevValue: prev ? h.qty * prev : null,
+        parts: [{ account: h.account, qty: h.qty, avg: h.avg, cost: h.cost, value }],
+      };
+    });
+    const map = new Map();
+    rows.forEach(r => {
+      const m = map.get(r.key);
+      if (!m) { map.set(r.key, r); return; }
+      m.qty += r.qty; m.cost += r.cost; m.value += r.value;
+      if (r.day != null) { m.day = (m.day || 0) + r.day; m.prevValue = (m.prevValue || 0) + r.prevValue; }
+      m.parts = m.parts.concat(r.parts);
+    });
+    return [...map.values()].map(p => ({ ...p, avg: p.qty ? p.cost / p.qty : 0, unreal: p.priced ? p.value - p.cost : 0 }));
+  }
+
+  function pfTradesFor(acc) {
+    return window.APP_DATA.portfolio.trades.filter(t => acc === 'all' || t.a === acc);
+  }
+  function pfMonthly(acc) {
+    const out = {};
+    pfTradesFor(acc).forEach(t => {
+      const ym = t.d.slice(0, 7);
+      const m = out[ym] || (out[ym] = { income: 0, realized: 0, buy: 0, sell: 0 });
+      if (t.k === '배당' || t.k === '이자') m.income += t.amt;
+      else if (t.k === '매도') { m.realized += t.pl || 0; m.sell += t.amt; }
+      else if (t.k === '매수') m.buy += t.amt;
+    });
+    return out;
+  }
+  function pfSummary(acc) {
+    const pf = window.APP_DATA.portfolio;
+    const pos = pfPositions(acc);
+    const value = pos.reduce((s, p) => s + p.value, 0);
+    const cost = pos.reduce((s, p) => s + p.cost, 0);
+    const pricedCost = pos.filter(p => p.priced).reduce((s, p) => s + p.cost, 0);
+    const unreal = pos.reduce((s, p) => s + p.unreal, 0);
+    const dayPos = pos.filter(p => p.day != null);
+    const day = dayPos.length ? dayPos.reduce((s, p) => s + p.day, 0) : null;
+    const dayBase = dayPos.reduce((s, p) => s + p.prevValue, 0);
+    let realized;
+    if (acc === 'all') realized = pf.realized_total;
+    else { const a = pf.by_account.find(x => x.account === acc); realized = a ? a.trade_pl + a.income : 0; }
+    const year = String(new Date().getFullYear());
+    const mon = pfMonthly(acc);
+    const ytdIncome = Object.keys(mon).filter(k => k.startsWith(year)).reduce((s, k) => s + mon[k].income, 0);
+    const allIncome = Object.values(mon).reduce((s, m) => s + m.income, 0);
+    return { pos, value, cost, unreal, unrealPct: pricedCost ? unreal / pricedCost : null, day, dayPct: dayBase ? day / dayBase : null,
+             realized, total: realized + unreal, ytdIncome, allIncome, mon, live: pos.some(p => p.live) };
+  }
+
+  function pfPriceStatus() {
+    const pf = window.APP_DATA.portfolio;
+    const q = pfQuotes();
+    if (q) {
+      const t = new Date(q.ts);
+      return `<span class="live-dot"></span>실시간 · ${t.getMonth() + 1}/${t.getDate()} ${t.toLocaleTimeString('ko-KR', { hour: 'numeric', minute: '2-digit' })} 갱신`;
+    }
+    const m = (pf.price_file_mtime || '').match(/^\d{4}-(\d{2})-(\d{2})T(\d{2}):(\d{2})/);
+    return m ? `엑셀 시세 · ${+m[1]}/${+m[2]} ${m[3]}:${m[4]} 저장본` : '엑셀 시세 기준';
+  }
+
+  // ----- 자산 탭 진입 카드 -----
+  function renderPfEntry() {
+    const d = window.APP_DATA;
+    const page = document.getElementById('page-assets');
+    if (!page) return;
+    let card = document.getElementById('pfEntry');
+    if (!d || !d.portfolio) { if (card) card.remove(); return; }
+    if (!card) {
+      card = document.createElement('button');
+      card.id = 'pfEntry'; card.className = 'pf-entry'; card.type = 'button';
+      card.addEventListener('click', () => openPortfolio('assets'));
+      const nw = page.querySelector('.networth-card');
+      if (nw) nw.after(card); else page.prepend(card);
+    }
+    const s = pfSummary('all');
+    const dayTxt = s.day != null ? `오늘 <span class="${pfCls(s.day)}">${pfUSD(s.day, true)} (${pfPct(s.dayPct)})</span> · ` : '';
+    card.innerHTML = `
+      <div class="pf-entry-top"><span>투자 포트폴리오 · ${s.pos.length}종목</span><span class="chev">›</span></div>
+      <div class="pf-entry-row">
+        <div class="pf-entry-val">${pfUSD(s.value, false, 0)}</div>
+        <div class="pf-entry-pl ${pfCls(s.unreal)}">${pfUSD(s.unreal, true, 0)} <span style="font-weight:500">${pfPct(s.unrealPct)}</span></div>
+      </div>
+      <div class="pf-entry-sub">${dayTxt}${pfPriceStatus().replace(/<[^>]+>/g, '')}</div>`;
+  }
+
+  // ----- 포트폴리오 페이지 -----
+  function renderPortfolio() {
+    const body = document.getElementById('pfBody');
+    const d = window.APP_DATA;
+    if (!body) return;
+    if (!d || !d.portfolio) { body.innerHTML = '<div class="pf-note">엑셀에 거래내역 시트가 없어요.</div>'; return; }
+    const pf = d.portfolio;
+    const acc = pfState.acc;
+    const s = pfSummary(acc);
+    const accs = pf.by_account.map(a => a.account);
+    const hasKey = !!pfLS(PF_KEY_LS);
+
+    // 계좌 필터
+    let html = `<div class="pf-seg">${['all', ...accs].map(a =>
+      `<button class="seg-btn${acc === a ? ' active' : ''}" data-pf-acc="${pfEsc(a)}">${a === 'all' ? '전체' : pfEsc(a)}</button>`).join('')}</div>`;
+
+    // 요약
+    html += `<div class="pf-hero">
+      <div class="pf-hero-label">평가금액</div>
+      <div class="catp-total"><span class="currency">$</span>${s.value.toLocaleString('en-US', { maximumFractionDigits: 0 })}</div>
+      <div class="pf-lines">
+        ${s.day != null ? `<div><span class="k">오늘</span><b class="${pfCls(s.day)}">${pfUSD(s.day, true)}</b> <span class="${pfCls(s.day)}">${pfPct(s.dayPct)}</span></div>` : ''}
+        <div><span class="k">평가손익</span><b class="${pfCls(s.unreal)}">${pfUSD(s.unreal, true)}</b> <span class="${pfCls(s.unreal)}">${pfPct(s.unrealPct)}</span></div>
+        <div><span class="k">원가</span><b>${pfUSD(s.cost)}</b></div>
+      </div>
+      <div class="pf-price">
+        <span>${pfPriceStatus()}${pfState.err ? ` · <span class="pf-err">${pfEsc(pfState.err)}</span>` : ''}</span>
+        ${hasKey
+          ? `<button class="pf-btn" data-pf-refresh ${pfState.loading ? 'disabled' : ''}>${pfState.loading ? '불러오는 중' : '새로고침'}</button>`
+          : `<button class="pf-btn primary" data-pf-keyform>실시간 시세 켜기</button>`}
+      </div>
+      ${pfState.keyForm ? `<div class="pf-keyform">
+        <div>Finnhub API 키를 넣으면 주식·ETF 시세를 앱에서 바로 받아와요. 엑셀 '시세' 시트 C5 칸의 키를 그대로 쓰면 돼요. 키는 이 아이폰에만 저장되고 배포 파일에는 들어가지 않아요.</div>
+        <input id="pfKeyInput" type="text" inputmode="latin" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Finnhub API 키" value="${pfEsc(pfLS(PF_KEY_LS) || '')}">
+        <div class="row">
+          ${hasKey ? '<button class="pf-btn" data-pf-keydel>키 삭제</button>' : ''}
+          <button class="pf-btn" data-pf-keyform>닫기</button>
+          <button class="pf-btn primary" data-pf-keysave>저장하고 불러오기</button>
+        </div></div>` : ''}
+    </div>`;
+
+    // 실현·배당
+    html += `<div class="pf-stats">
+      <div class="pf-stat"><div class="k">실현손익</div><div class="v ${pfCls(s.realized)}">${pfUSD(s.realized, true, 0)}</div><div class="s">매매+배당 누적</div></div>
+      <div class="pf-stat"><div class="k">올해 배당·이자</div><div class="v">${pfUSD(s.ytdIncome, false, 0)}</div><div class="s">누적 ${pfUSD(s.allIncome, false, 0)}</div></div>
+      <div class="pf-stat"><div class="k">총손익</div><div class="v ${pfCls(s.total)}">${pfUSD(s.total, true, 0)}</div><div class="s">실현+평가</div></div>
+    </div>`;
+
+    // 자산 구성 (유형별)
+    const byType = {};
+    s.pos.forEach(p => { byType[p.type] = (byType[p.type] || 0) + p.value; });
+    const types = Object.keys(byType).sort((a, b) => byType[b] - byType[a]);
+    if (types.length && s.value > 0) {
+      html += `<div class="section-head" style="padding:22px 4px 10px;"><div class="section-title">자산 구성</div></div>
+      <div class="pf-card">
+        <div class="pf-split">${types.map(t => `<div style="flex:${byType[t]};background:${PF_TYPE_COLOR[t] || 'var(--bar)'}"></div>`).join('')}</div>
+        <div class="catp-legend">${types.map(t => `<span><i style="background:${PF_TYPE_COLOR[t] || 'var(--bar)'}"></i>${pfEsc(t)} <b>${pfUSD(byType[t], false, 0)}</b> ${Math.round(byType[t] / s.value * 100)}%</span>`).join('')}</div>
+        ${byType['옵션'] ? '<div class="pf-note">옵션은 시세를 받지 않아 원가로 평가해요.</div>' : ''}
+      </div>`;
+    }
+
+    // 보유 종목 — 표 (4열 × 2줄 셀: 종목/수량 · 현재가/평단 · 평가금액/비중 · 손익$/%)
+    const plDay = pfState.plMode === 'day' && s.live;
+    const plOf = p => plDay
+      ? (p.day != null && p.prevValue ? { amt: p.day, pct: p.day / p.prevValue } : null)
+      : (p.priced && p.cost ? { amt: p.unreal, pct: p.unreal / p.cost } : null);
+    const dir = pfState.dir === 'asc' ? 1 : -1;
+    const sorters = {
+      name:  (a, b) => a.ticker.localeCompare(b.ticker) * -dir,
+      value: (a, b) => (a.value - b.value) * dir,
+      pl:    (a, b) => { const x = plOf(a), y = plOf(b); return ((x ? x.pct : -1e9) - (y ? y.pct : -1e9)) * dir; },
+    };
+    if (!sorters[pfState.sort]) pfState.sort = 'value';
+    const pos = s.pos.slice().sort(sorters[pfState.sort]);
+    const arrow = k => pfState.sort === k ? `<span class="pf-th-arrow">${(k === 'name' ? -dir : dir) > 0 ? '↑' : '↓'}</span>` : '';
+    const totPL = plDay ? { amt: s.day, pct: s.dayPct } : { amt: s.unreal, pct: s.unrealPct };
+    html += `<div class="section-head" style="padding:22px 4px 10px; display:flex; justify-content:space-between; align-items:center;">
+      <div class="section-title">보유 종목 <span class="catp-share">${pos.length}</span></div>
+      ${s.live ? `<div class="pf-sortrow">
+        <button class="pf-chip${!plDay ? ' active' : ''}" data-pf-plmode="unreal">평가손익</button>
+        <button class="pf-chip${plDay ? ' active' : ''}" data-pf-plmode="day">오늘</button>
+      </div>` : ''}</div>
+      <div class="pf-table">
+        <div class="pf-tr pf-thead">
+          <button class="pf-th" data-pf-sort="name">종목${arrow('name')}</button>
+          <div class="pf-th r">현재가<br><span>평단</span></div>
+          <button class="pf-th r" data-pf-sort="value">평가금액${arrow('value')}<br><span>비중</span></button>
+          <button class="pf-th r" data-pf-sort="pl">${plDay ? '오늘' : '손익'}${arrow('pl')}<br><span>${plDay ? '등락률' : '수익률'}</span></button>
+        </div>
+        ${pos.map(p => pfRowHTML(p, acc, s.value, plOf(p))).join('')}
+        <div class="pf-tr pf-tfoot">
+          <div class="pf-td"><b>합계</b></div>
+          <div class="pf-td r"></div>
+          <div class="pf-td r"><b>${pfUSD(s.value, false, 0)}</b><span>100%</span></div>
+          <div class="pf-td r ${pfCls(totPL.amt || 0)}"><b>${totPL.amt == null ? '—' : pfUSD(totPL.amt, true, 0)}</b><span>${pfPct(totPL.pct)}</span></div>
+        </div>
+      </div>
+      <div class="pf-note" style="padding:8px 4px 0;">머리글을 누르면 정렬, 종목을 누르면 계좌별·거래 내역이 펼쳐져요.</div>`;
+
+    // 월별 배당·이자
+    html += pfMonthlyHTML(s.mon);
+
+    // 최근 매매
+    const trades = pfTradesFor(acc).filter(t => t.k !== '배당' && t.k !== '이자');
+    const shown = trades.slice(0, pfState.shown);
+    html += `<div class="section-head" style="padding:22px 4px 10px;"><div class="section-title">최근 매매</div><div class="section-action">${trades.length}건</div></div>
+      <div class="pf-card" style="padding:4px 18px;">
+        ${shown.map(t => pfTradeHTML(t, acc === 'all')).join('')}
+      </div>
+      ${trades.length > shown.length ? `<button class="pf-more" data-pf-more style="border:none;">더 보기 (${trades.length - shown.length}건 남음)</button>` : ''}`;
+
+    html += `<div class="pf-note" style="padding:14px 4px 0;">기준: 엑셀 '거래내역' 시트 (마지막 거래 ${pfDateLabel(pf.as_of)}). 평단·실현손익은 엑셀 계산값이에요.${s.live ? ' 오늘 변동은 주식은 전일 종가, 코인은 24시간 전 대비예요.' : ''}</div>`;
+    body.innerHTML = html;
+  }
+
+  function pfRowHTML(p, acc, total, pl) {
+    const open = pfState.open === p.key;
+    const unit = p.type === '옵션' ? '계약' : (p.type === '코인' ? '개' : '주');
+    const accs = acc === 'all' ? ' · ' + p.parts.map(x => PF_ACC_SHORT[x.account] || pfEsc(x.account)).join('·') : '';
+    const typeTag = p.type !== '주식' ? `<em>${pfEsc(p.type)}</em>` : '';
+    const fmtPx = v => pfUSD(v, false, v >= 1000 ? 0 : 2);
+    let row = `<div class="pf-tr pf-row${open ? ' open' : ''}" data-pf-key="${pfEsc(p.key)}">
+      <div class="pf-td"><b><i style="background:${PF_TYPE_COLOR[p.type] || 'var(--bar)'}"></i>${pfEsc(p.ticker)}${typeTag}</b><span>${pfQty(p.qty)}${unit}${accs}</span></div>
+      <div class="pf-td r"><b>${p.priced ? fmtPx(p.price) : '—'}</b><span>${fmtPx(p.avg)}</span></div>
+      <div class="pf-td r"><b>${pfUSD(p.value, false, 0)}</b><span>${total ? (p.value / total * 100).toFixed(1) + '%' : ''}</span></div>
+      ${pl ? `<div class="pf-td r ${pfCls(pl.amt)}"><b>${pfUSD(pl.amt, true, Math.abs(pl.amt) >= 100 ? 0 : 2)}</b><span>${pfPct(pl.pct)}</span></div>`
+           : `<div class="pf-td r pf-flat"><b>—</b><span>${p.priced ? '' : '원가 평가'}</span></div>`}
+    </div>`;
+    if (open) row += pfDetailHTML(p, acc);
+    return row;
+  }
+
+  function pfDetailHTML(p, acc) {
+    const pf = window.APP_DATA.portfolio;
+    const rows = pf.holdings.filter(h => h.ticker === p.ticker && h.type === p.type && (acc === 'all' || h.account === acc));
+    const tradePL = rows.reduce((s, h) => s + h.trade_pl, 0);
+    const income = rows.reduce((s, h) => s + h.income, 0);
+    let h = `<div class="pf-detail"><div class="pf-grid">
+      <div><div class="k">${p.priced ? (p.live ? '현재가 (실시간)' : '현재가 (엑셀)') : '현재가'}</div><div class="v">${p.priced ? pfUSD(p.price) : '시세 없음'}</div></div>
+      <div><div class="k">평단가</div><div class="v">${pfUSD(p.avg)}</div></div>
+      <div><div class="k">원가</div><div class="v">${pfUSD(p.cost)}</div></div>
+      <div><div class="k">평가손익</div><div class="v ${pfCls(p.unreal)}">${p.priced ? pfUSD(p.unreal, true) + ' ' + pfPct(p.cost ? p.unreal / p.cost : null) : '—'}</div></div>
+      <div><div class="k">매매 실현손익 (누적)</div><div class="v ${pfCls(tradePL)}">${pfUSD(tradePL, true)}</div></div>
+      <div><div class="k">받은 배당·이자</div><div class="v">${pfUSD(income)}</div></div>
+    </div>`;
+    if (p.parts.length > 1) {
+      h += `<div class="pf-dh">계좌별</div>` + p.parts.map(x =>
+        `<div class="pf-mini"><span class="l">${pfEsc(x.account)} · ${pfQty(x.qty)} · 평단 ${pfUSD(x.avg)}</span><span class="r">${pfUSD(x.value)}${p.priced ? ` <span class="${pfCls(x.value - x.cost)}">${pfPct(x.cost ? (x.value - x.cost) / x.cost : null)}</span>` : ''}</span></div>`).join('');
+    }
+    const tr = pf.trades.filter(t => t.s === p.ticker && t.t === p.type && (acc === 'all' || t.a === acc)).slice(0, 8);
+    if (tr.length) h += `<div class="pf-dh">최근 거래</div>` + tr.map(t => pfTradeHTML(t, acc === 'all', true)).join('');
+    return h + '</div>';
+  }
+
+  function pfTradeHTML(t, showAcc, noTicker) {
+    const kc = t.k === '매수' ? 'buy' : (t.k === '매도' ? 'sell' : '');
+    const qp = (t.k === '배당' || t.k === '이자') ? '' : ` ${pfQty(t.q)} @ ${pfUSD(t.p)}`;
+    const memo = t.m ? ` · ${pfEsc(t.m.replace(/^.*?—\s*/, ''))}` : '';
+    const right = t.k === '매도' && t.pl != null
+      ? `${pfUSD(t.amt)} <span class="${pfCls(t.pl)}">${pfUSD(t.pl, true)}</span>`
+      : pfUSD(t.amt);
+    return `<div class="pf-mini"><span class="l"><span class="pf-kind ${kc}">${pfEsc(t.k)}</span>${pfDateLabel(t.d)}${noTicker ? '' : ' ' + pfEsc(t.s)}${qp}${showAcc ? ` <span class="pf-acc">${PF_ACC_SHORT[t.a] || pfEsc(t.a)}</span>` : ''}${memo}</span><span class="r">${right}</span></div>`;
+  }
+
+  function pfMonthlyHTML(mon) {
+    const now = new Date();
+    const yms = [];
+    for (let i = 11; i >= 0; i--) {
+      const dd = new Date(now.getFullYear(), now.getMonth() - i, 1);
+      yms.push(`${dd.getFullYear()}-${String(dd.getMonth() + 1).padStart(2, '0')}`);
+    }
+    if (!pfState.ym || !yms.includes(pfState.ym)) pfState.ym = yms[yms.length - 1];
+    const vals = yms.map(ym => (mon[ym] && mon[ym].income) || 0);
+    const max = Math.max(...vals, 1);
+    const pick = mon[pfState.ym] || { income: 0, realized: 0, buy: 0, sell: 0 };
+    const [py, pm] = pfState.ym.split('-').map(Number);
+    const sum12 = vals.reduce((a, b) => a + b, 0);
+    return `<div class="section-head" style="padding:22px 4px 10px;"><div class="section-title">월별 배당·이자</div><div class="section-action">최근 12개월 ${pfUSD(sum12, false, 0)}</div></div>
+      <div class="pf-card">
+        <div class="pf-chart">${yms.map((ym, i) => `<button class="pf-col${ym === pfState.ym ? ' pick' : ''}" data-pf-ym="${ym}" aria-label="${ym} ${pfUSD(vals[i])}"><i style="height:${Math.max(2, vals[i] / max * 80)}px"></i><span>${+ym.slice(5)}</span></button>`).join('')}</div>
+        <div class="pf-pick"><span>${py !== now.getFullYear() ? py + '년 ' : ''}${pm}월</span>
+          <span>배당·이자 <b>${pfUSD(pick.income)}</b></span>
+          <span>매매 실현 <b class="${pfCls(pick.realized)}">${pfUSD(pick.realized, true)}</b></span>
+          <span>매수 <b>${pfUSD(pick.buy, false, 0)}</b></span>
+          ${pick.sell ? `<span>매도 <b>${pfUSD(pick.sell, false, 0)}</b></span>` : ''}
+        </div>
+      </div>`;
+  }
+
+  // ----- 실시간 시세 -----
+  async function pfRefresh() {
+    const d = window.APP_DATA;
+    if (!d || !d.portfolio || pfState.loading) return;
+    const key = pfLS(PF_KEY_LS);
+    const want = [...new Set(d.portfolio.holdings.filter(h => h.qty && h.priced).map(h => h.ticker + '|' + h.type))];
+    pfState.loading = true; pfState.err = '';
+    renderPortfolio();
+    const quotes = {}; let fail = 0, authFail = false;
+    const withTimeout = (url) => {
+      const ctl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      const tm = setTimeout(() => ctl && ctl.abort(), 8000);
+      return fetch(url, ctl ? { signal: ctl.signal } : {}).finally(() => clearTimeout(tm));
+    };
+    await Promise.all(want.map(async st => {
+      const [sym, type] = st.split('|');
+      try {
+        if (type === '코인') {
+          const r = await withTimeout(`https://api.exchange.coinbase.com/products/${encodeURIComponent(sym)}-USD/stats`);
+          const j = await r.json();
+          const c = parseFloat(j.last), o = parseFloat(j.open);
+          if (c > 0) quotes[sym] = { c, pc: o > 0 ? o : null, src: 'Coinbase' }; else fail++;
+        } else {
+          if (!key) { fail++; return; }
+          const r = await withTimeout(`https://finnhub.io/api/v1/quote?symbol=${encodeURIComponent(sym)}&token=${encodeURIComponent(key)}`);
+          if (r.status === 401 || r.status === 403) { authFail = true; fail++; return; }
+          const j = await r.json();
+          if (j && j.c > 0) quotes[sym] = { c: j.c, pc: j.pc > 0 ? j.pc : null, src: 'Finnhub' }; else fail++;
+        }
+      } catch (e) { fail++; }
+    }));
+    if (Object.keys(quotes).length) {
+      // 못 받은 종목은 직전 캐시 값을 유지
+      const old = pfQuotes();
+      if (old) Object.keys(old.quotes).forEach(k => { if (!quotes[k]) quotes[k] = old.quotes[k]; });
+      pfLS(PF_QUOTE_LS, JSON.stringify({ ts: Date.now(), quotes }));
+    }
+    pfState.loading = false;
+    pfState.err = authFail ? 'API 키를 확인해 주세요' : (fail ? `${fail}개 종목은 엑셀 시세 사용` : '');
+    try { renderPortfolio(); } catch (e) { console.error('renderPortfolio', e); }
+    try { renderPfEntry(); } catch (e) { console.error('renderPfEntry', e); }
+  }
+
+  function openPortfolio(from) {
+    pfState.from = from || 'assets';
+    pfState.open = null; pfState.shown = 15; pfState.keyForm = false;
+    renderPortfolio();
+    showPage('invest');
+    const q = pfQuotes();
+    if (pfLS(PF_KEY_LS) && (!q || Date.now() - q.ts > PF_STALE_MS)) pfRefresh();
+  }
+
+  (function bindPortfolio() {
+    const body = document.getElementById('pfBody');
+    if (body) body.addEventListener('click', e => {
+      const a = e.target.closest('[data-pf-acc]');
+      if (a) { pfState.acc = a.dataset.pfAcc; pfState.open = null; pfState.shown = 15; renderPortfolio(); return; }
+      const so = e.target.closest('[data-pf-sort]');
+      if (so) {
+        const k = so.dataset.pfSort;
+        if (pfState.sort === k) pfState.dir = pfState.dir === 'asc' ? 'desc' : 'asc';
+        else { pfState.sort = k; pfState.dir = 'desc'; }
+        renderPortfolio(); return;
+      }
+      const pm = e.target.closest('[data-pf-plmode]');
+      if (pm) { pfState.plMode = pm.dataset.pfPlmode; renderPortfolio(); return; }
+      const ym = e.target.closest('[data-pf-ym]');
+      if (ym) { pfState.ym = ym.dataset.pfYm; renderPortfolio(); return; }
+      if (e.target.closest('[data-pf-more]')) { pfState.shown += 30; renderPortfolio(); return; }
+      if (e.target.closest('[data-pf-refresh]')) { pfRefresh(); return; }
+      if (e.target.closest('[data-pf-keyform]')) { pfState.keyForm = !pfState.keyForm; renderPortfolio(); return; }
+      if (e.target.closest('[data-pf-keysave]')) {
+        const v = (document.getElementById('pfKeyInput').value || '').trim();
+        if (!v) return;
+        pfLS(PF_KEY_LS, v); pfState.keyForm = false; pfRefresh(); return;
+      }
+      if (e.target.closest('[data-pf-keydel]')) {
+        pfLS(PF_KEY_LS, null); pfLS(PF_QUOTE_LS, null); pfState.keyForm = false; pfState.err = '';
+        renderPortfolio(); renderPfEntry(); return;
+      }
+      if (e.target.closest('.pf-detail')) return;
+      const row = e.target.closest('.pf-row[data-pf-key]');
+      if (row) { pfState.open = pfState.open === row.dataset.pfKey ? null : row.dataset.pfKey; renderPortfolio(); }
+    });
+    const back = document.getElementById('pfBack');
+    if (back) back.addEventListener('click', () => activateTab(pfState.from || 'assets'));
+  })();
+
+  // ============================================================
   // 부트스트랩 — window.APP_DATA 바인딩 (앱 로드 시 1회)
   // ============================================================
   (function init() {
@@ -3954,6 +4486,7 @@
     if (d) {
       try { renderHome(d); }         catch (e) { console.error('renderHome', e); }
       try { renderAssets(d); }       catch (e) { console.error('renderAssets', e); }
+      try { renderPfEntry(); }       catch (e) { console.error('renderPfEntry', e); }
       try { renderTransactions(d); } catch (e) { console.error('renderTransactions', e); }
       try { renderGoals(d); }        catch (e) { console.error('renderGoals', e); }
       try { renderInsights(d); }     catch (e) { console.error('renderInsights', e); }
