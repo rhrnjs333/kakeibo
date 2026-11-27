@@ -2,20 +2,20 @@
 // 직접 편집 금지
 window.APP_DATA = {
   "meta": {
-    "generated_at": "2026-11-26T00:35:37",
+    "generated_at": "2026-11-27T00:02:52",
     "source_file": "2026 가계부.xlsx",
     "current_month": "11월"
   },
   "summary": {
-    "total_wealth": 5471.67,
-    "cash_total": 504.83,
+    "total_wealth": 5464.47,
+    "cash_total": 497.63,
     "saving": 5113.15,
     "prev_balance": 4744.73,
     "card_balance": -146.31,
-    "net": 358.52,
-    "total_positive": 5617.98,
-    "total_negative": -1970.7,
-    "net_worth": 3647.28
+    "net": 351.32,
+    "total_positive": 5610.78,
+    "total_negative": -2070.17,
+    "net_worth": 3540.61
   },
   "accounts": [
     {
@@ -26,10 +26,10 @@ window.APP_DATA = {
       "logo": "CH",
       "logo_bg": "#1d4f8b",
       "logo_fg": "#fff",
-      "balance": 504.83,
+      "balance": 497.63,
       "prev_balance": 4881.71,
       "income": 3214.65,
-      "expense": 7591.53
+      "expense": 7598.73
     },
     {
       "key": "Chase Sphire",
@@ -78,10 +78,10 @@ window.APP_DATA = {
       "logo": "RB",
       "logo_bg": "#0a572b",
       "logo_fg": "#00C896",
-      "balance": -1824.39,
+      "balance": -1923.86,
       "prev_balance": -2912.39,
       "income": 2895.65,
-      "expense": 1807.65
+      "expense": 1907.12
     },
     {
       "key": "Robinhood",
@@ -111,7 +111,7 @@ window.APP_DATA = {
     }
   ],
   "group_totals": {
-    "현금성 자산": -1319.56,
+    "현금성 자산": -1426.23,
     "신용카드 (부채)": -146.31,
     "투자 자산": 5113.15
   },
@@ -149,7 +149,7 @@ window.APP_DATA = {
       },
       {
         "name": "생활용품",
-        "amount": 601.99
+        "amount": 708.66
       },
       {
         "name": "건강/의료",
@@ -266,7 +266,7 @@ window.APP_DATA = {
       ]
     }
   },
-  "category_total": 6492.86,
+  "category_total": 6599.53,
   "monthly": {
     "2026-01": {
       "expense": 5879.41,
@@ -879,10 +879,10 @@ window.APP_DATA = {
       }
     },
     "2026-11": {
-      "expense": 6492.86,
+      "expense": 6599.53,
       "income": 3214.65,
       "fixed": 4429.07,
-      "variable": 2063.79,
+      "variable": 2170.46,
       "invest_deposit": 0.0,
       "categories": {
         "fixed": [
@@ -918,7 +918,7 @@ window.APP_DATA = {
           },
           {
             "name": "생활용품",
-            "amount": 601.99
+            "amount": 708.66
           },
           {
             "name": "건강/의료",
@@ -938,11 +938,11 @@ window.APP_DATA = {
   },
   "history": {
     "source_sheet": "연말정산 RAW DATA",
-    "records_count": 2847,
-    "expense_records_count": 2648,
+    "records_count": 2915,
+    "expense_records_count": 2715,
     "range": {
       "start": "2024-01",
-      "end": "2026-10",
+      "end": "2026-11",
       "years": [
         2024,
         2025,
@@ -3139,6 +3139,70 @@ window.APP_DATA = {
           "29": 72.54,
           "31": 158.91
         }
+      },
+      "2026-11": {
+        "income": 3214.65,
+        "fixed": 4429.07,
+        "variable": 2104.98,
+        "expense": 6534.05,
+        "savings": 0.0,
+        "carryover": 0.0,
+        "categories": {
+          "주거비": 2957.48,
+          "구독": 74.99,
+          "가족지원": 800.0,
+          "대출": 475.34,
+          "통신비": 92.26,
+          "기타": 29.0,
+          "생활용품": 623.18,
+          "식비": 886.08,
+          "건강/의료": 23.69,
+          "차량유지비": 124.37,
+          "문화/여가": 20.0,
+          "여행": 427.66
+        },
+        "fixed_categories": {
+          "주거비": 2957.48,
+          "구독": 74.99,
+          "가족지원": 800.0,
+          "대출": 475.34,
+          "통신비": 92.26,
+          "기타": 29.0
+        },
+        "variable_categories": {
+          "생활용품": 623.18,
+          "식비": 886.08,
+          "건강/의료": 23.69,
+          "차량유지비": 124.37,
+          "문화/여가": 20.0,
+          "여행": 427.66
+        },
+        "daily_expense": {
+          "1": 2902.85,
+          "2": 537.86,
+          "3": 78.4,
+          "5": 26.52,
+          "7": 324.37,
+          "10": 44.28,
+          "17": 456.34,
+          "20": 40.26,
+          "24": 585.66,
+          "25": 81.26,
+          "4": 69.08,
+          "6": 104.85,
+          "8": 5.57,
+          "9": 96.97,
+          "11": 23.69,
+          "12": 54.05,
+          "13": 48.12,
+          "14": 32.85,
+          "15": 11.24,
+          "16": 51.52,
+          "19": 64.59,
+          "21": 244.01,
+          "22": 628.52,
+          "26": 21.19
+        }
       }
     },
     "yearly": {
@@ -3159,16 +3223,61 @@ window.APP_DATA = {
         "carryover": 0.0
       },
       "2026": {
-        "income": 77249.26,
-        "fixed": 31007.67,
-        "variable": 27937.89,
-        "expense": 58945.56,
+        "income": 80463.91,
+        "fixed": 35436.74,
+        "variable": 30042.87,
+        "expense": 65479.61,
         "savings": -15500.0,
         "carryover": 0.0
       }
     }
   },
   "transactions": [
+    {
+      "date": "2026-11-30",
+      "account": "Chase",
+      "amount": 0.0,
+      "category": "수입",
+      "subcategory": "입금",
+      "memo": "입금 내역",
+      "type": "income"
+    },
+    {
+      "date": "2026-11-26",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Woodwick",
+      "account": "Robinhood Bank",
+      "amount": 21.19,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-26",
+      "category": "생활용품",
+      "subcategory": "인테리어/청소",
+      "memo": "Rugs",
+      "account": "Robinhood Bank",
+      "amount": 68.89,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-26",
+      "category": "생활용품",
+      "subcategory": "인테리어/청소",
+      "memo": "Rugs gripper",
+      "account": "Robinhood Bank",
+      "amount": 9.39,
+      "type": "variable"
+    },
+    {
+      "date": "2026-11-26",
+      "category": "생활용품",
+      "subcategory": "소모품",
+      "memo": "Amazon - Glue",
+      "account": "Chase",
+      "amount": 7.2,
+      "type": "variable"
+    },
     {
       "date": "2026-11-25",
       "category": "통신비",
@@ -12271,445 +12380,24 @@ window.APP_DATA = {
   ],
   "portfolio": {
     "as_of": "2026-11-25",
-    "value": 43145.83,
-    "cost": 42240.88,
-    "unreal": 904.95,
-    "trade_pl": 44284.77,
-    "income_total": 2162.41,
-    "realized_total": 46447.18,
-    "total_pl": 47352.13,
+    "value": 0,
+    "cost": 0,
+    "unreal": 928.45,
+    "trade_pl": 37314.91,
+    "income_total": 2144.16,
+    "realized_total": 39459.07,
+    "total_pl": 40387.52,
     "ytd_income": 1031.52,
-    "ytd_realized": 38506.8,
-    "holdings": [
-      {
-        "account": "Robinhood",
-        "ticker": "MSFT",
-        "type": "주식",
-        "qty": 0.011677,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 0,
-        "income": 0.02,
-        "price": 489.93,
-        "value": 5.72,
-        "unreal": 5.72,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "NVDY",
-        "type": "주식",
-        "qty": 45.0,
-        "avg": 18.4674,
-        "cost": 831.03,
-        "trade_pl": 0,
-        "income": 586.74,
-        "price": 8.13,
-        "value": 365.85,
-        "unreal": -465.18,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "QLD",
-        "type": "주식",
-        "qty": 40.0,
-        "avg": 61.5922,
-        "cost": 2463.69,
-        "trade_pl": 495.32,
-        "income": 5.4,
-        "price": 68.15,
-        "value": 2726.0,
-        "unreal": 262.31,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "SCHD",
-        "type": "주식",
-        "qty": 35.0,
-        "avg": 27.2853,
-        "cost": 954.99,
-        "trade_pl": 0,
-        "income": 65.15,
-        "price": 35.29,
-        "value": 1235.15,
-        "unreal": 280.16,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "SGOV",
-        "type": "주식",
-        "qty": 69.0,
-        "avg": 100.5,
-        "cost": 6934.5,
-        "trade_pl": 0,
-        "income": 64.6,
-        "price": 100.68,
-        "value": 6946.92,
-        "unreal": 12.42,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "SOXL",
-        "type": "주식",
-        "qty": 50.0,
-        "avg": 32.0016,
-        "cost": 1600.08,
-        "trade_pl": 5738.55,
-        "income": 17.61,
-        "price": 32.02,
-        "value": 1601.0,
-        "unreal": 0.92,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "TSLA",
-        "type": "주식",
-        "qty": 1.012466,
-        "avg": 203.8207,
-        "cost": 206.36,
-        "trade_pl": 0,
-        "income": 0,
-        "price": 380.14,
-        "value": 384.88,
-        "unreal": 178.52,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "TSLT",
-        "type": "주식",
-        "qty": 70.0,
-        "avg": 14.9964,
-        "cost": 1049.75,
-        "trade_pl": 142.21,
-        "income": 0,
-        "price": 13.46,
-        "value": 942.2,
-        "unreal": -107.55,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "SBRCY",
-        "type": "주식",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 44.76,
-        "income": 0,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "TQQQ",
-        "type": "주식",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 96.79,
-        "income": 2.51,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "USD",
-        "type": "주식",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 1354.75,
-        "income": 11.2,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "GOOGL",
-        "type": "옵션",
-        "qty": 5.0,
-        "avg": 2206.024,
-        "cost": 11030.12,
-        "trade_pl": 0,
-        "income": 0,
-        "price": null,
-        "value": 11030.12,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "AAPL",
-        "type": "옵션",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 2514.85,
-        "income": 0,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "AMD",
-        "type": "옵션",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": -133.24,
-        "income": 0,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "META",
-        "type": "옵션",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": -55.16,
-        "income": 0,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "MSFT",
-        "type": "옵션",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 17989.76,
-        "income": 0,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "NVDA",
-        "type": "옵션",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": -1212.9,
-        "income": 0,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "TSLA",
-        "type": "옵션",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 18.76,
-        "income": 0,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "ETH",
-        "type": "코인",
-        "qty": 0.7,
-        "avg": 3836.7053,
-        "cost": 2685.69,
-        "trade_pl": 0,
-        "income": 0,
-        "price": 1700.365,
-        "value": 1190.26,
-        "unreal": -1495.43,
-        "priced": true
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "BTC",
-        "type": "코인",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 1085.09,
-        "income": 0,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Robinhood",
-        "ticker": "Interest",
-        "type": "현금",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 0,
-        "income": 629.9,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "AAPL",
-        "type": "주식",
-        "qty": 7.0,
-        "avg": 183.8064,
-        "cost": 1286.65,
-        "trade_pl": 0,
-        "income": 19.92,
-        "price": 355.58,
-        "value": 2489.06,
-        "unreal": 1202.41,
-        "priced": true
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "QLD",
-        "type": "주식",
-        "qty": 60.0,
-        "avg": 57.8405,
-        "cost": 3470.43,
-        "trade_pl": 0,
-        "income": 9.06,
-        "price": 68.15,
-        "value": 4089.0,
-        "unreal": 618.57,
-        "priced": true
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "SGOV",
-        "type": "주식",
-        "qty": 46.0,
-        "avg": 100.5,
-        "cost": 4623.0,
-        "trade_pl": -0.36,
-        "income": 140.09,
-        "price": 100.68,
-        "value": 4631.28,
-        "unreal": 8.28,
-        "priced": true
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "SOXL",
-        "type": "주식",
-        "qty": 50.0,
-        "avg": 32.322,
-        "cost": 1616.1,
-        "trade_pl": 11903.9,
-        "income": 70.32,
-        "price": 32.02,
-        "value": 1601.0,
-        "unreal": -15.1,
-        "priced": true
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "TSLT",
-        "type": "주식",
-        "qty": 140.0,
-        "avg": 12.8989,
-        "cost": 1805.85,
-        "trade_pl": 757.25,
-        "income": 0,
-        "price": 13.46,
-        "value": 1884.4,
-        "unreal": 78.55,
-        "priced": true
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "TSLY",
-        "type": "주식",
-        "qty": 6.474,
-        "avg": 39.4738,
-        "cost": 255.55,
-        "trade_pl": -1.02,
-        "income": 151.13,
-        "price": 20.58,
-        "value": 133.23,
-        "unreal": -122.32,
-        "priced": true
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "USD",
-        "type": "주식",
-        "qty": 48.0,
-        "avg": 29.731,
-        "cost": 1427.09,
-        "trade_pl": 0,
-        "income": 27.12,
-        "price": 39.37,
-        "value": 1889.76,
-        "unreal": 462.67,
-        "priced": true
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "TQQQ",
-        "type": "주식",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 3545.46,
-        "income": 82.99,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      },
-      {
-        "account": "Roth IRA",
-        "ticker": "Interest",
-        "type": "현금",
-        "qty": 0,
-        "avg": 0,
-        "cost": 0,
-        "trade_pl": 0,
-        "income": 278.65,
-        "price": null,
-        "value": 0,
-        "unreal": 0,
-        "priced": false
-      }
-    ],
+    "ytd_realized": 38153.78,
+    "holdings": [],
     "by_account": [
       {
         "account": "Robinhood",
-        "cost": 27756.21,
-        "trade_pl": 28079.54,
-        "income": 1383.13,
-        "unreal": -1328.12,
-        "total": 28134.55
+        "cost": 27756.22,
+        "trade_pl": 21109.68,
+        "income": 1364.88,
+        "unreal": -1304.62,
+        "total": 21169.94
       },
       {
         "account": "Roth IRA",
@@ -12777,35 +12465,185 @@ window.APP_DATA = {
         "manual": false
       },
       "ETH": {
-        "price": 1700.365,
+        "price": 1733.94,
         "src": "Coinbase",
         "manual": false
       }
     },
     "monthly": {
+      "2020-05": {
+        "income": 0.0,
+        "realized": 8.6,
+        "buy": 678.86,
+        "sell": 144.21
+      },
+      "2020-06": {
+        "income": 0.51,
+        "realized": 19.72,
+        "buy": 374.57,
+        "sell": 343.84
+      },
+      "2020-08": {
+        "income": 0.28,
+        "realized": -63.43,
+        "buy": 1003.9,
+        "sell": 99.62
+      },
+      "2020-09": {
+        "income": 0.02,
+        "realized": -52.15,
+        "buy": 589.38,
+        "sell": 570.1
+      },
+      "2020-10": {
+        "income": 0.05,
+        "realized": -47.89,
+        "buy": 580.6,
+        "sell": 447.7
+      },
+      "2020-11": {
+        "income": 1.67,
+        "realized": 222.1,
+        "buy": 0.0,
+        "sell": 521.32
+      },
+      "2020-12": {
+        "income": 0.65,
+        "realized": 146.63,
+        "buy": 2868.46,
+        "sell": 2048.29
+      },
+      "2021-01": {
+        "income": 0.0,
+        "realized": 688.63,
+        "buy": 2481.87,
+        "sell": 2282.32
+      },
+      "2021-02": {
+        "income": 0.0,
+        "realized": 244.81,
+        "buy": 2286.36,
+        "sell": 2118.46
+      },
+      "2021-03": {
+        "income": 0.0,
+        "realized": -120.0,
+        "buy": 448.2,
+        "sell": 0.0
+      },
+      "2021-04": {
+        "income": 0.01,
+        "realized": 50.99,
+        "buy": 844.05,
+        "sell": 877.87
+      },
+      "2021-05": {
+        "income": 0.0,
+        "realized": -208.08,
+        "buy": 0.0,
+        "sell": 264.32
+      },
+      "2021-06": {
+        "income": 0.02,
+        "realized": -53.48,
+        "buy": 368.07,
+        "sell": 86.0
+      },
+      "2021-07": {
+        "income": 0.05,
+        "realized": -291.24,
+        "buy": 600.4,
+        "sell": 670.33
+      },
+      "2021-08": {
+        "income": 0.06,
+        "realized": -274.31,
+        "buy": 589.99,
+        "sell": 1211.23
+      },
+      "2021-09": {
+        "income": 0.03,
+        "realized": 27.17,
+        "buy": 97.59,
+        "sell": 363.33
+      },
+      "2021-10": {
+        "income": 0.11,
+        "realized": -534.39,
+        "buy": 725.18,
+        "sell": 1264.87
+      },
+      "2021-11": {
+        "income": 0.03,
+        "realized": 7.49,
+        "buy": 2541.19,
+        "sell": 995.52
+      },
+      "2021-12": {
+        "income": 0.16,
+        "realized": -47.01,
+        "buy": 526.79,
+        "sell": 540.14
+      },
+      "2022-01": {
+        "income": 0.0,
+        "realized": -1275.0,
+        "buy": 348.52,
+        "sell": 0.0
+      },
+      "2022-02": {
+        "income": 0.0,
+        "realized": 0.0,
+        "buy": 149.4,
+        "sell": 0.0
+      },
+      "2022-03": {
+        "income": 0.21,
+        "realized": 189.77,
+        "buy": 4586.59,
+        "sell": 3966.29
+      },
+      "2022-04": {
+        "income": 0.01,
+        "realized": -3878.26,
+        "buy": 4499.89,
+        "sell": 2933.47
+      },
+      "2022-05": {
+        "income": 0.03,
+        "realized": -928.36,
+        "buy": 1614.0,
+        "sell": 701.0
+      },
+      "2022-06": {
+        "income": 0.03,
+        "realized": -282.06,
+        "buy": 345.0,
+        "sell": 237.0
+      },
       "2022-07": {
         "income": 0.03,
-        "realized": 0.0,
-        "buy": 0.0,
+        "realized": -17.0,
+        "buy": 17.0,
         "sell": 0.0
       },
       "2022-08": {
-        "income": 0.31,
+        "income": 0.32,
         "realized": 0.0,
-        "buy": 250.03,
+        "buy": 306.57,
         "sell": 0.0
       },
       "2022-09": {
-        "income": 0.6,
-        "realized": 0.0,
-        "buy": 245.5,
-        "sell": 0.0
+        "income": 0.61,
+        "realized": -117.62,
+        "buy": 602.5,
+        "sell": 219.0
       },
       "2022-10": {
         "income": 0.01,
-        "realized": 0.0,
-        "buy": 0.0,
-        "sell": 0.0
+        "realized": -81.5,
+        "buy": 92.17,
+        "sell": 87.76
       },
       "2022-11": {
         "income": 0.01,
@@ -12894,7 +12732,7 @@ window.APP_DATA = {
       "2024-01": {
         "income": 4.47,
         "realized": 474.55,
-        "buy": 2967.46,
+        "buy": 3067.45,
         "sell": 2733.96
       },
       "2024-02": {
@@ -12906,37 +12744,37 @@ window.APP_DATA = {
       "2024-03": {
         "income": 13.48,
         "realized": -86.58,
-        "buy": 1165.27,
+        "buy": 1691.18,
         "sell": 52.0
       },
       "2024-04": {
         "income": 4.06,
         "realized": 0.0,
-        "buy": 2509.18,
+        "buy": 2759.26,
         "sell": 0.0
       },
       "2024-05": {
         "income": 5.6,
         "realized": 0.0,
-        "buy": 0.0,
+        "buy": 50.02,
         "sell": 0.0
       },
       "2024-06": {
         "income": 8.64,
         "realized": 0.0,
-        "buy": 592.64,
+        "buy": 892.63,
         "sell": 0.0
       },
       "2024-07": {
         "income": 32.61,
-        "realized": 0.0,
-        "buy": 2912.2,
-        "sell": 0.0
+        "realized": 0.13,
+        "buy": 3212.24,
+        "sell": 0.93
       },
       "2024-08": {
         "income": 4.02,
         "realized": 0.0,
-        "buy": 1769.34,
+        "buy": 1802.99,
         "sell": 0.0
       },
       "2024-09": {
@@ -12947,9 +12785,9 @@ window.APP_DATA = {
       },
       "2024-10": {
         "income": 27.1,
-        "realized": 27.27,
+        "realized": 45.96,
         "buy": 141.41,
-        "sell": 500.04
+        "sell": 500.05
       },
       "2024-11": {
         "income": 20.91,
@@ -12958,81 +12796,81 @@ window.APP_DATA = {
         "sell": 1569.29
       },
       "2024-12": {
-        "income": 51.37,
+        "income": 51.49,
         "realized": 0.0,
-        "buy": 848.78,
+        "buy": 948.79,
         "sell": 0.0
       },
       "2025-01": {
-        "income": 37.02,
+        "income": 37.25,
         "realized": 1154.85,
-        "buy": 5148.24,
-        "sell": 2099.89
+        "buy": 5248.16,
+        "sell": 2100.0
       },
       "2025-02": {
-        "income": 60.4,
+        "income": 59.56,
         "realized": 0.0,
-        "buy": 4539.99,
+        "buy": 4539.91,
         "sell": 0.0
       },
       "2025-03": {
-        "income": 39.04,
+        "income": 39.33,
         "realized": 0.0,
-        "buy": 1802.06,
+        "buy": 2697.06,
         "sell": 0.0
       },
       "2025-04": {
-        "income": 59.18,
+        "income": 59.17,
         "realized": -1139.1,
         "buy": 1435.78,
-        "sell": 0.94
+        "sell": 1.0
       },
       "2025-05": {
-        "income": 96.31,
+        "income": 73.53,
         "realized": 635.72,
         "buy": 0.0,
-        "sell": 3185.8
+        "sell": 3186.0
       },
       "2025-06": {
-        "income": 53.24,
+        "income": 54.08,
         "realized": 0.0,
         "buy": 148.06,
         "sell": 0.0
       },
       "2025-07": {
-        "income": 103.54,
+        "income": 103.5,
         "realized": 1220.68,
         "buy": 44.71,
         "sell": 2465.94
       },
       "2025-08": {
-        "income": 71.0,
-        "realized": 1275.54,
-        "buy": 2635.37,
-        "sell": 3187.03
+        "income": 70.16,
+        "realized": 1306.57,
+        "buy": 2890.36,
+        "sell": 3187.02
       },
       "2025-09": {
-        "income": 94.91,
-        "realized": 1360.0,
-        "buy": 1523.01,
+        "income": 95.75,
+        "realized": 1359.83,
+        "buy": 372.93,
         "sell": 2510.0
       },
       "2025-10": {
         "income": 119.46,
-        "realized": 147.0,
-        "buy": 4148.55,
+        "realized": 146.73,
+        "buy": 4148.43,
         "sell": 4052.0
       },
       "2025-11": {
         "income": 75.99,
-        "realized": 96.0,
-        "buy": 4207.74,
+        "realized": 95.73,
+        "buy": 4207.62,
         "sell": 3625.0
       },
       "2025-12": {
         "income": 105.88,
-        "realized": -81.02,
-        "buy": 2317.56,
+        "realized": -81.12,
+        "buy": 2317.52,
         "sell": 2239.47
       },
       "2026-01": {
@@ -13055,21 +12893,21 @@ window.APP_DATA = {
       },
       "2026-04": {
         "income": 110.67,
-        "realized": 18462.21,
+        "realized": 18122.54,
         "buy": 10055.01,
         "sell": 27177.6
       },
       "2026-05": {
         "income": 120.61,
-        "realized": 2148.54,
+        "realized": 2148.79,
         "buy": 6.96,
-        "sell": 7058.0
+        "sell": 7058.25
       },
       "2026-06": {
         "income": 79.09,
-        "realized": 540.08,
+        "realized": 526.48,
         "buy": 7.88,
-        "sell": 1047.18
+        "sell": 1047.21
       },
       "2026-07": {
         "income": 59.11,
@@ -13455,6 +13293,18 @@ window.APP_DATA = {
       {
         "d": "2026-10-30",
         "a": "Robinhood",
+        "s": "GOOGL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 2155.0,
+        "f": 0.04,
+        "amt": 2155.0,
+        "m": "RH 명세서 2026-10 — GOOGL 355C 12/17/27"
+      },
+      {
+        "d": "2026-10-30",
+        "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
         "k": "이자",
@@ -13492,18 +13342,6 @@ window.APP_DATA = {
         "m": "RH 명세서 2026-10"
       },
       {
-        "d": "2026-10-30",
-        "a": "Robinhood",
-        "s": "GOOGL",
-        "t": "옵션",
-        "k": "매수",
-        "q": 1.0,
-        "p": 2155.0,
-        "f": 0.04,
-        "amt": 2155.0,
-        "m": "RH 명세서 2026-10 — GOOGL 355C 12/17/2027 (10/30 체결, 11/2 결제)"
-      },
-      {
         "d": "2026-10-29",
         "a": "Robinhood",
         "s": "GOOGL",
@@ -13513,7 +13351,7 @@ window.APP_DATA = {
         "p": 2365.0,
         "f": 0.04,
         "amt": 2365.0,
-        "m": "RH 명세서 2026-10 — GOOGL 355C 12/17/2027"
+        "m": "RH 명세서 2026-10 — GOOGL 355C 12/17/27"
       },
       {
         "d": "2026-10-29",
@@ -13525,7 +13363,7 @@ window.APP_DATA = {
         "p": 2400.0,
         "f": 0.04,
         "amt": 2400.0,
-        "m": "RH 명세서 2026-10 — GOOGL 355C 12/17/2027"
+        "m": "RH 명세서 2026-10 — GOOGL 355C 12/17/27"
       },
       {
         "d": "2026-10-26",
@@ -14197,19 +14035,6 @@ window.APP_DATA = {
       },
       {
         "d": "2026-08-06",
-        "a": "Robinhood",
-        "s": "MSFT",
-        "t": "옵션",
-        "k": "매도",
-        "q": 5.0,
-        "p": 5200.0,
-        "f": 0.76,
-        "amt": 26000.0,
-        "pl": 17354.04,
-        "m": "RH 명세서 2026-08 — MSFT 500C 3/19/2027 5계약 @$52"
-      },
-      {
-        "d": "2026-08-06",
         "a": "Roth IRA",
         "s": "SGOV",
         "t": "주식",
@@ -14219,6 +14044,19 @@ window.APP_DATA = {
         "f": 0,
         "amt": 18.41,
         "pl": 18.41
+      },
+      {
+        "d": "2026-08-06",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 5.0,
+        "p": 5200.0,
+        "f": 0.76,
+        "amt": 26000.0,
+        "pl": 17354.04,
+        "m": "RH 명세서 2026-08 — MSFT 500C 03/19/27"
       },
       {
         "d": "2026-08-03",
@@ -14259,19 +14097,6 @@ window.APP_DATA = {
       {
         "d": "2026-07-31",
         "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 1.33,
-        "f": 0,
-        "amt": 1.33,
-        "pl": 1.33,
-        "m": "RH 명세서 2026-07"
-      },
-      {
-        "d": "2026-07-31",
-        "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
@@ -14293,6 +14118,19 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.09,
         "pl": 0.09,
+        "m": "RH 명세서 2026-07"
+      },
+      {
+        "d": "2026-07-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 1.33,
+        "f": 0,
+        "amt": 1.33,
+        "pl": 1.33,
         "m": "RH 명세서 2026-07"
       },
       {
@@ -14611,11 +14449,11 @@ window.APP_DATA = {
         "t": "주식",
         "k": "매도",
         "q": 10.0,
-        "p": 4.4762,
+        "p": 4.476,
         "f": 0,
         "amt": 44.76,
-        "pl": 44.76,
-        "m": "RH 명세서 2026-06 — Sberbank 청산 현금 수령 (원가 미상)"
+        "pl": 31.16,
+        "m": "RH 명세서 2026-06 청산"
       },
       {
         "d": "2026-06-22",
@@ -14726,7 +14564,7 @@ window.APP_DATA = {
         "p": 0,
         "f": 0,
         "amt": 0,
-        "m": "RH 명세서 2026-06 — 추천 보상 주식(REC)"
+        "m": "RH 명세서 2026-06 주식 리워드"
       },
       {
         "d": "2026-06-02",
@@ -14735,11 +14573,11 @@ window.APP_DATA = {
         "t": "주식",
         "k": "매도",
         "q": 10.0,
-        "p": 100.242,
-        "f": 0,
-        "amt": 1002.42,
+        "p": 100.245,
+        "f": 0.03,
+        "amt": 1002.45,
         "pl": 495.32,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-06"
       },
       {
         "d": "2026-06-01",
@@ -14776,7 +14614,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.83,
         "pl": 0.83,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-06"
       },
       {
         "d": "2026-05-29",
@@ -14801,7 +14639,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 29.57,
         "pl": 29.57,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-05"
       },
       {
         "d": "2026-05-29",
@@ -14814,7 +14652,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 5.61,
         "pl": 5.61,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-05"
       },
       {
         "d": "2026-05-26",
@@ -14851,7 +14689,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 6.09,
         "pl": 6.09,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-05"
       },
       {
         "d": "2026-05-20",
@@ -14864,7 +14702,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.08,
         "pl": 0.08,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-05"
       },
       {
         "d": "2026-05-18",
@@ -14901,7 +14739,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 6.79,
         "pl": 6.79,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-05"
       },
       {
         "d": "2026-05-14",
@@ -14962,7 +14800,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 5.76,
         "pl": 5.76,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-05"
       },
       {
         "d": "2026-05-07",
@@ -15013,6 +14851,31 @@ window.APP_DATA = {
         "pl": 1.42
       },
       {
+        "d": "2026-05-04",
+        "a": "Robinhood",
+        "s": "ADA",
+        "t": "코인",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0.25,
+        "f": 0,
+        "amt": 0.25,
+        "pl": 0.25,
+        "m": "RH 크립토 명세서 2026-05"
+      },
+      {
+        "d": "2026-05-01",
+        "a": "Robinhood",
+        "s": "ADA",
+        "t": "코인",
+        "k": "조정",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 크립토 명세서 2026-05 리워드"
+      },
+      {
         "d": "2026-05-01",
         "a": "Robinhood",
         "s": "NVDY",
@@ -15023,7 +14886,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 9.32,
         "pl": 9.32,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-05"
       },
       {
         "d": "2026-04-30",
@@ -15048,20 +14911,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 27.42,
         "pl": 27.42,
-        "m": "Robinhood CSV 2026-04~06"
-      },
-      {
-        "d": "2026-04-30",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 29.77,
-        "f": 0,
-        "amt": 29.77,
-        "pl": 29.77,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-04"
       },
       {
         "d": "2026-04-30",
@@ -15074,7 +14924,20 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.83,
         "pl": 0.83,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-04"
+      },
+      {
+        "d": "2026-04-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 29.77,
+        "f": 0,
+        "amt": 29.77,
+        "pl": 29.77,
+        "m": "RH 명세서 2026-04"
       },
       {
         "d": "2026-04-27",
@@ -15111,7 +14974,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 6.3,
         "pl": 6.3,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-04"
       },
       {
         "d": "2026-04-20",
@@ -15147,7 +15010,7 @@ window.APP_DATA = {
         "p": 0,
         "f": 0,
         "amt": 0,
-        "m": "Robinhood CSV 2026-04 주식 리워드(REC); 수량은 RH 명세서 2026-10 기준 0.012466"
+        "m": "RH 명세서 2026-04 주식 리워드"
       },
       {
         "d": "2026-04-17",
@@ -15160,7 +15023,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 5.22,
         "pl": 5.22,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-04"
       },
       {
         "d": "2026-04-13",
@@ -15220,33 +15083,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 5.0,
         "pl": 5.0,
-        "m": "Robinhood CSV 2026-04~06"
-      },
-      {
-        "d": "2026-04-09",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매도",
-        "q": 100.0,
-        "p": 71.0,
-        "f": 0.17,
-        "amt": 7100.0,
-        "pl": 5520.83,
-        "m": "Robinhood CSV 2026-04~06"
-      },
-      {
-        "d": "2026-04-09",
-        "a": "Robinhood",
-        "s": "USD",
-        "t": "주식",
-        "k": "매도",
-        "q": 40.0,
-        "p": 58.94,
-        "f": 0.05,
-        "amt": 2357.6,
-        "pl": 1354.75,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-04"
       },
       {
         "d": "2026-04-09",
@@ -15259,6 +15096,32 @@ window.APP_DATA = {
         "f": 0.21,
         "amt": 9940.0,
         "pl": 6362.22
+      },
+      {
+        "d": "2026-04-09",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매도",
+        "q": 100.0,
+        "p": 71.0,
+        "f": 0.17,
+        "amt": 7100.0,
+        "pl": 5181.04,
+        "m": "RH 명세서 2026-04"
+      },
+      {
+        "d": "2026-04-09",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "매도",
+        "q": 40.0,
+        "p": 58.9401,
+        "f": 0.05,
+        "amt": 2357.6,
+        "pl": 1354.87,
+        "m": "RH 명세서 2026-04"
       },
       {
         "d": "2026-04-07",
@@ -15295,7 +15158,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 5.17,
         "pl": 5.17,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-04"
       },
       {
         "d": "2026-04-01",
@@ -15308,7 +15171,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.83,
         "pl": 0.83,
-        "m": "Robinhood CSV 2026-04~06"
+        "m": "RH 명세서 2026-04"
       },
       {
         "d": "2026-03-31",
@@ -15470,7 +15333,7 @@ window.APP_DATA = {
         "p": 1170.0,
         "f": 0.04,
         "amt": 1170.0,
-        "m": "RH 명세서 2026-03 — MSFT 500C 3/19/2027"
+        "m": "RH 명세서 2026-03 — MSFT 500C 03/19/27"
       },
       {
         "d": "2026-03-23",
@@ -15499,6 +15362,18 @@ window.APP_DATA = {
       {
         "d": "2026-03-20",
         "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 1530.0,
+        "f": 0.04,
+        "amt": 1530.0,
+        "m": "RH 명세서 2026-03 — MSFT 500C 03/19/27"
+      },
+      {
+        "d": "2026-03-20",
+        "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
@@ -15510,18 +15385,6 @@ window.APP_DATA = {
         "m": "RH 명세서 2026-03"
       },
       {
-        "d": "2026-03-20",
-        "a": "Robinhood",
-        "s": "MSFT",
-        "t": "옵션",
-        "k": "매수",
-        "q": 1.0,
-        "p": 1530.0,
-        "f": 0.04,
-        "amt": 1530.0,
-        "m": "RH 명세서 2026-03 — MSFT 500C 3/19/2027"
-      },
-      {
         "d": "2026-03-17",
         "a": "Robinhood",
         "s": "MSFT",
@@ -15531,7 +15394,7 @@ window.APP_DATA = {
         "p": 1935.0,
         "f": 0.04,
         "amt": 1935.0,
-        "m": "RH 명세서 2026-03 — MSFT 500C 3/19/2027"
+        "m": "RH 명세서 2026-03 — MSFT 500C 03/19/27"
       },
       {
         "d": "2026-03-16",
@@ -15729,7 +15592,7 @@ window.APP_DATA = {
         "p": 1910.0,
         "f": 0.04,
         "amt": 1910.0,
-        "m": "RH 명세서 2026-02 — MSFT 500C 3/19/2027"
+        "m": "RH 명세서 2026-02 — MSFT 500C 03/19/27"
       },
       {
         "d": "2026-02-20",
@@ -15778,7 +15641,7 @@ window.APP_DATA = {
         "p": 2100.0,
         "f": 0.04,
         "amt": 2100.0,
-        "m": "RH 명세서 2026-02 — MSFT 500C 3/19/2027"
+        "m": "RH 명세서 2026-02 — MSFT 500C 03/19/27"
       },
       {
         "d": "2026-02-13",
@@ -16066,56 +15929,16 @@ window.APP_DATA = {
         "m": "RH 명세서 2026-01"
       },
       {
-        "d": "2025-12-31",
+        "d": "2026-01-01",
         "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "배당",
-        "q": 1.0,
-        "p": 0.68,
+        "s": "XRP",
+        "t": "코인",
+        "k": "조정",
+        "q": 1.083,
+        "p": 0,
         "f": 0,
-        "amt": 0.68,
-        "pl": 0.68,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-12-31",
-        "a": "Robinhood",
-        "s": "USD",
-        "t": "주식",
-        "k": "배당",
-        "q": 1.0,
-        "p": 3.25,
-        "f": 0,
-        "amt": 3.25,
-        "pl": 3.25,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-12-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 28.09,
-        "f": 0,
-        "amt": 28.09,
-        "pl": 28.09,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-12-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 0.84,
-        "f": 0,
-        "amt": 0.84,
-        "pl": 0.84,
-        "m": "1099 Robinhood 2025"
+        "amt": 0,
+        "m": "RH 크립토 명세서 2026-01 리워드"
       },
       {
         "d": "2025-12-31",
@@ -16166,6 +15989,58 @@ window.APP_DATA = {
         "pl": 10.66
       },
       {
+        "d": "2025-12-31",
+        "a": "Robinhood",
+        "s": "QLD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.68,
+        "f": 0,
+        "amt": 0.68,
+        "pl": 0.68,
+        "m": "RH 명세서 2025-12"
+      },
+      {
+        "d": "2025-12-31",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 3.25,
+        "f": 0,
+        "amt": 3.25,
+        "pl": 3.25,
+        "m": "RH 명세서 2025-12"
+      },
+      {
+        "d": "2025-12-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.84,
+        "f": 0,
+        "amt": 0.84,
+        "pl": 0.84,
+        "m": "RH 명세서 2025-12"
+      },
+      {
+        "d": "2025-12-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 28.09,
+        "f": 0,
+        "amt": 28.09,
+        "pl": 28.09,
+        "m": "RH 명세서 2025-12"
+      },
+      {
         "d": "2025-12-30",
         "a": "Roth IRA",
         "s": "TSLY",
@@ -16196,10 +16071,10 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 1125.02,
-        "f": 0,
-        "amt": 1125.02,
-        "m": "1099 Robinhood 2025"
+        "p": 1125.0,
+        "f": 0.02,
+        "amt": 1125.0,
+        "m": "RH 명세서 2025-12 — NVDA 177.5C 01/09/26"
       },
       {
         "d": "2025-12-29",
@@ -16208,34 +16083,10 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 1190.02,
-        "f": 0,
-        "amt": 1190.02,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-12-29",
-        "a": "Robinhood",
-        "s": "TSLA",
-        "t": "옵션",
-        "k": "매도",
-        "q": 1.0,
-        "p": 1090.0,
-        "f": 0,
-        "amt": 1090.0,
-        "pl": -100.0
-      },
-      {
-        "d": "2025-12-29",
-        "a": "Robinhood",
-        "s": "NVDA",
-        "t": "옵션",
-        "k": "매도",
-        "q": 1.0,
-        "p": 1145.0,
-        "f": 0,
-        "amt": 1145.0,
-        "pl": 20.0
+        "p": 1190.0,
+        "f": 0.02,
+        "amt": 1190.0,
+        "m": "RH 명세서 2025-12 — TSLA 465C 01/09/26"
       },
       {
         "d": "2025-12-29",
@@ -16248,20 +16099,33 @@ window.APP_DATA = {
         "f": 0,
         "amt": 5.2,
         "pl": 5.2,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-12"
       },
       {
-        "d": "2025-12-19",
+        "d": "2025-12-29",
         "a": "Robinhood",
-        "s": "NVDY",
-        "t": "주식",
-        "k": "배당",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매도",
         "q": 1.0,
-        "p": 5.28,
-        "f": 0,
-        "amt": 5.28,
-        "pl": 5.28,
-        "m": "1099 Robinhood 2025"
+        "p": 1145.0,
+        "f": 0.03,
+        "amt": 1145.0,
+        "pl": 19.95,
+        "m": "RH 명세서 2025-12 — NVDA 177.5C 01/09/26"
+      },
+      {
+        "d": "2025-12-29",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 1090.0,
+        "f": 0.03,
+        "amt": 1090.0,
+        "pl": -100.05,
+        "m": "RH 명세서 2025-12 — TSLA 465C 01/09/26"
       },
       {
         "d": "2025-12-19",
@@ -16276,6 +16140,19 @@ window.APP_DATA = {
         "pl": 1.68
       },
       {
+        "d": "2025-12-19",
+        "a": "Robinhood",
+        "s": "NVDY",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 5.28,
+        "f": 0,
+        "amt": 5.28,
+        "pl": 5.28,
+        "m": "RH 명세서 2025-12"
+      },
+      {
         "d": "2025-12-15",
         "a": "Robinhood",
         "s": "SCHD",
@@ -16286,20 +16163,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 9.74,
         "pl": 9.74,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-12-12",
-        "a": "Robinhood",
-        "s": "NVDY",
-        "t": "주식",
-        "k": "배당",
-        "q": 1.0,
-        "p": 6.72,
-        "f": 0,
-        "amt": 6.72,
-        "pl": 6.72,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-12"
       },
       {
         "d": "2025-12-12",
@@ -16314,17 +16178,17 @@ window.APP_DATA = {
         "pl": 1.69
       },
       {
-        "d": "2025-12-05",
+        "d": "2025-12-12",
         "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
         "q": 1.0,
-        "p": 7.42,
+        "p": 6.72,
         "f": 0,
-        "amt": 7.42,
-        "pl": 7.42,
-        "m": "1099 Robinhood 2025"
+        "amt": 6.72,
+        "pl": 6.72,
+        "m": "RH 명세서 2025-12"
       },
       {
         "d": "2025-12-05",
@@ -16339,30 +16203,17 @@ window.APP_DATA = {
         "pl": 3.74
       },
       {
-        "d": "2025-12-01",
+        "d": "2025-12-05",
         "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
         "q": 1.0,
-        "p": 7.34,
+        "p": 7.42,
         "f": 0,
-        "amt": 7.34,
-        "pl": 7.34,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-12-01",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 0.84,
-        "f": 0,
-        "amt": 0.84,
-        "pl": 0.84,
-        "m": "1099 Robinhood 2025"
+        "amt": 7.42,
+        "pl": 7.42,
+        "m": "RH 명세서 2025-12"
       },
       {
         "d": "2025-12-01",
@@ -16402,17 +16253,30 @@ window.APP_DATA = {
         "m": "병합 단주 현금"
       },
       {
-        "d": "2025-11-28",
+        "d": "2025-12-01",
+        "a": "Robinhood",
+        "s": "NVDY",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 7.34,
+        "f": 0,
+        "amt": 7.34,
+        "pl": 7.34,
+        "m": "RH 명세서 2025-12"
+      },
+      {
+        "d": "2025-12-01",
         "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
         "k": "이자",
         "q": 1.0,
-        "p": 28.83,
+        "p": 0.84,
         "f": 0,
-        "amt": 28.83,
-        "pl": 28.83,
-        "m": "1099 Robinhood 2025"
+        "amt": 0.84,
+        "pl": 0.84,
+        "m": "RH 명세서 2025-12"
       },
       {
         "d": "2025-11-28",
@@ -16427,6 +16291,19 @@ window.APP_DATA = {
         "pl": 10.69
       },
       {
+        "d": "2025-11-28",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 28.83,
+        "f": 0,
+        "amt": 28.83,
+        "pl": 28.83,
+        "m": "RH 명세서 2025-11"
+      },
+      {
         "d": "2025-11-25",
         "a": "Robinhood",
         "s": "NVDY",
@@ -16439,7 +16316,7 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-11"
       },
       {
-        "d": "2025-11-21",
+        "d": "2025-11-24",
         "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
@@ -16449,7 +16326,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 6.29,
         "pl": 6.29,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-11"
       },
       {
         "d": "2025-11-21",
@@ -16462,55 +16339,6 @@ window.APP_DATA = {
         "f": 0,
         "amt": 1.83,
         "pl": 1.83
-      },
-      {
-        "d": "2025-11-20",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "조정",
-        "q": 15.0,
-        "p": 0,
-        "f": 0,
-        "amt": 0,
-        "m": "RH 명세서 2025-11: 2:1 분할"
-      },
-      {
-        "d": "2025-11-20",
-        "a": "Robinhood",
-        "s": "USD",
-        "t": "주식",
-        "k": "조정",
-        "q": 20.0,
-        "p": 0,
-        "f": 0,
-        "amt": 0,
-        "m": "RH 명세서 2025-11: 2:1 분할"
-      },
-      {
-        "d": "2025-11-20",
-        "a": "Robinhood",
-        "s": "TSLA",
-        "t": "옵션",
-        "k": "매수",
-        "q": 1.0,
-        "p": 1240.04,
-        "f": 0,
-        "amt": 1240.04,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-11-20",
-        "a": "Robinhood",
-        "s": "TSLA",
-        "t": "옵션",
-        "k": "매도",
-        "q": 1.0,
-        "p": 1265.0,
-        "f": 0,
-        "amt": 1265.0,
-        "pl": 25.0,
-        "m": "날짜 11/28→11/20 (1099 Robinhood 2025)"
       },
       {
         "d": "2025-11-20",
@@ -16549,15 +16377,65 @@ window.APP_DATA = {
         "m": "주식분할"
       },
       {
+        "d": "2025-11-20",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 1240.0,
+        "f": 0.04,
+        "amt": 1240.0,
+        "m": "RH 명세서 2025-11 — TSLA 420C 11/28/25"
+      },
+      {
+        "d": "2025-11-20",
+        "a": "Robinhood",
+        "s": "QLD",
+        "t": "주식",
+        "k": "조정",
+        "q": 15.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 명세서 2025-11 주식분할"
+      },
+      {
+        "d": "2025-11-20",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "조정",
+        "q": 20.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 명세서 2025-11 주식분할"
+      },
+      {
+        "d": "2025-11-20",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 1265.0,
+        "f": 0.05,
+        "amt": 1265.0,
+        "pl": 24.91,
+        "m": "RH 명세서 2025-11 — TSLA 420C 11/28/25"
+      },
+      {
         "d": "2025-11-19",
         "a": "Robinhood",
         "s": "ETH",
         "t": "코인",
         "k": "매수",
         "q": 0.1,
-        "p": 2941.55,
+        "p": 2941.5,
         "f": 0,
-        "amt": 294.16
+        "amt": 294.15,
+        "m": "RH 크립토 명세서 2025-11"
       },
       {
         "d": "2025-11-17",
@@ -16590,10 +16468,10 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 1135.04,
-        "f": 0,
-        "amt": 1135.04,
-        "m": "1099 Robinhood 2025"
+        "p": 1154.0,
+        "f": 0.04,
+        "amt": 1154.0,
+        "m": "RH 명세서 2025-11 — TSLA 407.5C 11/21/25"
       },
       {
         "d": "2025-11-14",
@@ -16602,34 +16480,10 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 1154.04,
-        "f": 0,
-        "amt": 1154.04,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-11-14",
-        "a": "Robinhood",
-        "s": "TSLA",
-        "t": "옵션",
-        "k": "매도",
-        "q": 1.0,
-        "p": 1200.0,
-        "f": 0,
-        "amt": 1200.0,
-        "pl": 65.0
-      },
-      {
-        "d": "2025-11-14",
-        "a": "Robinhood",
-        "s": "TSLA",
-        "t": "옵션",
-        "k": "매도",
-        "q": 1.0,
-        "p": 1160.0,
-        "f": 0,
-        "amt": 1160.0,
-        "pl": 6.0
+        "p": 1135.0,
+        "f": 0.04,
+        "amt": 1135.0,
+        "m": "RH 명세서 2025-11 — TSLA 410C 11/21/25"
       },
       {
         "d": "2025-11-14",
@@ -16642,7 +16496,33 @@ window.APP_DATA = {
         "f": 0,
         "amt": 6.04,
         "pl": 6.04,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-11"
+      },
+      {
+        "d": "2025-11-14",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 1160.0,
+        "f": 0.05,
+        "amt": 1160.0,
+        "pl": 15.41,
+        "m": "RH 명세서 2025-11 — TSLA 407.5C 11/21/25"
+      },
+      {
+        "d": "2025-11-14",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 1200.0,
+        "f": 0.05,
+        "amt": 1200.0,
+        "pl": 55.41,
+        "m": "RH 명세서 2025-11 — TSLA 410C 11/21/25"
       },
       {
         "d": "2025-11-13",
@@ -16691,7 +16571,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 13.38,
         "pl": 13.38,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-11"
       },
       {
         "d": "2025-11-04",
@@ -16700,9 +16580,10 @@ window.APP_DATA = {
         "t": "코인",
         "k": "매수",
         "q": 0.1,
-        "p": 3340.07,
+        "p": 3340.1,
         "f": 0,
-        "amt": 334.01
+        "amt": 334.01,
+        "m": "RH 크립토 명세서 2025-11"
       },
       {
         "d": "2025-11-03",
@@ -16730,6 +16611,18 @@ window.APP_DATA = {
       },
       {
         "d": "2025-10-31",
+        "a": "Roth IRA",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 11.51,
+        "f": 0,
+        "amt": 11.51,
+        "pl": 11.51
+      },
+      {
+        "d": "2025-10-31",
         "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
@@ -16739,20 +16632,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 7.66,
         "pl": 7.66,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-10-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 37.32,
-        "f": 0,
-        "amt": 37.32,
-        "pl": 37.32,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-10"
       },
       {
         "d": "2025-10-31",
@@ -16765,19 +16645,20 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.84,
         "pl": 0.84,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-10"
       },
       {
         "d": "2025-10-31",
-        "a": "Roth IRA",
+        "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
         "k": "이자",
         "q": 1.0,
-        "p": 11.51,
+        "p": 37.32,
         "f": 0,
-        "amt": 11.51,
-        "pl": 11.51
+        "amt": 37.32,
+        "pl": 37.32,
+        "m": "RH 명세서 2025-10"
       },
       {
         "d": "2025-10-27",
@@ -16814,7 +16695,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 5.07,
         "pl": 5.07,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-10"
       },
       {
         "d": "2025-10-20",
@@ -16847,9 +16728,10 @@ window.APP_DATA = {
         "t": "코인",
         "k": "매수",
         "q": 0.05,
-        "p": 3822.53,
+        "p": 3822.6,
         "f": 0,
-        "amt": 191.13
+        "amt": 191.13,
+        "m": "RH 크립토 명세서 2025-10"
       },
       {
         "d": "2025-10-17",
@@ -16862,7 +16744,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 4.59,
         "pl": 4.59,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-10"
       },
       {
         "d": "2025-10-14",
@@ -16887,7 +16769,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 31.82,
         "pl": 31.82,
-        "m": "1099 Robinhood 2025"
+        "m": "RH 명세서 2025-10"
       },
       {
         "d": "2025-10-06",
@@ -16920,10 +16802,10 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 1249.04,
-        "f": 0,
-        "amt": 1249.04,
-        "m": "1099 Robinhood 2025"
+        "p": 1249.0,
+        "f": 0.04,
+        "amt": 1249.0,
+        "m": "RH 명세서 2025-10 — TSLA 422.5C 10/10/25"
       },
       {
         "d": "2025-10-03",
@@ -16932,22 +16814,10 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 1273.04,
-        "f": 0,
-        "amt": 1273.04,
-        "m": "1099 Robinhood 2025"
-      },
-      {
-        "d": "2025-10-03",
-        "a": "Robinhood",
-        "s": "TSLA",
-        "t": "옵션",
-        "k": "매도",
-        "q": 1.0,
-        "p": 1292.0,
-        "f": 0,
-        "amt": 1292.0,
-        "pl": 19.0
+        "p": 1273.0,
+        "f": 0.04,
+        "amt": 1273.0,
+        "m": "RH 명세서 2025-10 — TSLA 427.5C 10/10/25"
       },
       {
         "d": "2025-10-03",
@@ -16957,9 +16827,23 @@ window.APP_DATA = {
         "k": "매도",
         "q": 1.0,
         "p": 1260.0,
-        "f": 0,
+        "f": 0.05,
         "amt": 1260.0,
-        "pl": 11.0
+        "pl": -1.09,
+        "m": "RH 명세서 2025-10 — TSLA 422.5C 10/10/25"
+      },
+      {
+        "d": "2025-10-03",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 1292.0,
+        "f": 0.05,
+        "amt": 1292.0,
+        "pl": 30.91,
+        "m": "RH 명세서 2025-10 — TSLA 427.5C 10/10/25"
       },
       {
         "d": "2025-10-02",
@@ -16968,10 +16852,10 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 1383.04,
-        "f": 0,
-        "amt": 1383.04,
-        "m": "1099 Robinhood 2025"
+        "p": 1383.0,
+        "f": 0.04,
+        "amt": 1383.0,
+        "m": "RH 명세서 2025-10 — TSLA 457.5C 10/10/25"
       },
       {
         "d": "2025-10-02",
@@ -16981,69 +16865,10 @@ window.APP_DATA = {
         "k": "매도",
         "q": 1.0,
         "p": 1500.0,
-        "f": 0,
+        "f": 0.05,
         "amt": 1500.0,
-        "pl": 117.0
-      },
-      {
-        "d": "2025-09-30",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "배당",
-        "q": 100.0,
-        "p": 0.0101,
-        "f": 0,
-        "amt": 1.01,
-        "pl": 1.01
-      },
-      {
-        "d": "2025-09-30",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "배당",
-        "q": 15.0,
-        "p": 0.0407,
-        "f": 0,
-        "amt": 0.61,
-        "pl": 0.61
-      },
-      {
-        "d": "2025-09-30",
-        "a": "Robinhood",
-        "s": "USD",
-        "t": "주식",
-        "k": "배당",
-        "q": 20.0,
-        "p": 0.0414,
-        "f": 0,
-        "amt": 0.83,
-        "pl": 0.83
-      },
-      {
-        "d": "2025-09-30",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 0.84,
-        "f": 0,
-        "amt": 0.84,
-        "pl": 0.84
-      },
-      {
-        "d": "2025-09-30",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 32.75,
-        "f": 0,
-        "amt": 32.75,
-        "pl": 32.75
+        "pl": 116.91,
+        "m": "RH 명세서 2025-10 — TSLA 457.5C 10/10/25"
       },
       {
         "d": "2025-09-30",
@@ -17106,16 +16931,94 @@ window.APP_DATA = {
         "pl": 11.44
       },
       {
+        "d": "2025-09-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 32.75,
+        "f": 0,
+        "amt": 32.75,
+        "pl": 32.75,
+        "m": "RH 명세서 2025-09"
+      },
+      {
+        "d": "2025-09-30",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.83,
+        "f": 0,
+        "amt": 0.83,
+        "pl": 0.83,
+        "m": "RH 명세서 2025-09"
+      },
+      {
+        "d": "2025-09-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.84,
+        "f": 0,
+        "amt": 0.84,
+        "pl": 0.84,
+        "m": "RH 명세서 2025-09"
+      },
+      {
+        "d": "2025-09-30",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 1.01,
+        "f": 0,
+        "amt": 1.01,
+        "pl": 1.01,
+        "m": "RH 명세서 2025-09"
+      },
+      {
+        "d": "2025-09-30",
+        "a": "Robinhood",
+        "s": "QLD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.61,
+        "f": 0,
+        "amt": 0.61,
+        "pl": 0.61,
+        "m": "RH 명세서 2025-09"
+      },
+      {
         "d": "2025-09-29",
         "a": "Robinhood",
         "s": "SCHD",
         "t": "주식",
         "k": "배당",
-        "q": 35.0,
-        "p": 0.2604,
+        "q": 1.0,
+        "p": 9.11,
         "f": 0,
         "amt": 9.11,
-        "pl": 9.11
+        "pl": 9.11,
+        "m": "RH 명세서 2025-09"
+      },
+      {
+        "d": "2025-09-25",
+        "a": "Robinhood",
+        "s": "ETH",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.041924,
+        "p": 4081.9101,
+        "f": 0,
+        "amt": 171.13,
+        "m": "RH 크립토 명세서 2025-09"
       },
       {
         "d": "2025-09-25",
@@ -17124,32 +17027,10 @@ window.APP_DATA = {
         "t": "코인",
         "k": "매수",
         "q": 0.05,
-        "p": 3907.38,
+        "p": 3907.4,
         "f": 0,
-        "amt": 195.37
-      },
-      {
-        "d": "2025-09-24",
-        "a": "Robinhood",
-        "s": "ETH",
-        "t": "코인",
-        "k": "매수",
-        "q": 0.041924,
-        "p": 4082.02,
-        "f": 0,
-        "amt": 171.13
-      },
-      {
-        "d": "2025-09-19",
-        "a": "Robinhood",
-        "s": "AAPL",
-        "t": "옵션",
-        "k": "매수",
-        "q": 2.0,
-        "p": 575.04,
-        "f": 0,
-        "amt": 1150.08,
-        "m": "1099 Robinhood 2025 AAPL 260C (취득일 Various)"
+        "amt": 195.37,
+        "m": "RH 크립토 명세서 2025-09"
       },
       {
         "d": "2025-09-19",
@@ -17159,9 +17040,10 @@ window.APP_DATA = {
         "k": "매도",
         "q": 2.0,
         "p": 1255.0,
-        "f": 0,
+        "f": 0.09,
         "amt": 2510.0,
-        "pl": 1360.0
+        "pl": 1359.83,
+        "m": "RH 명세서 2025-09 — AAPL 260C 03/20/26"
       },
       {
         "d": "2025-09-12",
@@ -17169,11 +17051,12 @@ window.APP_DATA = {
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
-        "q": 40.0,
-        "p": 0.6428,
+        "q": 1.0,
+        "p": 25.71,
         "f": 0,
         "amt": 25.71,
-        "pl": 25.71
+        "pl": 25.71,
+        "m": "RH 명세서 2025-09"
       },
       {
         "d": "2025-09-08",
@@ -17200,19 +17083,7 @@ window.APP_DATA = {
         "pl": 6.43
       },
       {
-        "d": "2025-08-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 25.62,
-        "f": 0,
-        "amt": 25.62,
-        "pl": 25.62
-      },
-      {
-        "d": "2025-08-31",
+        "d": "2025-09-02",
         "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
@@ -17221,7 +17092,8 @@ window.APP_DATA = {
         "p": 0.84,
         "f": 0,
         "amt": 0.84,
-        "pl": 0.84
+        "pl": 0.84,
+        "m": "RH 명세서 2025-09"
       },
       {
         "d": "2025-08-29",
@@ -17236,16 +17108,41 @@ window.APP_DATA = {
         "pl": 12.79
       },
       {
+        "d": "2025-08-29",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 25.62,
+        "f": 0,
+        "amt": 25.62,
+        "pl": 25.62,
+        "m": "RH 명세서 2025-08"
+      },
+      {
         "d": "2025-08-22",
         "a": "Robinhood",
         "s": "BTC",
         "t": "코인",
         "k": "매도",
         "q": 0.010192,
-        "p": 115860.1,
+        "p": 115859.6234,
         "f": 0,
         "amt": 1180.81,
-        "pl": 512.85
+        "pl": 528.37,
+        "m": "RH 크립토 명세서 2025-08"
+      },
+      {
+        "d": "2025-08-21",
+        "a": "Roth IRA",
+        "s": "QLD",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 121.02,
+        "f": 0,
+        "amt": 363.06
       },
       {
         "d": "2025-08-21",
@@ -17272,17 +17169,6 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-08"
       },
       {
-        "d": "2025-08-21",
-        "a": "Roth IRA",
-        "s": "QLD",
-        "t": "주식",
-        "k": "매수",
-        "q": 3.0,
-        "p": 121.02,
-        "f": 0,
-        "amt": 363.06
-      },
-      {
         "d": "2025-08-20",
         "a": "Robinhood",
         "s": "NVDY",
@@ -17297,15 +17183,14 @@ window.APP_DATA = {
       {
         "d": "2025-08-19",
         "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매도",
-        "q": 30.0,
-        "p": 26.445,
+        "s": "ETH",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.119584,
+        "p": 4180.6596,
         "f": 0,
-        "amt": 793.35,
-        "pl": 217.72,
-        "m": "RH 명세서 2025-08"
+        "amt": 499.94,
+        "m": "RH 크립토 명세서 2025-08"
       },
       {
         "d": "2025-08-19",
@@ -17313,10 +17198,36 @@ window.APP_DATA = {
         "s": "ETH",
         "t": "코인",
         "k": "매수",
-        "q": 0.358076,
-        "p": 4188.78,
+        "q": 0.11945,
+        "p": 4184.0938,
         "f": 0,
-        "amt": 1499.9
+        "amt": 499.79,
+        "m": "RH 크립토 명세서 2025-08"
+      },
+      {
+        "d": "2025-08-19",
+        "a": "Robinhood",
+        "s": "ETH",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.119042,
+        "p": 4201.5423,
+        "f": 0,
+        "amt": 500.16,
+        "m": "RH 크립토 명세서 2025-08"
+      },
+      {
+        "d": "2025-08-19",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 26.445,
+        "f": 0,
+        "amt": 793.35,
+        "pl": 217.71,
+        "m": "RH 명세서 2025-08"
       },
       {
         "d": "2025-08-15",
@@ -17324,11 +17235,12 @@ window.APP_DATA = {
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
-        "q": 30.0,
-        "p": 0.8397,
+        "q": 1.0,
+        "p": 25.19,
         "f": 0,
         "amt": 25.19,
-        "pl": 25.19
+        "pl": 25.19,
+        "m": "RH 명세서 2025-08"
       },
       {
         "d": "2025-08-14",
@@ -17349,10 +17261,11 @@ window.APP_DATA = {
         "t": "코인",
         "k": "매도",
         "q": 0.010191,
-        "p": 119015.8,
+        "p": 119015.5405,
         "f": 0,
         "amt": 1212.86,
-        "pl": 544.97
+        "pl": 560.49,
+        "m": "RH 크립토 명세서 2025-08"
       },
       {
         "d": "2025-08-11",
@@ -17379,41 +17292,16 @@ window.APP_DATA = {
         "pl": 4.74
       },
       {
-        "d": "2025-07-31",
+        "d": "2025-08-04",
         "a": "Robinhood",
-        "s": "TQQQ",
-        "t": "주식",
-        "k": "매도",
-        "q": 3.0,
-        "p": 91.7,
-        "f": 0,
-        "amt": 275.1,
-        "pl": 96.79,
-        "m": "RH 명세서 2025-07"
-      },
-      {
-        "d": "2025-07-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
         "q": 1.0,
-        "p": 0.84,
-        "f": 0,
-        "amt": 0.84,
-        "pl": 0.84
-      },
-      {
-        "d": "2025-07-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 14.37,
-        "f": 0,
-        "amt": 14.37,
-        "pl": 14.37
+        "p": 255.0,
+        "f": 0.04,
+        "amt": 255.0,
+        "m": "RH 명세서 2025-08 — AAPL 260C 03/20/26"
       },
       {
         "d": "2025-07-31",
@@ -17452,16 +17340,56 @@ window.APP_DATA = {
         "pl": 558.36
       },
       {
+        "d": "2025-07-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.84,
+        "f": 0,
+        "amt": 0.84,
+        "pl": 0.84,
+        "m": "RH 명세서 2025-07"
+      },
+      {
+        "d": "2025-07-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 14.37,
+        "f": 0,
+        "amt": 14.37,
+        "pl": 14.37,
+        "m": "RH 명세서 2025-07"
+      },
+      {
+        "d": "2025-07-31",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매도",
+        "q": 3.0,
+        "p": 91.7,
+        "f": 0,
+        "amt": 275.1,
+        "pl": 96.79,
+        "m": "RH 명세서 2025-08"
+      },
+      {
         "d": "2025-07-18",
         "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
-        "q": 30.0,
-        "p": 1.03,
+        "q": 1.0,
+        "p": 30.86,
         "f": 0,
-        "amt": 30.9,
-        "pl": 30.9
+        "amt": 30.86,
+        "pl": 30.86,
+        "m": "RH 명세서 2025-07"
       },
       {
         "d": "2025-07-14",
@@ -17486,54 +17414,6 @@ window.APP_DATA = {
         "f": 0,
         "amt": 5.81,
         "pl": 5.81
-      },
-      {
-        "d": "2025-07-01",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "배당",
-        "q": 130.0,
-        "p": 0.068,
-        "f": 0,
-        "amt": 8.84,
-        "pl": 8.84
-      },
-      {
-        "d": "2025-07-01",
-        "a": "Robinhood",
-        "s": "TQQQ",
-        "t": "주식",
-        "k": "배당",
-        "q": 3.0,
-        "p": 0.2183,
-        "f": 0,
-        "amt": 0.65,
-        "pl": 0.65
-      },
-      {
-        "d": "2025-07-01",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "배당",
-        "q": 10.0,
-        "p": 0.1242,
-        "f": 0,
-        "amt": 1.24,
-        "pl": 1.24
-      },
-      {
-        "d": "2025-07-01",
-        "a": "Robinhood",
-        "s": "USD",
-        "t": "주식",
-        "k": "배당",
-        "q": 20.0,
-        "p": 0.1604,
-        "f": 0,
-        "amt": 3.21,
-        "pl": 3.21
       },
       {
         "d": "2025-07-01",
@@ -17595,40 +17475,56 @@ window.APP_DATA = {
         "pl": 16.32
       },
       {
-        "d": "2025-06-30",
+        "d": "2025-07-01",
         "a": "Robinhood",
-        "s": "SCHD",
+        "s": "TQQQ",
         "t": "주식",
         "k": "배당",
-        "q": 35.0,
-        "p": 0.2602,
+        "q": 1.0,
+        "p": 0.65,
         "f": 0,
-        "amt": 9.11,
-        "pl": 9.11
+        "amt": 0.65,
+        "pl": 0.65,
+        "m": "RH 명세서 2025-07"
       },
       {
-        "d": "2025-06-30",
+        "d": "2025-07-01",
         "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
+        "s": "QLD",
+        "t": "주식",
+        "k": "배당",
         "q": 1.0,
-        "p": 0.84,
+        "p": 1.24,
         "f": 0,
-        "amt": 0.84,
-        "pl": 0.84
+        "amt": 1.24,
+        "pl": 1.24,
+        "m": "RH 명세서 2025-07"
       },
       {
-        "d": "2025-06-30",
+        "d": "2025-07-01",
         "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "배당",
         "q": 1.0,
-        "p": 13.63,
+        "p": 8.84,
         "f": 0,
-        "amt": 13.63,
-        "pl": 13.63
+        "amt": 8.84,
+        "pl": 8.84,
+        "m": "RH 명세서 2025-07"
+      },
+      {
+        "d": "2025-07-01",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 3.21,
+        "f": 0,
+        "amt": 3.21,
+        "pl": 3.21,
+        "m": "RH 명세서 2025-07"
       },
       {
         "d": "2025-06-30",
@@ -17643,16 +17539,56 @@ window.APP_DATA = {
         "pl": 5.47
       },
       {
+        "d": "2025-06-30",
+        "a": "Robinhood",
+        "s": "SCHD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 9.11,
+        "f": 0,
+        "amt": 9.11,
+        "pl": 9.11,
+        "m": "RH 명세서 2025-06"
+      },
+      {
+        "d": "2025-06-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.84,
+        "f": 0,
+        "amt": 0.84,
+        "pl": 0.84,
+        "m": "RH 명세서 2025-06"
+      },
+      {
+        "d": "2025-06-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 13.63,
+        "f": 0,
+        "amt": 13.63,
+        "pl": 13.63,
+        "m": "RH 명세서 2025-06"
+      },
+      {
         "d": "2025-06-23",
         "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
-        "q": 30.0,
-        "p": 0.6721,
+        "q": 1.0,
+        "p": 20.16,
         "f": 0,
         "amt": 20.16,
-        "pl": 20.16
+        "pl": 20.16,
+        "m": "RH 명세서 2025-06"
       },
       {
         "d": "2025-06-13",
@@ -17679,7 +17615,7 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-06"
       },
       {
-        "d": "2025-05-31",
+        "d": "2025-06-02",
         "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
@@ -17688,19 +17624,8 @@ window.APP_DATA = {
         "p": 0.84,
         "f": 0,
         "amt": 0.84,
-        "pl": 0.84
-      },
-      {
-        "d": "2025-05-30",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 12.06,
-        "f": 0,
-        "amt": 12.06,
-        "pl": 12.06
+        "pl": 0.84,
+        "m": "RH 명세서 2025-06"
       },
       {
         "d": "2025-05-30",
@@ -17715,16 +17640,17 @@ window.APP_DATA = {
         "pl": 2.38
       },
       {
-        "d": "2025-05-27",
+        "d": "2025-05-30",
         "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
         "k": "이자",
         "q": 1.0,
-        "p": 22.78,
+        "p": 12.06,
         "f": 0,
-        "amt": 22.78,
-        "pl": 22.78
+        "amt": 12.06,
+        "pl": 12.06,
+        "m": "RH 명세서 2025-05"
       },
       {
         "d": "2025-05-23",
@@ -17732,11 +17658,12 @@ window.APP_DATA = {
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
-        "q": 30.0,
-        "p": 1.6276,
+        "q": 1.0,
+        "p": 48.83,
         "f": 0,
         "amt": 48.83,
-        "pl": 48.83
+        "pl": 48.83,
+        "m": "RH 명세서 2025-05"
       },
       {
         "d": "2025-05-16",
@@ -17769,39 +17696,14 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매도",
         "q": 1.0,
-        "p": 2259.88,
-        "f": 0,
-        "amt": 2259.88,
-        "pl": 344.84,
-        "m": "1099 Robinhood 2025 MSFT 445C"
+        "p": 2260.0,
+        "f": 0.12,
+        "amt": 2260.0,
+        "pl": 984.84,
+        "m": "RH 명세서 2025-05 — MSFT 445C 08/15/25"
       },
       {
         "d": "2025-05-01",
-        "a": "Robinhood",
-        "s": "MSFT",
-        "t": "옵션",
-        "k": "매도",
-        "q": 1.0,
-        "p": 925.92,
-        "f": 0,
-        "amt": 925.92,
-        "pl": 290.88,
-        "m": "1099 Robinhood 2025 MSFT 475C"
-      },
-      {
-        "d": "2025-04-30",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 1.15,
-        "f": 0,
-        "amt": 1.15,
-        "pl": 1.15
-      },
-      {
-        "d": "2025-04-30",
         "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
@@ -17810,7 +17712,21 @@ window.APP_DATA = {
         "p": 0.84,
         "f": 0,
         "amt": 0.84,
-        "pl": 0.84
+        "pl": 0.84,
+        "m": "RH 명세서 2025-05"
+      },
+      {
+        "d": "2025-05-01",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 926.0,
+        "f": 0.08,
+        "amt": 926.0,
+        "pl": -349.12,
+        "m": "RH 명세서 2025-05 — MSFT 475C 08/15/25"
       },
       {
         "d": "2025-04-30",
@@ -17825,16 +17741,42 @@ window.APP_DATA = {
         "pl": 1.42
       },
       {
+        "d": "2025-04-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 1.15,
+        "f": 0,
+        "amt": 1.15,
+        "pl": 1.15,
+        "m": "RH 명세서 2025-04"
+      },
+      {
         "d": "2025-04-25",
         "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
-        "q": 30.0,
-        "p": 0.6734,
+        "q": 1.0,
+        "p": 20.2,
         "f": 0,
         "amt": 20.2,
-        "pl": 20.2
+        "pl": 20.2,
+        "m": "RH 명세서 2025-04"
+      },
+      {
+        "d": "2025-04-21",
+        "a": "Roth IRA",
+        "s": "TSLY",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 6.6,
+        "f": 0,
+        "amt": 6.6,
+        "pl": 6.6
       },
       {
         "d": "2025-04-21",
@@ -17849,16 +17791,15 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-04"
       },
       {
-        "d": "2025-04-21",
+        "d": "2025-04-16",
         "a": "Roth IRA",
-        "s": "TSLY",
+        "s": "SOXL",
         "t": "주식",
-        "k": "배당",
-        "q": 1.0,
-        "p": 6.6,
+        "k": "매수",
+        "q": 20.0,
+        "p": 9.41,
         "f": 0,
-        "amt": 6.6,
-        "pl": 6.6
+        "amt": 188.2
       },
       {
         "d": "2025-04-16",
@@ -17891,22 +17832,11 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매도",
         "q": 1.0,
-        "p": 0.94,
-        "f": 0,
-        "amt": 0.94,
+        "p": 1.0,
+        "f": 0.06,
+        "amt": 1.0,
         "pl": -1139.1,
-        "m": "1099 Robinhood 2025 NVDA 125C"
-      },
-      {
-        "d": "2025-04-16",
-        "a": "Roth IRA",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 20.0,
-        "p": 9.41,
-        "f": 0,
-        "amt": 188.2
+        "m": "RH 명세서 2025-04 — NVDA 125C 04/17/25"
       },
       {
         "d": "2025-04-11",
@@ -17918,6 +17848,18 @@ window.APP_DATA = {
         "p": 9.26,
         "f": 0,
         "amt": 138.9
+      },
+      {
+        "d": "2025-04-10",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 9.1731,
+        "f": 0,
+        "amt": 91.73,
+        "m": "RH 명세서 2025-04"
       },
       {
         "d": "2025-04-10",
@@ -17944,16 +17886,15 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-04"
       },
       {
-        "d": "2025-04-10",
-        "a": "Robinhood",
+        "d": "2025-04-04",
+        "a": "Roth IRA",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 10.0,
-        "p": 9.1731,
+        "q": 5.0,
+        "p": 8.79,
         "f": 0,
-        "amt": 91.73,
-        "m": "RH 명세서 2025-04"
+        "amt": 43.95
       },
       {
         "d": "2025-04-04",
@@ -17980,17 +17921,6 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-04"
       },
       {
-        "d": "2025-04-04",
-        "a": "Roth IRA",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 5.0,
-        "p": 8.79,
-        "f": 0,
-        "amt": 43.95
-      },
-      {
         "d": "2025-04-03",
         "a": "Robinhood",
         "s": "QLD",
@@ -18001,66 +17931,6 @@ window.APP_DATA = {
         "f": 0,
         "amt": 166.75,
         "m": "RH 명세서 2025-04"
-      },
-      {
-        "d": "2025-04-01",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "매수",
-        "q": 1.0,
-        "p": 89.6791,
-        "f": 0,
-        "amt": 89.68,
-        "m": "RH 명세서 2025-04"
-      },
-      {
-        "d": "2025-04-01",
-        "a": "Robinhood",
-        "s": "TQQQ",
-        "t": "주식",
-        "k": "배당",
-        "q": 3.0,
-        "p": 0.1977,
-        "f": 0,
-        "amt": 0.59,
-        "pl": 0.59
-      },
-      {
-        "d": "2025-04-01",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "배당",
-        "q": 65.0,
-        "p": 0.0648,
-        "f": 0,
-        "amt": 4.21,
-        "pl": 4.21
-      },
-      {
-        "d": "2025-04-01",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "배당",
-        "q": 6.0,
-        "p": 0.0256,
-        "f": 0,
-        "amt": 0.15,
-        "pl": 0.15
-      },
-      {
-        "d": "2025-04-01",
-        "a": "Robinhood",
-        "s": "USD",
-        "t": "주식",
-        "k": "배당",
-        "q": 15.0,
-        "p": 0.0499,
-        "f": 0,
-        "amt": 0.75,
-        "pl": 0.75
       },
       {
         "d": "2025-04-01",
@@ -18111,40 +17981,81 @@ window.APP_DATA = {
         "pl": 0.41
       },
       {
-        "d": "2025-03-31",
+        "d": "2025-04-01",
         "a": "Robinhood",
         "s": "QLD",
         "t": "주식",
         "k": "매수",
         "q": 1.0,
-        "p": 86.125,
+        "p": 89.6791,
         "f": 0,
-        "amt": 86.12,
-        "m": "RH 명세서 2025-03"
+        "amt": 89.68,
+        "m": "RH 명세서 2025-04"
       },
       {
-        "d": "2025-03-31",
+        "d": "2025-04-01",
         "a": "Robinhood",
-        "s": "SCHD",
+        "s": "SOXL",
         "t": "주식",
         "k": "배당",
-        "q": 35.0,
-        "p": 0.2488,
+        "q": 1.0,
+        "p": 4.21,
         "f": 0,
-        "amt": 8.71,
-        "pl": 8.71
+        "amt": 4.21,
+        "pl": 4.21,
+        "m": "RH 명세서 2025-04"
       },
       {
-        "d": "2025-03-31",
+        "d": "2025-04-01",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.75,
+        "f": 0,
+        "amt": 0.75,
+        "pl": 0.75,
+        "m": "RH 명세서 2025-04"
+      },
+      {
+        "d": "2025-04-01",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.59,
+        "f": 0,
+        "amt": 0.59,
+        "pl": 0.59,
+        "m": "RH 명세서 2025-04"
+      },
+      {
+        "d": "2025-04-01",
+        "a": "Robinhood",
+        "s": "QLD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.15,
+        "f": 0,
+        "amt": 0.15,
+        "pl": 0.15,
+        "m": "RH 명세서 2025-04"
+      },
+      {
+        "d": "2025-04-01",
         "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
         "k": "이자",
         "q": 1.0,
-        "p": 2.26,
+        "p": 0.84,
         "f": 0,
-        "amt": 2.26,
-        "pl": 2.26
+        "amt": 0.84,
+        "pl": 0.84,
+        "m": "RH 명세서 2025-04"
       },
       {
         "d": "2025-03-31",
@@ -18170,27 +18081,54 @@ window.APP_DATA = {
         "pl": 1.38
       },
       {
+        "d": "2025-03-31",
+        "a": "Robinhood",
+        "s": "QLD",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 86.125,
+        "f": 0,
+        "amt": 86.12,
+        "m": "RH 명세서 2025-04"
+      },
+      {
+        "d": "2025-03-31",
+        "a": "Robinhood",
+        "s": "SCHD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 8.71,
+        "f": 0,
+        "amt": 8.71,
+        "pl": 8.71,
+        "m": "RH 명세서 2025-03"
+      },
+      {
+        "d": "2025-03-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 1.42,
+        "f": 0,
+        "amt": 1.42,
+        "pl": 1.42,
+        "m": "RH 명세서 2025-03"
+      },
+      {
         "d": "2025-03-28",
         "a": "Robinhood",
         "s": "NVDY",
         "t": "주식",
         "k": "배당",
-        "q": 28.0,
-        "p": 0.7874,
+        "q": 1.0,
+        "p": 22.05,
         "f": 0,
         "amt": 22.05,
-        "pl": 22.05
-      },
-      {
-        "d": "2025-03-27",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 5.0,
-        "p": 17.476,
-        "f": 0,
-        "amt": 87.38,
+        "pl": 22.05,
         "m": "RH 명세서 2025-03"
       },
       {
@@ -18206,6 +18144,31 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-03"
       },
       {
+        "d": "2025-03-27",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 17.476,
+        "f": 0,
+        "amt": 87.38,
+        "m": "RH 명세서 2025-03"
+      },
+      {
+        "d": "2025-03-25",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.29,
+        "f": 0,
+        "amt": 0.29,
+        "pl": 0.29,
+        "m": "RH 명세서 2025-03"
+      },
+      {
         "d": "2025-03-21",
         "a": "Roth IRA",
         "s": "TSLY",
@@ -18216,18 +18179,6 @@ window.APP_DATA = {
         "f": 0,
         "amt": 4.64,
         "pl": 4.64
-      },
-      {
-        "d": "2025-03-20",
-        "a": "Robinhood",
-        "s": "TSLT",
-        "t": "주식",
-        "k": "매수",
-        "q": 5.0,
-        "p": 10.9329,
-        "f": 0,
-        "amt": 54.66,
-        "m": "RH 명세서 2025-03"
       },
       {
         "d": "2025-03-20",
@@ -18252,6 +18203,41 @@ window.APP_DATA = {
         "amt": 93.12
       },
       {
+        "d": "2025-03-20",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 895.0,
+        "f": 0.04,
+        "amt": 895.0,
+        "m": "RH 명세서 2025-03 — AAPL 260C 03/20/26"
+      },
+      {
+        "d": "2025-03-20",
+        "a": "Robinhood",
+        "s": "TSLT",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 10.9329,
+        "f": 0,
+        "amt": 54.66,
+        "m": "RH 명세서 2025-03"
+      },
+      {
+        "d": "2025-03-18",
+        "a": "Roth IRA",
+        "s": "TSLT",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 10.02,
+        "f": 0,
+        "amt": 100.2
+      },
+      {
         "d": "2025-03-18",
         "a": "Robinhood",
         "s": "SOXL",
@@ -18259,7 +18245,7 @@ window.APP_DATA = {
         "k": "매수",
         "q": 3.0,
         "p": 19.875,
-        "f": 0,
+        "f": 0.01,
         "amt": 59.62,
         "m": "RH 명세서 2025-03"
       },
@@ -18288,17 +18274,6 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-03"
       },
       {
-        "d": "2025-03-18",
-        "a": "Roth IRA",
-        "s": "TSLT",
-        "t": "주식",
-        "k": "매수",
-        "q": 10.0,
-        "p": 10.02,
-        "f": 0,
-        "amt": 100.2
-      },
-      {
         "d": "2025-03-17",
         "a": "Robinhood",
         "s": "TSLT",
@@ -18318,7 +18293,7 @@ window.APP_DATA = {
         "k": "매수",
         "q": 5.0,
         "p": 11.285,
-        "f": 0,
+        "f": 0.01,
         "amt": 56.42,
         "m": "RH 명세서 2025-03"
       },
@@ -18368,18 +18343,6 @@ window.APP_DATA = {
       },
       {
         "d": "2025-03-04",
-        "a": "Robinhood",
-        "s": "NVDY",
-        "t": "주식",
-        "k": "매수",
-        "q": 2.0,
-        "p": 17.315,
-        "f": 0,
-        "amt": 34.63,
-        "m": "RH 명세서 2025-03"
-      },
-      {
-        "d": "2025-03-04",
         "a": "Roth IRA",
         "s": "SOXL",
         "t": "주식",
@@ -18412,6 +18375,18 @@ window.APP_DATA = {
         "amt": 97.88
       },
       {
+        "d": "2025-03-04",
+        "a": "Robinhood",
+        "s": "NVDY",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 17.315,
+        "f": 0,
+        "amt": 34.63,
+        "m": "RH 명세서 2025-03"
+      },
+      {
         "d": "2025-03-03",
         "a": "Roth IRA",
         "s": "SOXL",
@@ -18434,19 +18409,7 @@ window.APP_DATA = {
         "amt": 100.24
       },
       {
-        "d": "2025-02-28",
-        "a": "Robinhood",
-        "s": "NVDY",
-        "t": "주식",
-        "k": "배당",
-        "q": 26.0,
-        "p": 1.612,
-        "f": 0,
-        "amt": 41.91,
-        "pl": 41.91
-      },
-      {
-        "d": "2025-02-28",
+        "d": "2025-03-03",
         "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
@@ -18455,19 +18418,8 @@ window.APP_DATA = {
         "p": 0.84,
         "f": 0,
         "amt": 0.84,
-        "pl": 0.84
-      },
-      {
-        "d": "2025-02-28",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 5.48,
-        "f": 0,
-        "amt": 5.48,
-        "pl": 5.48
+        "pl": 0.84,
+        "m": "RH 명세서 2025-03"
       },
       {
         "d": "2025-02-28",
@@ -18502,6 +18454,32 @@ window.APP_DATA = {
         "f": 0,
         "amt": 3.79,
         "pl": 3.79
+      },
+      {
+        "d": "2025-02-28",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 5.48,
+        "f": 0,
+        "amt": 5.48,
+        "pl": 5.48,
+        "m": "RH 명세서 2025-02"
+      },
+      {
+        "d": "2025-02-28",
+        "a": "Robinhood",
+        "s": "NVDY",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 41.91,
+        "f": 0,
+        "amt": 41.91,
+        "pl": 41.91,
+        "m": "RH 명세서 2025-02"
       },
       {
         "d": "2025-02-27",
@@ -18539,18 +18517,6 @@ window.APP_DATA = {
       },
       {
         "d": "2025-02-25",
-        "a": "Robinhood",
-        "s": "MSFT",
-        "t": "옵션",
-        "k": "매수",
-        "q": 1.0,
-        "p": 635.04,
-        "f": 0,
-        "amt": 635.04,
-        "m": "1099 Robinhood 2025 MSFT 475C"
-      },
-      {
-        "d": "2025-02-25",
         "a": "Roth IRA",
         "s": "QLD",
         "t": "주식",
@@ -18583,28 +18549,16 @@ window.APP_DATA = {
         "amt": 97.65
       },
       {
-        "d": "2025-02-24",
+        "d": "2025-02-25",
         "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
+        "s": "MSFT",
+        "t": "옵션",
         "k": "매수",
-        "q": 2.0,
-        "p": 27.4471,
-        "f": 0,
-        "amt": 54.89,
-        "m": "RH 명세서 2025-02"
-      },
-      {
-        "d": "2025-02-24",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "매수",
-        "q": 0.5,
-        "p": 111.0,
-        "f": 0,
-        "amt": 55.5,
-        "m": "RH 명세서 2025-02"
+        "q": 1.0,
+        "p": 635.0,
+        "f": 0.04,
+        "amt": 635.0,
+        "m": "RH 명세서 2025-02 — MSFT 475C 08/15/25"
       },
       {
         "d": "2025-02-24",
@@ -18629,15 +18583,27 @@ window.APP_DATA = {
         "amt": 110.82
       },
       {
-        "d": "2025-02-21",
+        "d": "2025-02-24",
         "a": "Robinhood",
-        "s": "TSLT",
+        "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 5.0,
-        "p": 24.9884,
+        "q": 2.0,
+        "p": 27.4471,
         "f": 0,
-        "amt": 124.94,
+        "amt": 54.89,
+        "m": "RH 명세서 2025-02"
+      },
+      {
+        "d": "2025-02-24",
+        "a": "Robinhood",
+        "s": "QLD",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.5,
+        "p": 111.0,
+        "f": 0,
+        "amt": 55.5,
         "m": "RH 명세서 2025-02"
       },
       {
@@ -18653,28 +18619,28 @@ window.APP_DATA = {
         "pl": 5.79
       },
       {
+        "d": "2025-02-21",
+        "a": "Robinhood",
+        "s": "TSLT",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 24.9884,
+        "f": 0,
+        "amt": 124.94,
+        "m": "RH 명세서 2025-02"
+      },
+      {
         "d": "2025-02-20",
         "a": "Robinhood",
         "s": "MSFT",
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 1915.04,
-        "f": 0,
-        "amt": 1915.04,
-        "m": "1099 Robinhood 2025 MSFT 445C"
-      },
-      {
-        "d": "2025-02-13",
-        "a": "Robinhood",
-        "s": "TSLT",
-        "t": "주식",
-        "k": "매수",
-        "q": 5.0,
-        "p": 26.5596,
-        "f": 0,
-        "amt": 132.8,
-        "m": "RH 명세서 2025-02"
+        "p": 1915.0,
+        "f": 0.04,
+        "amt": 1915.0,
+        "m": "RH 명세서 2025-02 — MSFT 445C 08/15/25"
       },
       {
         "d": "2025-02-13",
@@ -18689,15 +18655,15 @@ window.APP_DATA = {
         "pl": 1.75
       },
       {
-        "d": "2025-02-11",
+        "d": "2025-02-13",
         "a": "Robinhood",
         "s": "TSLT",
         "t": "주식",
         "k": "매수",
         "q": 5.0,
-        "p": 25.16,
+        "p": 26.5596,
         "f": 0,
-        "amt": 125.8,
+        "amt": 132.8,
         "m": "RH 명세서 2025-02"
       },
       {
@@ -18723,6 +18689,18 @@ window.APP_DATA = {
         "amt": 110.4
       },
       {
+        "d": "2025-02-11",
+        "a": "Robinhood",
+        "s": "TSLT",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 25.16,
+        "f": 0,
+        "amt": 125.8,
+        "m": "RH 명세서 2025-02"
+      },
+      {
         "d": "2025-02-03",
         "a": "Roth IRA",
         "s": "USD",
@@ -18745,7 +18723,7 @@ window.APP_DATA = {
         "amt": 122.65
       },
       {
-        "d": "2025-02-01",
+        "d": "2025-02-03",
         "a": "Robinhood",
         "s": "Interest",
         "t": "현금",
@@ -18754,31 +18732,8 @@ window.APP_DATA = {
         "p": 0.84,
         "f": 0,
         "amt": 0.84,
-        "pl": 0.84
-      },
-      {
-        "d": "2025-01-31",
-        "a": "Robinhood",
-        "s": "NVDY",
-        "t": "주식",
-        "k": "배당",
-        "q": 25.0,
-        "p": 0.8294,
-        "f": 0,
-        "amt": 20.73,
-        "pl": 20.73
-      },
-      {
-        "d": "2025-01-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 9.47,
-        "f": 0,
-        "amt": 9.47,
-        "pl": 9.47
+        "pl": 0.84,
+        "m": "RH 명세서 2025-02"
       },
       {
         "d": "2025-01-31",
@@ -18815,6 +18770,44 @@ window.APP_DATA = {
         "pl": 6.82
       },
       {
+        "d": "2025-01-31",
+        "a": "Robinhood",
+        "s": "NVDY",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 20.74,
+        "f": 0,
+        "amt": 20.74,
+        "pl": 20.74,
+        "m": "RH 명세서 2025-01"
+      },
+      {
+        "d": "2025-01-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 9.69,
+        "f": 0,
+        "amt": 9.69,
+        "pl": 9.69,
+        "m": "RH 명세서 2025-01"
+      },
+      {
+        "d": "2025-01-30",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 1140.0,
+        "f": 0.04,
+        "amt": 1140.0,
+        "m": "RH 명세서 2025-01 — NVDA 125C 04/17/25"
+      },
+      {
         "d": "2025-01-30",
         "a": "Robinhood",
         "s": "NVDY",
@@ -18825,18 +18818,6 @@ window.APP_DATA = {
         "f": 0,
         "amt": 18.71,
         "m": "RH 명세서 2025-01"
-      },
-      {
-        "d": "2025-01-30",
-        "a": "Robinhood",
-        "s": "NVDA",
-        "t": "옵션",
-        "k": "매수",
-        "q": 1.0,
-        "p": 1140.04,
-        "f": 0,
-        "amt": 1140.04,
-        "m": "1099 Robinhood 2025 NVDA 125C"
       },
       {
         "d": "2025-01-28",
@@ -18857,23 +18838,33 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매도",
         "q": 1.0,
-        "p": 2099.89,
-        "f": 0,
-        "amt": 2099.89,
+        "p": 2100.0,
+        "f": 0.11,
+        "amt": 2100.0,
         "pl": 1154.85,
-        "m": "1099 Robinhood 2025 AAPL 225C"
+        "m": "RH 명세서 2025-01 — AAPL 225C 04/17/25"
       },
       {
         "d": "2025-01-27",
-        "a": "Robinhood",
+        "a": "Roth IRA",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 5.0,
-        "p": 26.72,
+        "q": 10.0,
+        "p": 27.67,
         "f": 0,
-        "amt": 133.6,
-        "m": "RH 명세서 2025-01"
+        "amt": 276.7
+      },
+      {
+        "d": "2025-01-27",
+        "a": "Roth IRA",
+        "s": "USD",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 51.62,
+        "f": 0,
+        "amt": 103.24
       },
       {
         "d": "2025-01-27",
@@ -18901,37 +18892,15 @@ window.APP_DATA = {
       },
       {
         "d": "2025-01-27",
-        "a": "Roth IRA",
+        "a": "Robinhood",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 10.0,
-        "p": 27.67,
+        "q": 5.0,
+        "p": 26.72,
         "f": 0,
-        "amt": 276.7
-      },
-      {
-        "d": "2025-01-27",
-        "a": "Roth IRA",
-        "s": "USD",
-        "t": "주식",
-        "k": "매수",
-        "q": 2.0,
-        "p": 51.62,
-        "f": 0,
-        "amt": 103.24
-      },
-      {
-        "d": "2025-01-21",
-        "a": "Robinhood",
-        "s": "AAPL",
-        "t": "옵션",
-        "k": "매수",
-        "q": 1.0,
-        "p": 945.04,
-        "f": 0,
-        "amt": 945.04,
-        "m": "1099 Robinhood 2025 AAPL 225C"
+        "amt": 133.6,
+        "m": "RH 명세서 2025-01"
       },
       {
         "d": "2025-01-21",
@@ -18945,6 +18914,18 @@ window.APP_DATA = {
         "amt": 220.69
       },
       {
+        "d": "2025-01-21",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 945.0,
+        "f": 0.04,
+        "amt": 945.0,
+        "m": "RH 명세서 2025-01 — AAPL 225C 04/17/25"
+      },
+      {
         "d": "2025-01-13",
         "a": "Roth IRA",
         "s": "SOXL",
@@ -18954,6 +18935,17 @@ window.APP_DATA = {
         "p": 27.59,
         "f": 0,
         "amt": 220.72
+      },
+      {
+        "d": "2025-01-10",
+        "a": "Roth IRA",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 27.71,
+        "f": 0,
+        "amt": 138.55
       },
       {
         "d": "2025-01-10",
@@ -18980,15 +18972,27 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-01"
       },
       {
-        "d": "2025-01-10",
+        "d": "2025-01-09",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.00108,
+        "p": 92614.031,
+        "f": 0,
+        "amt": 100.0,
+        "m": "RH 크립토 명세서 2025-01"
+      },
+      {
+        "d": "2025-01-08",
         "a": "Roth IRA",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 5.0,
-        "p": 27.71,
+        "q": 10.0,
+        "p": 29.71,
         "f": 0,
-        "amt": 138.55
+        "amt": 297.1
       },
       {
         "d": "2025-01-08",
@@ -19015,17 +19019,6 @@ window.APP_DATA = {
         "m": "RH 명세서 2025-01"
       },
       {
-        "d": "2025-01-08",
-        "a": "Roth IRA",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 10.0,
-        "p": 29.71,
-        "f": 0,
-        "amt": 297.1
-      },
-      {
         "d": "2025-01-06",
         "a": "Robinhood",
         "s": "SCHD",
@@ -19036,78 +19029,6 @@ window.APP_DATA = {
         "f": 0,
         "amt": 27.28,
         "m": "RH 명세서 2025-01"
-      },
-      {
-        "d": "2024-12-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 16.2,
-        "f": 0,
-        "amt": 16.2,
-        "pl": 16.2
-      },
-      {
-        "d": "2024-12-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 0.84,
-        "f": 0,
-        "amt": 0.84,
-        "pl": 0.84
-      },
-      {
-        "d": "2024-12-31",
-        "a": "Robinhood",
-        "s": "USD",
-        "t": "주식",
-        "k": "배당",
-        "q": 14.0,
-        "p": 0.058,
-        "f": 0,
-        "amt": 0.81,
-        "pl": 0.81
-      },
-      {
-        "d": "2024-12-31",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "배당",
-        "q": 33.0,
-        "p": 0.0768,
-        "f": 0,
-        "amt": 2.53,
-        "pl": 2.53
-      },
-      {
-        "d": "2024-12-31",
-        "a": "Robinhood",
-        "s": "TQQQ",
-        "t": "주식",
-        "k": "배당",
-        "q": 3.0,
-        "p": 0.2754,
-        "f": 0,
-        "amt": 0.83,
-        "pl": 0.83
-      },
-      {
-        "d": "2024-12-31",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "배당",
-        "q": 5.0,
-        "p": 0.0614,
-        "f": 0,
-        "amt": 0.31,
-        "pl": 0.31
       },
       {
         "d": "2024-12-31",
@@ -19170,28 +19091,93 @@ window.APP_DATA = {
         "pl": 4.83
       },
       {
-        "d": "2024-12-30",
+        "d": "2024-12-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 16.2,
+        "f": 0,
+        "amt": 16.2,
+        "pl": 16.2,
+        "m": "RH 명세서 2024-12"
+      },
+      {
+        "d": "2024-12-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.84,
+        "f": 0,
+        "amt": 0.84,
+        "pl": 0.84,
+        "m": "RH 명세서 2024-12"
+      },
+      {
+        "d": "2024-12-31",
+        "a": "Robinhood",
+        "s": "QLD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.31,
+        "f": 0,
+        "amt": 0.31,
+        "pl": 0.31,
+        "m": "RH 명세서 2024-12"
+      },
+      {
+        "d": "2024-12-31",
         "a": "Robinhood",
         "s": "SOXL",
         "t": "주식",
-        "k": "매수",
-        "q": 4.0,
-        "p": 27.6298,
+        "k": "배당",
+        "q": 1.0,
+        "p": 2.54,
         "f": 0,
-        "amt": 110.52,
+        "amt": 2.54,
+        "pl": 2.54,
+        "m": "RH 명세서 2024-12"
+      },
+      {
+        "d": "2024-12-31",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.83,
+        "f": 0,
+        "amt": 0.83,
+        "pl": 0.83,
+        "m": "RH 명세서 2024-12"
+      },
+      {
+        "d": "2024-12-31",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.92,
+        "f": 0,
+        "amt": 0.92,
+        "pl": 0.92,
         "m": "RH 명세서 2024-12"
       },
       {
         "d": "2024-12-30",
-        "a": "Robinhood",
+        "a": "Roth IRA",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 3.0,
-        "p": 27.595,
+        "q": 7.0,
+        "p": 27.75,
         "f": 0,
-        "amt": 82.78,
-        "m": "RH 명세서 2024-12"
+        "amt": 194.25
       },
       {
         "d": "2024-12-30",
@@ -19207,14 +19193,39 @@ window.APP_DATA = {
       },
       {
         "d": "2024-12-30",
-        "a": "Roth IRA",
+        "a": "Robinhood",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 7.0,
-        "p": 27.75,
+        "q": 3.0,
+        "p": 27.595,
+        "f": 0.01,
+        "amt": 82.78,
+        "m": "RH 명세서 2024-12"
+      },
+      {
+        "d": "2024-12-30",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 4.0,
+        "p": 27.6298,
         "f": 0,
-        "amt": 194.25
+        "amt": 110.52,
+        "m": "RH 명세서 2024-12"
+      },
+      {
+        "d": "2024-12-30",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001075,
+        "p": 93012.6578,
+        "f": 0,
+        "amt": 100.01,
+        "m": "RH 크립토 명세서 2024-12"
       },
       {
         "d": "2024-12-20",
@@ -19246,11 +19257,12 @@ window.APP_DATA = {
         "s": "SCHD",
         "t": "주식",
         "k": "배당",
-        "q": 5.0,
-        "p": 0.2645,
+        "q": 1.0,
+        "p": 1.32,
         "f": 0,
         "amt": 1.32,
-        "pl": 1.32
+        "pl": 1.32,
+        "m": "RH 명세서 2024-12"
       },
       {
         "d": "2024-12-02",
@@ -19263,20 +19275,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.74,
         "pl": 0.74,
-        "m": "1099 Robinhood 2024"
-      },
-      {
-        "d": "2024-11-29",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 15.91,
-        "f": 0,
-        "amt": 15.91,
-        "pl": 15.91,
-        "m": "1099 Robinhood 2024"
+        "m": "RH 명세서 2024-12"
       },
       {
         "d": "2024-11-29",
@@ -19289,6 +19288,41 @@ window.APP_DATA = {
         "f": 0,
         "amt": 3.38,
         "pl": 3.38
+      },
+      {
+        "d": "2024-11-29",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 15.91,
+        "f": 0,
+        "amt": 15.91,
+        "pl": 15.91,
+        "m": "RH 명세서 2024-11"
+      },
+      {
+        "d": "2024-11-15",
+        "a": "Roth IRA",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 26.87,
+        "f": 0,
+        "amt": 53.74
+      },
+      {
+        "d": "2024-11-15",
+        "a": "Roth IRA",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 27.73,
+        "f": 0,
+        "amt": 83.19
       },
       {
         "d": "2024-11-15",
@@ -19327,28 +19361,6 @@ window.APP_DATA = {
         "m": "RH 명세서 2024-11"
       },
       {
-        "d": "2024-11-15",
-        "a": "Roth IRA",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 2.0,
-        "p": 26.87,
-        "f": 0,
-        "amt": 53.74
-      },
-      {
-        "d": "2024-11-15",
-        "a": "Roth IRA",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 3.0,
-        "p": 27.73,
-        "f": 0,
-        "amt": 83.19
-      },
-      {
         "d": "2024-11-14",
         "a": "Roth IRA",
         "s": "AAPL",
@@ -19359,19 +19371,6 @@ window.APP_DATA = {
         "f": 0,
         "amt": 1.5,
         "pl": 1.5
-      },
-      {
-        "d": "2024-11-11",
-        "a": "Robinhood",
-        "s": "TSLT",
-        "t": "주식",
-        "k": "매도",
-        "q": 5.0,
-        "p": 30.1477,
-        "f": 0,
-        "amt": 150.74,
-        "pl": 84.7,
-        "m": "RH 명세서 2024-11"
       },
       {
         "d": "2024-11-11",
@@ -19398,16 +19397,16 @@ window.APP_DATA = {
         "pl": 189.18
       },
       {
-        "d": "2024-11-08",
+        "d": "2024-11-11",
         "a": "Robinhood",
         "s": "TSLT",
         "t": "주식",
         "k": "매도",
         "q": 5.0,
-        "p": 24.71,
+        "p": 30.1477,
         "f": 0,
-        "amt": 123.55,
-        "pl": 57.51,
+        "amt": 150.74,
+        "pl": 84.7,
         "m": "RH 명세서 2024-11"
       },
       {
@@ -19423,16 +19422,17 @@ window.APP_DATA = {
         "pl": 369.53
       },
       {
-        "d": "2024-11-07",
+        "d": "2024-11-08",
         "a": "Robinhood",
-        "s": "USD",
+        "s": "TSLT",
         "t": "주식",
-        "k": "조정",
-        "q": 7.0,
-        "p": 0,
+        "k": "매도",
+        "q": 5.0,
+        "p": 24.71,
         "f": 0,
-        "amt": 0,
-        "m": "RH 명세서 2024-11: 2:1 분할"
+        "amt": 123.55,
+        "pl": 57.51,
+        "m": "RH 명세서 2024-11"
       },
       {
         "d": "2024-11-07",
@@ -19445,6 +19445,18 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0,
         "m": "주식분할"
+      },
+      {
+        "d": "2024-11-07",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "조정",
+        "q": 7.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 명세서 2024-11 주식분할"
       },
       {
         "d": "2024-11-04",
@@ -19505,20 +19517,7 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.12,
         "pl": 0.12,
-        "m": "1099 Robinhood 2024"
-      },
-      {
-        "d": "2024-10-31",
-        "a": "Robinhood",
-        "s": "Interest",
-        "t": "현금",
-        "k": "이자",
-        "q": 1.0,
-        "p": 7.29,
-        "f": 0,
-        "amt": 7.29,
-        "pl": 7.29,
-        "m": "1099 Robinhood 2024"
+        "m": "RH 명세서 2024-11"
       },
       {
         "d": "2024-10-31",
@@ -19531,6 +19530,19 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.76,
         "pl": 0.76
+      },
+      {
+        "d": "2024-10-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 7.29,
+        "f": 0,
+        "amt": 7.29,
+        "pl": 7.29,
+        "m": "RH 명세서 2024-10"
       },
       {
         "d": "2024-10-23",
@@ -19552,7 +19564,7 @@ window.APP_DATA = {
         "k": "매수",
         "q": 3.0,
         "p": 28.305,
-        "f": 0,
+        "f": 0.01,
         "amt": 84.91,
         "m": "RH 명세서 2024-10"
       },
@@ -19563,37 +19575,11 @@ window.APP_DATA = {
         "t": "코인",
         "k": "매도",
         "q": 0.007492,
-        "p": 66744.8854,
+        "p": 66746.2202,
         "f": 0,
-        "amt": 500.04,
-        "pl": 27.27,
-        "m": "1099 Robinhood 2024 (원가 $444.04)"
-      },
-      {
-        "d": "2024-10-02",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "배당",
-        "q": 1.0,
-        "p": 0.26,
-        "f": 0,
-        "amt": 0.26,
-        "pl": 0.26,
-        "m": "1099 Robinhood 2024"
-      },
-      {
-        "d": "2024-10-02",
-        "a": "Robinhood",
-        "s": "TQQQ",
-        "t": "주식",
-        "k": "배당",
-        "q": 1.0,
-        "p": 0.44,
-        "f": 0,
-        "amt": 0.44,
-        "pl": 0.44,
-        "m": "1099 Robinhood 2024"
+        "amt": 500.05,
+        "pl": 45.96,
+        "m": "RH 크립토 명세서 2024-10"
       },
       {
         "d": "2024-10-02",
@@ -19620,17 +19606,30 @@ window.APP_DATA = {
         "pl": 10.13
       },
       {
-        "d": "2024-10-01",
+        "d": "2024-10-02",
         "a": "Robinhood",
-        "s": "SOXL",
+        "s": "QLD",
         "t": "주식",
         "k": "배당",
         "q": 1.0,
-        "p": 1.01,
+        "p": 0.26,
         "f": 0,
-        "amt": 1.01,
-        "pl": 1.01,
-        "m": "1099 Robinhood 2024"
+        "amt": 0.26,
+        "pl": 0.26,
+        "m": "RH 명세서 2024-10"
+      },
+      {
+        "d": "2024-10-02",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.44,
+        "f": 0,
+        "amt": 0.44,
+        "pl": 0.44,
+        "m": "RH 명세서 2024-10"
       },
       {
         "d": "2024-10-01",
@@ -19645,6 +19644,19 @@ window.APP_DATA = {
         "pl": 6.85
       },
       {
+        "d": "2024-10-01",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 1.01,
+        "f": 0,
+        "amt": 1.01,
+        "pl": 1.01,
+        "m": "RH 명세서 2024-10"
+      },
+      {
         "d": "2024-09-30",
         "a": "Roth IRA",
         "s": "Interest",
@@ -19655,6 +19667,17 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.89,
         "pl": 0.89
+      },
+      {
+        "d": "2024-09-06",
+        "a": "Roth IRA",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 26.33,
+        "f": 0,
+        "amt": 131.65
       },
       {
         "d": "2024-09-06",
@@ -19679,17 +19702,6 @@ window.APP_DATA = {
         "f": 0,
         "amt": 44.5,
         "m": "RH 명세서 2024-09"
-      },
-      {
-        "d": "2024-09-06",
-        "a": "Roth IRA",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 5.0,
-        "p": 26.33,
-        "f": 0,
-        "amt": 131.65
       },
       {
         "d": "2024-09-05",
@@ -19775,42 +19787,6 @@ window.APP_DATA = {
       },
       {
         "d": "2024-08-07",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 0.5,
-        "p": 30.77,
-        "f": 0,
-        "amt": 15.38,
-        "m": "RH 명세서 2024-08"
-      },
-      {
-        "d": "2024-08-07",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 1.0,
-        "p": 27.855,
-        "f": 0,
-        "amt": 27.86,
-        "m": "RH 명세서 2024-08"
-      },
-      {
-        "d": "2024-08-07",
-        "a": "Robinhood",
-        "s": "USD",
-        "t": "주식",
-        "k": "매수",
-        "q": 0.5,
-        "p": 90.84,
-        "f": 0,
-        "amt": 45.42,
-        "m": "RH 명세서 2024-08"
-      },
-      {
-        "d": "2024-08-07",
         "a": "Roth IRA",
         "s": "TSLT",
         "t": "주식",
@@ -19841,6 +19817,75 @@ window.APP_DATA = {
         "p": 28.07,
         "f": 0,
         "amt": 84.21
+      },
+      {
+        "d": "2024-08-07",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.5,
+        "p": 30.77,
+        "f": 0.01,
+        "amt": 15.38,
+        "m": "RH 명세서 2024-08"
+      },
+      {
+        "d": "2024-08-07",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 27.855,
+        "f": 0,
+        "amt": 27.86,
+        "m": "RH 명세서 2024-08"
+      },
+      {
+        "d": "2024-08-07",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.5,
+        "p": 90.84,
+        "f": 0,
+        "amt": 45.42,
+        "m": "RH 명세서 2024-08"
+      },
+      {
+        "d": "2024-08-06",
+        "a": "Roth IRA",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 29.61,
+        "f": 0,
+        "amt": 29.61
+      },
+      {
+        "d": "2024-08-06",
+        "a": "Roth IRA",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 56.04,
+        "f": 0,
+        "amt": 56.04
+      },
+      {
+        "d": "2024-08-06",
+        "a": "Roth IRA",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 29.65,
+        "f": 0,
+        "amt": 29.65
       },
       {
         "d": "2024-08-06",
@@ -19879,75 +19924,6 @@ window.APP_DATA = {
         "m": "RH 명세서 2024-08"
       },
       {
-        "d": "2024-08-06",
-        "a": "Roth IRA",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 1.0,
-        "p": 29.61,
-        "f": 0,
-        "amt": 29.61
-      },
-      {
-        "d": "2024-08-06",
-        "a": "Roth IRA",
-        "s": "TQQQ",
-        "t": "주식",
-        "k": "매수",
-        "q": 1.0,
-        "p": 56.04,
-        "f": 0,
-        "amt": 56.04
-      },
-      {
-        "d": "2024-08-06",
-        "a": "Roth IRA",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 1.0,
-        "p": 29.65,
-        "f": 0,
-        "amt": 29.65
-      },
-      {
-        "d": "2024-08-05",
-        "a": "Robinhood",
-        "s": "SOXL",
-        "t": "주식",
-        "k": "매수",
-        "q": 2.0,
-        "p": 24.5182,
-        "f": 0,
-        "amt": 49.04,
-        "m": "RH 명세서 2024-08"
-      },
-      {
-        "d": "2024-08-05",
-        "a": "Robinhood",
-        "s": "TSLT",
-        "t": "주식",
-        "k": "매수",
-        "q": 3.0,
-        "p": 10.0678,
-        "f": 0,
-        "amt": 30.2,
-        "m": "RH 명세서 2024-08"
-      },
-      {
-        "d": "2024-08-05",
-        "a": "Robinhood",
-        "s": "TQQQ",
-        "t": "주식",
-        "k": "매수",
-        "q": 1.0,
-        "p": 50.0,
-        "f": 0,
-        "amt": 50.0,
-        "m": "RH 명세서 2024-08"
-      },
-      {
         "d": "2024-08-05",
         "a": "Roth IRA",
         "s": "SOXL",
@@ -19981,39 +19957,39 @@ window.APP_DATA = {
         "amt": 51.3
       },
       {
-        "d": "2024-08-04",
+        "d": "2024-08-05",
         "a": "Robinhood",
-        "s": "BTC",
-        "t": "코인",
-        "k": "기초",
-        "q": 0.027874,
-        "p": 63105.0598,
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 50.0,
         "f": 0,
-        "amt": 1759.01,
-        "m": "기초(추정): 2024·2025 1099 BTC 매도 lot 원가 합 $1,759.01"
+        "amt": 50.0,
+        "m": "RH 명세서 2024-08"
       },
       {
-        "d": "2024-08-02",
+        "d": "2024-08-05",
         "a": "Robinhood",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 4.0,
-        "p": 31.0001,
+        "q": 2.0,
+        "p": 24.5182,
         "f": 0,
-        "amt": 124.0,
+        "amt": 49.04,
         "m": "RH 명세서 2024-08"
       },
       {
-        "d": "2024-08-02",
+        "d": "2024-08-05",
         "a": "Robinhood",
         "s": "TSLT",
         "t": "주식",
         "k": "매수",
-        "q": 2.0,
-        "p": 13.76,
+        "q": 3.0,
+        "p": 10.0678,
         "f": 0,
-        "amt": 27.52,
+        "amt": 30.2,
         "m": "RH 명세서 2024-08"
       },
       {
@@ -20050,39 +20026,27 @@ window.APP_DATA = {
         "amt": 87.85
       },
       {
-        "d": "2024-08-01",
+        "d": "2024-08-02",
         "a": "Robinhood",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
-        "q": 2.0,
-        "p": 40.085,
+        "q": 4.0,
+        "p": 31.0001,
         "f": 0,
-        "amt": 80.17,
+        "amt": 124.0,
         "m": "RH 명세서 2024-08"
       },
       {
-        "d": "2024-08-01",
+        "d": "2024-08-02",
         "a": "Robinhood",
         "s": "TSLT",
         "t": "주식",
         "k": "매수",
         "q": 2.0,
-        "p": 14.905,
+        "p": 13.76,
         "f": 0,
-        "amt": 29.81,
-        "m": "RH 명세서 2024-08"
-      },
-      {
-        "d": "2024-08-01",
-        "a": "Robinhood",
-        "s": "QLD",
-        "t": "주식",
-        "k": "매수",
-        "q": 0.985211,
-        "p": 95.02,
-        "f": 0,
-        "amt": 93.61,
+        "amt": 27.52,
         "m": "RH 명세서 2024-08"
       },
       {
@@ -20130,28 +20094,52 @@ window.APP_DATA = {
         "amt": 94.87
       },
       {
-        "d": "2024-07-31",
+        "d": "2024-08-01",
         "a": "Robinhood",
         "s": "SOXL",
         "t": "주식",
         "k": "매수",
         "q": 2.0,
-        "p": 42.4196,
+        "p": 40.085,
         "f": 0,
-        "amt": 84.84,
-        "m": "RH 명세서 2024-07"
+        "amt": 80.17,
+        "m": "RH 명세서 2024-08"
       },
       {
-        "d": "2024-07-31",
+        "d": "2024-08-01",
         "a": "Robinhood",
-        "s": "USD",
+        "s": "TSLT",
         "t": "주식",
         "k": "매수",
-        "q": 0.038185,
-        "p": 119.41,
+        "q": 2.0,
+        "p": 14.905,
         "f": 0,
-        "amt": 4.56,
-        "m": "RH 명세서 2024-07"
+        "amt": 29.81,
+        "m": "RH 명세서 2024-08"
+      },
+      {
+        "d": "2024-08-01",
+        "a": "Robinhood",
+        "s": "QLD",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.985211,
+        "p": 95.02,
+        "f": 0,
+        "amt": 93.61,
+        "m": "RH 명세서 2024-08"
+      },
+      {
+        "d": "2024-08-01",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000525,
+        "p": 64140.4418,
+        "f": 0,
+        "amt": 33.65,
+        "m": "RH 크립토 명세서 2024-08"
       },
       {
         "d": "2024-07-31",
@@ -20164,6 +20152,30 @@ window.APP_DATA = {
         "f": 0,
         "amt": 8.61,
         "pl": 8.61
+      },
+      {
+        "d": "2024-07-31",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 42.4196,
+        "f": 0,
+        "amt": 84.84,
+        "m": "RH 명세서 2024-08"
+      },
+      {
+        "d": "2024-07-31",
+        "a": "Robinhood",
+        "s": "USD",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.038185,
+        "p": 119.41,
+        "f": 0,
+        "amt": 4.56,
+        "m": "RH 명세서 2024-08"
       },
       {
         "d": "2024-07-30",
@@ -20305,13 +20317,13 @@ window.APP_DATA = {
       {
         "d": "2024-07-25",
         "a": "Robinhood",
-        "s": "TSLT",
+        "s": "USD",
         "t": "주식",
         "k": "매수",
-        "q": 2.0,
-        "p": 14.8,
+        "q": 0.603594,
+        "p": 109.345,
         "f": 0,
-        "amt": 29.6,
+        "amt": 66.0,
         "m": "RH 명세서 2024-07"
       },
       {
@@ -20329,13 +20341,13 @@ window.APP_DATA = {
       {
         "d": "2024-07-25",
         "a": "Robinhood",
-        "s": "USD",
+        "s": "TSLT",
         "t": "주식",
         "k": "매수",
-        "q": 0.603594,
-        "p": 109.345,
+        "q": 2.0,
+        "p": 14.8,
         "f": 0,
-        "amt": 66.0,
+        "amt": 29.6,
         "m": "RH 명세서 2024-07"
       },
       {
@@ -20546,6 +20558,55 @@ window.APP_DATA = {
         "m": "RH 명세서 2024-07"
       },
       {
+        "d": "2024-07-15",
+        "a": "Robinhood",
+        "s": "AVAX",
+        "t": "코인",
+        "k": "매도",
+        "q": 0.035,
+        "p": 26.5714,
+        "f": 0,
+        "amt": 0.93,
+        "pl": 0.13,
+        "m": "RH 크립토 명세서 2024-07"
+      },
+      {
+        "d": "2024-07-05",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001844,
+        "p": 54244.7331,
+        "f": 0,
+        "amt": 100.03,
+        "m": "RH 크립토 명세서 2024-07"
+      },
+      {
+        "d": "2024-07-05",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001795,
+        "p": 55702.2234,
+        "f": 0,
+        "amt": 100.01,
+        "m": "RH 크립토 명세서 2024-07"
+      },
+      {
+        "d": "2024-07-04",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001714,
+        "p": 58326.723,
+        "f": 0,
+        "amt": 100.0,
+        "m": "RH 크립토 명세서 2024-07"
+      },
+      {
         "d": "2024-07-03",
         "a": "Roth IRA",
         "s": "TQQQ",
@@ -20616,6 +20677,42 @@ window.APP_DATA = {
         "m": "RH 명세서 2024-06"
       },
       {
+        "d": "2024-06-24",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001583,
+        "p": 63183.9664,
+        "f": 0,
+        "amt": 100.0,
+        "m": "RH 크립토 명세서 2024-06"
+      },
+      {
+        "d": "2024-06-24",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000825,
+        "p": 60606.0606,
+        "f": 0,
+        "amt": 50.0,
+        "m": "RH 크립토 명세서 2024-06"
+      },
+      {
+        "d": "2024-06-21",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001563,
+        "p": 63975.1752,
+        "f": 0,
+        "amt": 99.99,
+        "m": "RH 크립토 명세서 2024-06"
+      },
+      {
         "d": "2024-06-11",
         "a": "Roth IRA",
         "s": "TSLT",
@@ -20625,6 +20722,18 @@ window.APP_DATA = {
         "p": 9.34,
         "f": 0,
         "amt": 93.4
+      },
+      {
+        "d": "2024-06-11",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000744,
+        "p": 67207.9144,
+        "f": 0,
+        "amt": 50.0,
+        "m": "RH 크립토 명세서 2024-06"
       },
       {
         "d": "2024-06-04",
@@ -20673,6 +20782,18 @@ window.APP_DATA = {
         "f": 0,
         "amt": 1.5,
         "pl": 1.5
+      },
+      {
+        "d": "2024-05-01",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.00086,
+        "p": 58130.3459,
+        "f": 0,
+        "amt": 50.02,
+        "m": "RH 크립토 명세서 2024-05"
       },
       {
         "d": "2024-04-30",
@@ -20733,6 +20854,18 @@ window.APP_DATA = {
         "amt": 100.62
       },
       {
+        "d": "2024-04-19",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000832,
+        "p": 60402.8459,
+        "f": 0,
+        "amt": 50.26,
+        "m": "RH 크립토 명세서 2024-04"
+      },
+      {
         "d": "2024-04-18",
         "a": "Roth IRA",
         "s": "TQQQ",
@@ -20788,6 +20921,18 @@ window.APP_DATA = {
         "amt": 162.9
       },
       {
+        "d": "2024-04-17",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000809,
+        "p": 61823.8022,
+        "f": 0,
+        "amt": 50.0,
+        "m": "RH 크립토 명세서 2024-04"
+      },
+      {
         "d": "2024-04-16",
         "a": "Roth IRA",
         "s": "AAPL",
@@ -20819,6 +20964,18 @@ window.APP_DATA = {
         "p": 8.8,
         "f": 0,
         "amt": 88.0
+      },
+      {
+        "d": "2024-04-16",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001609,
+        "p": 62176.7777,
+        "f": 0,
+        "amt": 100.03,
+        "m": "RH 크립토 명세서 2024-04"
       },
       {
         "d": "2024-04-15",
@@ -20898,6 +21055,18 @@ window.APP_DATA = {
         "amt": 116.8
       },
       {
+        "d": "2024-04-12",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000446,
+        "p": 66832.6827,
+        "f": 0,
+        "amt": 29.79,
+        "m": "RH 크립토 명세서 2024-04"
+      },
+      {
         "d": "2024-04-09",
         "a": "Roth IRA",
         "s": "TQQQ",
@@ -20964,6 +21133,18 @@ window.APP_DATA = {
         "amt": 99.4
       },
       {
+        "d": "2024-04-02",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000305,
+        "p": 65535.094,
+        "f": 0,
+        "amt": 20.0,
+        "m": "RH 크립토 명세서 2024-04"
+      },
+      {
         "d": "2024-03-28",
         "a": "Roth IRA",
         "s": "Interest",
@@ -21024,6 +21205,42 @@ window.APP_DATA = {
         "amt": 64.2
       },
       {
+        "d": "2024-03-19",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000785,
+        "p": 63719.9939,
+        "f": 0,
+        "amt": 50.01,
+        "m": "RH 크립토 명세서 2024-03"
+      },
+      {
+        "d": "2024-03-16",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001533,
+        "p": 65173.7139,
+        "f": 0,
+        "amt": 99.91,
+        "m": "RH 크립토 명세서 2024-03"
+      },
+      {
+        "d": "2024-03-15",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001461,
+        "p": 68507.9695,
+        "f": 0,
+        "amt": 100.06,
+        "m": "RH 크립토 명세서 2024-03"
+      },
+      {
         "d": "2024-03-14",
         "a": "Roth IRA",
         "s": "TSLT",
@@ -21057,6 +21274,18 @@ window.APP_DATA = {
         "amt": 133.95
       },
       {
+        "d": "2024-03-14",
+        "a": "Robinhood",
+        "s": "AVAX",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.015,
+        "p": 53.3333,
+        "f": 0,
+        "amt": 0.8,
+        "m": "RH 크립토 명세서 2024-03"
+      },
+      {
         "d": "2024-03-11",
         "a": "Roth IRA",
         "s": "SOXL",
@@ -21077,6 +21306,30 @@ window.APP_DATA = {
         "p": 59.59,
         "f": 0,
         "amt": 59.59
+      },
+      {
+        "d": "2024-03-11",
+        "a": "Robinhood",
+        "s": "AVAX",
+        "t": "코인",
+        "k": "조정",
+        "q": 0.02,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 크립토 명세서 2024-03 리워드"
+      },
+      {
+        "d": "2024-03-10",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000718,
+        "p": 69650.4938,
+        "f": 0,
+        "amt": 50.0,
+        "m": "RH 크립토 명세서 2024-03"
       },
       {
         "d": "2024-03-06",
@@ -21101,6 +21354,18 @@ window.APP_DATA = {
         "amt": 116.0
       },
       {
+        "d": "2024-03-06",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000316,
+        "p": 63231.1097,
+        "f": 0,
+        "amt": 20.0,
+        "m": "RH 크립토 명세서 2024-03"
+      },
+      {
         "d": "2024-03-05",
         "a": "Roth IRA",
         "s": "AAPL",
@@ -21123,6 +21388,42 @@ window.APP_DATA = {
         "amt": 58.5
       },
       {
+        "d": "2024-03-05",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000285,
+        "p": 66640.9321,
+        "f": 0,
+        "amt": 18.99,
+        "m": "RH 크립토 명세서 2024-03"
+      },
+      {
+        "d": "2024-03-05",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.001444,
+        "p": 69348.1468,
+        "f": 0,
+        "amt": 100.12,
+        "m": "RH 크립토 명세서 2024-03"
+      },
+      {
+        "d": "2024-03-05",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000469,
+        "p": 64024.5854,
+        "f": 0,
+        "amt": 30.0,
+        "m": "RH 크립토 명세서 2024-03"
+      },
+      {
         "d": "2024-03-04",
         "a": "Roth IRA",
         "s": "AAPL",
@@ -21143,6 +21444,18 @@ window.APP_DATA = {
         "p": 13.27,
         "f": 0,
         "amt": 132.7
+      },
+      {
+        "d": "2024-03-04",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.000837,
+        "p": 66967.8607,
+        "f": 0,
+        "amt": 56.03,
+        "m": "RH 크립토 명세서 2024-03"
       },
       {
         "d": "2024-03-01",
@@ -21223,11 +21536,11 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매도",
         "q": 1.0,
-        "p": 1.0,
+        "p": 210.0,
         "f": 0.05,
-        "amt": 1.0,
-        "pl": -195.75,
-        "m": "RH 명세서 2024-02 — NVDA 865C 02/16/24"
+        "amt": 210.0,
+        "pl": 13.25,
+        "m": "RH 명세서 2024-02 — NVDA 585P 02/23/24"
       },
       {
         "d": "2024-02-16",
@@ -21236,11 +21549,11 @@ window.APP_DATA = {
         "t": "옵션",
         "k": "매도",
         "q": 1.0,
-        "p": 210.0,
+        "p": 1.0,
         "f": 0.05,
-        "amt": 210.0,
-        "pl": 13.25,
-        "m": "RH 명세서 2024-02 — NVDA 585P 02/23/24"
+        "amt": 1.0,
+        "pl": -195.75,
+        "m": "RH 명세서 2024-02 — NVDA 865C 02/16/24"
       },
       {
         "d": "2024-02-15",
@@ -21556,19 +21869,6 @@ window.APP_DATA = {
       {
         "d": "2024-01-30",
         "a": "Robinhood",
-        "s": "AMD",
-        "t": "옵션",
-        "k": "매도",
-        "q": 1.0,
-        "p": 71.0,
-        "f": 0.05,
-        "amt": 71.0,
-        "pl": -29.08,
-        "m": "RH 명세서 2024-01 — AMD 220C 02/02/24"
-      },
-      {
-        "d": "2024-01-30",
-        "a": "Robinhood",
         "s": "NVDA",
         "t": "옵션",
         "k": "매도",
@@ -21578,6 +21878,19 @@ window.APP_DATA = {
         "amt": 200.0,
         "pl": 97.42,
         "m": "RH 명세서 2024-01 — NVDA 670C 02/02/24"
+      },
+      {
+        "d": "2024-01-30",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 71.0,
+        "f": 0.05,
+        "amt": 71.0,
+        "pl": -29.08,
+        "m": "RH 명세서 2024-01 — AMD 220C 02/02/24"
       },
       {
         "d": "2024-01-29",
@@ -21726,6 +22039,18 @@ window.APP_DATA = {
         "m": "RH 명세서 2024-01 — AMD 130P 03/01/24"
       },
       {
+        "d": "2024-01-19",
+        "a": "Robinhood",
+        "s": "BTC",
+        "t": "코인",
+        "k": "매수",
+        "q": 0.002419,
+        "p": 41341.5859,
+        "f": 0,
+        "amt": 99.99,
+        "m": "RH 크립토 명세서 2024-01"
+      },
+      {
         "d": "2024-01-18",
         "a": "Roth IRA",
         "s": "SOXL",
@@ -21799,14 +22124,26 @@ window.APP_DATA = {
       {
         "d": "2024-01-17",
         "a": "Robinhood",
-        "s": "NVDA",
+        "s": "TSLA",
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 207.0,
+        "p": 354.0,
         "f": 0.03,
-        "amt": 207.0,
-        "m": "RH 명세서 2024-01 — NVDA 567.5C 01/19/24"
+        "amt": 354.0,
+        "m": "RH 명세서 2024-01 — TSLA 212.5P 01/19/24"
+      },
+      {
+        "d": "2024-01-17",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.140835,
+        "p": 213.02,
+        "f": 0,
+        "amt": 30.0,
+        "m": "RH 명세서 2024-01"
       },
       {
         "d": "2024-01-17",
@@ -21835,39 +22172,27 @@ window.APP_DATA = {
       {
         "d": "2024-01-17",
         "a": "Robinhood",
-        "s": "TSLA",
+        "s": "NVDA",
         "t": "옵션",
         "k": "매수",
         "q": 1.0,
-        "p": 354.0,
+        "p": 207.0,
         "f": 0.03,
-        "amt": 354.0,
-        "m": "RH 명세서 2024-01 — TSLA 212.5P 01/19/24"
+        "amt": 207.0,
+        "m": "RH 명세서 2024-01 — NVDA 567.5C 01/19/24"
       },
       {
         "d": "2024-01-17",
         "a": "Robinhood",
         "s": "TSLA",
-        "t": "주식",
-        "k": "매수",
-        "q": 0.140835,
-        "p": 213.02,
-        "f": 0,
-        "amt": 30.0,
-        "m": "RH 명세서 2024-01"
-      },
-      {
-        "d": "2024-01-17",
-        "a": "Robinhood",
-        "s": "NVDA",
         "t": "옵션",
         "k": "매도",
         "q": 1.0,
-        "p": 296.0,
+        "p": 239.0,
         "f": 0.05,
-        "amt": 296.0,
-        "pl": 181.92,
-        "m": "RH 명세서 2024-01 — NVDA 567.5C 01/19/24"
+        "amt": 239.0,
+        "pl": -120.58,
+        "m": "RH 명세서 2024-01 — TSLA 212.5P 01/19/24"
       },
       {
         "d": "2024-01-17",
@@ -21885,15 +22210,15 @@ window.APP_DATA = {
       {
         "d": "2024-01-17",
         "a": "Robinhood",
-        "s": "TSLA",
+        "s": "NVDA",
         "t": "옵션",
         "k": "매도",
         "q": 1.0,
-        "p": 239.0,
+        "p": 296.0,
         "f": 0.05,
-        "amt": 239.0,
-        "pl": -120.58,
-        "m": "RH 명세서 2024-01 — TSLA 212.5P 01/19/24"
+        "amt": 296.0,
+        "pl": 181.92,
+        "m": "RH 명세서 2024-01 — NVDA 567.5C 01/19/24"
       },
       {
         "d": "2024-01-16",
@@ -22462,16 +22787,117 @@ window.APP_DATA = {
         "pl": 0.01
       },
       {
-        "d": "2022-10-31",
+        "d": "2022-10-14",
         "a": "Robinhood",
-        "s": "SBRCY",
-        "t": "주식",
-        "k": "기초",
-        "q": 10.0,
-        "p": 0,
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 2.0,
+        "f": 0.02,
+        "amt": 2.0,
+        "pl": -20.02,
+        "m": "RH 명세서 2022-10 — QQQ 238P 10/17/22"
+      },
+      {
+        "d": "2022-10-13",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 22.0,
         "f": 0,
-        "amt": 0,
-        "m": "기초: RH 2022-11 명세서(가장 오래된 자료)부터 보유 10주. 원가 미상(0 임시)"
+        "amt": 22.0,
+        "m": "RH 명세서 2022-10 — QQQ 238P 10/17/22"
+      },
+      {
+        "d": "2022-10-11",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 24.0,
+        "f": 0.02,
+        "amt": 24.0,
+        "pl": 2.48,
+        "m": "RH 명세서 2022-10 — QQQ 243P 10/14/22"
+      },
+      {
+        "d": "2022-10-10",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 16.0,
+        "f": 0,
+        "amt": 16.0,
+        "m": "RH 명세서 2022-10 — QQQ 243P 10/14/22"
+      },
+      {
+        "d": "2022-10-10",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 27.0,
+        "f": 0,
+        "amt": 27.0,
+        "m": "RH 명세서 2022-10 — QQQ 252P 10/12/22"
+      },
+      {
+        "d": "2022-10-10",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매도",
+        "q": 3.0,
+        "p": 7.92,
+        "f": 0.01,
+        "amt": 23.76,
+        "pl": -3.42,
+        "m": "RH 명세서 2022-10"
+      },
+      {
+        "d": "2022-10-10",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 16.0,
+        "f": 0.02,
+        "amt": 16.0,
+        "pl": -5.52,
+        "m": "RH 명세서 2022-10 — QQQ 252P 10/12/22"
+      },
+      {
+        "d": "2022-10-07",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 9.0567,
+        "f": 0,
+        "amt": 27.17,
+        "m": "RH 명세서 2022-10"
+      },
+      {
+        "d": "2022-10-07",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 22.0,
+        "f": 0.02,
+        "amt": 22.0,
+        "pl": -55.02,
+        "m": "RH 명세서 2022-10 — AAPL 105P 10/28/22"
       },
       {
         "d": "2022-09-30",
@@ -22486,6 +22912,56 @@ window.APP_DATA = {
         "pl": 0.2
       },
       {
+        "d": "2022-09-30",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 36.0,
+        "f": 0,
+        "amt": 36.0,
+        "m": "RH 명세서 2022-10 — AAPL 105P 10/28/22"
+      },
+      {
+        "d": "2022-09-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.01,
+        "f": 0,
+        "amt": 0.01,
+        "pl": 0.01,
+        "m": "RH 명세서 2022-09"
+      },
+      {
+        "d": "2022-09-30",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 46.0,
+        "f": 0.02,
+        "amt": 46.0,
+        "pl": -31.02,
+        "m": "RH 명세서 2022-10 — AAPL 165C 10/28/22"
+      },
+      {
+        "d": "2022-09-28",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 118.0,
+        "f": 0,
+        "amt": 118.0,
+        "m": "RH 명세서 2022-09 — AAPL 165C 10/28/22"
+      },
+      {
         "d": "2022-09-27",
         "a": "Roth IRA",
         "s": "SOXL",
@@ -22496,6 +22972,31 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.4,
         "pl": 0.4
+      },
+      {
+        "d": "2022-09-27",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 118.0,
+        "f": 0.02,
+        "amt": 118.0,
+        "pl": 5.98,
+        "m": "RH 명세서 2022-09 — AAPL 170C 10/28/22"
+      },
+      {
+        "d": "2022-09-23",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 112.0,
+        "f": 0,
+        "amt": 112.0,
+        "m": "RH 명세서 2022-09 — AAPL 170C 10/28/22"
       },
       {
         "d": "2022-09-22",
@@ -22529,6 +23030,57 @@ window.APP_DATA = {
         "p": 26.41,
         "f": 0,
         "amt": 79.23
+      },
+      {
+        "d": "2022-09-08",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 1.0,
+        "f": 0.02,
+        "amt": 1.0,
+        "pl": -43.02,
+        "m": "RH 명세서 2022-09 — NVDA 122P 09/09/22"
+      },
+      {
+        "d": "2022-09-02",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 44.0,
+        "f": 0,
+        "amt": 44.0,
+        "m": "RH 명세서 2022-09 — NVDA 122P 09/09/22"
+      },
+      {
+        "d": "2022-09-02",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 1.0,
+        "f": 0.02,
+        "amt": 1.0,
+        "pl": -46.02,
+        "m": "RH 명세서 2022-09 — QQQ 287P 09/02/22"
+      },
+      {
+        "d": "2022-09-02",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매도",
+        "q": 2.0,
+        "p": 26.5,
+        "f": 0,
+        "amt": 53.0,
+        "pl": -3.54,
+        "m": "RH 명세서 2022-09"
       },
       {
         "d": "2022-09-01",
@@ -22575,6 +23127,18 @@ window.APP_DATA = {
         "amt": 2.91
       },
       {
+        "d": "2022-09-01",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 47.0,
+        "f": 0,
+        "amt": 47.0,
+        "m": "RH 명세서 2022-09 — QQQ 287P 09/02/22"
+      },
+      {
         "d": "2022-08-31",
         "a": "Roth IRA",
         "s": "SOXL",
@@ -22607,6 +23171,31 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.31,
         "pl": 0.31
+      },
+      {
+        "d": "2022-08-31",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 28.27,
+        "f": 0,
+        "amt": 56.54,
+        "m": "RH 명세서 2022-09"
+      },
+      {
+        "d": "2022-08-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.01,
+        "f": 0,
+        "amt": 0.01,
+        "pl": 0.01,
+        "m": "RH 명세서 2022-08"
       },
       {
         "d": "2022-08-26",
@@ -22707,9 +23296,4770 @@ window.APP_DATA = {
         "f": 0,
         "amt": 0.03,
         "pl": 0.03
+      },
+      {
+        "d": "2022-07-08",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -17.0,
+        "m": "RH 명세서 2022-07 — MSFT 235P 07/08/22 만기소멸"
+      },
+      {
+        "d": "2022-07-05",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 17.0,
+        "f": 0,
+        "amt": 17.0,
+        "m": "RH 명세서 2022-07 — MSFT 235P 07/08/22"
+      },
+      {
+        "d": "2022-06-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.03,
+        "f": 0,
+        "amt": 0.03,
+        "pl": 0.03,
+        "m": "RH 명세서 2022-06"
+      },
+      {
+        "d": "2022-06-22",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -185.0,
+        "m": "RH 명세서 2022-06 — QQQ 258P 06/22/22 만기소멸"
+      },
+      {
+        "d": "2022-06-14",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 185.0,
+        "f": 0,
+        "amt": 185.0,
+        "m": "RH 명세서 2022-06 — QQQ 258P 06/22/22"
+      },
+      {
+        "d": "2022-06-13",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 200.0,
+        "f": 0.02,
+        "amt": 200.0,
+        "pl": 119.98,
+        "m": "RH 명세서 2022-06 — QQQ 270P 06/15/22"
+      },
+      {
+        "d": "2022-06-10",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 51.0,
+        "f": 0,
+        "amt": 51.0,
+        "m": "RH 명세서 2022-06 — QQQ 270P 06/15/22"
+      },
+      {
+        "d": "2022-06-10",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 11.0,
+        "f": 0.02,
+        "amt": 11.0,
+        "pl": -76.01,
+        "m": "RH 명세서 2022-06 — AAPL 200C 08/19/22"
+      },
+      {
+        "d": "2022-06-10",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 19.0,
+        "f": 0.02,
+        "amt": 19.0,
+        "pl": -68.01,
+        "m": "RH 명세서 2022-06 — AAPL 200C 09/16/22"
+      },
+      {
+        "d": "2022-06-10",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 7.0,
+        "f": 0.02,
+        "amt": 7.0,
+        "pl": -73.02,
+        "m": "RH 명세서 2022-06 — QQQ 328C 06/21/22"
+      },
+      {
+        "d": "2022-06-06",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 109.0,
+        "f": 0,
+        "amt": 109.0,
+        "m": "RH 명세서 2022-06 — QQQ 328C 06/21/22"
+      },
+      {
+        "d": "2022-05-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.03,
+        "f": 0,
+        "amt": 0.03,
+        "pl": 0.03,
+        "m": "RH 명세서 2022-05"
+      },
+      {
+        "d": "2022-05-25",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 73.0,
+        "f": 0.02,
+        "amt": 73.0,
+        "pl": -14.01,
+        "m": "RH 명세서 2022-05 — AAPL 165C 07/15/22"
+      },
+      {
+        "d": "2022-05-23",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 15.0,
+        "f": 0.02,
+        "amt": 15.0,
+        "pl": -72.01,
+        "m": "RH 명세서 2022-05 — AAPL 205C 08/19/22"
+      },
+      {
+        "d": "2022-05-23",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 15.0,
+        "f": 0.02,
+        "amt": 15.0,
+        "pl": -72.01,
+        "m": "RH 명세서 2022-05 — AAPL 205C 08/19/22"
+      },
+      {
+        "d": "2022-05-20",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 85.0,
+        "f": 0,
+        "amt": 85.0,
+        "m": "RH 명세서 2022-05 — QQQ 272P 05/23/22"
+      },
+      {
+        "d": "2022-05-20",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 30.0,
+        "f": 0.02,
+        "amt": 30.0,
+        "pl": -57.01,
+        "m": "RH 명세서 2022-05 — AAPL 165C 07/01/22"
+      },
+      {
+        "d": "2022-05-20",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 56.0,
+        "f": 0.02,
+        "amt": 56.0,
+        "pl": -31.01,
+        "m": "RH 명세서 2022-05 — AAPL 165C 07/15/22"
+      },
+      {
+        "d": "2022-05-20",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 7.0,
+        "f": 0.02,
+        "amt": 7.0,
+        "pl": -15.02,
+        "m": "RH 명세서 2022-05 — MSFT 282.5C 05/27/22"
+      },
+      {
+        "d": "2022-05-20",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 13.0,
+        "f": 0.02,
+        "amt": 13.0,
+        "pl": -72.02,
+        "m": "RH 명세서 2022-05 — QQQ 272P 05/23/22"
+      },
+      {
+        "d": "2022-05-18",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 82.0,
+        "f": 0,
+        "amt": 82.0,
+        "m": "RH 명세서 2022-05 — AAPL 165C 07/01/22"
+      },
+      {
+        "d": "2022-05-18",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 2.0,
+        "p": 100.0,
+        "f": 0,
+        "amt": 200.0,
+        "m": "RH 명세서 2022-05 — AAPL 165C 07/15/22"
+      },
+      {
+        "d": "2022-05-18",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 22.0,
+        "f": 0,
+        "amt": 22.0,
+        "m": "RH 명세서 2022-05 — MSFT 282.5C 05/27/22"
+      },
+      {
+        "d": "2022-05-13",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 3.0,
+        "f": 0.02,
+        "amt": 3.0,
+        "pl": -78.75,
+        "m": "RH 명세서 2022-05 — AAPL 175C 05/20/22"
+      },
+      {
+        "d": "2022-05-13",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 77.0,
+        "f": 0.02,
+        "amt": 77.0,
+        "pl": -4.75,
+        "m": "RH 명세서 2022-05 — AAPL 195C 09/16/22"
+      },
+      {
+        "d": "2022-05-13",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 8.0,
+        "f": 0.02,
+        "amt": 8.0,
+        "pl": -80.02,
+        "m": "RH 명세서 2022-05 — SPY 372P 05/16/22"
+      },
+      {
+        "d": "2022-05-12",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 88.0,
+        "f": 0,
+        "amt": 88.0,
+        "m": "RH 명세서 2022-05 — SPY 372P 05/16/22"
+      },
+      {
+        "d": "2022-05-12",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 76.0,
+        "f": 0,
+        "amt": 76.0,
+        "m": "RH 명세서 2022-05 — AAPL 195C 09/16/22"
+      },
+      {
+        "d": "2022-05-11",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 197.0,
+        "f": 0,
+        "amt": 197.0,
+        "m": "RH 명세서 2022-05 — SPY 386P 05/13/22"
+      },
+      {
+        "d": "2022-05-11",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 184.0,
+        "f": 0.02,
+        "amt": 184.0,
+        "pl": -13.02,
+        "m": "RH 명세서 2022-05 — SPY 386P 05/13/22"
+      },
+      {
+        "d": "2022-05-09",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 112.0,
+        "f": 0,
+        "amt": 112.0,
+        "m": "RH 명세서 2022-05 — AAPL 200C 09/16/22"
+      },
+      {
+        "d": "2022-05-06",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 93.0,
+        "f": 0,
+        "amt": 93.0,
+        "m": "RH 명세서 2022-05 — QQQ 291P 05/09/22"
+      },
+      {
+        "d": "2022-05-06",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 94.0,
+        "f": 0,
+        "amt": 94.0,
+        "m": "RH 명세서 2022-05 — QQQ 292P 05/09/22"
+      },
+      {
+        "d": "2022-05-06",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 13.0,
+        "f": 0.02,
+        "amt": 13.0,
+        "pl": -62.62,
+        "m": "RH 명세서 2022-05 — AAPL 177.5C 05/20/22"
+      },
+      {
+        "d": "2022-05-06",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 90.0,
+        "f": 0.02,
+        "amt": 90.0,
+        "pl": -32.02,
+        "m": "RH 명세서 2022-05 — MSFT 300C 05/20/22"
+      },
+      {
+        "d": "2022-05-06",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 28.0,
+        "f": 0.02,
+        "amt": 28.0,
+        "pl": -65.52,
+        "m": "RH 명세서 2022-05 — QQQ 291P 05/09/22"
+      },
+      {
+        "d": "2022-05-06",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 32.0,
+        "f": 0.02,
+        "amt": 32.0,
+        "pl": -61.52,
+        "m": "RH 명세서 2022-05 — QQQ 292P 05/09/22"
+      },
+      {
+        "d": "2022-05-05",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 122.0,
+        "f": 0,
+        "amt": 122.0,
+        "m": "RH 명세서 2022-05 — MSFT 300C 05/20/22"
+      },
+      {
+        "d": "2022-05-05",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 100.0,
+        "f": 0,
+        "amt": 100.0,
+        "m": "RH 명세서 2022-05 — AAPL 200C 08/19/22"
+      },
+      {
+        "d": "2022-05-05",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 21.0,
+        "f": 0,
+        "amt": 21.0,
+        "m": "RH 명세서 2022-05 — AAPL 177.5C 05/20/22"
+      },
+      {
+        "d": "2022-05-04",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 88.0,
+        "f": 0,
+        "amt": 88.0,
+        "m": "RH 명세서 2022-05 — AAPL 205C 08/19/22"
+      },
+      {
+        "d": "2022-05-04",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 88.0,
+        "f": 0,
+        "amt": 88.0,
+        "m": "RH 명세서 2022-05 — AAPL 205C 08/19/22"
+      },
+      {
+        "d": "2022-05-04",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 81.0,
+        "f": 0,
+        "amt": 81.0,
+        "m": "RH 명세서 2022-05 — AAPL 175C 05/20/22"
+      },
+      {
+        "d": "2022-05-04",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -65.0,
+        "m": "RH 명세서 2022-05 — SPY 385P 05/04/22 만기소멸"
+      },
+      {
+        "d": "2022-05-02",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 65.0,
+        "f": 0,
+        "amt": 65.0,
+        "m": "RH 명세서 2022-05 — SPY 385P 05/04/22"
+      },
+      {
+        "d": "2022-05-02",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 2.0,
+        "f": 0.02,
+        "amt": 2.0,
+        "pl": -92.52,
+        "m": "RH 명세서 2022-05 — AAPL 175C 05/06/22"
+      },
+      {
+        "d": "2022-05-02",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 55.0,
+        "f": 0.02,
+        "amt": 55.0,
+        "pl": -39.52,
+        "m": "RH 명세서 2022-05 — AAPL 195C 07/15/22"
+      },
+      {
+        "d": "2022-04-29",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 95.0,
+        "f": 0,
+        "amt": 95.0,
+        "m": "RH 명세서 2022-05 — AAPL 195C 07/15/22"
+      },
+      {
+        "d": "2022-04-29",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.01,
+        "f": 0,
+        "amt": 0.01,
+        "pl": 0.01,
+        "m": "RH 명세서 2022-04"
+      },
+      {
+        "d": "2022-04-28",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 94.0,
+        "f": 0,
+        "amt": 94.0,
+        "m": "RH 명세서 2022-04 — AAPL 175C 05/06/22"
+      },
+      {
+        "d": "2022-04-28",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 3.0,
+        "f": 0.02,
+        "amt": 3.0,
+        "pl": -4.02,
+        "m": "RH 명세서 2022-04 — QQQ 279P 04/29/22"
+      },
+      {
+        "d": "2022-04-27",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 14.0,
+        "f": 0,
+        "amt": 14.0,
+        "m": "RH 명세서 2022-04 — SPY 440C 04/29/22"
+      },
+      {
+        "d": "2022-04-27",
+        "a": "Robinhood",
+        "s": "QQQ",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 7.0,
+        "f": 0,
+        "amt": 7.0,
+        "m": "RH 명세서 2022-04 — QQQ 279P 04/29/22"
+      },
+      {
+        "d": "2022-04-27",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 7.0,
+        "f": 0.02,
+        "amt": 7.0,
+        "pl": -7.02,
+        "m": "RH 명세서 2022-04 — SPY 440C 04/29/22"
+      },
+      {
+        "d": "2022-04-27",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 7.0,
+        "f": 0.02,
+        "amt": 7.0,
+        "pl": -27.52,
+        "m": "RH 명세서 2022-04 — MSFT 312.5C 04/29/22"
+      },
+      {
+        "d": "2022-04-27",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 3.0,
+        "f": 0.02,
+        "amt": 3.0,
+        "pl": -31.52,
+        "m": "RH 명세서 2022-04 — MSFT 320C 04/29/22"
+      },
+      {
+        "d": "2022-04-26",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 47.0,
+        "f": 0,
+        "amt": 47.0,
+        "m": "RH 명세서 2022-04 — MSFT 312.5C 04/29/22"
+      },
+      {
+        "d": "2022-04-26",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 22.0,
+        "f": 0,
+        "amt": 22.0,
+        "m": "RH 명세서 2022-04 — MSFT 320C 04/29/22"
+      },
+      {
+        "d": "2022-04-26",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 32.0,
+        "f": 0.02,
+        "amt": 32.0,
+        "pl": -45.52,
+        "m": "RH 명세서 2022-04 — AAPL 175C 04/29/22"
+      },
+      {
+        "d": "2022-04-26",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 18.0,
+        "f": 0.02,
+        "amt": 18.0,
+        "pl": -71.02,
+        "m": "RH 명세서 2022-04 — SPY 408P 04/27/22"
+      },
+      {
+        "d": "2022-04-25",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 89.0,
+        "f": 0,
+        "amt": 89.0,
+        "m": "RH 명세서 2022-04 — SPY 408P 04/27/22"
+      },
+      {
+        "d": "2022-04-25",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 30.0,
+        "f": 0.02,
+        "amt": 30.0,
+        "pl": -47.52,
+        "m": "RH 명세서 2022-04 — AAPL 175C 04/29/22"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 78.0,
+        "f": 0,
+        "amt": 78.0,
+        "m": "RH 명세서 2022-04 — AAPL 175C 04/29/22"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 77.0,
+        "f": 0,
+        "amt": 77.0,
+        "m": "RH 명세서 2022-04 — AAPL 175C 04/29/22"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 39.0,
+        "f": 0.02,
+        "amt": 39.0,
+        "pl": -118.91,
+        "m": "RH 명세서 2022-04 — SOXL 30C 04/29/22"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 43.15,
+        "f": 0,
+        "amt": 43.15,
+        "pl": 1.06,
+        "m": "RH 명세서 2022-04"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 25.39,
+        "f": 0,
+        "amt": 25.39,
+        "pl": -3.5,
+        "m": "RH 명세서 2022-04"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 27.93,
+        "f": 0,
+        "amt": 27.93,
+        "pl": -5.3,
+        "m": "RH 명세서 2022-04"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 3.0,
+        "f": 0.02,
+        "amt": 3.0,
+        "pl": -17.89,
+        "m": "RH 명세서 2022-04 — SPY 418P 04/22/22"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 39.0,
+        "f": 0.02,
+        "amt": 39.0,
+        "pl": -118.91,
+        "m": "RH 명세서 2022-04 — SOXL 30C 04/29/22"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -20.88,
+        "m": "RH 명세서 2022-04 — SPY 457C 04/22/22 만기소멸"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 6.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -125.25,
+        "m": "RH 명세서 2022-04 — SPY 454C 04/22/22 만기소멸"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 29.0,
+        "f": 0.02,
+        "amt": 29.0,
+        "pl": -68.02,
+        "m": "RH 명세서 2022-04 — AMD 101C 04/29/22"
+      },
+      {
+        "d": "2022-04-22",
+        "a": "Robinhood",
+        "s": "ADBE",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 31.0,
+        "f": 0.02,
+        "amt": 31.0,
+        "pl": -1416.52,
+        "m": "RH 명세서 2022-04 — ADBE 465C 04/29/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 53.0,
+        "f": 0,
+        "amt": 53.0,
+        "m": "RH 명세서 2022-04 — SPY 454C 04/22/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 3.0,
+        "f": 0,
+        "amt": 3.0,
+        "m": "RH 명세서 2022-04 — SPY 418P 04/22/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 15.0,
+        "f": 0,
+        "amt": 15.0,
+        "m": "RH 명세서 2022-04 — SPY 457C 04/22/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 2.0,
+        "p": 27.0,
+        "f": 0,
+        "amt": 54.0,
+        "m": "RH 명세서 2022-04 — SPY 454C 04/22/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 2.0,
+        "p": 17.0,
+        "f": 0,
+        "amt": 34.0,
+        "m": "RH 명세서 2022-04 — SPY 454C 04/22/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 59.0,
+        "f": 0,
+        "amt": 59.0,
+        "m": "RH 명세서 2022-04 — AMD 92P 04/22/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 8.0,
+        "f": 0,
+        "amt": 8.0,
+        "m": "RH 명세서 2022-04 — SPY 454C 04/22/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 132.0,
+        "f": 0.02,
+        "amt": 132.0,
+        "pl": 48.98,
+        "m": "RH 명세서 2022-04 — AAPL 170C 04/22/22"
+      },
+      {
+        "d": "2022-04-21",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 71.0,
+        "f": 0.02,
+        "amt": 71.0,
+        "pl": -26.02,
+        "m": "RH 명세서 2022-04 — AMD 92P 04/22/22"
+      },
+      {
+        "d": "2022-04-20",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 18.0,
+        "f": 0,
+        "amt": 18.0,
+        "m": "RH 명세서 2022-04 — SPY 454C 04/22/22"
+      },
+      {
+        "d": "2022-04-20",
+        "a": "Robinhood",
+        "s": "NFLX",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 315.0,
+        "f": 0,
+        "amt": 315.0,
+        "m": "RH 명세서 2022-04 — NFLX 207.5P 04/22/22"
+      },
+      {
+        "d": "2022-04-20",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 135.0,
+        "f": 0,
+        "amt": 135.0,
+        "m": "RH 명세서 2022-04 — AMD 101C 04/29/22"
+      },
+      {
+        "d": "2022-04-20",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 2.0,
+        "p": 186.0,
+        "f": 0,
+        "amt": 372.0,
+        "m": "RH 명세서 2022-04 — SOXL 30C 04/29/22"
+      },
+      {
+        "d": "2022-04-20",
+        "a": "Robinhood",
+        "s": "SPY",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 19.0,
+        "f": 0.02,
+        "amt": 19.0,
+        "pl": 0.98,
+        "m": "RH 명세서 2022-04 — SPY 454C 04/22/22"
+      },
+      {
+        "d": "2022-04-20",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 2.0,
+        "p": 163.0,
+        "f": 0.02,
+        "amt": 326.0,
+        "pl": 10.2,
+        "m": "RH 명세서 2022-04 — SOXL 30.5C 04/29/22"
+      },
+      {
+        "d": "2022-04-20",
+        "a": "Robinhood",
+        "s": "NFLX",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 500.0,
+        "f": 0.02,
+        "amt": 500.0,
+        "pl": 184.98,
+        "m": "RH 명세서 2022-04 — NFLX 207.5P 04/22/22"
+      },
+      {
+        "d": "2022-04-19",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 2.0,
+        "p": 126.0,
+        "f": 0,
+        "amt": 252.0,
+        "m": "RH 명세서 2022-04 — SOXL 30.5C 04/29/22"
+      },
+      {
+        "d": "2022-04-19",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 270.0,
+        "f": 0.02,
+        "amt": 270.0,
+        "pl": 140.2,
+        "m": "RH 명세서 2022-04 — SOXL 30C 05/20/22"
+      },
+      {
+        "d": "2022-04-14",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 83.0,
+        "f": 0,
+        "amt": 83.0,
+        "m": "RH 명세서 2022-04 — AAPL 170C 04/22/22"
+      },
+      {
+        "d": "2022-04-14",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 43.0,
+        "f": 0.02,
+        "amt": 43.0,
+        "pl": -157.02,
+        "m": "RH 명세서 2022-04 — AMD 102C 04/22/22"
+      },
+      {
+        "d": "2022-04-14",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -137.33,
+        "m": "RH 명세서 2022-04 — SOXL 31C 04/14/22 만기소멸"
+      },
+      {
+        "d": "2022-04-14",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 21.0,
+        "f": 0.02,
+        "amt": 21.0,
+        "pl": -116.35,
+        "m": "RH 명세서 2022-04 — SOXL 31C 04/22/22"
+      },
+      {
+        "d": "2022-04-13",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 285.0,
+        "f": 0,
+        "amt": 285.0,
+        "m": "RH 명세서 2022-04 — SOXL 30C 05/20/22"
+      },
+      {
+        "d": "2022-04-12",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 27.0,
+        "f": 0,
+        "amt": 27.0,
+        "m": "RH 명세서 2022-04 — SOXL 31C 04/14/22"
+      },
+      {
+        "d": "2022-04-12",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 200.0,
+        "f": 0,
+        "amt": 200.0,
+        "m": "RH 명세서 2022-04 — AMD 102C 04/22/22"
+      },
+      {
+        "d": "2022-04-12",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 100.0,
+        "f": 0,
+        "amt": 100.0,
+        "m": "RH 명세서 2022-04 — SOXL 31C 04/22/22"
+      },
+      {
+        "d": "2022-04-12",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 200.0,
+        "f": 0.02,
+        "amt": 200.0,
+        "pl": -130.02,
+        "m": "RH 명세서 2022-04 — NVDA 212.5P 04/14/22"
+      },
+      {
+        "d": "2022-04-11",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 76.0,
+        "f": 0,
+        "amt": 76.0,
+        "m": "RH 명세서 2022-04 — AAPL 170C 04/14/22"
+      },
+      {
+        "d": "2022-04-11",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 330.0,
+        "f": 0,
+        "amt": 330.0,
+        "m": "RH 명세서 2022-04 — NVDA 212.5P 04/14/22"
+      },
+      {
+        "d": "2022-04-11",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 58.0,
+        "f": 0.02,
+        "amt": 58.0,
+        "pl": -18.02,
+        "m": "RH 명세서 2022-04 — AAPL 170C 04/14/22"
+      },
+      {
+        "d": "2022-04-11",
+        "a": "Robinhood",
+        "s": "ADBE",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 162.0,
+        "f": 0.02,
+        "amt": 162.0,
+        "pl": -1285.52,
+        "m": "RH 명세서 2022-04 — ADBE 467.5C 04/22/22"
+      },
+      {
+        "d": "2022-04-08",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 28.89,
+        "f": 0,
+        "amt": 28.89,
+        "m": "RH 명세서 2022-04"
+      },
+      {
+        "d": "2022-04-08",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -175.0,
+        "m": "RH 명세서 2022-04 — NVDA 285C 04/08/22 만기소멸"
+      },
+      {
+        "d": "2022-04-08",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -175.0,
+        "m": "RH 명세서 2022-04 — NVDA 277.5C 04/08/22 만기소멸"
+      },
+      {
+        "d": "2022-04-06",
+        "a": "Robinhood",
+        "s": "ADBE",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 470.0,
+        "f": 0,
+        "amt": 470.0,
+        "m": "RH 명세서 2022-04 — ADBE 467.5C 04/22/22"
+      },
+      {
+        "d": "2022-04-05",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 300.0,
+        "f": 0,
+        "amt": 300.0,
+        "m": "RH 명세서 2022-04 — NVDA 277.5C 04/08/22"
+      },
+      {
+        "d": "2022-04-05",
+        "a": "Robinhood",
+        "s": "NVDA",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 50.0,
+        "f": 0,
+        "amt": 50.0,
+        "m": "RH 명세서 2022-04 — NVDA 285C 04/08/22"
+      },
+      {
+        "d": "2022-04-01",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 250.0,
+        "f": 0,
+        "amt": 250.0,
+        "m": "RH 명세서 2022-04 — AMD 110C 04/08/22"
+      },
+      {
+        "d": "2022-04-01",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 230.0,
+        "f": 0,
+        "amt": 230.0,
+        "m": "RH 명세서 2022-04 — AMC 24.5C 04/08/22"
+      },
+      {
+        "d": "2022-04-01",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 229.0,
+        "f": 0,
+        "amt": 229.0,
+        "m": "RH 명세서 2022-04 — AAPL 172.5C 04/08/22"
+      },
+      {
+        "d": "2022-04-01",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 209.0,
+        "f": 0.02,
+        "amt": 209.0,
+        "pl": -21.02,
+        "m": "RH 명세서 2022-04 — AMC 24.5C 04/08/22"
+      },
+      {
+        "d": "2022-04-01",
+        "a": "Robinhood",
+        "s": "AMD",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 250.0,
+        "f": 0.02,
+        "amt": 250.0,
+        "pl": -0.02,
+        "m": "RH 명세서 2022-04 — AMD 110C 04/08/22"
+      },
+      {
+        "d": "2022-04-01",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 335.0,
+        "f": 0.02,
+        "amt": 335.0,
+        "pl": 105.98,
+        "m": "RH 명세서 2022-04 — AAPL 172.5C 04/08/22"
+      },
+      {
+        "d": "2022-03-31",
+        "a": "Robinhood",
+        "s": "QQQM",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.19,
+        "f": 0,
+        "amt": 0.19,
+        "pl": 0.19,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.02,
+        "f": 0,
+        "amt": 0.02,
+        "pl": 0.02,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-22",
+        "a": "Robinhood",
+        "s": "ADBE",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 2425.0,
+        "f": 0,
+        "amt": 2425.0,
+        "m": "RH 명세서 2022-03 — ADBE 465C 04/29/22"
+      },
+      {
+        "d": "2022-03-22",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 1070.0,
+        "f": 0.02,
+        "amt": 1070.0,
+        "pl": 199.98,
+        "m": "RH 명세서 2022-03 — MSFT 300C 04/22/22"
+      },
+      {
+        "d": "2022-03-22",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매도",
+        "q": 20.0,
+        "p": 33.87,
+        "f": 0.01,
+        "amt": 677.4,
+        "pl": 12.79,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-22",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매도",
+        "q": 9.0,
+        "p": 33.87,
+        "f": 0,
+        "amt": 304.83,
+        "pl": 5.76,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-22",
+        "a": "Robinhood",
+        "s": "QQQM",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 144.78,
+        "f": 0,
+        "amt": 144.78,
+        "pl": -14.15,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-22",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 56.22,
+        "f": 0,
+        "amt": 56.22,
+        "pl": 14.13,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-21",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 870.0,
+        "f": 0,
+        "amt": 870.0,
+        "m": "RH 명세서 2022-03 — MSFT 300C 04/22/22"
+      },
+      {
+        "d": "2022-03-18",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 580.0,
+        "f": 0.02,
+        "amt": 580.0,
+        "pl": 69.98,
+        "m": "RH 명세서 2022-03 — AAPL 160C 04/01/22"
+      },
+      {
+        "d": "2022-03-18",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매도",
+        "q": 2.0,
+        "p": 52.08,
+        "f": 0,
+        "amt": 104.16,
+        "pl": 19.98,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-14",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 40.31,
+        "f": 0,
+        "amt": 40.31,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-08",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 510.0,
+        "f": 0,
+        "amt": 510.0,
+        "m": "RH 명세서 2022-03 — AAPL 160C 04/01/22"
+      },
+      {
+        "d": "2022-03-08",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 465.0,
+        "f": 0,
+        "amt": 465.0,
+        "m": "RH 명세서 2022-03 — MSFT 275C 03/11/22"
+      },
+      {
+        "d": "2022-03-08",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 540.0,
+        "f": 0.02,
+        "amt": 540.0,
+        "pl": 74.98,
+        "m": "RH 명세서 2022-03 — MSFT 275C 03/11/22"
+      },
+      {
+        "d": "2022-03-08",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매도",
+        "q": 15.0,
+        "p": 29.134,
+        "f": 0,
+        "amt": 437.01,
+        "pl": -178.58,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-08",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "주식",
+        "k": "매도",
+        "q": 0.06388,
+        "p": 812.23,
+        "f": 0,
+        "amt": 51.89,
+        "pl": -15.11,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-07",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 4.0,
+        "p": 29.66,
+        "f": 0.02,
+        "amt": 118.64,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-07",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 29.6,
+        "f": 0,
+        "amt": 29.6,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-03-07",
+        "a": "Robinhood",
+        "s": "TQQQ",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 42.68,
+        "f": 0,
+        "amt": 128.04,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-02-28",
+        "a": "Robinhood",
+        "s": "SBRCY",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 1.36,
+        "f": 0,
+        "amt": 13.6,
+        "m": "RH 명세서 2022-03"
+      },
+      {
+        "d": "2022-02-24",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 4.0,
+        "p": 33.95,
+        "f": 0,
+        "amt": 135.8,
+        "m": "RH 명세서 2022-02"
+      },
+      {
+        "d": "2022-01-21",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.017425,
+        "p": 975.6,
+        "f": 0,
+        "amt": 17.0,
+        "m": "RH 명세서 2022-01"
+      },
+      {
+        "d": "2022-01-21",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -1275.0,
+        "m": "RH 명세서 2022-01 — MSFT 340C 01/21/22 만기소멸"
+      },
+      {
+        "d": "2022-01-20",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 51.35,
+        "f": 0,
+        "amt": 102.7,
+        "m": "RH 명세서 2022-01"
+      },
+      {
+        "d": "2022-01-20",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 47.52,
+        "f": 0,
+        "amt": 47.52,
+        "m": "RH 명세서 2022-01"
+      },
+      {
+        "d": "2022-01-07",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 60.67,
+        "f": 0,
+        "amt": 121.34,
+        "m": "RH 명세서 2022-01"
+      },
+      {
+        "d": "2022-01-07",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.5,
+        "p": 59.94,
+        "f": 0,
+        "amt": 29.97,
+        "m": "RH 명세서 2022-01"
+      },
+      {
+        "d": "2022-01-07",
+        "a": "Robinhood",
+        "s": "SOXL",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.5,
+        "p": 59.99,
+        "f": 0,
+        "amt": 30.0,
+        "m": "RH 명세서 2022-01"
+      },
+      {
+        "d": "2021-12-31",
+        "a": "Robinhood",
+        "s": "QQQM",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.15,
+        "f": 0,
+        "amt": 0.15,
+        "pl": 0.15,
+        "m": "RH 명세서 2021-12"
+      },
+      {
+        "d": "2021-12-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.01,
+        "f": 0,
+        "amt": 0.01,
+        "pl": 0.01,
+        "m": "RH 명세서 2021-12"
+      },
+      {
+        "d": "2021-12-29",
+        "a": "Robinhood",
+        "s": "TSLA",
+        "t": "주식",
+        "k": "매수",
+        "q": 0.046455,
+        "p": 1076.3,
+        "f": 0,
+        "amt": 50.0,
+        "m": "RH 명세서 2021-12"
+      },
+      {
+        "d": "2021-12-15",
+        "a": "Robinhood",
+        "s": "QQQM",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 158.93,
+        "f": 0,
+        "amt": 476.79,
+        "m": "RH 명세서 2021-12"
+      },
+      {
+        "d": "2021-12-15",
+        "a": "Robinhood",
+        "s": "QQQM",
+        "t": "주식",
+        "k": "매도",
+        "q": 2.0,
+        "p": 158.01,
+        "f": 0,
+        "amt": 316.02,
+        "pl": -1.84,
+        "m": "RH 명세서 2021-12"
+      },
+      {
+        "d": "2021-12-06",
+        "a": "Robinhood",
+        "s": "RIVN",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 111.52,
+        "f": 0,
+        "amt": 111.52,
+        "pl": -23.13,
+        "m": "RH 명세서 2021-12"
+      },
+      {
+        "d": "2021-12-06",
+        "a": "Robinhood",
+        "s": "RIVN",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 112.6,
+        "f": 0,
+        "amt": 112.6,
+        "pl": -22.05,
+        "m": "RH 명세서 2021-12"
+      },
+      {
+        "d": "2021-11-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.03,
+        "f": 0,
+        "amt": 0.03,
+        "pl": 0.03,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-18",
+        "a": "Robinhood",
+        "s": "RIVN",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 127.2,
+        "f": 0,
+        "amt": 127.2,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-18",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 1275.0,
+        "f": 0,
+        "amt": 1275.0,
+        "m": "RH 명세서 2021-11 — MSFT 340C 01/21/22"
+      },
+      {
+        "d": "2021-11-17",
+        "a": "Robinhood",
+        "s": "RIVN",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 142.09,
+        "f": 0,
+        "amt": 142.09,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-08",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 30.5,
+        "f": 0,
+        "amt": 30.5,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-08",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 30.72,
+        "f": 0,
+        "amt": 30.72,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-08",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 30.64,
+        "f": 0,
+        "amt": 30.64,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-05",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 30.95,
+        "f": 0,
+        "amt": 30.95,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-05",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매도",
+        "q": 4.0,
+        "p": 41.3025,
+        "f": 0,
+        "amt": 165.21,
+        "pl": 2.25,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-05",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매도",
+        "q": 4.0,
+        "p": 41.26,
+        "f": 0,
+        "amt": 165.04,
+        "pl": 2.08,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-04",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 31.72,
+        "f": 0,
+        "amt": 31.72,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-04",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 31.72,
+        "f": 0,
+        "amt": 31.72,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-04",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 8.33,
+        "f": 0,
+        "amt": 83.3,
+        "pl": -5.23,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-02",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 20.0,
+        "p": 34.028,
+        "f": 0,
+        "amt": 680.56,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-02",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 32.6,
+        "f": 0,
+        "amt": 32.6,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-02",
+        "a": "Robinhood",
+        "s": "CHGG",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 32.4967,
+        "f": 0,
+        "amt": 97.49,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-01",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 8.44,
+        "f": 0,
+        "amt": 253.2,
+        "pl": -12.39,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-11-01",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 328.77,
+        "f": 0,
+        "amt": 328.77,
+        "pl": 20.77,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-10-29",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.03,
+        "f": 0,
+        "amt": 0.03,
+        "pl": 0.03,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-28",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.08,
+        "f": 0,
+        "amt": 0.08,
+        "pl": 0.08,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-28",
+        "a": "Robinhood",
+        "s": "BNGO",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 5.11,
+        "f": 0,
+        "amt": 51.1,
+        "pl": -23.57,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-10-28",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 3.3813,
+        "f": 0,
+        "amt": 101.44,
+        "pl": -2.73,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-10-28",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 29.22,
+        "f": 0.02,
+        "amt": 292.2,
+        "pl": -126.78,
+        "m": "RH 명세서 2021-11"
+      },
+      {
+        "d": "2021-10-26",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 308.0,
+        "f": 0,
+        "amt": 308.0,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-26",
+        "a": "Robinhood",
+        "s": "BNGO",
+        "t": "주식",
+        "k": "매도",
+        "q": 20.0,
+        "p": 5.3905,
+        "f": 0,
+        "amt": 107.81,
+        "pl": -41.53,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-20",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 3.6027,
+        "f": 0,
+        "amt": 108.08,
+        "pl": 3.91,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-11",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 15.0,
+        "p": 6.8707,
+        "f": 0,
+        "amt": 103.06,
+        "pl": 11.75,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-11",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 20.0,
+        "p": 6.8805,
+        "f": 0,
+        "amt": 137.61,
+        "pl": 15.86,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-07",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 30.0,
+        "p": 6.1487,
+        "f": 0,
+        "amt": 184.46,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-07",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매도",
+        "q": 70.0,
+        "p": 2.6,
+        "f": 0.01,
+        "amt": 182.0,
+        "pl": -370.24,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-07",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 6.0523,
+        "f": 0,
+        "amt": 181.57,
+        "pl": -1.05,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-06",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 8.15,
+        "f": 0,
+        "amt": 81.5,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-10-04",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 25.0,
+        "p": 6.0488,
+        "f": 0,
+        "amt": 151.22,
+        "m": "RH 명세서 2021-10"
+      },
+      {
+        "d": "2021-09-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.03,
+        "f": 0,
+        "amt": 0.03,
+        "pl": 0.03,
+        "m": "RH 명세서 2021-09"
+      },
+      {
+        "d": "2021-09-22",
+        "a": "Robinhood",
+        "s": "BNGO",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 5.46,
+        "f": 0,
+        "amt": 54.6,
+        "pl": -20.07,
+        "m": "RH 명세서 2021-09"
+      },
+      {
+        "d": "2021-09-14",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 7.2323,
+        "f": 0,
+        "amt": 216.97,
+        "pl": 36.97,
+        "m": "RH 명세서 2021-09"
+      },
+      {
+        "d": "2021-09-07",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매도",
+        "q": 2.0,
+        "p": 45.88,
+        "f": 0.01,
+        "amt": 91.76,
+        "pl": 10.27,
+        "m": "RH 명세서 2021-09"
+      },
+      {
+        "d": "2021-09-03",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 9.84,
+        "f": 0.01,
+        "amt": 49.2,
+        "m": "RH 명세서 2021-09"
+      },
+      {
+        "d": "2021-09-03",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 9.678,
+        "f": 0,
+        "amt": 48.39,
+        "m": "RH 명세서 2021-09"
+      },
+      {
+        "d": "2021-08-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.06,
+        "f": 0,
+        "amt": 0.06,
+        "pl": 0.06,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-30",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매도",
+        "q": 20.0,
+        "p": 9.52,
+        "f": 0,
+        "amt": 190.4,
+        "pl": 15.38,
+        "m": "RH 명세서 2021-09"
+      },
+      {
+        "d": "2021-08-24",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 43.734,
+        "f": 0,
+        "amt": 437.34,
+        "pl": 29.94,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-20",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매도",
+        "q": 60.0,
+        "p": 3.4308,
+        "f": 0,
+        "amt": 205.85,
+        "pl": -2.5,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-18",
+        "a": "Robinhood",
+        "s": "BNGO",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 5.381,
+        "f": 0,
+        "amt": 53.81,
+        "pl": -20.86,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-16",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 40.0,
+        "p": 6.0,
+        "f": 0,
+        "amt": 240.0,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-11",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 8.38,
+        "f": 0,
+        "amt": 83.8,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-06",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 8.62,
+        "f": 0.04,
+        "amt": 86.2,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-05",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 6.2413,
+        "f": 0,
+        "amt": 187.24,
+        "pl": -285.16,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-04",
+        "a": "Robinhood",
+        "s": "SDGR",
+        "t": "주식",
+        "k": "매도",
+        "q": 2.0,
+        "p": 68.295,
+        "f": 0,
+        "amt": 136.59,
+        "pl": -11.13,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-03",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 8.999,
+        "f": 0,
+        "amt": 89.99,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-08-03",
+        "a": "Robinhood",
+        "s": "QSI",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 9.0,
+        "f": 0,
+        "amt": 90.0,
+        "m": "RH 명세서 2021-08"
+      },
+      {
+        "d": "2021-07-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.05,
+        "f": 0,
+        "amt": 0.05,
+        "pl": 0.05,
+        "m": "RH 명세서 2021-07"
+      },
+      {
+        "d": "2021-07-20",
+        "a": "Robinhood",
+        "s": "AQB",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 4.96,
+        "f": 0,
+        "amt": 4.96,
+        "pl": 4.96,
+        "m": "RH 명세서 2021-07"
+      },
+      {
+        "d": "2021-07-19",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 33.24,
+        "f": 0,
+        "amt": 332.4,
+        "m": "RH 명세서 2021-07"
+      },
+      {
+        "d": "2021-07-19",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 33.31,
+        "f": 0,
+        "amt": 66.62,
+        "m": "RH 명세서 2021-07"
+      },
+      {
+        "d": "2021-07-16",
+        "a": "Robinhood",
+        "s": "NNDM",
+        "t": "주식",
+        "k": "매도",
+        "q": 24.0,
+        "p": 6.78,
+        "f": 0,
+        "amt": 162.72,
+        "pl": -214.12,
+        "m": "RH 명세서 2021-07"
+      },
+      {
+        "d": "2021-07-16",
+        "a": "Robinhood",
+        "s": "RADA",
+        "t": "주식",
+        "k": "매도",
+        "q": 20.0,
+        "p": 12.45,
+        "f": 0,
+        "amt": 249.0,
+        "pl": -28.37,
+        "m": "RH 명세서 2021-07"
+      },
+      {
+        "d": "2021-07-16",
+        "a": "Robinhood",
+        "s": "MKFG",
+        "t": "주식",
+        "k": "매도",
+        "q": 12.0,
+        "p": 8.3308,
+        "f": 0,
+        "amt": 99.97,
+        "pl": -53.71,
+        "m": "RH 명세서 2021-07"
+      },
+      {
+        "d": "2021-07-15",
+        "a": "Robinhood",
+        "s": "MKFG",
+        "t": "주식",
+        "k": "매수",
+        "q": 12.0,
+        "p": 12.8067,
+        "f": 0,
+        "amt": 153.68,
+        "m": "RH 명세서 2021-07 종목변경 AONE→MKFG"
+      },
+      {
+        "d": "2021-07-15",
+        "a": "Robinhood",
+        "s": "AONE",
+        "t": "주식",
+        "k": "매도",
+        "q": 12.0,
+        "p": 12.8067,
+        "f": 0,
+        "amt": 153.68,
+        "pl": 0.0,
+        "m": "RH 명세서 2021-07 종목변경 AONE→MKFG"
+      },
+      {
+        "d": "2021-07-07",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 47.7,
+        "f": 0,
+        "amt": 47.7,
+        "m": "RH 명세서 2021-07"
+      },
+      {
+        "d": "2021-06-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.02,
+        "f": 0,
+        "amt": 0.02,
+        "pl": 0.02,
+        "m": "RH 명세서 2021-06"
+      },
+      {
+        "d": "2021-06-25",
+        "a": "Robinhood",
+        "s": "INUV",
+        "t": "주식",
+        "k": "매도",
+        "q": 100.0,
+        "p": 0.86,
+        "f": 0.11,
+        "amt": 86.0,
+        "pl": -53.48,
+        "m": "RH 명세서 2021-06"
+      },
+      {
+        "d": "2021-06-09",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 49.09,
+        "f": 0,
+        "amt": 147.27,
+        "m": "RH 명세서 2021-06"
+      },
+      {
+        "d": "2021-06-08",
+        "a": "Robinhood",
+        "s": "AMC",
+        "t": "주식",
+        "k": "매수",
+        "q": 4.0,
+        "p": 55.2,
+        "f": 0,
+        "amt": 220.8,
+        "m": "RH 명세서 2021-06"
+      },
+      {
+        "d": "2021-05-26",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 8.8107,
+        "f": 0,
+        "amt": 264.32,
+        "pl": -208.08,
+        "m": "RH 명세서 2021-05"
+      },
+      {
+        "d": "2021-05-11",
+        "a": "Robinhood",
+        "s": "AQB",
+        "t": "주식",
+        "k": "조정",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 명세서 2021-05 주식 리워드"
+      },
+      {
+        "d": "2021-04-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.01,
+        "f": 0,
+        "amt": 0.01,
+        "pl": 0.01,
+        "m": "RH 명세서 2021-04"
+      },
+      {
+        "d": "2021-04-14",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 39.73,
+        "f": 0,
+        "amt": 79.46,
+        "m": "RH 명세서 2021-04"
+      },
+      {
+        "d": "2021-04-13",
+        "a": "Robinhood",
+        "s": "SDGR",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 73.86,
+        "f": 0,
+        "amt": 147.72,
+        "m": "RH 명세서 2021-04"
+      },
+      {
+        "d": "2021-04-12",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 41.5,
+        "f": 0,
+        "amt": 124.5,
+        "m": "RH 명세서 2021-04"
+      },
+      {
+        "d": "2021-04-12",
+        "a": "Robinhood",
+        "s": "RADA",
+        "t": "주식",
+        "k": "매수",
+        "q": 20.0,
+        "p": 13.8685,
+        "f": 0,
+        "amt": 277.37,
+        "m": "RH 명세서 2021-04"
+      },
+      {
+        "d": "2021-04-09",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 43.0,
+        "f": 0,
+        "amt": 215.0,
+        "m": "RH 명세서 2021-04"
+      },
+      {
+        "d": "2021-04-08",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 45.694,
+        "f": 0,
+        "amt": 456.94,
+        "pl": 6.77,
+        "m": "RH 명세서 2021-04"
+      },
+      {
+        "d": "2021-04-08",
+        "a": "Robinhood",
+        "s": "RADA",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 14.031,
+        "f": 0,
+        "amt": 420.93,
+        "pl": 44.22,
+        "m": "RH 명세서 2021-04"
+      },
+      {
+        "d": "2021-03-19",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "옵션",
+        "k": "매도",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "pl": -120.0,
+        "m": "RH 명세서 2021-03 — SENS 5C 03/19/21 만기소멸"
+      },
+      {
+        "d": "2021-03-04",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 2.619,
+        "f": 0,
+        "amt": 26.19,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-03-04",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 2.95,
+        "f": 0,
+        "amt": 29.5,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-03-04",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 14.478,
+        "f": 0,
+        "amt": 144.78,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-03-02",
+        "a": "Robinhood",
+        "s": "AONE",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 12.49,
+        "f": 0,
+        "amt": 24.98,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-03-02",
+        "a": "Robinhood",
+        "s": "AONE",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 12.83,
+        "f": 0,
+        "amt": 64.15,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-03-02",
+        "a": "Robinhood",
+        "s": "AONE",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 12.91,
+        "f": 0,
+        "amt": 64.55,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-03-01",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 15.0,
+        "p": 6.27,
+        "f": 0,
+        "amt": 94.05,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-26",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 6.03,
+        "f": 0,
+        "amt": 30.15,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-26",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 3.43,
+        "f": 0,
+        "amt": 17.15,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-26",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 3.438,
+        "f": 0,
+        "amt": 17.19,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-26",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 12.0,
+        "p": 3.69,
+        "f": 0,
+        "amt": 44.28,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-26",
+        "a": "Robinhood",
+        "s": "DDD",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 37.01,
+        "f": 0,
+        "amt": 37.01,
+        "pl": 13.18,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-26",
+        "a": "Robinhood",
+        "s": "XONE",
+        "t": "주식",
+        "k": "매도",
+        "q": 2.0,
+        "p": 35.66,
+        "f": 0,
+        "amt": 71.32,
+        "pl": -43.34,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-26",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 15.0,
+        "p": 17.09,
+        "f": 0,
+        "amt": 256.35,
+        "pl": 16.35,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-25",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 3.81,
+        "f": 0,
+        "amt": 11.43,
+        "m": "RH 명세서 2021-03"
+      },
+      {
+        "d": "2021-02-23",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 3.35,
+        "f": 0,
+        "amt": 3.35,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-23",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 3.337,
+        "f": 0,
+        "amt": 33.37,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-23",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 3.69,
+        "f": 0,
+        "amt": 3.69,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-19",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 4.5767,
+        "f": 0,
+        "amt": 13.73,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-18",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 4.688,
+        "f": 0,
+        "amt": 46.88,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-18",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 4.56,
+        "f": 0,
+        "amt": 45.6,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-18",
+        "a": "Robinhood",
+        "s": "RADA",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 13.01,
+        "f": 0,
+        "amt": 65.05,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-18",
+        "a": "Robinhood",
+        "s": "RADA",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 12.61,
+        "f": 0,
+        "amt": 126.1,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-18",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 19.009,
+        "f": 0,
+        "amt": 190.09,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-18",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 19.2,
+        "f": 0,
+        "amt": 96.0,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-18",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 8.4,
+        "f": 0,
+        "amt": 42.0,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-18",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 20.0,
+        "p": 20.065,
+        "f": 0,
+        "amt": 401.3,
+        "pl": 81.29,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-17",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 4.875,
+        "f": 0,
+        "amt": 48.75,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-17",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 22.398,
+        "f": 0,
+        "amt": 111.99,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-17",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 15.0,
+        "p": 22.7493,
+        "f": 0,
+        "amt": 341.24,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-17",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 8.68,
+        "f": 0,
+        "amt": 43.4,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-17",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "옵션",
+        "k": "매수",
+        "q": 1.0,
+        "p": 120.0,
+        "f": 0,
+        "amt": 120.0,
+        "m": "RH 명세서 2021-02 — SENS 5C 03/19/21"
+      },
+      {
+        "d": "2021-02-17",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 30.0,
+        "p": 23.0,
+        "f": 0.02,
+        "amt": 690.0,
+        "pl": 229.72,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-16",
+        "a": "Robinhood",
+        "s": "SPPI",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 3.61,
+        "f": 0,
+        "amt": 3.61,
+        "pl": 3.61,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-12",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 9.58,
+        "f": 0,
+        "amt": 9.58,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-12",
+        "a": "Robinhood",
+        "s": "NNDM",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 15.69,
+        "f": 0,
+        "amt": 15.69,
+        "pl": -0.01,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-11",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 9.84,
+        "f": 0,
+        "amt": 9.84,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-10",
+        "a": "Robinhood",
+        "s": "SPPI",
+        "t": "주식",
+        "k": "조정",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 명세서 2021-02 주식 리워드"
+      },
+      {
+        "d": "2021-02-10",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 9.53,
+        "f": 0,
+        "amt": 28.59,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-09",
+        "a": "Robinhood",
+        "s": "RADA",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 12.856,
+        "f": 0,
+        "amt": 64.28,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-09",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 6.0,
+        "p": 9.2467,
+        "f": 0,
+        "amt": 55.48,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-09",
+        "a": "Robinhood",
+        "s": "XONE",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 57.33,
+        "f": 0,
+        "amt": 114.66,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-09",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 8.97,
+        "f": 0,
+        "amt": 44.85,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-09",
+        "a": "Robinhood",
+        "s": "SUNW",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 20.3,
+        "f": 0.02,
+        "amt": 203.0,
+        "pl": -18.99,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-09",
+        "a": "Robinhood",
+        "s": "OEG",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 8.18,
+        "f": 0,
+        "amt": 8.18,
+        "pl": -0.79,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-09",
+        "a": "Robinhood",
+        "s": "GMDA",
+        "t": "주식",
+        "k": "매도",
+        "q": 11.0,
+        "p": 10.08,
+        "f": 0,
+        "amt": 110.88,
+        "pl": -7.35,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-08",
+        "a": "Robinhood",
+        "s": "RADA",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 12.128,
+        "f": 0,
+        "amt": 121.28,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-08",
+        "a": "Robinhood",
+        "s": "GMDA",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 10.758,
+        "f": 0,
+        "amt": 107.58,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-08",
+        "a": "Robinhood",
+        "s": "GMDA",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 10.65,
+        "f": 0,
+        "amt": 10.65,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-08",
+        "a": "Robinhood",
+        "s": "SUNW",
+        "t": "주식",
+        "k": "매도",
+        "q": 12.0,
+        "p": 20.16,
+        "f": 0,
+        "amt": 241.92,
+        "pl": -24.44,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-05",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 8.38,
+        "f": 0,
+        "amt": 16.76,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-05",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 8.17,
+        "f": 0.01,
+        "amt": 16.34,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-05",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 8.5,
+        "f": 0,
+        "amt": 85.0,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-04",
+        "a": "Robinhood",
+        "s": "EVGN",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 7.618,
+        "f": 0,
+        "amt": 76.18,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-02",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 15.0,
+        "p": 2.6487,
+        "f": 0,
+        "amt": 39.73,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-01",
+        "a": "Robinhood",
+        "s": "SUNW",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 17.06,
+        "f": 0.01,
+        "amt": 34.12,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-02-01",
+        "a": "Robinhood",
+        "s": "INUV",
+        "t": "주식",
+        "k": "매도",
+        "q": 60.0,
+        "p": 1.32,
+        "f": 0,
+        "amt": 79.2,
+        "pl": -4.42,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-01-29",
+        "a": "Robinhood",
+        "s": "SENS",
+        "t": "주식",
+        "k": "매수",
+        "q": 15.0,
+        "p": 2.39,
+        "f": 0,
+        "amt": 35.85,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-01-29",
+        "a": "Robinhood",
+        "s": "LPCN",
+        "t": "주식",
+        "k": "매도",
+        "q": 4.0,
+        "p": 1.745,
+        "f": 0,
+        "amt": 6.98,
+        "pl": -0.76,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-01-29",
+        "a": "Robinhood",
+        "s": "LPCN",
+        "t": "주식",
+        "k": "매도",
+        "q": 16.0,
+        "p": 1.7419,
+        "f": 0,
+        "amt": 27.87,
+        "pl": -3.09,
+        "m": "RH 명세서 2021-02"
+      },
+      {
+        "d": "2021-01-27",
+        "a": "Robinhood",
+        "s": "OEG",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 8.97,
+        "f": 0,
+        "amt": 8.97,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-27",
+        "a": "Robinhood",
+        "s": "LPCN",
+        "t": "주식",
+        "k": "매수",
+        "q": 20.0,
+        "p": 1.935,
+        "f": 0,
+        "amt": 38.7,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-27",
+        "a": "Robinhood",
+        "s": "INUV",
+        "t": "주식",
+        "k": "매수",
+        "q": 150.0,
+        "p": 1.4,
+        "f": 0,
+        "amt": 210.0,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-27",
+        "a": "Robinhood",
+        "s": "INUV",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 1.3,
+        "f": 0,
+        "amt": 13.0,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-27",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 20.06,
+        "f": 0,
+        "amt": 200.6,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-27",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 20.09,
+        "f": 0,
+        "amt": 200.9,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-26",
+        "a": "Robinhood",
+        "s": "NNDM",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 16.1,
+        "f": 0,
+        "amt": 80.5,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-26",
+        "a": "Robinhood",
+        "s": "BNGO",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 12.179,
+        "f": 0,
+        "amt": 121.79,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-26",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 20.9,
+        "f": 0,
+        "amt": 104.5,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-26",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 20.67,
+        "f": 0,
+        "amt": 103.35,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-26",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 50.0,
+        "p": 20.0,
+        "f": 0.28,
+        "amt": 1000.0,
+        "pl": 433.5,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-25",
+        "a": "Robinhood",
+        "s": "NNDM",
+        "t": "주식",
+        "k": "매수",
+        "q": 8.0,
+        "p": 15.97,
+        "f": 0,
+        "amt": 127.76,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-25",
+        "a": "Robinhood",
+        "s": "NNDM",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 15.578,
+        "f": 0,
+        "amt": 155.78,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-25",
+        "a": "Robinhood",
+        "s": "SUNW",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 23.74,
+        "f": 0,
+        "amt": 237.4,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-25",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매도",
+        "q": 31.0,
+        "p": 18.84,
+        "f": 0.02,
+        "amt": 584.04,
+        "pl": 262.29,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-22",
+        "a": "Robinhood",
+        "s": "SUNW",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 21.68,
+        "f": 0,
+        "amt": 216.8,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-22",
+        "a": "Robinhood",
+        "s": "NNDM",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 14.25,
+        "f": 0,
+        "amt": 28.5,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-22",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매도",
+        "q": 6.0,
+        "p": 44.145,
+        "f": 0,
+        "amt": 264.87,
+        "pl": -5.23,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-20",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 16.57,
+        "f": 0,
+        "amt": 16.57,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-20",
+        "a": "Robinhood",
+        "s": "BNGO",
+        "t": "주식",
+        "k": "매수",
+        "q": 23.0,
+        "p": 7.9,
+        "f": 0,
+        "amt": 181.7,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-08",
+        "a": "Robinhood",
+        "s": "DDD",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 23.83,
+        "f": 0,
+        "amt": 23.83,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-08",
+        "a": "Robinhood",
+        "s": "BNGO",
+        "t": "주식",
+        "k": "매수",
+        "q": 7.0,
+        "p": 4.1957,
+        "f": 0,
+        "amt": 29.37,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-08",
+        "a": "Robinhood",
+        "s": "BNGO",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 4.05,
+        "f": 0,
+        "amt": 40.5,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-08",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 15.495,
+        "f": 0,
+        "amt": 154.95,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-08",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 15.285,
+        "f": 0,
+        "amt": 30.57,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-08",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 15.53,
+        "f": 0,
+        "amt": 46.59,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-08",
+        "a": "Robinhood",
+        "s": "GME",
+        "t": "주식",
+        "k": "매도",
+        "q": 10.0,
+        "p": 17.861,
+        "f": 0,
+        "amt": 178.61,
+        "pl": 24.41,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-07",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 14.678,
+        "f": 0,
+        "amt": 73.39,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2021-01-07",
+        "a": "Robinhood",
+        "s": "UAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 5.0,
+        "p": 43.99,
+        "f": 0,
+        "amt": 219.95,
+        "pl": -22.49,
+        "m": "RH 명세서 2021-01"
+      },
+      {
+        "d": "2020-12-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.09,
+        "f": 0,
+        "amt": 0.09,
+        "pl": 0.09,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-24",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 12.16,
+        "f": 0.05,
+        "amt": 121.6,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-23",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 44.56,
+        "f": 0.01,
+        "amt": 44.56,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-23",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 46.23,
+        "f": 0,
+        "amt": 462.3,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-22",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 42.68,
+        "f": 0,
+        "amt": 213.4,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-21",
+        "a": "Robinhood",
+        "s": "GME",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 15.42,
+        "f": 0,
+        "amt": 154.2,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-18",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 36.1967,
+        "f": 0,
+        "amt": 108.59,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-18",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 37.856,
+        "f": 0,
+        "amt": 189.28,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-18",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 40.0,
+        "p": 9.41,
+        "f": 0,
+        "amt": 376.4,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-18",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 20.0,
+        "p": 9.55,
+        "f": 0,
+        "amt": 191.0,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-18",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 20.0,
+        "p": 9.458,
+        "f": 0,
+        "amt": 189.16,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-18",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매도",
+        "q": 7.0,
+        "p": 126.6,
+        "f": 0.02,
+        "amt": 886.2,
+        "pl": 40.14,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-18",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매도",
+        "q": 23.0,
+        "p": 35.77,
+        "f": 0.02,
+        "amt": 822.71,
+        "pl": 108.57,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-18",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 218.15,
+        "f": 0,
+        "amt": 218.15,
+        "pl": -2.45,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-14",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 25.79,
+        "f": 0,
+        "amt": 25.79,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-14",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 8.01,
+        "f": 0,
+        "amt": 16.02,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-11",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 27.79,
+        "f": 0,
+        "amt": 27.79,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-11",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 8.0,
+        "p": 7.72,
+        "f": 0,
+        "amt": 61.76,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-11",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 121.23,
+        "f": 0,
+        "amt": 121.23,
+        "pl": 0.37,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-10",
+        "a": "Robinhood",
+        "s": "BLNK",
+        "t": "주식",
+        "k": "매수",
+        "q": 13.0,
+        "p": 27.8977,
+        "f": 0,
+        "amt": 362.67,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-10",
+        "a": "Robinhood",
+        "s": "FCEL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 8.15,
+        "f": 0,
+        "amt": 81.5,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-10",
+        "a": "Robinhood",
+        "s": "UAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 48.488,
+        "f": 0,
+        "amt": 242.44,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-12-10",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.56,
+        "f": 0,
+        "amt": 0.56,
+        "pl": 0.56,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-11-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.03,
+        "f": 0,
+        "amt": 0.03,
+        "pl": 0.03,
+        "m": "RH 명세서 2020-11"
+      },
+      {
+        "d": "2020-11-30",
+        "a": "Robinhood",
+        "s": "DAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 5.0,
+        "p": 40.48,
+        "f": 0.02,
+        "amt": 202.4,
+        "pl": 92.8,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-11-30",
+        "a": "Robinhood",
+        "s": "UAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 7.0,
+        "p": 45.56,
+        "f": 0,
+        "amt": 318.92,
+        "pl": 129.3,
+        "m": "RH 명세서 2020-12"
+      },
+      {
+        "d": "2020-11-12",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 1.64,
+        "f": 0,
+        "amt": 1.64,
+        "pl": 1.64,
+        "m": "RH 명세서 2020-11"
+      },
+      {
+        "d": "2020-10-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.05,
+        "f": 0,
+        "amt": 0.05,
+        "pl": 0.05,
+        "m": "RH 명세서 2020-10"
+      },
+      {
+        "d": "2020-10-16",
+        "a": "Robinhood",
+        "s": "HTZ",
+        "t": "주식",
+        "k": "매도",
+        "q": 46.0,
+        "p": 1.72,
+        "f": 0,
+        "amt": 79.12,
+        "pl": -52.33,
+        "m": "RH 명세서 2020-10"
+      },
+      {
+        "d": "2020-10-15",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 120.0,
+        "f": 0,
+        "amt": 360.0,
+        "m": "RH 명세서 2020-10"
+      },
+      {
+        "d": "2020-10-14",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 220.6,
+        "f": 0,
+        "amt": 220.6,
+        "m": "RH 명세서 2020-10"
+      },
+      {
+        "d": "2020-10-13",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매도",
+        "q": 3.0,
+        "p": 122.86,
+        "f": 0,
+        "amt": 368.58,
+        "pl": 4.44,
+        "m": "RH 명세서 2020-10"
+      },
+      {
+        "d": "2020-09-30",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매수",
+        "q": 3.0,
+        "p": 116.27,
+        "f": 0,
+        "amt": 348.81,
+        "m": "RH 명세서 2020-10"
+      },
+      {
+        "d": "2020-09-30",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.02,
+        "f": 0,
+        "amt": 0.02,
+        "pl": 0.02,
+        "m": "RH 명세서 2020-09"
+      },
+      {
+        "d": "2020-09-29",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매도",
+        "q": 3.0,
+        "p": 113.98,
+        "f": 0.01,
+        "amt": 341.94,
+        "pl": -31.41,
+        "m": "RH 명세서 2020-10"
+      },
+      {
+        "d": "2020-09-29",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매도",
+        "q": 2.0,
+        "p": 114.08,
+        "f": 0,
+        "amt": 228.16,
+        "pl": -20.73,
+        "m": "RH 명세서 2020-10"
+      },
+      {
+        "d": "2020-09-03",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 120.32,
+        "f": 0,
+        "amt": 120.32,
+        "m": "RH 명세서 2020-09"
+      },
+      {
+        "d": "2020-09-03",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 120.25,
+        "f": 0,
+        "amt": 120.25,
+        "m": "RH 명세서 2020-09"
+      },
+      {
+        "d": "2020-08-31",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "조정",
+        "q": 6.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 명세서 2020-08 주식분할"
+      },
+      {
+        "d": "2020-08-31",
+        "a": "Robinhood",
+        "s": "Interest",
+        "t": "현금",
+        "k": "이자",
+        "q": 1.0,
+        "p": 0.28,
+        "f": 0,
+        "amt": 0.28,
+        "pl": 0.28,
+        "m": "RH 명세서 2020-08"
+      },
+      {
+        "d": "2020-08-28",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 499.9,
+        "f": 0,
+        "amt": 499.9,
+        "m": "RH 명세서 2020-09"
+      },
+      {
+        "d": "2020-08-28",
+        "a": "Robinhood",
+        "s": "AAPL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 504.0,
+        "f": 0,
+        "amt": 504.0,
+        "m": "RH 명세서 2020-09"
+      },
+      {
+        "d": "2020-08-05",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 8.0,
+        "p": 12.4525,
+        "f": 0,
+        "amt": 99.62,
+        "pl": -63.43,
+        "m": "RH 명세서 2020-08"
+      },
+      {
+        "d": "2020-06-12",
+        "a": "Robinhood",
+        "s": "UAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 37.6,
+        "f": 0,
+        "amt": 37.6,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-12",
+        "a": "Robinhood",
+        "s": "HTZ",
+        "t": "주식",
+        "k": "매수",
+        "q": 46.0,
+        "p": 2.8576,
+        "f": 0,
+        "amt": 131.45,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-11",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 14.42,
+        "f": 0,
+        "amt": 14.42,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-11",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "주식",
+        "k": "배당",
+        "q": 1.0,
+        "p": 0.51,
+        "f": 0,
+        "amt": 0.51,
+        "pl": 0.51,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-11",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 187.38,
+        "f": 0,
+        "amt": 187.38,
+        "pl": 2.71,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-05",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 19.64,
+        "f": 0,
+        "amt": 39.28,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-05",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 2.0,
+        "p": 19.86,
+        "f": 0,
+        "amt": 39.72,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-05",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 22.42,
+        "f": 0,
+        "amt": 112.1,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-05",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 2.0,
+        "p": 19.78,
+        "f": 0,
+        "amt": 39.56,
+        "pl": -2.91,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-03",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 3.0,
+        "p": 11.69,
+        "f": 0,
+        "amt": 35.07,
+        "pl": 5.98,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-06-03",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 7.0,
+        "p": 11.69,
+        "f": 0,
+        "amt": 81.83,
+        "pl": 13.94,
+        "m": "RH 명세서 2020-06"
+      },
+      {
+        "d": "2020-05-21",
+        "a": "Robinhood",
+        "s": "UAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 25.68,
+        "f": 0,
+        "amt": 25.68,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-21",
+        "a": "Robinhood",
+        "s": "UAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 25.89,
+        "f": 0,
+        "amt": 129.45,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-21",
+        "a": "Robinhood",
+        "s": "UAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 5.0,
+        "p": 26.09,
+        "f": 0,
+        "amt": 130.45,
+        "pl": 3.76,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-19",
+        "a": "Robinhood",
+        "s": "MSFT",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 184.67,
+        "f": 0,
+        "amt": 184.67,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-19",
+        "a": "Robinhood",
+        "s": "DAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 21.916,
+        "f": 0,
+        "amt": 109.58,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-19",
+        "a": "Robinhood",
+        "s": "UAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 5.0,
+        "p": 24.716,
+        "f": 0,
+        "amt": 123.58,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-18",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 10.0,
+        "p": 9.698,
+        "f": 0,
+        "amt": 96.98,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-18",
+        "a": "Robinhood",
+        "s": "PSEC",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 4.53,
+        "f": 0,
+        "amt": 4.53,
+        "pl": 4.53,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-15",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매도",
+        "q": 1.0,
+        "p": 9.23,
+        "f": 0,
+        "amt": 9.23,
+        "pl": 0.31,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-14",
+        "a": "Robinhood",
+        "s": "AAL",
+        "t": "주식",
+        "k": "매수",
+        "q": 1.0,
+        "p": 8.92,
+        "f": 0,
+        "amt": 8.92,
+        "m": "RH 명세서 2020-05"
+      },
+      {
+        "d": "2020-05-12",
+        "a": "Robinhood",
+        "s": "PSEC",
+        "t": "주식",
+        "k": "조정",
+        "q": 1.0,
+        "p": 0,
+        "f": 0,
+        "amt": 0,
+        "m": "RH 명세서 2020-05 주식 리워드"
       }
     ],
-    "price_file_mtime": "2026-11-26T00:09"
+    "price_file_mtime": "2026-11-27T00:02"
   },
   "insights": [
     {
@@ -22748,19 +28098,19 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "📆",
-      "title": "2026년 10월까지 지출 +15%",
-      "body": "Raw Data 기준 2026년 1~10월 지출은 $58,946로, 2025년 같은 기간 $51,140보다 $7,806 늘었습니다.",
+      "title": "2026년 11월까지 지출 +17%",
+      "body": "Raw Data 기준 2026년 1~11월 지출은 $65,480로, 2025년 같은 기간 $55,748보다 $9,732 늘었습니다.",
       "severity": "high",
       "score": 86,
       "history": {
-        "period": "2026-01~2026-10",
-        "delta": 7806.03,
-        "ratio": 0.1526
+        "period": "2026-01~2026-11",
+        "delta": 9732.03,
+        "ratio": 0.1746
       },
       "evidence": [
-        "2026년 YTD: $58,946",
-        "2025년 YTD: $51,140",
-        "비교 기간: 1월~10월"
+        "2026년 YTD: $65,480",
+        "2025년 YTD: $55,748",
+        "비교 기간: 1월~11월"
       ],
       "source": "연말정산 RAW DATA",
       "top": true
@@ -22768,19 +28118,19 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "📈",
-      "title": "생활용품 지출 전년동기 대비 $3,781 증가",
-      "body": "2026년 1~10월 생활용품 지출은 $5,299입니다. 작년 같은 기간 $1,518 대비 +249% 변화라, 반복 지출인지 재분류 영향인지 확인할 만합니다.",
+      "title": "생활용품 지출 전년동기 대비 $4,165 증가",
+      "body": "2026년 1~11월 생활용품 지출은 $5,922입니다. 작년 같은 기간 $1,757 대비 +237% 변화라, 반복 지출인지 재분류 영향인지 확인할 만합니다.",
       "severity": "high",
       "score": 84,
       "history": {
         "category": "생활용품",
-        "delta": 3781.24,
-        "ratio": 2.4915
+        "delta": 4165.15,
+        "ratio": 2.3707
       },
       "evidence": [
-        "생활용품 2026년 YTD: $5,299",
-        "생활용품 2025년 YTD: $1,518",
-        "차이: $3,781"
+        "생활용품 2026년 YTD: $5,922",
+        "생활용품 2025년 YTD: $1,757",
+        "차이: $4,165"
       ],
       "source": "연말정산 RAW DATA",
       "top": true
@@ -22809,31 +28159,26 @@ window.APP_DATA = {
     {
       "tier": "alert",
       "icon": "🧭",
-      "title": "11월 예상 지출 $7,039",
-      "body": "26일차 현재 지출 $6,493입니다. 과거 지출 시점을 반영하면 월말 $7,039로 최근 기준 $5,676 대비 $1,363 차이로 마감될 수 있어요.",
+      "title": "최근 12개월 월평균 지출 $5,788",
+      "body": "최근 12개월 평균은 $5,788이고, 그 이전 12개월 평균 $5,327 대비 +9%입니다. 월 예산 기준선은 최근 12개월 평균을 우선으로 잡는 편이 현실적입니다.",
       "severity": "medium",
       "score": 74,
-      "forecast": {
-        "expense": 7038.74,
-        "daily_limit": 166.68,
-        "historical_progress": 0.9038,
-        "sample_months": 18,
-        "method": "historical_remaining_spend"
+      "history": {
+        "recent_12_avg": 5788.16,
+        "previous_12_avg": 5326.9
       },
       "evidence": [
-        "분석일수: 26/30일",
-        "현재 지출: $6,493",
-        "과거 지출 중앙값: $5,676",
-        "과거 패턴상 현재 시점 누적 비중: 90% (18개월)",
-        "남은 기간 변동지출 일일 한도: $167"
+        "최근 12개월: 2025-12~2026-11",
+        "이전 12개월: 2024-12~2025-11"
       ],
+      "source": "연말정산 RAW DATA",
       "top": false
     },
     {
       "tier": "insight",
       "icon": "🔎",
       "title": "Raw Data 저축 항목 방향 확인 필요",
-      "body": "2026년 1~10월 저축 항목 합계가 -$15,500로 음수입니다. 작년 같은 기간은 $16,000였으니, 투자 출금/계좌이체가 지출처럼 분류됐는지 확인하면 저축률 인사이트가 더 정확해집니다.",
+      "body": "2026년 1~11월 저축 항목 합계가 -$15,500로 음수입니다. 작년 같은 기간은 $16,000였으니, 투자 출금/계좌이체가 지출처럼 분류됐는지 확인하면 저축률 인사이트가 더 정확해집니다.",
       "severity": "medium",
       "score": 64,
       "evidence": [
@@ -22861,18 +28206,18 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🔮",
-      "title": "90일 후 현금 예상 범위 $813~$7,082",
-      "body": "최근 10개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $2,988이며, 최근 범위에서는 현금이 유지됩니다.",
+      "title": "90일 후 현금 예상 범위 $805~$7,075",
+      "body": "최근 10개월 순현금흐름의 25~75백분위를 적용한 범위입니다. 중앙 시나리오는 $2,981이며, 최근 범위에서는 현금이 유지됩니다.",
       "severity": "good",
       "score": 58,
       "cash_forecast": {
-        "low": 812.52,
-        "mid": 2988.19,
-        "high": 7082.14,
+        "low": 805.32,
+        "mid": 2980.99,
+        "high": 7074.94,
         "sample_months": 10
       },
       "evidence": [
-        "현재 현금: $505",
+        "현재 현금: $498",
         "월 순현금흐름 25백분위: $103",
         "월 순현금흐름 중앙값: $828",
         "월 순현금흐름 75백분위: $2,192"
@@ -22886,24 +28231,6 @@ window.APP_DATA = {
       "body": "10월 고정비 $3,659로 전체 지출의 53%를 차지합니다. 고정비는 한 번 줄이면 매달 절약되므로 보험·통신·구독 재협상 효과가 큽니다.",
       "severity": "medium",
       "score": 58,
-      "top": false
-    },
-    {
-      "tier": "insight",
-      "icon": "🧭",
-      "title": "최근 12개월 월평균 지출 $5,628",
-      "body": "최근 12개월 평균은 $5,628이고, 그 이전 12개월 평균 $5,356 대비 +5%입니다. 월 예산 기준선은 최근 12개월 평균을 우선으로 잡는 편이 현실적입니다.",
-      "severity": "low",
-      "score": 58,
-      "history": {
-        "recent_12_avg": 5627.66,
-        "previous_12_avg": 5355.67
-      },
-      "evidence": [
-        "최근 12개월: 2025-11~2026-10",
-        "이전 12개월: 2024-11~2025-10"
-      ],
-      "source": "연말정산 RAW DATA",
       "top": false
     },
     {
@@ -22950,8 +28277,8 @@ window.APP_DATA = {
     {
       "tier": "insight",
       "icon": "🧩",
-      "title": "2024년 이후 상위 3개 항목이 지출의 52%",
-      "body": "2024-01~2026-10 누적 지출 $181,006 중 상위 3개 항목은 주거/통신 $43,635, 식비 $33,290, 대출 $16,657입니다. 필수비와 선택비를 나눈 뒤 조정 가능한 항목부터 보는 것이 좋습니다.",
+      "title": "2024년 이후 상위 3개 항목이 지출의 51%",
+      "body": "2024-01~2026-11 누적 지출 $187,540 중 상위 3개 항목은 주거/통신 $43,635, 식비 $34,176, 대출 $17,132입니다. 필수비와 선택비를 나눈 뒤 조정 가능한 항목부터 보는 것이 좋습니다.",
       "severity": "low",
       "score": 52,
       "history": {
@@ -22962,19 +28289,19 @@ window.APP_DATA = {
           },
           {
             "name": "식비",
-            "amount": 33289.99
+            "amount": 34176.07
           },
           {
             "name": "대출",
-            "amount": 16656.56
+            "amount": 17131.9
           }
         ],
-        "share": 0.517
+        "share": 0.5063
       },
       "evidence": [
         "주거/통신: $43,635",
-        "식비: $33,290",
-        "대출: $16,657"
+        "식비: $34,176",
+        "대출: $17,132"
       ],
       "source": "연말정산 RAW DATA",
       "top": false
@@ -23028,7 +28355,6 @@ window.APP_DATA = {
   "action_items": {
     "now": [
       "10월 적자 $1,152 — 다음달 변동지출 한도 $4,925 설정",
-      "남은 4일 변동지출 하루 $167 이하로 관리",
       "주거비 급증분 점검 (과거比 +$1,266)"
     ],
     "keep": [],
@@ -23085,7 +28411,7 @@ window.APP_DATA = {
     ],
     "history_range": {
       "start": "2024-01",
-      "end": "2026-10",
+      "end": "2026-11",
       "years": [
         2024,
         2025,
